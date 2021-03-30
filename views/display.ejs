@@ -1,0 +1,25 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>View all tenants here</h1>
+    <ul>
+        <% for(let i=0;i<info.length;i++){ %>
+            <li>
+                <span>Flat no: <span><%= info[i].flatno %></span></span>
+                <span>Parking no:<span><%= info[i].parkingno %></span></span>
+                <span>Full name: <span><%= info[i].fullname %></span></span>
+                <span>No of residents: <span><%= info[i].peopleno %></span></span>
+                <a href="" class="deletebtn">Delete</a>
+            </li>
+        <%}%>
+    </ul>
+    <script src="main.js"></script>
+</body>
+</html>
