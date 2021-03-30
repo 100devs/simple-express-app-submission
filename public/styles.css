@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* universal  */
+.hero{
+    display: flex;
+}
+.inputSection{
+    width: 35%;
+}
+.contactSection{
+    width: 65%;
+}
+span{
+    display: block;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
