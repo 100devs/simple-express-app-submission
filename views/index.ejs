@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>100devs Tracker</title>
+</head>
+<body>
+    <h1>Contacts for networking</h1>
+    <section class="hero">
+        <section class="inputSection">
+            <h2>Add Contact:</h2>
+
+            <form action="/addContact" method="POST">
+                <input type="text" placeholder="Name" name="name">
+                <input type="text" placeholder="Email" name="email">
+                <input type="text" placeholder="Company" name="company">
+                <input type="text" placeholder="twitter" name="twitter">
+                <input type="text" placeholder="linkedin" name="linkedin">
+                <textarea name="spark" id="" cols="30" rows="10"></textarea>
+                <input type="submit">
+            </form>
+        </section>
+        <section class="contactSection">
+            <ul class="contactList">
+                <% for(let i=0; i < info.length; i++) {%>
+                    <li class="contact">
+                        <span><%= info[i].name %></span>
+                        <span><%= info[i].email %></span>
+                        <span><%= info[i].company %></span>
+                        <span><%= info[i].twitter %></span>
+                        <span><%= info[i].linkedin %></span>
+                        <p><%= info[i].spark %></p>
+                        <button class='del'>delete</button>
+                    </li>
+                <% } %>
+                </ul>
+        </section>
+    </section>
+
+
+
+
+    <script type="application/javascript" src="main.js"></script>
+</body>
+</html>
