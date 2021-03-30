@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>World Champions</h1>
+    <ul class="worldChampions">
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class="champion">
+                <span>
+                    <%= info[i].wrestlerName %>
+                </span>
+                <span>
+                    <%= info[i].reignLength %>
+                </span>
+                <span class='del'>delete</span>
+            </li>
+            <% } %>
+    </ul>
+  
+    <h2>Add A Title Reign:</h2>
+
+    <form action="/addChampion" method="POST">
+        <input type="text" placeholder="Wrestler Name" name="wrestlerName">
+        <input type="text" placeholder="Reign Length" name="reignLength">
+        <input type="submit">
+    </form>
+
+    <script scr='main.js'></script>
+</body>
+</html>
