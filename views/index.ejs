@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>To Do List</h2>
+
+    <form action="/addItem" method="POST">
+        <input type="text" name="todo">
+        <button type="submit">Add</button>
+    </form>
+
+    <ul class="chores">
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class="chore">
+                <span><%= info[i].todo %></span>
+                <span class='del'>delete</span>
+            </li>
+        <% } %>
+    </ul>
+    <script type="text/javascript" src='main.js'></script>
+</body>
+</html>
