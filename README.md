@@ -6,4 +6,4 @@
 
 ## NodeJs express mongoDB and EJS
 
-Hosted on [Heroku] (https://task-list-100devs.herokuapp.com/)
+Hosted on [Heroku](https://task-list-100devs.herokuapp.com/)
