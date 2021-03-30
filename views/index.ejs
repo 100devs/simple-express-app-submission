@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+<body>
+    
+<h1>Tasks</h1>
+<ul class="tasks">
+<% for(let i=0; i < info.length; i++) {%>
+    <li class="task">
+        <span><%= info[i].taskName %></span>
+        <span><%= info[i].taskDescription %></span>
+        <button class='del'>delete</button>
+    </li>
+<% } %>
+</ul>
+
+<h2>Add Task:</h2>
+<form action="/addTask" method="POST">
+    <input type="text" placeholder="What Task?" name='taskName'>
+    <input type="text" placeholder="Tell me about it" name='taskDescription'>
+    <input type="submit">
+
+</form>
+
+<script src="main.js"></script>
+</body>
+</html>

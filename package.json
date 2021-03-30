@@ -1,0 +1,25 @@
+{
+  "name": "task-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelizaguirre501/task-list-new.git"
+  },
+  "bugs": {
+    "url": "https://github.com/michaelizaguirre501/task-list-new/issues"
+  },
+  "homepage": "https://github.com/michaelizaguirre501/task-list-new#readme"
+}
