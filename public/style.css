@@ -1,0 +1,11 @@
+body {
+  background: rgb(105, 104, 104);
+}
+
+.container {
+  margin-left: 40%;
+}
+
+li {
+  list-style: none;
+}
