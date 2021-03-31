@@ -1,0 +1,23 @@
+{
+  "name": "homework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "serve": "node server.js"
+  },
+  "keywords": [],
+  "author": "John Kemp-Cruz (https://jkc.codes/)",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

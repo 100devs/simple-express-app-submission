@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Simple Express App Submission</title>
+	<script src="./js/main.js" defer></script>
+</head>
+<body>
+	<h2>Current Ratings</h2>
+	<output id="list-film-ratings">
+		<% if(films.length === 0) { %>
+			<p>No films found on the server</p>
+		<% } else { for(const {film, rating} of films) { %>
+				<li class="film"><%= film %>: <%= rating %> <button class="button-delete-film" type="button" data-key="<%= film %>">Delete</button></li>
+		<% }} %>
+
+	</output>
+
+	<h2>Rate a film</h2>
+	<form action="/api/addfilm" method="POST">
+		<label>
+			Film:
+			<input type="text" name="film">
+		</label>
+		<label>
+			Rating:
+			<input type="number" name="rating" min="0" max="10">
+		</label>
+		<button type="submit">Add film rating</button>
+	</form>
+</body>
+</html>
