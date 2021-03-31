@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Team and Rings</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>How many rings yo team got?</h1>
+        <ul class="teams">
+            <% for(let i=0;i < info.length; i++) {%>
+                <li class="team">
+                    <span>
+                        <%= info[i].teamName %>
+                    </span>
+                    <span>
+                        <%= info[i].numRings %>
+                    </span>
+                    <button class='del'>delete</button>
+
+                </li>
+                <% } %>
+        </ul>
+        <h2>Add a team</h2>
+        <form action="/addTeam" method='POST'>
+            <input type="text" placeholder="Team Name" name='teamName'>
+            <input type="number" placeholder="Number of Championships" name="numRings">
+            <input type="submit">
+        </form>
+    </div>
+
+
+    <!-- <script src='/static/main.js'></script> -->
+    <script src='public/main.js'></script>
+</body>
+
+</html>
