@@ -23,18 +23,18 @@ MongoClient.connect('mongodb+srv://Shenan:Poopoo1!@cluster0.cbpp2.mongodb.net/my
         .catch(error => console.error(error))
     })
 
+    app.delete('/deleteSongs', (req, res) => {
+      songCollection.deleteOne({nameC: req.body.nameS})
+        .then(result => {
+          res.json(`Deleted Song`)
+        })
+        .catch(error => console.error(error))
+    })
+  
     app.post('/songs', (req, res) => {
       songCollection.insertOne(req.body)
         .then(result => {
           res.redirect('/')
-        })
-        .catch(error => console.error(error))
-    })
-
-    app.delete('/songs', (req, res) => {
-      songCollection.deleteOne({nameC: req.body.nameS})
-        .then(result => {
-          res.json(`Deleted Song`)
         })
         .catch(error => console.error(error))
     })

@@ -1,18 +1,26 @@
-const deleteButton = document.getElementById('delete-button')
+const deleteText = document.querySelectorAll('#delete-button')
 
-deleteButton.addEventListener('click', _ => {
-  fetch('/songs', {
-    method: 'delete',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      'nameC': nameC,
-      'nameS': nameS
-    })
-  })
-    .then(res => {
-      if (res.ok) return res.json()
-    })
-    .then(data => {
-      window.location.reload()
-    })
+Array.from(deleteText).forEach((element)=>{
+    element.addEventListener('click', deleteCat)
 })
+
+async function deleteCat(){
+    const sName = this.parentNode.childNodes[1].innerText
+    const cName = this.parentNode.childNodes[3].innerText
+    try{
+        const response = await fetch('deleteSongs', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'catName': cName,
+              'songName': sName
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
