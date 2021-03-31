@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Animal Crossing Characters</title>
+</head>
+
+<body>
+ <h1>Type the names of the villagers on your island!</h1>
+
+ <form action="/type" method="POST">
+  <input type="text" placeholder="name" name="name">
+  <input type="text" placeholder="type" name="type">
+  <button type="submit">Submit</button>
+ </form>
+ <h2>Types</h2>
+   <ul class="type">
+    <% for(let i = 0; i <type.length; i++) {%> 
+     <li class="oneType">
+      <span><%= type[i].name %></span>:
+      <span><%= type[i].type %><span>
+      </li>
+    <% } %>
+     </ul>
+
+     <div> 
+      <h2>Pekoe moves to your island</h2>
+      <p>Replace Stitches with Pekoe</p>
+      <button id="update-button">Replace Stitches</button>
+     </div>
+
+     <div>
+      <h2>Pekoe wants to leave your island :(</h2>
+      <p>
+       Delete Pekoe from you list and make room for a new villager! Does nothing if there are no more Pekoes.
+      </p>
+      <button id="delete-button">Delete Pekoe</button>
+     </div>
+     <div id="message"></div>
+     <script src="/main.js"></script>
+</body>
+
+</html>
