@@ -1,0 +1,55 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+.clear {
+	clear: both;
+}
+/******************************************
+/* BASE STYLES
+/*******************************************/
+body {
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) ), url(https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/topic_centers/2019-8/couple-hiking-mountain-climbing-1296x728-header.jpg?w=1155&h=1528);
+    background-size: cover;
+    background-attachment: fixed, fixed;
+    background-position: top left, bottom center;
+    background-repeat: no-repeat;
+  text-align: center;
+}
+/******************************************
+/* LAYOUT
+/*******************************************/
+.content-container {
+  display: flex;
+  width: 100%;
+}
+.contentOne, .contentTwo {
+  background: #f5f5f5e0;
+  border-radius: 25px;
+  padding: 2%;
+  width: 45%;
+  margin: 0 auto;
+}
+img {
+  width: 40%;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+h2{
+  color: rgb(209, 61, 110);
+  text-transform: uppercase;
+}
+ul li{
+  list-style-type: none;
+  font-size: 30px;
+} 

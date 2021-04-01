@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiking Api</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Boston Hiking!</h1>
+    </header>
+    <section class="content-container">
+    <section class="contentOne">
+        <h2>Please add a hiking spot you'd wish for me to add to our database</h2>
+        <ul class="hikingSpots">
+            <% for(let i=0; i < info.length; i++) {%>
+                <li class="hike">
+                    <span>
+                        <%= info[i].hikingName %>
+                    </span>
+                    <span>
+                        <%= info[i].area %>
+                    </span>
+                    <span>
+                        <%= info[i].likes %>
+                    </span>
+                    <span class='fa fa-thumbs-up'></span>
+                    <span class='fa fa-trash'></span>
+                </li>
+                <% } %>
+        </ul>
+        <form action="/addHike" method="POST">
+            <input type="text" placeholder="Hiking Trail Name" name="hikingName">
+            <input type="text" placeholder="Location" name="area">
+            <input type="submit">
+        </form>
+    </section>
+    <section class="contentTwo">
+        <div class="hikingSelections">
+            <p>Please select one of the recommended hiking spots below to learn more about them</p>
+            <button id="carson" type="button" name="button">Carson Beach</button>
+            <button id="melnea" type="button" name="button">Melnea Cass Bike Path</button>
+            <button id="kids" type="button" name="button">Downtown Boston Kids Walk</button>
+            <button id="frank" type="button" name="button">Franklin Park</button>
+        </div>
+        <section>
+            <div class="hikeRecs">
+                <h2 id="hikingName"></h2>
+                <img src="" alt="">
+                <p id="location"></p>
+                <p id="difficultly"></p>
+                <p id="length"></p>
+                <p id="routeType"></p>
+                <p id="description"></p>
+            </div>
+        </section>
+    </section>
+    </section>
+    <script src='js/main.js'></script>
+</body>
+</html>
