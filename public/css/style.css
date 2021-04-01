@@ -1,0 +1,31 @@
+body {
+    background: blanchedalmond;
+    
+
+}
+h1{
+    color: red;
+}
+.fa-trash {
+    color: blue;
+    padding-left: 50px;
+    
+}
+.fa-trash:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.check:hover {
+    color: green;
+}
+
+input[type=checkbox] {
+    position: relative;
+      cursor: pointer;
+}
+
+input[type=submit] {
+    position: relative;
+      cursor: pointer;
+}
