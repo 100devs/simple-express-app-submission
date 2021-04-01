@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MY APP</title>
+  </head>
+  <body>
+    <h1>Rock & Roll Bands Info</h1>
+    <form action="/info" method="POST">
+      <input type="text" placeholder="name" name="name" />
+      <input type="text" placeholder="year formed" name="year" />
+      <input type="text" placeholder="location formed" name="location" />
+      <button type="submit">submit</button>
+    </form>
+    <h2>Band Information</h2>
+    <ul class="info">
+      <% for (let i = 0; i < info.length; i++){%>
+      <li class="info">
+        <!-- output name from the iterated info object-->
+        <span><%= info[i].name %></span>: <span><%= info[i].year %></span>,
+        <span><%= info[i].location %></span>
+      </li>
+      <% } %>
+    </ul>
+    <div>
+      <h2>Victim invasion!</h2>
+      <p>Replace The Beatles information with The Killers!</p>
+      <button id="update-button">replace info</button>
+    </div>
+    <div>
+      <h2>Remove The Killers!</h2>
+      <p>
+        Delete one entry of The Killers. Does nothing if there are no entries
+        for The Killers.
+      </p>
+      <button id="delete-button">delete The Killers</button>
+    </div>
+    <div id="message"></div>
+    <script src="/main.js"></script>
+  </body>
+</html>
