@@ -1,0 +1,19 @@
+body {
+    font-family: 'Kiwi Maru', serif;
+    font-size: 1.2em;
+    margin-top: 50px;
+    background: gray;
+    color: lavender;
+text-align: center;
+}
+ul {
+list-style-type: none;
+}
+button {
+    height: 35px;
+    width: 6%;
+    color: teal;
+}
+li{
+    margin-top: 10px;
+}

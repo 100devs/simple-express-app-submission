@@ -1,0 +1,37 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To do list</h1>
+   
+
+    <h2>Add items to the list with their due date</h2>
+
+    <form action="/addRapper" method="POST">
+        <input type="text" placeholder="Item" name="item">
+        <input type="text" placeholder="Due By" name="desc">
+        <input type="submit">
+    </form>
+    
+    <ul class="items">
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class="rapper">
+                <span><%= info[i].item %></span>
+                <span><%= info[i].desc %></span>
+                <button class='del'>completed</button>
+            </li>
+        <% } %>
+        </ul>
+
+    <script src='main.js'></script>
+</body>
+</html>
