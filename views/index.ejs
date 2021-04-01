@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/sandstone/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron my-4">
+        <h1 class="display-3 text-center">Hello, this is a TodoList</h1>
+        <p class="lead text-center">Stack: Node.js, MongoDB and EJS</p>
+      </div>
+
+      <form action="/addTodo" method="POST">
+        <div class="form-group">
+          <label for="todoItemTitle">Item Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="todoItemTitle"
+            placeholder="Enter Todo Title"
+            name="itemTitle"
+          />
+          <small id="titleHelp" class="form-text text-muted"
+            >Enter the Title of your Todo</small
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="todoItemMessage">Todo Item</label>
+          <textarea
+            class="form-control"
+            id="todoItemMessage"
+            rows="3"
+            spellcheck="false"
+            name="itemMessage"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary text-center">
+          Submit
+        </button>
+      </form>
+
+      <hr class="my-4" />
+
+      <!--Loop Trough cards-->
+      <% for(let i = 0; i < info.length; i++) {%>
+
+      <div class="card my-4 main">
+        <div class="card-body">
+          <h4 class="card-title"><%= info[i].itemTitle %></h4>
+          <p class="card-text"><%= info[i].itemMessage %></p>
+          <a class="card-link check">Like</a>
+          <span><%= info[i].itemLike %></span>
+          <a class="card-link del text-right mx-4">Delete</a>
+        </div>
+      </div>
+
+      <% } %>
+      <!--End Loop-->
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
