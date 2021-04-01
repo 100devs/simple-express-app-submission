@@ -30,7 +30,7 @@ app.get('/',(request, response)=>{
     .catch(error => console.error(error))
 })
 
-app.post('/addRapper', (request, response) => {
+app.post('/addItem', (request, response) => {
     db.collection('items').insertOne(request.body)
     .then(result => {
         console.log('item added')
@@ -39,8 +39,10 @@ app.post('/addRapper', (request, response) => {
     .catch(error => console.error(error))
 })
 
-app.delete('/deleteRapper', (request, response) => {
-    db.collection('items').deleteOne({item: request.body.stageNameS})
+
+
+app.delete('/deleteItem', (request, response) => {
+    db.collection('items').deleteOne({item: request.body.items})
     .then(result => {
         console.log('item deleted')
         response.json('item deleted')

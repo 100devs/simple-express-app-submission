@@ -1,19 +1,19 @@
 const deleteText = document.querySelectorAll('.del')
 
 Array.from(deleteText).forEach((element)=>{
-    element.addEventListener('click', deleteRapper)
+    element.addEventListener('click', deleteItem)
 })
 
-async function deleteRapper(){
-    const sName = this.parentNode.childNodes[1].innerText
-    const bName = this.parentNode.childNodes[3].innerText
+async function deleteItem(){
+    const item = this.parentNode.childNodes[1].innerText
+    const dueBy = this.parentNode.childNodes[3].innerText
     try{
-        const response = await fetch('deleteRapper', {
+        const response = await fetch('deleteItem', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'stageNameS': sName,
-              'birthNameS': bName
+              'items': item,
+              'dueDate': dueBy
             })
           })
         const data = await response.json()
@@ -24,3 +24,4 @@ async function deleteRapper(){
         console.log(err)
     }
 }
+
