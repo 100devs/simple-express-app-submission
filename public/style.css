@@ -1,0 +1,15 @@
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1{
+    font-size: 4rem;
+    text-align: center;
+}
+section{
+    margin: 0 auto;
+    width: 400px;
+}

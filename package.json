@@ -1,0 +1,27 @@
+{
+  "name": "to-do-list-server",
+  "version": "1.0.0",
+  "description": "To do list",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Angel aka Koffs",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "heroku": "^7.51.0",
+    "mongodb": "^3.6.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngelGDev/simple-express-app-submission.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AngelGDev/simple-express-app-submission/issues"
+  },
+  "homepage": "https://github.com/AngelGDev/simple-express-app-submission#readme"
+}
