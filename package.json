@@ -2,10 +2,6 @@
   "name": "crud-practice",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "v15.x",
-    "npm":"7.x"
-  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
