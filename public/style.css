@@ -1,0 +1,16 @@
+body {
+    background-color: wheat;
+    font-family: 'Kiwi Maru', serif;
+}
+
+.name {
+    font-style: italic;
+}
+
+.fa {
+    cursor: pointer;
+}
+
+.fa-trash, .likes {
+    margin-left: 10px;
+}
