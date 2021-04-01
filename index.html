@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book API</title>
+</head>
+<body>
+    <h1>Looking for a book recommendation?</h1>
+
+    <button id="getBook">Click here to get a new book!</button>
+
+    <p id="bookDetails">
+        Title: <span id="bookTitle"></span>
+        <br>
+        Author: <span id="bookAuthor"></span>
+        <br>
+        Why it was recommended:
+        <br>
+        <span id="bookDescription"></span>
+    </p>
+
+    <h3>Would you like to submit a new book to recommend?</h3>
+
+    <form action="POST">
+        <input type="text" name="Title" id="title" placeholder="Title">
+        <input type="text" name="Author" id="author" placeholder="Author">
+        <input type="image" src="" alt="" id="cover">
+        <br>
+        <label for="description">Why do you recommend?</label>
+        <br>
+        <textarea name="description" id="description" cols="35" rows="10"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <script src="main.js"></script>
+</body>
+</html>
