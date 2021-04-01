@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,223,233,1) 100%);
+}
+
+h1 {
+    padding-bottom: .5em;
+    padding-top: .5em;
+}
+
+h4 {
+    padding-bottom: .25em;
+}
+
+button {
+    margin-bottom: .75em;
+}
+
+#bookDetails{
+    padding: 1em;
+    max-width: 500px;
+    margin: 0 auto;
+}
