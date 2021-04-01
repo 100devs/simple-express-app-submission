@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>CRUD Practice</title>
+</head>
+<body>
+    <div class='main-con'>
+        <div class='main-con-items'>
+    <h1>Get those tasks done!</h1>
+
+    <form action="/addTask" method="POST">
+    <input type="text" placeholder="Task Name" name="taskName">
+    <input type="text" placeholder="Task Detail" name="taskDetail">
+    <input type="submit" value="Add Task!">
+</form>
+    <ul class='tasks'>
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class='task'>
+                <span><%= info[i].taskName %></span>
+                <span><%= info[i].taskDetail %></span>
+                <span><%= info[i].likes %></span>
+                <span class='fa fa-thumbs-up'></span>
+                <span class='fa fa-trash'></span>
+            </li>
+        <% } %>
+    </ul>
+</div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
