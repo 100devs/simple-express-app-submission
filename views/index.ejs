@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Application</title>
+</head>
+<body>
+    <h1>Current To-dos</h1>
+    <ul class="todos">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class='todo<%= info[i].todo_checked ? " checked" : "" %>'>
+            <span><%= info[i].todo_item %></span>
+            <span><%= info[i].date_item %></span>
+            <span class='<%= info[i].todo_checked ? "fas fa-check-square" : "far fa-check-square" %>'></span>
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Add a To-do:</h2>
+
+    <form action="/addTodo" method="POST">
+        <input type="text" placeholder="todo" name="todo_item">
+        <input type="date" name="todo_date">
+        <input type="submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
