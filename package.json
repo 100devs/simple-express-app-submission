@@ -1,0 +1,26 @@
+{
+  "name": "hiking",
+  "version": "1.0.0",
+  "description": "Hiking API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArnoldPires/Hiking.git"
+  },
+  "author": "Arnaldo Pires",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArnoldPires/Hiking/issues"
+  },
+  "homepage": "https://github.com/ArnoldPires/Hiking#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.5",
+    "nodemon": "^2.0.7"
+  }
+}
