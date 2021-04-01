@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+
+		<title>Planets of the Solar System</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+  <body>
+
+    <h1>Learn about the Planets in our Solar System!</h1>
+
+		<h2>List of Planets:</h2>
+
+    <form action="/addPlanet" method="POST">
+        <input type="text" placeholder="Planet Name" name="planetName">
+        <input type="submit">
+    </form>
+
+    <ul class="planets">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="planets">
+            <span id=name> <%= info[i].planetName %> </span>
+            <!-- <span id=distanceFromSun><%= info[i].distanceFromSun %></span> -->
+            <!-- <span id=type><%= info[i].type %></span> -->
+            <!-- <span id=funFact><%= info[i].funFact %></span> -->
+						<span class='likes'><%= info[i].likes %></span>
+					 <span class='fa fa-thumbs-up'></span>
+					 <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul>
+
+    <script src='main.js'></script>
+  </body>
+</html>
