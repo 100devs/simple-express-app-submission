@@ -1,0 +1,65 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+  background-color: #0a063d;
+  color: white;
+  text-align: center;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+.tasks
+{
+ text-align: center;
+ list-style-position: inside;
+ 
+}
+ol.tasks li
+{
+ text-align: center;
+ font-family:Arial, Helvetica, sans-serif;
+ font-size: 20px;
+}
+
+h1 {
+  font-size: 46px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+h2 {
+  font-size: 35;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/

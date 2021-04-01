@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to my To-Do List</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <h1 class="titlehead">To do List</h1>
+  <ol class="tasks">
+  <% for(let i=0; i < info.length; i++) {%>
+      <li class="task">
+          <span><%= info[i].taskName %></span>
+          <span>- <%= info[i].completeBy %></span>
+          <span class='del'><button>Done</button></span>
+      </li>
+  <% } %>
+  </ol>
+
+  <h2>Add A Task:</h2>
+
+  <form action="/addTask" method="POST">
+      <input type="text" placeholder="Task to do" name="taskName">
+      <input type="text" placeholder="Deadline" name="completeBy">
+      <input type="submit">
+  </form>
+  <script src='main.js'></script>
+</body>
+</html>
