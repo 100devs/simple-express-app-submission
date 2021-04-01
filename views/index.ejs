@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's To do</title>
+</head>
+<body>
+    <h1>Very, very simple To do App</h1>
+
+    <h2>Add A Task:</h2>
+    
+    <form action="/addTask" method="POST">
+        <input type="text" placeholder="Task Name" name="taskName">
+        <input type="text" placeholder="Time" name="time">
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h2>Task List</h2>
+
+    <ul class="list">
+        <% for(let i=0; i < list.length; i++) { %>
+            <li class="task">
+                <span><%= list[i].taskName %></span>
+                <span><%= list[i].time %></span>
+                <input type="checkbox" name="status">
+                <span class='fa fa-trash'>Remove</span>
+            </li>
+        <% } %>
+        </ul>
+    
+        <script src='js/main.js'></script>
+</body>
+</html>
