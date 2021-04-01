@@ -4,10 +4,10 @@ const MongoClient = require('mongodb').MongoClient
 const PORT = 2121
 
 let db,
-  DB_STRING = 'mongodb+srv://ahmed:testonly@cluster0.gbemc.mongodb.net/MyFirstDatabase?retryWrites=true&w=majority'
+  dbConnectionStr = process.env.DB_STRING,
   dbName = 'todo'
 
-MongoClient.connect( DB_STRING,{ useUnifiedTopology: true })
+MongoClient.connect( dbConnectionStr,{ useUnifiedTopology: true })
   .then(client => {
     console.log(`Connected to ${dbName} database`)
     db = client.db(dbName)
