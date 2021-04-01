@@ -6,7 +6,7 @@ const PORT = 2121
 let db,
   dbName = 'todo'
 
-MongoClient.connect( dbConnectionStr,{ useUnifiedTopology: true })
+MongoClient.connect( DB_STRING,{ useUnifiedTopology: true })
   .then(client => {
     console.log(`Connected to ${dbName} database`)
     db = client.db(dbName)
