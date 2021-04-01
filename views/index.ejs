@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> To Do list   </h2>
+        <div>
+            <% for(x in info){ %>
+            <ul>
+                <li>
+                    <span>
+                        <span> <%=info[x].toDo%></span>
+                        <span> <%=info[x].priority%></span>
+                        <i class="far fa-thumbs-up"></i>
+                        <i class="far fa-thumbs-down"></i>
+                        <i class="far fa-trash-alt"></i>
+                    </span>
+                </li>
+            </ul>
+            <%}%>
+        </div>
+        <form action="/addList" method="POST">
+            <input type="text" placeholder="To Do" name="toDo" required>
+            <button type="submit">Submit</button>
+        </form>
+  
+</body>
+<script src="js/main.js"></script>
+<script src="https://kit.fontawesome.com/a79015fd84.js" crossorigin="anonymous"></script>
+</html>
