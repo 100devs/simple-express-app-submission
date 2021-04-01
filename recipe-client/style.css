@@ -1,0 +1,55 @@
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+  font-weight: 400;
+  font-size: 1.3125rem; /*21 px */
+  line-height: 1.5;
+}
+
+.display-none {
+    display: none;
+}
+
+.wrapper{
+    width: min(90%, 71.5rem);
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 500px) minmax(1rem, 1fr);
+}
+.container {
+    grid-column: 2/-2 ;
+}
+
+.ingredients-list{
+    list-style: none;
+}
+.video-container {
+    width: 600px;
+}
+
+.video-container {
+    width: 80%;
+    height: 0;
+    display: block;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    margin: 0 auto;
+  }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+
+

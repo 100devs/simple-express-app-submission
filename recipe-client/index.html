@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-ingredient Recipe Lookup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="wrapper">
+            <div class="grid">
+
+                <div class="container">
+                    <h1>Welcome to Ash's Five-Ingredient Recipe Lookup</h1>
+                    <div class="row">
+                        <h2>Search for a 5-ingredient recipe here:</h2>
+                        <input id='recipeName' type="text" name="" placeholder="Enter recipe name"><button class='submit' type="button" name='button'>Submit</button>
+                        <p>Recipes as of now: Ginger beer, granola bars</p>
+                    </div>
+                    <div class="row">
+                        <h2 class="recipe-name"></h2>
+                        <div class="info-container">
+                            <span class="author"></span></span>
+                            <p class="description"></p>
+                            <p class="recipe-link"></p>
+                        </div>
+                        <div class="ingredients-container">
+                            <ul class="ingredients-list">
+                                <li id='ingredient-1' class="ingredient"></li><span id='amount-1' class="amount"></span>
+                                <li id='ingredient-2' class="ingredient"></li><span id='amount-2' class="amount"></span>
+                                <li id='ingredient-3' class="ingredient"></li><span id='amount-3' class="amount"></span>
+                                <li id='ingredient-4' class="ingredient"></li><span id='amount-4' class="amount"></span>
+                                <li id='ingredient-5' class="ingredient"></li><span id='amount-5' class="amount"></span>
+                            </ul>
+                        </div>
+                        <div class="video-container">
+                            <iframe width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>If you can't find your recipe, know that I am adding more recipes soon! Feel free to submit recipe suggestions in the form! <span class='font-accent'>Coming Soon</span></p>
+                        <p>Thanks for visiting!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>    
+    <script src="main.js"></script>
+</body>
+</html>
