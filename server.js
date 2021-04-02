@@ -2,9 +2,10 @@ const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
 const PORT = 8000
+require('dotenv').config()
 
 let db,
-    dbConnectionStr = 'mongodb+srv://michaelizaguirre:tasklistdemo@cluster0.qapjw.mongodb.net/task-list?retryWrites=true&w=majority',
+    dbConnectionStr = process.env.DB_STRING,
     dbName = 'task-list'
 
 MongoClient.connect(dbConnectionStr, {
@@ -36,13 +37,38 @@ app.get('/', (request, response) => {
 
 
 app.post('/addTask', (request, response) => {
-    db.collection('tasks').insertOne(request.body)
+    db.collection('tasks').insertOne({
+            taskName: request.body.taskName,
+            taskDescription: request.body.taskDescription,
+            completed: false
+        })
         .then(result => {
             console.log('Task Added')
             response.redirect('/')
         })
         .catch(error => console.error(error))
 })
+
+
+app.put('/comp', (request, response) => {
+    db.collection('tasks').updateOne({
+            taskName: request.body.taskNameS,
+        }, {
+            $set: {
+                completed: true,
+            }
+        }, {
+            upsert: true
+        })
+        .then(result => {
+            console.log('Completed')
+            response.json('Completed')
+            console.log(request.body.taskNameS)
+        })
+        .catch(error => console.error(error))
+})
+
+
 
 app.delete('/deleteTask', (request, response) => {
     db.collection('tasks').deleteOne({

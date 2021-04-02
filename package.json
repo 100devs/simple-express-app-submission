@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "mongodb": "^3.6.5"
@@ -21,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/michaelizaguirre501/task-list-new/issues"
   },
-  "homepage": "https://github.com/michaelizaguirre501/task-list-new#readme"
+  "homepage": "https://github.com/michaelizaguirre501/task-list-new#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }

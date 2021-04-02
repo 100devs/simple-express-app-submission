@@ -1,32 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
-<h1>Tasks</h1>
-<ul class="tasks">
-<% for(let i=0; i < info.length; i++) {%>
-    <li class="task">
-        <span><%= info[i].taskName %></span>
-        <span><%= info[i].taskDescription %></span>
-        <button class='del'>delete</button>
-    </li>
-<% } %>
-</ul>
+    <h1>Add Task</h1>
+    <form action="/addTask" method="POST">
+        <input class='input' type="text" placeholder="What Task?" name='taskName'>
+        <input class='input' type="text" placeholder="Tell me about it(optional)" name='taskDescription'>
+        <button type="submit">Submit</button>
 
-<h2>Add Task:</h2>
-<form action="/addTask" method="POST">
-    <input type="text" placeholder="What Task?" name='taskName'>
-    <input type="text" placeholder="Tell me about it" name='taskDescription'>
-    <input type="submit">
+    </form>
+    <section class='container'>
+        <section class='lists'>
+            <h2>Tasks
+            </h2>
+            <ul class="tasks">
+                <% for(let i=0; i < info.length; i++) {
+            if(info[i].completed===false){%>
+                <li class="task">
+                    <span class='name'><%= info[i].taskName %></span><br>
+                    <span class='description'><%= info[i].taskDescription %></span><br>
+                    <!-- <span><%= info[i].completed %></span> -->
+                    <button class='complete'>Complete</button>
+                    <button class='del'>Remove</button>
+                </li>
+                <% }} %>
+            </ul>
+        </section>
 
-</form>
 
-<script src="main.js"></script>
+        <section class='lists'>
+            <h2>Completed Tasks</h2>
+            <ul class="tasks">
+                <% for(let j=0; j < info.length; j++) {
+            if(info[j].completed){%>
+                <li class="task">
+                    <span class='name'><%= info[j].taskName %></span><br>
+                    <span class='description'><%= info[j].taskDescription %></span><br>
+                    <button class='del'>Remove</button>
+                </li>
+                <% }} %>
+            </ul>
+        </section>
+    </section>
+
+
+
+
+    <script src="main.js"></script>
 </body>
+
 </html>

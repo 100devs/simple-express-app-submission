@@ -1,0 +1,125 @@
+html {
+    font-size: 25px;
+    height: 100vh;
+}
+
+body {
+    background: linear-gradient(0deg, rgba(129, 127, 128, 0.3), rgba(245, 77, 175, 0.5)), url(background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section.container {
+    display: flex;
+    justify-content: space-around;
+    margin: 5rem;
+    flex-wrap: wrap;
+}
+
+
+
+h2,
+ul,
+li,
+button {
+    font-family: 'Montserrat', sans-serif;
+    list-style: none;
+    text-align: center;
+}
+
+.name {
+    font-size: 1.5rem;
+    font-weight: 600;
+
+}
+
+form,
+h1 {
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    margin: 2rem auto 0 auto;
+    color: white;
+}
+
+.description {
+    font-size: .8rem;
+    font-family: 'Playfair Display', serif;
+}
+
+h2 {
+    text-decoration: underline;
+    margin: auto;
+    color: rgb(253, 253, 253);
+}
+
+button {
+    margin: 1rem 0 0 0;
+    border: none;
+    border-radius: 5%;
+    background: rgba(22, 22, 22, 0.5);
+    color: white;
+    font-size: .8rem;
+}
+
+li {
+    padding: 1.3rem;
+    margin: 1rem;
+    background: rgba(129, 127, 128, 0.5);
+    color: white;
+    border-radius: 7%;
+    height: 7rem;
+    width: 15rem;
+    align-items: center;
+}
+
+input {
+    margin-left: 1rem;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    border-bottom: white .1rem dotted;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .9rem;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@media only screen and (max-width: 800px) {
+    html {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        padding: 0;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background: url(background.jpg);
+        background-size: 300vh;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+
+}
