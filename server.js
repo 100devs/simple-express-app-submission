@@ -16,8 +16,12 @@ MongoClient.connect(connectionString, {
     db = client.db(dbName)
     const quotesCollection = db.collection('quotes')
     
+    //using ejs as the template engine to generate the html
+    app.set('view engine', 'ejs')
+    
     //express.urlencoded is apparently the more modern way instead of bodyparser.urlencoded
     app.use(express.urlencoded({ extended: true }));
+    
 
     app.get('/', (req, res) => {
         //cursor would look like a jumble without .toArray()
