@@ -1,21 +1,22 @@
 //server.js
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
 const MongoClient = require('mongodb').MongoClient
 const port = process.env.PORT || 3000;
 require('dotenv').config()
 
-const connectionString = process.env.DB_STRING
+let db,
+    connectionString = process.env.DB_STRING,
+    dbName = 'star-wars'
 
 MongoClient.connect(connectionString, {
     useUnifiedTopology: true })
     .then(client => {
     console.log('Connected to Database')
-    const db = client.db('star-wars')
+    db = client.db(dbName)
     const quotesCollection = db.collection('quotes')
     
-    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(express.urlencoded({ extended: true }));
 
     app.get('/', (req, res) => {
         res.sendFile(__dirname + '/index.html')
