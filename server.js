@@ -30,7 +30,7 @@ MongoClient.connect(connectionString, {
             console.log(results)
         })
         .catch(error => console.log(error))
-        res.sendFile(__dirname + '/index.html')
+        res.render('index.ejs', {})
     })
 
     app.post('/quotes', (req, res) => {
