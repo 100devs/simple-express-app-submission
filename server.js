@@ -16,9 +16,16 @@ MongoClient.connect(connectionString, {
     db = client.db(dbName)
     const quotesCollection = db.collection('quotes')
     
+    //express.urlencoded is apparently the more modern way instead of bodyparser.urlencoded
     app.use(express.urlencoded({ extended: true }));
 
     app.get('/', (req, res) => {
+        //cursor would look like a jumble without .toArray()
+        const cursor = db.collection('quotes').find().toArray()
+        .then(results => {
+            console.log(results)
+        })
+        .catch(error => console.log(error))
         res.sendFile(__dirname + '/index.html')
     })
 
