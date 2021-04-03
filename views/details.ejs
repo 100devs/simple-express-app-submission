@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="details content">
+      
+      
+        <h2 class="title"><%= blog.title%></h2>
+        <div class="content">
+        <h3><%= blog.snippet%></h3>
+        <p class="body"><%= blog.body%></p>
+        </div>
+        <p class="createdAt">Posted on: <%= new Date(blog.createdAt).toLocaleString()%></p>
+        <div id="button-container">
+    <a  data-doc="<%= blog._id %>" href='/blogs/update/<%= blog._id %>'><button class="update">Update Bloog</button></a>
+    
+    <a  data-doc="<%= blog._id %>"><button class="delete">Delete Bloog</button></a>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+    </div>
+    
+
+    <script src="/js/main.js">
+        
+    </script>
+  </body>
+</html>
