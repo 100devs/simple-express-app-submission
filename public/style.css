@@ -1,9 +1,9 @@
 body {
-    font-family: 'Kiwi Maru', serif;
-    font-size: 1.2em;
-    margin-top: 50px;
-    background: gray;
-    color: lavender;
+    font-family: 'New Tegomin', serif;
+    font-size: 1.3em;
+    margin-top: 15px;
+    background: #D3D3D3;
+    
 text-align: center;
 }
 ul {
@@ -14,7 +14,11 @@ button {
     width: 6%;
     color: teal;
 }
+h1,h2{
+    color: #008080;
+}
 li{
+    color: black;
     margin-top: 10px;
 }
 .completed{
