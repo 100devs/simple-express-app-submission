@@ -1,0 +1,23 @@
+{
+  "name": "simple-express-app-submission",
+  "version": "1.0.0",
+  "description": "### Goal: Make Your Own CRUD APP and Push To Heroku",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhisheknage/simple-express-app-submission.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhisheknage/simple-express-app-submission/issues"
+  },
+  "homepage": "https://github.com/abhisheknage/simple-express-app-submission#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
