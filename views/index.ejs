@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="blogs content">
+      <h2>All Bloogs</h2>
+      <span>Click on a Bloog to go to that particular Bloog's page!</span>
+      <% if (blogs.length > 0) {%> <% blogs.forEach(blog => {%>
+      <a class="single" href="/blogs/<%= blog._id %>">
+        <h3 class="title"><%= blog.title%></h3>
+        <p class="snippet"><%= blog.snippet%></p>
+        <!-- <p class="body"><%= blog.body%></p> -->
+        <p class="createdAt">Posted on: <%= new Date(blog.createdAt).toLocaleString().split(',')[0]%></p>
+        <p>At: <%= new Date(blog.createdAt).toLocaleString().split(',')[1]%> </p>
+      </a>
+      <% })%> <% } else { %>
+      <p>no bloggies yet, check back tomorrow</p>
+      <% }%>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

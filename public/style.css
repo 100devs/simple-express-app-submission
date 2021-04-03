@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    background-color: rgb(111, 221, 216);
+    font-family: monospace;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  color: black;
+  font-weight: 700;
+}
+
+a:hover {
+  color: rgb(0, 4, 253);
+}
+
+nav {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+nav ul {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.content {
+  font-size: 2rem;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  margin: 2% 0 5% 0;
+}
+
+.about.content {
+  margin-top: 5%;
+  padding: 5%;
+  outline: 5px dashed rgb(42, 1, 95);
+  outline-offset: -20px;
+  border: 15px outset rgb(102, 167, 241);
+  background-color: rgb(161, 228, 224);
+  font-size: 3rem;
+}
+
+.details.content {
+  background-color: rgb(161, 228, 224);
+  padding: 5%;
+  outline: 5px dashed rgb(42, 1, 95);
+  outline-offset: -20px;
+  border: 15px outset rgb(102, 167, 241);
+  background-color: rgb(161, 228, 224);
+  border-radius: 10px;
+}
+
+#button-container {
+  display: flex;
+  margin-top: 5%;
+}
+
+.update, .delete {
+  font-family: monospace;
+  border: 3px solid rgb(3, 29, 107);
+  border-radius: 10px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 2%;
+  margin: 10% 5%;
+}
+
+.update {
+  background-color: royalblue;
+}
+
+.delete {
+  background-color: crimson;
+}
+
+.single {
+  outline: 5px dashed rgb(42, 1, 95);
+  outline-offset: -20px;
+  border: 15px outset rgb(102, 167, 241);
+  background-color: rgb(161, 228, 224);
+  border-radius: 10px;
+  padding: 5%;
+  margin: 5% 0;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+form * {
+  width: 100%;
+  text-align: left;
+  
+}
+
+form input, form textarea {
+  outline: 5px dashed rgb(42, 1, 95);
+  outline-offset: -20px;
+  border: 15px outset rgb(102, 167, 241);
+  
+  border-radius: 10px;
+  padding: 5%;
+}
+
+form button {
+  
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 5px outset rgb(102, 167, 241);
+  padding: 2%;
+  margin: 2% auto;
+  width: fit-content;
+  align-self: center;
+  font-family: monospace;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 5%;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 2%;
+  background-color: rgb(161, 228, 224);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
