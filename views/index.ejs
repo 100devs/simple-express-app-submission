@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="container">
+  <h2>Add New Contact:</h2>
+
+  <form action="/addNewContact" method="POST">
+      <input type="number" placeholder="Id" name="id">
+    <input type="text" placeholder="Name" name="name">
+      <input type="text" placeholder="Email" name="email">
+      <input type="number" placeholder="Phone" name="phone">
+      <input type="text" placeholder="City" name="city">
+      <input type="text" placeholder="Designation" name="designation">
+      <input type="text" placeholder="Company" name="company">
+      <input type="text" placeholder="twitter" name="twitter">
+      <input type="text" placeholder="linkedin" name="linkedin">
+      <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+  </form>
+   <span>
+        <h2>Update the contacts</h2>
+        <p>Replace information of the contacts</p>
+        <button class="fa fa-trash" id="update">replace info</button>
+  </span>
+  <span>
+        <!-- <h2>Remove contact</h2>
+        <p> Delete the contacts  </p> -->
+        <button class="fa fa refresh" id="delete-button">Delete Contacts</button>
+  </span>
+
+
+  <h1>Contacts for networking</h1>
+  <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>City</th>
+            <th>Designation</th>
+            <th>Company</th>
+            <th>Twitter</th>
+            <th>Linkedin</th>
+            <th>Notes</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+  <tbody class="contactList">
+  <% for(let i=0; i < info.length; i++) {%>
+      <tr class="contactList">
+          <td><%= info[i].id %></td>
+          <td><%= info[i].name %></td>
+          <td><%= info[i].email %></td>
+          <td><%= info[i].phone %></td>
+          <td><%= info[i].city %></td>
+          <td><%= info[i].designation %></td>
+          <td><%= info[i].company %></td>
+          <td><%= info[i].twitter %></td>
+          <td><%= info[i].linkedin %></td>
+          <td><p><%= info[i].notes %></p></td>
+          <td class='del'>delete</td>
+        </tr>
+    <% } %>
+  </tbody>
+</table>
+
+
+    <div id="message"></div>
+  </div>
+
+    <script src='js/main.js'></script>
+</body>
+</html>
