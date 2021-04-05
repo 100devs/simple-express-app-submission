@@ -20,3 +20,6 @@ I completed the challenge: 5
 I feel good about my code: 4
 I'm not sure if my constructors are setup cleanly...
 ```
+# Creating a To-DO list
+
+Yes, I know I have already made a to-do list. It's the first thing you do when learning Express or React. But I need review!! I'm a little out of practice after working solely on databases and UX research. Maybe I will make it special or something. 
