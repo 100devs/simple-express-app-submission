@@ -1,0 +1,147 @@
+body, html {
+    max-width: 100%vw;
+    max-height: 100%vh;
+    min-width: 400px;
+    display: flex;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    flex-direction: column;
+    background-image: url("https://imgur.com/zzSjF66.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    color: rgb(17, 3, 3);
+}
+
+.container {
+    min-width: 80%vw;
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: bisque;
+    border-radius: .5rem;
+    border: 2px solid rgb(37, 7, 7);
+}
+
+header {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(37, 7, 7);
+}
+
+h2 {
+    margin: 1rem 1rem;
+    text-align: center;
+}
+
+form {
+    width: 70%vw;
+    margin: auto auto;
+    flex-direction: column;
+}
+
+input, select {
+    margin: 1rem 1rem;
+    min-width: 5rem;
+    max-width: 75%;
+    margin: .5rem 1rem;
+    text-align: center;
+    padding: .5rem 1rem;
+    border: 2px solid black;
+    border-radius: .25rem;
+}
+
+input::placeholder {
+    font-weight: bold;
+    color: rgba(37, 7, 7, .8);
+}
+
+button {
+    margin: 1rem auto;
+    display: flex;
+    width: 30%;
+    background-color: rgb(37, 7, 7);
+    color: white;
+    border: 1px solid rgb(37, 7, 7);
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    text-align: center;
+    justify-content: center;
+}
+
+ul {
+    margin: auto auto 2rem auto;
+    width: 100%;
+    text-align: center;
+    list-style-type: none;
+    margin-left: -2rem;
+}
+
+span {
+    font-style: italic;
+}
+
+/* #one-cup {
+    background-image: url("public/images/one-cup.png");
+}
+
+#two-cup {
+    background-image: url("public/images/two-cup.png");
+}
+
+#three-cup {
+    background-image: url("public/images/three-cup.png");
+}
+
+#four-cup {
+    background-image: url("public/images/four-cup.png");
+}
+
+#five-cup {
+    background-image: url("public/images/five-cup.png");
+} */
+
+
+
+
+
+/* .fas .fa-mug-hot {
+    color: rgb(37, 7, 7);
+} */
+
+@media only screen and (max-width: 1200px) {
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    form {
+        display: flex;
+        flex-direction: column;
+        min-width: 50%;
+        max-width: 75%;
+    }
+
+
+}

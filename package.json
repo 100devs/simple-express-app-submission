@@ -1,0 +1,29 @@
+{
+  "name": "simple-express-app-submission",
+  "version": "1.0.0",
+  "description": "***Friends don't let friends drink alone!***\r <h2>This API exercise employs EJS, NodeJS, Express, CSS, and JS. So many little things to think about!</h2>\r <img src=\"https://media.giphy.com/media/MdB3ZxomlJCMWJw7HB/giphy.gif\" alt=\"gif of coffee cup winking\">",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.5",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JenniferToops/simple-express-app-submission.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JenniferToops/simple-express-app-submission/issues"
+  },
+  "homepage": "https://github.com/JenniferToops/simple-express-app-submission#readme"
+}
