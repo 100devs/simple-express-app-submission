@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/nicole-gathany/simple-express-app-submission#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
