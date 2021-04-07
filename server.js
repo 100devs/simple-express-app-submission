@@ -1,6 +1,7 @@
 //server.js
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient
 const port = process.env.PORT || 3000;
 require('dotenv').config()
@@ -21,16 +22,20 @@ MongoClient.connect(connectionString, {
     
     //express.urlencoded is apparently the more modern way instead of bodyparser.urlencoded
     app.use(express.urlencoded({ extended: true }));
-    
+    app.use(express.static('public'))
+    // Make sure to place body-parser before your CRUD handlers!
+    app.use(bodyParser.json())
+
 
     app.get('/', (req, res) => {
         //cursor would look like a jumble without .toArray()
         const cursor = db.collection('quotes').find().toArray()
         .then(results => {
             console.log(results)
-        })
+            res.render('index.ejs', { quotes: results })
+          })
         .catch(error => console.log(error))
-        res.render('index.ejs', {})
+
     })
 
     app.post('/quotes', (req, res) => {
@@ -40,14 +45,38 @@ MongoClient.connect(connectionString, {
             })
             .catch(error => console.error(error))
     })
-    app.listen(port, function() {
-    console.log(`listening on ${port}`)
+    
+
+    app.put('/quotes', (req, res) => {
+        quotesCollection.findOneAndUpdate(
+            //query
+            { name: "Yoda" },
+            //update
+            {
+                $set: {
+                    name: req.body.name,
+                    quote: req.body.quote
+                }
+            },
+            //options
+            {
+                // insert new document if no matching document exists (update/insert)
+                upsert: true
+            }
+        )
+        .then(result => {
+            res.json('Success')
+            res.redirect('/')
+        })
+        .catch(error => console.error(error))
     })
+
+    app.listen(port, function() {
+        console.log(`listening on ${port}`)
+        })
     })
     .catch(console.error)
 
-
-// Make sure to place body-parser before your CRUD handlers!
 
 
 console.log('May Node be with you')
