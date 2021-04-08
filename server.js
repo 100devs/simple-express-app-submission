@@ -65,8 +65,22 @@ MongoClient.connect(connectionString, {
             }
         )
         .then(result => {
-            res.json('Success')
             res.redirect('/')
+        })
+        .catch(error => console.error(error))
+    })
+
+    app.delete('/quotes', (req, res) => {
+        quotesCollection.deleteOne(
+            // query - we don't need to hard code 'Darth Vadar', 'cause it's passed in from main.js in req
+            { name: req.body.name }
+            // options can be ommitted here
+        )   
+        .then(result => {
+            if(result.deletedCount === 0){
+                return res.json(`No quote to delete`)
+            }
+            res.json(`Deleted Darth Vadar's quote`)
         })
         .catch(error => console.error(error))
     })

@@ -15,6 +15,7 @@
       <button type="submit">Submit</button>
     </form>
     <h2> Quotes </h2>
+    <div id="message"></div>
     <ul class="quotes">
     <!-- Loop through quotes -->
         <% if (quotes) { %>
@@ -36,6 +37,13 @@
           Replace the first Yoda quote with a quote written by Darth Vadar
         </p>
         <button id="update-button">Replace Yoda's quote</button>
+    </div>
+    <div>
+      <h2>Remove Darth Vader!</h2>
+      <p>
+        Delete one Darth Vader's quote. Does nothing if there are no more Darth Vader's quotes.
+      </p>
+      <button id="delete-button">Delete Darth Vader's quote</button>
     </div>
     <script src="/main.js"></script>
   </body>
