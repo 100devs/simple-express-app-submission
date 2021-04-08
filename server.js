@@ -72,7 +72,7 @@ MongoClient.connect(connectionString, {
 
     app.delete('/quotes', (req, res) => {
         quotesCollection.deleteOne(
-            // query - we don't need to hard code 'Darth Vadar', 'cause it's passed in from main.js in req
+            // query - we don't need to hard code 'Darth Vader', 'cause it's passed in from main.js in req
             { name: req.body.name }
             // options can be ommitted here
         )   
@@ -80,7 +80,7 @@ MongoClient.connect(connectionString, {
             if(result.deletedCount === 0){
                 return res.json(`No quote to delete`)
             }
-            res.json(`Deleted Darth Vadar's quote`)
+            res.json(`Deleted Darth Vader's quote`)
         })
         .catch(error => console.error(error))
     })
