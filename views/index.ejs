@@ -1,0 +1,50 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Star Wars Quote App</title>
+  </head>
+
+  <body>
+    <h1>May Node and Express be with you.</h1>
+
+    <form action="/quotes" method="POST">
+      <input type="text" placeholder="name" name="name" />
+      <input type="text" placeholder="quote" name="quote" />
+      <button type="submit">Submit</button>
+    </form>
+    <h2> Quotes </h2>
+    <div id="message"></div>
+    <ul class="quotes">
+    <!-- Loop through quotes -->
+        <% if (quotes) { %>
+            <% for(var i = 0; i < quotes.length; i++) {%>
+                <li class="quote">
+                <!-- Output name from the iterated quote object -->
+                <span><%= quotes[i].name %></span>:
+                <!-- Output quote from the iterated quote object -->
+                <span><%= quotes[i].quote %></span>
+                </li>
+            <% } %>
+        <% } else { %>
+            <li>No quotes yet!</li>
+        <% } %>
+    </ul>
+    <div>
+        <h2>Darth Vader invades!</h2>
+        <p>
+          Replace the first Yoda quote with a quote written by Darth Vader
+        </p>
+        <button id="update-button">Replace Yoda's quote</button>
+    </div>
+    <div>
+      <h2>Remove Darth Vader!</h2>
+      <p>
+        Delete one Darth Vader's quote. Does nothing if there are no more Darth Vader's quotes.
+      </p>
+      <button id="delete-button">Delete Darth Vader's quote</button>
+    </div>
+    <script src="/main.js"></script>
+  </body>
+</html>
