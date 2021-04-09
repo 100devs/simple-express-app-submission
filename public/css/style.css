@@ -1,0 +1,56 @@
+html { 
+ 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+
+
+body {
+  background-image: linear-gradient(
+    to left bottom,
+    #c22b81,
+    #b5489c,
+    #a55fb1,
+    #9371bf,
+    #8281c7,
+    #7690d1,
+    #6c9ed8,
+    #68abdc,
+    #62bde5,
+    #65cfea,
+    #72e0eb,
+    #88f0ea
+  );
+  height: 500px;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
+ul li {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.del {
+  border: 1px solid black;
+  margin-left: 5px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+.completed {
+  text-decoration: line-through;
+  color:white;
+  
+
+}
