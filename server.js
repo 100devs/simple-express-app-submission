@@ -4,7 +4,7 @@ const app = express();
 
 const MongoClient = require("mongodb").MongoClient;
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000
 require('dotenv').config()
 
 let db,
