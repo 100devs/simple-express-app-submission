@@ -1,63 +1,85 @@
-const express = require('express')  //Express helps modules that we want and makes our API nice and easy
-const app = express()  //gives us all functions that came from express now in app, we can use app anywhere we want and have access to all the methods that come with express
-const cors = require('cors')
-const PORT =8000   //creating ports as variables
+const express = require('express')
+const app = express()
+const MongoClient = require('mongodb').MongoClient
+const PORT = 8000
+require('dotenv').config()
 
-app.use(cors())
 
-let avengers = {
-'captain america':{
-    'name': 'Steve Rogers', 
-    'Team Affiliations': 'Avengers',
-    'Abilities': 'Enhanced strength, speed, stamina, durability, agility, reflexes, senses, and mental processing via the super soldier serum'
-},
-'iron man':{
-    'name': 'Anthony Edward "Tony" Stark', 
-    'Team Affiliations': 'Avengers',
-    'Abilities': 'Powered armor suit: Superhuman strength, speed, durability, agility, reflexes, and senses'
-},
-'scarlet witch':{
-    'name': 'Wanda Marya Maximoff', 
-    'Team Affiliations': 'Avengers',
-    'Abilities': 'Superhuman genes allow energy manipulation and powerful access to magical energies, such as chaos magic'
-},
-'thor':{
-    'name': 'Thor Odinson', 
-    'Team Affiliations': 'Avengers',
-    'Abilities': 'Superhuman strength, speed, durability and longevity, Electric Manipulation '  
-    },
-'black widow':{
-    'name': 'Natasha Romanoff', 
-    'Team Affiliations': 'Avengers',
-    'Abilities': 'Expert spy, tactician, and hand-to-hand combatant'
-},
-'spider man':{
-    'name': 'Peter Parker', 
-    'Team Affiliations': 'Avengers',
-    'Abilities':'Superhuman strength, speed, reflexes, agility, coordination and balance,Utilizing wrist-mounted web-shooters'
-},
-'dylan':{
-    'name': 'Dylan', 
-    'Team Affiliations': 'Dylan',
-    'Abilities':'Dylan' 
-}
-}
+let db, 
+    dbConnectionStr = process.env.DB_STRING,
+    dbName = 'todo' 
 
-app.get('/', (request, response) => {
-    response.sendFile(__dirname + '/index.html') //respond by sending you a file //dirname:where ever that file is look there
-})    //requesting and we want to respond with an html inside the callback function// forward slash: normal home page loads //server listens to this, get is one of the four things that the server listens too. get, put, delete, and read
+MongoClient.connect( dbConnectionStr, {useUnifiedTopology: true })
+    .then(client => {
+        console.log(`Connected to ${dbName} Database`)
+        db = client.db(dbName)
+    }) 
 
-app.get('/api/avengers/:avengerName', (request, response) => {
-    const heroName = request.params.avengerName.toLowerCase()
-    console.log(heroName)
-    if(avengers[heroName]){
-        response.json(avengers[heroName])
-    }else{
-       response.json(avengers['dylan'])
-   }
-})
+    .catch(err =>{
+        console.log(err)
+    })
 
-app.listen(process.env.PORT || PORT, ()=>{
-    console.log(`Server running on port ${PORT}`)
-}) //this method takes in two things a PORT and a CALLBACK
+    app.set('view engine', 'ejs')
+    app.use(express.static('public'))
+    app.use(express.urlencoded({ extended: true }))
+    app.use(express.json())
 
+    
+
+    app.get('/', async (request, response)=>{
+        const todoItems = await db.collection('todo').find().toArray()
+        const itemsLeft = await db.collection('todo').countDocuments({completed: false})
+        response.render('index.ejs', {info: todoItems, left: itemsLeft})
+    })
+
+    app.post('/addItem', (request, response) => {
+        db.collection('todo').insertOne({taskName: request.body.taskName, completed:false}) // creating a document that has a taskitem and completed property that will always be false
+        .then(result => {
+            console.log('Item Added')
+            response.redirect('/')
+        })
+        .catch(error => console.error(error))
+    })
+
+    app.put('/markComplete', (request, response) => {
+        db.collection('todo').updateOne({taskName: request.body.taskName},{
+            $set: { // setting completed properties to true 
+               completed: true
+              }
+        
+        })
+        .then(result => {
+            console.log('Marked Complete')
+            response.json('Marked Complete')
+        })
+        .catch(error => console.error(error))
+    })
+
+    app.put('/undo', (request, response) => {
+        db.collection('todo').updateOne({taskName: request.body.taskName},{
+            $set: { // setting completed properties to true 
+               completed: false
+              }
+        
+        })
+        .then(result => {
+            console.log('Marked Complete')
+            response.json('Marked Complete')
+        })
+        .catch(error => console.error(error))
+    })
+
+
+    app.delete('/deleteText', (request, response) => {
+        db.collection('todo').deleteOne({taskName: request.body.taskName}) // finding collection ... deleting the property name that I want to delete
+        .then(result => {
+            console.log('Item Deleted')
+            response.json('Item Deleted')
+        })
+        .catch(error => console.error(error))
+    
+    })
+
+    app.listen(process.env.PORT || PORT, () => {
+        console.log(`Server running on port ${PORT}!`)
+      }) 
