@@ -6,10 +6,12 @@
 
 // require dependencies
 const express = require('express')
-// get all the goodies 
-const app = express()
 const cors = require('cors')
 const MongoClient = require('mongodb').MongoClient
+
+// get all the goodies 
+const app = express()
+
 // assign a port
 const PORT = 5000 
 
@@ -38,10 +40,12 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
+// set the server to listen on a port
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
 
+// get request for when they enter the url
 app.get('/', (request, response) =>{
     db.collection('tasks').find().toArray()
     .then(data =>{
@@ -67,3 +71,4 @@ app.delete('/deleteTask', (request, response) =>{
     .catch(error => console.error(error))
 })
 // $ npm install heroku --save
+//review promises
