@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to my To-Do List</title>
+  <link rel="stylesheet"  href="css/style.css">
+</head>
+<body>
+<h1>To-Do List</h1>
+<ul class="to-do">
+<% for(let i=0; i < info.length; i++) {%>
+    <li class="list">
+        <% if(info[i].completed === true) {%>
+        <span class="completed"><%= info[i].taskName %></span>
+        <% }else{ %>
+        <span><%= info[i].taskName %></span>
+        <% } %>
+        <span class='del'>delete</span>
+    </li>
+<% } %>
+</ul>
+
+<h2>Things left to do: <%= left %></h2>
+
+
+<form action="/addItem" method="POST">
+    <input type="text" placeholder="Task to do" name="taskName">
+    <input type="submit">
+</form>
+<script src='main.js'></script>
+</body>
+</html> 
