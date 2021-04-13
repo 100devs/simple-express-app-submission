@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple-CRUD-APP</title>
+</head>
+<body>
+    <h1>Best RWBY Characters</h1>
+    <ul class='characters'>
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class='characters'>
+                <span><%= info[i].charName %></span>
+                <span><%= info[i].teamName %></span>
+               <!-- <span class="fa fa-thumbs up"></span> -->
+                <span class="del">Delete</span>
+            </li>
+        <% } %>
+    </ul>
+
+    <h2>Add RWBY Characters</h2>
+    <form action="/addCharacter" method="POST">
+        <input type="text" placeholder="Character Name" name='charName'>
+        <input type="text" placeholder="Team Name" name='teamName'>
+        <input type="submit">
+    </form>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
