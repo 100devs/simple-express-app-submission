@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>simple todo</title>
+</head>
+<body>
+    
+    <h2>Todos</h2>
+    <ul>
+        <% for (let i = 0; i< zebra.length; i++) { %>
+            <li class="todoItem">
+                <% if(zebra[i].completed === true) {%>
+                <span class="completed"><%= zebra[i].todo %></span>
+                <% }else { %>
+                <span><%= zebra[i].todo %></span>
+                <% } %>
+                <span class="del">&#128465;&#65039;</span>
+            </li>
+        <% } %>
+    </ul>
+
+    <h2>things left to do <%= left %></h2>
+
+    <form action="createTodo" method="POST">
+        <input type="text" placeholder="Enter Todo Item" name="todoItem">
+        <input type="submit">
+    </form>
+
+<script src="javascript/main.js"></script>
+</body>
+</html>
