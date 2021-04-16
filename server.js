@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient
 const app = express()
 
 
-MongoClient.connect('mongodb+srv://Shenan:Poopoo1!@cluster0.cbpp2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useUnifiedTopology: true })
+MongoClient.connect('mongodb+srv://Shenan:[pass]@cluster0.cbpp2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to Database')
     const db = client.db('cats-songs')
