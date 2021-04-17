@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Futurama Character API</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>
+      <img
+        class="logo"
+        src="/img/Planet_express_ship.png"
+        alt="Planet Express Logo"
+      />
+      Welcome to the Futurama character API!
+    </h1>
+    <form action="/getCharResults" method="GET">
+      <input
+        class="search"
+        type="search"
+        placeholder="Character Name"
+        name="charName"
+      />
+      <input class="submitBtn" type="submit" />
+    </form>
+    <div class="wrapper">
+      <div class="card">
+        <% if (charResults) { %> <% console.log(charResults) %>
+
+        <img
+          src="<%= charResults[0].image %>"
+          alt="<%= charResults[0].name %> "
+        />
+        <h2><%= charResults[0].name %></h2>
+        <h3><%= `Nickname: ${charResults[0].nickname}` %></h3>
+        <h4><%= `Species: ${charResults[0].species}` %></h4>
+        <h4><%= `Home Planet: ${charResults[0].homePlanet}` %></h4>
+        <h4><%= `Job: ${charResults[0].job}` %></h4>
+        <h4><%= `Famous quote: "${charResults[0].quote}"` %></h4>
+        <% } else { %>
+        <img
+          class="bender-error"
+          src="img/bender-error.png"
+          alt="Bender error message"
+        />
+        <h2 class="bender-error">
+          I am Bender, please insert girder. <br />
+          (No charcter found, please try again!)
+        </h2>
+
+        <% } %>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
+
+<!-- next steps:
+1. make sure invalid searches get custom error screen (great gorilla of manila -- we don't have that character! + image of mom gorilla)
+2. iterate over character objects so multiple quotes/jobs/etc render 
+3. enable multiple search results to show up
+-->

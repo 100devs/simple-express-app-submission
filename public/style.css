@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(62, 218, 166);
+  text-align: center;
+}
+
+img {
+  height: 32vh;
+}
+
+.card {
+  margin-top: 2rem;
+  width: 30%;
+  padding: 2rem 1rem;
+  border: 3px solid rgb(139, 29, 29);
+  background-color: rgba(240, 255, 255, 0.8);
+  box-shadow: 1px 1px 1px rgba(20, 20, 20, 0.664),
+    2px 1px 1px rgba(20, 20, 20, 0.705);
+  border-radius: 5px;
+}
+
+h1,
+h2 {
+  font-family: "Lobster Two", cursive;
+  width: 100%;
+  background-color: rgb(126, 23, 23);
+  color: rgb(233, 216, 32);
+  padding: 5px;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+.logo {
+  height: 3rem;
+  padding: 0.2rem;
+}
+
+.submitBtn {
+  font-family: "Lobster Two", cursive;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgb(233, 216, 32);
+  color: rgb(126, 23, 23);
+  border-radius: 10px;
+}
+
+.search {
+  width: 20%;
+  height: 3.2rem;
+  border-radius: 12px;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+img.bender-error {
+  width: 90%;
+}
+
+.bender-error {
+  font-family: monospace;
+  font-size: 2.3rem;
+  color: rgb(233, 216, 32);
+  background-color: transparent;
+  text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.4), 2px 1px 4px rgba(0, 0, 0, 0.4);
+}
