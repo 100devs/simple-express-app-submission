@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class = "panel">
+        <div>
+            <h1>Welcome!</h1>
+        </div>
+        <div>
+            <% const taskNum = posts.filter(post=>!post.finished).length %>
+            <h3>You have <%= (taskNum >1) ? `${taskNum} tasks` : `${taskNum} task` %> to finish!</h3>
+            <div class="tasks-table">
+                <ul>
+                    <% for (let i = 0; i < posts.length; i++){ %>
+                        <li 
+                            id= "<%= posts[i].id %>"
+                            class= "<%= (posts[i].finished) ? "completed task" : "task" %>"
+                        ><span><%= posts[i].taskName %></span><span class="delete-btn"><i class='fa fa-trash'></i></span></li>
+                    <% } %>
+                </ul>
+            </div>
+            <form action="/createTask" method="POST"> <!--action requires a / , and add method-->
+                <input type="text" placeholder="task name" name="taskName">
+                <input type="submit" value="Add Task">
+            </form>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

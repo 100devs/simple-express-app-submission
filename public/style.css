@@ -1,0 +1,46 @@
+*{
+    box-sizing:border-box
+}
+
+h1{
+    margin: 0
+}
+
+span.delete-btn{
+    margin:5%
+}
+
+span{
+    height:50%
+}
+
+ul{
+    height:80%;
+    padding:0;
+}
+
+li{
+    list-style: none;
+    width:70%;
+    padding: 5%;
+    margin: 4% auto;
+    background: gainsboro;
+    border-radius: 25px;
+    font-size: 1.2rem
+}
+.panel{
+    color:darkblue;
+    border:solid 2px steelblue;
+    border-radius: 25px;
+    width:80%;
+    height: 100%;
+    margin: auto;
+    padding: 20px 20%;
+    text-align:center;
+    overflow:auto
+}
+
+.completed{
+    text-decoration: line-through;
+    color: gray
+}
