@@ -31,6 +31,13 @@ color:lightblue;
     font-size: 20px;
 }
 
+.episodes{
+    text-align: center;
+    
+    margin-right: 1.5rem;
+}
+
+
 /* @media screen and (min-width: 100px) and (max-width:980px) {
     html {
         background-image: url(greysA.jpeg);
