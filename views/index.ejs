@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadly Greys</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Saddest Grey's Deaths</h1>
+    <p>Upload your favorite tear-jerking episode below</p>
+    <ul class="episodes">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="episodes">
+            <span class="list"><%= info[i].seasonNumber %></span>
+            <span class="list"><%= info[i].episodeNumber %></span>
+            <span class='fa fa-thumbs-up'></span>
+            <span class="list"><%= info[i].likes %></span>
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Add A Season & Episode:</h2>
+
+    <form action="/addEpisode" method="POST">
+        <input type="text" placeholder=" Add 'Season' + Number" name="seasonNumber">
+        <input type="text" placeholder=" Add 'Episode' + Number" name="episodeNumber">
+        <input type="submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
