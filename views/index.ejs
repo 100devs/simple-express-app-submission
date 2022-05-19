@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Library</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Save Playlists Online!</h1>
+    <h2>Current Playlists</h2>
+    <ul>
+        <% playlists.forEach(playlist =>{ %>
+            <li>
+                <span><%= playlist.title %></span>
+                <span class="removeList">Delete</span>
+                <ul>
+                    <% playlist.songs.forEach( song => { %>
+                        <li><%= song %><span class="removeSong">Delete</span></li>
+                   <% }) %>
+                </ul>
+            </li>
+        <% }) %>
+    </ul>
+    <form action="/addList" method="POST">
+        <input type="text" placeholder="Playlist Name" name="title">
+        <textarea type="textfield" placeholder="Song Names Seperated by Commas" name="songs"></textarea>
+        <input type="submit">
+    </form>
+    <script src="../js/main.js"></script>
+</body>
+</html>
