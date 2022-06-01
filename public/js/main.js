@@ -18,7 +18,6 @@ async function deletePlaylist()
 
         const data = await response.json()
         console.log(data)
-        location.reload()
     }catch(err)
     {
         console.error('Error removing song: ', err)
@@ -43,7 +42,6 @@ async function deleteSong()
 
         const data = await response.json()
         console.log(data)
-        location.reload()
     }catch(err)
     {
         console.error('Error removing song: ', err)

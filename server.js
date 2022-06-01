@@ -19,30 +19,50 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 
-app.get('/', (request, response) => {
-    db.collection('playlists').find().toArray()
-    .then(data => response.render('index.ejs', {playlists: data}))
-    .catch(err => console.error('Error in get request ', err))
+app.get('/', async (request, response) => {
+    try{
+        let data = await db.collection('playlists').find().toArray()
+        await response.render('index.ejs', {playlists: data})
+    }catch(err)
+    {
+        console.error('Error fetching homepage: ', err)
+    }
 })
 
-app.post('/addList', (request, response) => {
-    const songList = request.body.songs.split(',')
-    db.collection('playlists').insertOne({title: request.body.title, songs: songList})
-    .then(result => response.redirect('/'))
-    .catch(err => console.error('Error uploaded a new playlist: ', err))
+app.post('/addList', async (request, response) => {
+    try{
+        const songList = request.body.songs.split(',')
+        await db.collection('playlists').insertOne({title: request.body.title, songs: songList})
+        response.redirect('/')
+    }catch(err)
+    {
+        console.error('Error uploaded a new playlist: ', err)
+    }
 })
 
-app.delete('/deletePlaylist', (request, response) => {
-    db.collection('playlists').deleteOne({title: request.body.title})
-    .then(data => response.json('Playlist Deleted'))
-    .catch(err => console.log(err))
+app.delete('/deletePlaylist', async (request, response) => {
+    try{
+        await db.collection('playlists').deleteOne({title: request.body.title})
+        response.json('Playlist Deleted')
+        response.redirect('/')
+    }catch(err)
+    {
+        console.error('Error handling delete playlist request: ', err)
+    }
+    
+    
 })
 
-app.put('/deleteSong', (request, response) => {
-    db.collection('playlists').updateOne( {title: request.body.title} , {$pull : {songs: {$in: [request.body.song]}} })
-    .then(data => response.json('Song Removed'))
-    .catch(err => console.error('Error removing song: ', err))
+app.put('/deleteSong', async (request, response) => {
+    try{
+        await db.collection('playlists').updateOne( {title: request.body.title} , {$pull : {songs: {$in: [request.body.song]}} })
+        response.json('Song Removed')
+        response.redirect('/')
+    }catch(err)
+    {
+        console.error('Error removing song: ', err)
+    }
 })
 
 
-app.listen(process.env.PORT || PORT, () => console.log(`Server is running on port ${PORT}`))
+app.listen(process.env.PORT || PORT, () => console.log(`Server is running`))
