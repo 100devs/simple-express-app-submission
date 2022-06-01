@@ -44,7 +44,6 @@ app.delete('/deletePlaylist', async (request, response) => {
     try{
         await db.collection('playlists').deleteOne({title: request.body.title})
         response.json('Playlist Deleted')
-        response.redirect('/')
     }catch(err)
     {
         console.error('Error handling delete playlist request: ', err)
@@ -57,7 +56,6 @@ app.put('/deleteSong', async (request, response) => {
     try{
         await db.collection('playlists').updateOne( {title: request.body.title} , {$pull : {songs: {$in: [request.body.song]}} })
         response.json('Song Removed')
-        response.redirect('/')
     }catch(err)
     {
         console.error('Error removing song: ', err)
