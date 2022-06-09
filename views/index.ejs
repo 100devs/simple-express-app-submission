@@ -65,7 +65,7 @@
          <main>
             <section class="createWOMain flex">
                <h1>Create Work Order</h1>
-               <form action="">
+               <form action="/workOrders" method="POST">
                   <h2>Select Module</h2>
                   <select name="module" id="">
                      <option value="1">Mod 1</option>
@@ -91,7 +91,7 @@
                   </select>
                   <h2>Problem Description</h2>
                   <textarea name="problemDetail" id="" cols="15" rows="10"></textarea>
-                  <button type="submit">Submit</button>
+                  <button id="woRequest">Submit</button>
                </form>
             </section>
             <section class="workOrdersMain hidden flex">

@@ -123,6 +123,7 @@ main .workOrdersMain {
 .createWOMain {
    flex-direction: column;
    align-items: center;
+   margin: 1rem;
 }
 .createWOMain h1 {
    font-size: 2.5rem;
@@ -131,6 +132,9 @@ main .workOrdersMain {
 .createWOMain h2 {
    font-size: 2rem;
    margin: 1rem 0 0;
+}
+.createWOMain form {
+   text-align: center;
 }
 .createWOMain select {
    width: 20rem;
@@ -148,6 +152,9 @@ main .workOrdersMain {
    width: 35rem;
    font-size: 2rem;
    border: none;
+}
+.createWOMain button {
+   font-size: 2.5rem;
 }
 
 /* ACCOUNT INFO MAIn */
