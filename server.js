@@ -25,18 +25,15 @@ app.get('/', (req, res) => {
     // res.sendFile(__dirname + '/index.html')
     db.collection(dbTable).find().toArray()
     .then(results => {
-        res.render('index.ejs', {})
+        res.render('index.ejs', {request: results})
         // console.log(results);
     })
     .catch(error => console.error(error));
-    console.log('test')
 });
 
 app.post('/workOrders', (req, res) => {
-    console.log('test');
     db.collection(dbTable).insertOne(req.body)
     .then(result => {
-        console.log('Success');
         res.redirect('/');
     })
     .catch(error => console.error(error));

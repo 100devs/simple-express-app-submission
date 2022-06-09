@@ -104,6 +104,50 @@
                </section>
                <section id="detailNotes" class="hidden">
                   <h1>Past Work Orders</h1>
+                  <ul class="workOrders">
+                   <% for(let i = 0; i < request.length; i++) {%>
+                   <li class="request">
+                      <span>Mod <%= request[i].module %></span>
+            
+                      <% switch(request[i].machine) { 
+                          case '1' : %>
+                         <span>Shell Press</span>
+                          <% break; 
+                          case '2': %>
+                          <span>Balancer</span>
+                          <% break;
+                          case '3': %>
+                          <span>Liner</span>
+                          <% break;
+                          case '4': %>
+                          <span>Conversion Press</span>
+                          <% break;
+                          case '5': %>
+                          <span>Autobagger</span>
+                          <% break;
+                      } %>
+            
+                      <% switch(request[i].shop) { 
+                          case '1' : %>
+                         <span>Lead</span>
+                          <% break; 
+                          case '2': %>
+                          <span>Electrician</span>
+                          <% break;
+                          case '3': %>
+                          <span>Machine Shop</span>
+                          <% break;
+                          case '4': %>
+                          <span>Millwright</span>
+                          <% break;
+                          case '5': %>
+                          <span>Warehouse</span>
+                          <% break;
+                      } %>
+                      <span><%= request[i].problemDetail %></span>
+                   </li>
+                   <% } %>
+                </ul>
                </section>
             </section>
             <section class="accountInfoMain hidden flex">
