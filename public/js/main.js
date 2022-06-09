@@ -1,0 +1,44 @@
+document.querySelector('#create').addEventListener('click', selectMain);
+let tabs = document.querySelectorAll('.tabs a');
+tabs.forEach(tab => tab.addEventListener('click', selectTab));
+let topNavButtons = document.querySelectorAll('.small a');
+topNavButtons.forEach(button => button.addEventListener('click', selectMain));
+let navButtons = document.querySelectorAll('.footer li');
+navButtons.forEach(button => button.addEventListener('click', selectMain));
+
+
+
+
+
+function selectTab() {
+    this.classList.add('selected');
+    if (this === tabs[0]) {
+        tabs[1].classList.remove('selected');
+        document.querySelector('#pastDetails').classList.remove('hidden');
+        document.querySelector('#detailNotes').classList.add('hidden');
+    } else {
+        tabs[0].classList.remove('selected');
+        document.querySelector('#pastDetails').classList.add('hidden');
+        document.querySelector('#detailNotes').classList.remove('hidden');
+    }
+}
+
+function selectMain() {
+    let className = this.classList[0];
+    hideMain(navButtons, this, className);
+    hideMain(topNavButtons, this, className);
+    if (!this.classList.contains('topNavButtons')) {
+        document.querySelector(`footer .${className}`).classList.add('selected');
+    }
+}
+function hideMain(buttons, clickedButton, className) {
+        document.querySelector('main .createWOMain').classList.add('hidden');
+        document.querySelector(`main .${className}`).classList.remove('hidden');
+        navButtons.forEach(button => button.classList.remove('selected'));
+        buttons.forEach(button => {
+            if (button !== clickedButton) {
+                className = button.classList[0];
+                document.querySelector(`main .${className}`).classList.add('hidden');
+            }
+        });
+}

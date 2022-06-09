@@ -1,0 +1,325 @@
+/* Box Model Hack */
+* {
+   box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+   content: ".";
+   display: block;
+   clear: both;
+   visibility: hidden;
+   line-height: 0;
+   height: 0;
+}
+
+.clear {
+   clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+html {
+   font: 62.5% "IBM Plex Serif", sans-serif;
+   color: rgb(0, 121, 0);
+   background: rgb(226, 226, 226);
+}
+
+* {
+   /* border: 1px solid black; */
+}
+
+.flex {
+   display: flex;
+   justify-content: center;
+}
+.hidden {
+   display: none;
+}
+/* html, body {
+ padding: 0;
+ margin: 0;
+} */
+
+/******************************************
+/* TOP
+/*******************************************/
+.top {
+   position: fixed;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   margin: 1rem;
+}
+.top .icon {
+   width: 40px;
+   text-align: center;
+   font-size: 3.5rem;
+}
+.small {
+   justify-content: space-evenly;
+}
+.small a {
+   height: 5rem;
+   width: 50%;
+   text-transform: none;
+   line-height: 5rem;
+   background: rgb(0, 77, 0);
+   padding: 0.5rem 2rem;
+   margin: 1rem 0.5rem;
+   border-radius: 1rem;
+}
+.small a {
+   color: rgb(0, 195, 0);
+}
+.headshot {
+   height: 15rem;
+   width: auto;
+   margin: 2rem 0 0 2rem;
+   margin: 0 auto;
+}
+
+.employeeInfo {
+   flex-direction: column;
+}
+.employeeInfo span {
+   font-size: 1.5rem;
+}
+#name {
+   font-size: 2.2rem;
+   font-weight: bold;
+}
+
+.container {
+   flex-direction: column;
+}
+
+.create {
+   height: 5rem;
+   align-items: center;
+   text-align: center;
+   text-transform: uppercase;
+   background: rgb(231, 0, 0);
+   border-radius: 1rem;
+   padding: 0.5rem 1.5rem;
+   margin-top: 1rem;
+   margin: 2rem auto 0;
+}
+.create a {
+   font-size: 2rem;
+   text-decoration: none;
+   color: white;
+}
+
+main {
+   margin-top: 25rem;
+}
+
+main .workOrdersMain {
+   flex-direction: column;
+   margin: 1rem;
+}
+
+.createWOMain {
+   flex-direction: column;
+   align-items: center;
+}
+.createWOMain h1 {
+   font-size: 2.5rem;
+   margin-bottom: 0;
+}
+.createWOMain h2 {
+   font-size: 2rem;
+   margin: 1rem 0 0;
+}
+.createWOMain select {
+   width: 20rem;
+   font-size: 2rem;
+   border: none;
+}
+.createWOMain option {
+   width: 10rem;
+   font-size: 2rem;
+   border: none;
+   padding: 0;
+}
+.createWOMain textarea {
+   height: 15rem;
+   width: 35rem;
+   font-size: 2rem;
+   border: none;
+}
+
+/* ACCOUNT INFO MAIn */
+.accountInfoMain {
+   height: 70rem;
+   width: 70%;
+   flex-direction: column;
+   padding-bottom: 1rem;
+   margin: 0 auto;
+   margin-top: -5.5rem;
+}
+.accountInfoMain h1 {
+   font-size: 2.5rem;
+   margin: 1rem auto;
+}
+.accountInfoMain section {
+   width: 20rem;
+   flex-direction: column;
+}
+.accountInfoMain .job,
+.accountInfoMain .crew {
+   width: 30rem;
+   flex-direction: row;
+}
+.accountInfoMain h2 {
+   font-size: 2rem;
+   margin: 0;
+}
+.accountInfoMain input {
+   height: 2.5rem;
+   font-size: 1.5rem;
+   color: white;
+   background: rgb(155, 155, 155);
+   padding-left: 0.5rem;
+   margin-bottom: 2rem;
+   border: none;
+}
+.accountInfoMain .crewInput,
+.accountInfoMain .payInput {
+   margin-left: 1rem;
+}
+.accountInfoMain .crewInput input,
+.accountInfoMain .payInput input {
+   width: 8rem;
+   font-size: 1.5rem;
+}
+
+/* MODULE INFO MAIN */
+.moduleInfoMain {
+   flex-direction: column;
+   align-items: center;
+}
+.moduleInfoMain section {
+   height: 3rem;
+   margin: 1rem;
+   /* border: 1px solid black; */
+}
+
+
+/* MESSAGES MAIN */
+.messagingMain,
+.messagesContainer {
+   width: 100%;
+   flex-direction: column;
+}
+.messagesContainer {
+   max-height: 46rem;
+   padding-top: 5rem;
+   overflow-y: auto;
+}
+.newMessageContainer {
+   border-top: .2rem solid rgba(0, 0, 0, .25);
+   padding-top: 1rem;
+}
+.newMessageContainer input {
+   height: 5rem;
+   width: 30rem;
+   font-size: 1.5rem;
+   border: none;
+}
+.newMessageContainer button {
+   height: 5rem;
+   width: 6rem;
+   font-size: 1.5rem;
+   font-weight: bold;
+   color: rgb(0, 121, 0);
+   background: rgb(255, 255, 255);
+   margin-left: 1rem;
+   border-radius: 2rem;
+   border: .2rem solid rgb(0, 77, 0);
+}
+.message {
+   max-width: 30rem;
+   font-size: 1.5rem;
+   padding: 1rem 1.5rem;
+   margin: 1rem;
+   border-radius: 1rem;
+}
+.user {
+   align-self: flex-end;
+   background: white;
+}
+.coworker {
+   align-self: flex-start;
+   color: rgb(0, 195, 0);
+   background: rgb(0, 77, 0);
+}
+
+.tabs {
+   text-align: center;
+}
+.tabs a {
+   width: 50%;
+   font-size: 1.8rem;
+   color: rgb(0, 195, 0);
+   background: rgb(0, 77, 0);
+   border-radius: 0 1rem 1rem 0;
+   padding: 1.5rem;
+}
+.tabs a:first-child {
+   border-radius: 1rem 0 0 1rem;
+}
+main .workOrdersMain .selected,
+.footer .selected {
+   color: rgb(0, 121, 0);
+   background: white;
+   border: 3px solid rgb(0, 77, 0);
+   box-shadow: inset 0.25rem 0.25rem 0.2rem rgb(150, 150, 150),
+      inset -0.25rem -0.25rem 0.2rem rgb(150, 150, 150);
+}
+#workOrdersNav {
+   border: none;
+}
+
+/******************************************
+/* FOOTER
+/*******************************************/
+.footer {
+   width: 100%;
+   position: fixed;
+   flex-direction: column;
+   bottom: 0;
+   margin-bottom: -1.5rem;
+   /* border-top: 1px solid black; */
+}
+.footer ul {
+   width: 100%;
+   align-items: center;
+   padding: 0;
+   margin: 0;
+}
+.footer li {
+   height: 75px;
+   display: inline;
+   font-size: 4rem;
+   background: rgb(0, 77, 0);
+   padding: 0 2rem 0 2rem;
+}
+.footer a {
+   color: rgb(0, 195, 0);
+   margin: 0 0 1.5rem;
+}
+
+/* .footer li:hover {
+  background: rgb(0, 0, 0);
+  color: white;
+} */
+
+/******************************************
+/* MAIN
+/*******************************************/
+
+/******************************************
+/* FOOTER
+/*******************************************/
