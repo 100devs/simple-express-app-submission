@@ -119,6 +119,36 @@ main .workOrdersMain {
    flex-direction: column;
    margin: 1rem;
 }
+.workOrdersMain .workOrders {
+   list-style: none;
+   font-size: 2rem;
+   padding: 0;
+   margin: 0;
+}
+.request .shop {
+   width: 14rem;
+   align-items: center;
+   text-align: center;
+}
+.request .shop span {
+   font-size: 2rem;
+}
+.workOrders .request {
+   justify-content: space-around;
+   margin: 1rem 0;
+   border-radius: 1rem;
+
+   border: 1px solid rgb(0, 77, 0);
+}
+.workOrders span {
+   font-size: 1.5rem;
+}
+.workOrders .rightSide {
+   flex-direction: column;
+}
+.workOrders .rightSide span {
+   width: 16.5rem;
+}
 
 .createWOMain {
    flex-direction: column;
@@ -140,6 +170,10 @@ main .workOrdersMain {
    width: 20rem;
    font-size: 2rem;
    border: none;
+}
+.createWOMain .machine select {
+   width: 15rem;
+   margin: 0 1rem;
 }
 .createWOMain option {
    width: 10rem;

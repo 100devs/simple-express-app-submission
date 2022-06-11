@@ -24,7 +24,7 @@
       />
    </head>
    <body>
-      <section class="top flex">
+    <section class="top flex">
          <img class="headshot" src="/images/headshot.png" alt="" />
          <section>
             <section class="employeeInfo flex">
@@ -39,11 +39,11 @@
             </section>
          </section>
          <section class="create flex">
-            <a class="createWOMain" id="create" href="#">Create Work Order</a>
+            <a class="createWOMain topNavButtons" id="create" href="#">Create Work Order</a>
          </section>
-      </section>
-      <section class="container flex">
-         <nav class="hidden">
+    </section>
+    <section class="container flex">
+        <nav class="hidden">
             <ul>
                <li>
                   <a class="pm" href="#">PM</a>
@@ -61,26 +61,35 @@
                   <a class="account" href="#">Account</a>
                </li>
             </ul>
-         </nav>
-         <main>
+        </nav>
+        <main>
             <section class="createWOMain flex">
                <h1>Create Work Order</h1>
                <form action="/workOrders" method="POST">
                   <h2>Select Module</h2>
-                  <select name="module" id="">
+                  <select name="module" id="module">
                      <option value="1">Mod 1</option>
                      <option value="2">Mod 2</option>
                      <option value="3">Mod 3</option>
                      <option value="4">Mod 4</option>
+                     <option value="5">Mod 5</option>
+                     <option value="6">Mod 6</option>
+                     <option value="7">Mod 7</option>
+                     <option value="8">Mod 8</option>
                   </select>
                   <h2>Select Machine</h2>
-                  <select name="machine" id="">
-                     <option value="1">Shell Press</option>
-                     <option value="2">Balancer</option>
-                     <option value="3">Liner</option>
-                     <option value="4">Conversion Press</option>
-                     <option value="5">Autobagger</option>
-                  </select>
+                  <div class="machine flex">
+                    <select name="machine" id="machine">
+                       <option value="1">Shell Press</option>
+                       <option value="2">Balancer</option>
+                       <option value="3">Liner</option>
+                       <option value="4">Conversion Press</option>
+                       <option value="5">Autobagger</option>
+                    </select>
+                    <select name="machNum" id="machNum">
+                        <option value="1">11</option>               
+                    </select>
+                  </div>
                   <h2>Select Help Needed</h2>
                   <select name="shop" id="">
                      <option class="option" value="1">Lead</option>
@@ -95,60 +104,62 @@
                </form>
             </section>
             <section class="workOrdersMain hidden flex">
-               <section class="tabs flex">
-                  <a class="selected">Open WOs</a>
-                  <a>Past WOs</a>
+                <section class="tabs flex">
+                    <a class="selected">Open WOs</a>
+                    <a>Past WOs</a>
                </section>
                <section id="pastDetails">
-                  <h1>Open Work Orders</h1>
+                    <h1>Open Work Orders</h1>
                </section>
-               <section id="detailNotes" class="hidden">
-                  <h1>Past Work Orders</h1>
-                  <ul class="workOrders">
-                   <% for(let i = 0; i < request.length; i++) {%>
-                   <li class="request">
-                      <span>Mod <%= request[i].module %></span>
-            
-                      <% switch(request[i].machine) { 
-                          case '1' : %>
-                         <span>Shell Press</span>
-                          <% break; 
-                          case '2': %>
-                          <span>Balancer</span>
-                          <% break;
-                          case '3': %>
-                          <span>Liner</span>
-                          <% break;
-                          case '4': %>
-                          <span>Conversion Press</span>
-                          <% break;
-                          case '5': %>
-                          <span>Autobagger</span>
-                          <% break;
-                      } %>
-            
-                      <% switch(request[i].shop) { 
-                          case '1' : %>
-                         <span>Lead</span>
-                          <% break; 
-                          case '2': %>
-                          <span>Electrician</span>
-                          <% break;
-                          case '3': %>
-                          <span>Machine Shop</span>
-                          <% break;
-                          case '4': %>
-                          <span>Millwright</span>
-                          <% break;
-                          case '5': %>
-                          <span>Warehouse</span>
-                          <% break;
-                      } %>
+                <section id="detailNotes" class="hidden">
+                    <h1>Past Work Orders</h1>
+                    <ul class="workOrders">
+                    <% for(let i = 0; i < request.length; i++) {%>
+                    <li class="request flex">
+                        <div class="shop flex">
+                            <% switch(request[i].shop) { 
+                              case '1' : %>
+                                <span>Lead</span>
+                              <% break; 
+                              case '2': %>
+                                <span>Electrician</span>
+                              <% break;
+                              case '3': %>
+                                <span>Machine Shop</span>
+                              <% break;
+                              case '4': %>
+                                <span>Millwright</span>
+                              <% break;
+                              case '5': %>
+                                <span>Warehouse</span>
+                              <% break;
+                            } %>
+                        </div>
+                        <div class="rightSide flex">
+                            <span>Mod <%= request[i].module %></span>
+                            <% switch(request[i].machine) { 
+                            case '1' : %>
+                                <span>Shell Press</span>
+                            <% break; 
+                            case '2': %>
+                                <span>Balancer</span>
+                            <% break;
+                            case '3': %>
+                                <span>Liner</span>
+                            <% break;
+                            case '4': %>
+                                <span>Conversion Press</span>
+                            <% break;
+                            case '5': %>
+                                <span>Autobagger</span>
+                            <% break;
+                            } %> 
                       <span><%= request[i].problemDetail %></span>
                    </li>
                    <% } %>
-                </ul>
-               </section>
+                   </div>
+                    </ul>
+                </section>
             </section>
             <section class="accountInfoMain hidden flex">
                <h1>User Profile</h1>
@@ -250,9 +261,9 @@
             <section class="coworkerInfoMain hidden flex">
                <h2>coworker info</h2>
             </section>
-         </main>
-      </section>
-      <footer class="footer">
+        </main>
+    </section>
+    <footer class="footer">
          <nav class="">
             <ul class="flex">
                <li id="workOrdersNav" class="workOrdersMain">
@@ -272,7 +283,7 @@
                   </li></a>
             </ul>
          </nav>
-      </footer>
-      <script type="text/javascript" src="js/main.js"></script>
+    </footer>
+    <script type="text/javascript" src="js/main.js"></script>
    </body>
 </html>
