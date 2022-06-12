@@ -43,27 +43,8 @@
          </section>
     </section>
     <section class="container flex">
-        <nav class="hidden">
-            <ul>
-               <li>
-                  <a class="pm" href="#">PM</a>
-               </li>
-               <li>
-                  <a class="storeRoom" href="#">Store room</a>
-               </li>
-               <li>
-                  <a class="workOrders" href="#">Work Orders</a>
-               </li>
-               <li>
-                  <a class="messaging" href="#">Messaging</a>
-               </li>
-               <li>
-                  <a class="account" href="#">Account</a>
-               </li>
-            </ul>
-        </nav>
         <main>
-            <section class="createWOMain flex">
+            <section class="createWOMain hidden flex">
                <h1>Create Work Order</h1>
                <form action="/workOrders" method="POST">
                   <h2>Select Module</h2>
@@ -103,7 +84,7 @@
                   <button id="woRequest">Submit</button>
                </form>
             </section>
-            <section class="workOrdersMain hidden flex">
+            <section class="workOrdersMain flex">
                 <section class="tabs flex">
                     <a class="selected">Open WOs</a>
                     <a>Past WOs</a>
@@ -136,22 +117,22 @@
                             } %>
                         </div>
                         <div class="rightSide flex">
-                            <span>Mod <%= request[i].module %></span>
-                            <% switch(request[i].machine) { 
+                            <span class="woNum">WO# <%= request[i].workOrderNum %></span>
+                            <% switch(request[i].mach) { 
                             case '1' : %>
-                                <span>Shell Press</span>
+                                <span>Shell Press <%= request[i].mod %><%= request[i].machNum %></span>
                             <% break; 
                             case '2': %>
-                                <span>Balancer</span>
+                                <span>Balancer <%= request[i].mod %><%= request[i].machNum %></span>
                             <% break;
                             case '3': %>
-                                <span>Liner</span>
+                                <span>Liner <%= request[i].mod %><%= request[i].machNum %></span>
                             <% break;
                             case '4': %>
-                                <span>Conversion Press</span>
+                                <span>Conversion Press <%= request[i].mod %><%= request[i].machNum %></span>
                             <% break;
                             case '5': %>
-                                <span>Autobagger</span>
+                                <span>Autobagger <%= request[i].mod %><%= request[i].machNum %></span>
                             <% break;
                             } %> 
                       <span><%= request[i].problemDetail %></span>
@@ -159,6 +140,52 @@
                    <% } %>
                    </div>
                     </ul>
+                </section>
+            </section>
+            <section class="woRequestMain hidden flex">
+                <a href="#" class="back"><i class="fa-solid fa-arrow-left"></i> Back</a>
+                <section class="buttons flex">
+                    <a href="#" class="respond">Respond</a>
+                    <a href="#" class="close">Close</a>
+                    <a href="#" class="delete">Delete</a>
+                </section>
+                <section class="info">
+                    <section class="container flex">
+                        <div>
+                            <h3>Work Order #</h3>
+                            <span id="woNum"></span>
+                        </div>
+                        <div>
+                            <h3>Status</h3>
+                            <span id="status"></span>
+                        </div>     
+                    </section>
+                    <section class="container flex">
+                        <div>
+                            <h3>Requested</h3>
+                            <span id="reqDept"></span>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <span id="location"></span>
+                        </div>         
+                    </section>
+                    <section class="container">
+                        <h3>Work Order Description</h3>
+                        <span id="problemDetail"></span>
+                    </section>
+                    <section class="container">
+                        <h3>Requested By</h3>
+                        <span id="reqBy"></span>
+                    </section>
+                    <section class="container">
+                        <h3>Responding Employee</h3>
+                        <span id="resEmp"></span>
+                    </section>
+                    <section class="container solDetail">
+                        <h3>Work Order Solution Detail</h3>
+                        <section id="solDetail"></section>
+                    </section>
                 </section>
             </section>
             <section class="accountInfoMain hidden flex">

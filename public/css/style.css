@@ -20,14 +20,16 @@
 /******************************************
 /* BASE STYLES
 /*******************************************/
+body, html {
+   height: 100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+}
 html {
    font: 62.5% "IBM Plex Serif", sans-serif;
    color: rgb(0, 121, 0);
    background: rgb(226, 226, 226);
-}
-
-* {
-   /* border: 1px solid black; */
 }
 
 .flex {
@@ -115,9 +117,13 @@ main {
    margin-top: 25rem;
 }
 
+/* WORK ORDER MAIN */
 main .workOrdersMain {
    flex-direction: column;
    margin: 1rem;
+}
+.workOrdersMain a {
+   cursor: pointer;
 }
 .workOrdersMain .workOrders {
    list-style: none;
@@ -135,10 +141,15 @@ main .workOrdersMain {
 }
 .workOrders .request {
    justify-content: space-around;
+   cursor: pointer;
    margin: 1rem 0;
    border-radius: 1rem;
 
    border: 1px solid rgb(0, 77, 0);
+}
+.workOrders .request:hover {
+   color: rgb(0, 195, 0);
+   background: rgb(0, 77, 0);
 }
 .workOrders span {
    font-size: 1.5rem;
@@ -150,6 +161,89 @@ main .workOrdersMain {
    width: 16.5rem;
 }
 
+/* WO REQUEST MAIN */
+.woRequestMain {
+   max-height: 50rem;
+   flex-direction: column;
+   align-items: center; 
+   padding: 20rem .5rem .5rem;
+   margin: 2rem .5rem 1rem;
+   overflow-y: auto;
+}
+.woRequestMain span {
+   font-size: 1.6rem;
+}
+.woRequestMain h3 {
+   font-size: 2.2rem;
+   font-weight: bold;
+   margin: 0;
+}
+.woRequestMain .info {
+   width: 100%;
+   color: rgb(255, 255, 255);
+   background: rgb(0, 0, 0);
+   border: 1rem solid rgb(255, 0, 0);
+   border-radius: 1rem;
+   /* margin-top: 2rem; */
+}
+#status {
+   font-weight: bold;
+   text-transform: uppercase;
+   color: red;
+}
+.info .container {
+   min-height: 6rem;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: .5rem 1rem;
+   margin: 1rem;
+   border-radius: 1rem;
+   box-shadow: inset 0.25rem 0.25rem 0.2rem rgb(190, 190, 190),
+      inset -0.25rem -0.25rem 0.2rem rgb(190, 190, 190);
+}
+.back {
+   align-self: flex-start;
+   font-size: 2rem;
+   text-decoration: none;
+   color: rgb(0, 121, 0);
+}
+.buttons {
+   width: 100%;
+   justify-content: space-between;
+   margin: 2rem 0;
+}
+.buttons a {
+   width: 11rem;
+   height: 5rem;
+   font-size: 2rem;
+   text-decoration: none;
+   text-align: center;
+   color: black;
+   border-radius: 3rem;
+   padding: 1rem;
+}
+.buttons .respond {
+   background: rgb(255, 179, 0);
+}
+.buttons .close {
+   background: rgb(0, 195, 0);
+}
+.buttons .delete {
+   color: white;
+   background: black;
+}
+/* .buttons a:hover {
+   color: black;
+   background: transparent;
+   border: .2rem solid black;
+} */
+#solDetail {
+   height: 13rem;
+   font-size: 1.6rem;
+   overflow-y: scroll;
+}
+
+/* CREATE WO MAIN */
 .createWOMain {
    flex-direction: column;
    align-items: center;

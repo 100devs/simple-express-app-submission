@@ -1,3 +1,4 @@
+const { response } = require('express');
 const express = require('express');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
@@ -37,10 +38,59 @@ app.get('/', (req, res) => {
         .catch(error => console.error(error));
 });
 
+app.get('/getWoInfo/:num', (req, res) => {
+    workOrderDb.collection('request').find().toArray()
+        .then(data => {
+            let woNumsArr = data.map(workOrder => workOrder.workOrderNum);
+            woNumsArr.forEach((num, i) => {
+                if (num === req.params.num) {
+                    res.json(data[i]);
+                }
+            })
+        })
+        .catch(error => console.error(error));
+});
+
+app.put('/closeWorkOrder/:num', (req, res) => {
+    workOrderDb.collection('request').updateOne({ workOrderNum: req.params.num }, {
+        $set: {
+            status: 'closed',
+            resEmp: req.body.resEmp
+        }
+    }, {
+        sort: { _id: -1 },
+        upsert: true
+    })
+        .then(data => {
+            res.json('success');
+        })
+        .catch(error => console.log(error));
+
+});
+
 app.post('/workOrders', (req, res) => {
-    workOrderDb.collection('request').insertOne(req.body)
-        .then(result => {
-            res.redirect('/');
+    let workOrderNum;
+    workOrderDb.collection('request').find().toArray()
+        .then(results => {
+            let usedNums = results.map(workOrder => workOrder.workOrderNum)
+            workOrderNum = setWONum(usedNums);
+        })
+        .then(data => {
+            workOrderDb.collection('request').insertOne({
+                workOrderNum: workOrderNum,
+                status: 'open',
+                mod: req.body.module,
+                mach: req.body.machine,
+                machNum: req.body.machNum,
+                shop: req.body.shop,
+                problemDetail: req.body.problemDetail,
+                resEmp: 'unknown',
+                // resEmpTitle: '',
+                solutionDetail: '',
+            })
+                .then(result => {
+                    res.redirect('/');
+                })
         })
         .catch(error => console.error(error));
 });
@@ -48,4 +98,13 @@ app.post('/workOrders', (req, res) => {
 app.listen(PORT, (req, res) => {
     console.log(`Running server on port ${PORT}`);
 });
+
+function setWONum(usedNums) {
+    let num = 0;
+    while (usedNums.includes(num) || num === 0) {
+        num = Math.ceil(Math.random() * 999);
+        num = ("0000" + num).slice(-6);
+    }
+    return num;
+}
 

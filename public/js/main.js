@@ -5,9 +5,13 @@ let topNavButtons = document.querySelectorAll('.small a');
 topNavButtons.forEach(button => button.addEventListener('click', selectMain));
 let navButtons = document.querySelectorAll('.footer li');
 navButtons.forEach(button => button.addEventListener('click', selectMain));
+let workOrders = document.querySelectorAll('.workOrders li');
+workOrders.forEach(button => button.addEventListener('click', showWORequestMain));
 
 document.querySelector('#machine').addEventListener('change', setMachNums);
 document.querySelector('#module').addEventListener('change', setMachNums);
+document.querySelector('.back').addEventListener('click', hideWORequestMain)
+document.querySelector('.close').addEventListener('click', closeWorkOrder);
 
 function setMachNums() {
     let module = Number(document.querySelector('#module').value);
@@ -72,6 +76,7 @@ function selectMain() {
 }
 function hideMain(buttons, clickedButton, className) {
     document.querySelector('main .createWOMain').classList.add('hidden');
+    document.querySelector('.woRequestMain').classList.add('hidden');
     document.querySelector(`main .${className}`).classList.remove('hidden');
     navButtons.forEach(button => button.classList.remove('selected'));
     buttons.forEach(button => {
@@ -81,10 +86,57 @@ function hideMain(buttons, clickedButton, className) {
         }
     });
 }
+async function showWORequestMain(num) {
+    let woNum;
+    if (isNaN(num)) {
+        woNum = (this.querySelector('.woNum').innerText).slice(4);
+    } else {
+        woNum = num;
+    }
+    try {
+        const response = await fetch(`getWoInfo/${woNum}`, {
+            method: 'get',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        const data = await response.json();
+        // console.log(data);
+
+        let respondingEmployee,
+            solDetail;
+        let dept = getDepartmentName(data.shop);
+        let machine = getMachineName(data.mach);
+        (data.resEmp === 'unknown') ?
+            respondingEmployee = 'No one responding yet' :
+            respondingEmployee = data.resEmp;
+
+        (data.solutionDetail === '') ?
+            solDetail = 'Work Order Still Open' :
+            solDetail = data.solutionDetail
+
+        document.querySelector('#woNum').innerText = data.workOrderNum;
+        document.querySelector('#status').innerText = data.status;
+        document.querySelector('#reqDept').innerText = dept;
+        document.querySelector('#location').innerText = `${machine} ${data.mod}${data.machNum}`;
+        document.querySelector('#problemDetail').innerText = data.problemDetail;
+        document.querySelector('#reqBy').innerText = 'Danielle Rader';
+        document.querySelector('#resEmp').innerText = respondingEmployee;
+        document.querySelector('#solDetail').innerText = solDetail;
+    } catch (err) {
+        console.log(err)
+    }
+    document.querySelector('.workOrdersMain').classList.add('hidden');
+    document.querySelector('.woRequestMain').classList.remove('hidden');
+}
+
+function hideWORequestMain() {
+    document.querySelector('.workOrdersMain').classList.remove('hidden');
+    document.querySelector('.woRequestMain').classList.add('hidden');
+}
+
 function addOption(max) {
     let select = document.querySelector('#machNum');
     let optionElements = document.querySelectorAll('#machNum option')
-    let value = 2;
+    let value = 1;
     let machNum = 11;
     optionElements.forEach(option => select.removeChild(option));
     while (max > 0) {
@@ -95,5 +147,68 @@ function addOption(max) {
         value++;
         machNum++;
         max--;
+    }
+}
+
+function getDepartmentName(num) {
+    switch (Number(num)) {
+        case 1:
+            return 'Lead';
+            break;
+        case 2:
+            return 'Electrician';
+            break;
+        case 3:
+            return 'Machinist';
+            break;
+        case 4:
+            return 'Millwright';
+            break;
+        case 5:
+            return 'Fork Lift';
+            break;
+    }
+}
+
+function getMachineName(num) {
+    switch (Number(num)) {
+        case 1:
+            return 'SP';
+            break;
+        case 2:
+            return 'BAL';
+            break;
+        case 3:
+            return 'LNR';
+            break;
+        case 4:
+            return 'CP';
+            break;
+        case 5:
+            return 'AB';
+            break;
+    }
+
+}
+
+async function closeWorkOrder() {
+    let woNum = document.querySelector('#woNum').innerText;
+    let resEmp = document.querySelector('#name').innerText;
+    let title = document.querySelector('#title').innerText;
+    try {
+        const response = await fetch(`closeWorkOrder/${woNum}`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                'resEmp': resEmp,
+                'resEmpTitle': title
+            })
+        })
+        const data = await response.json();
+        console.log(data);
+
+    showWORequestMain(woNum);
+    } catch {
+        console.log(err)
     }
 }
