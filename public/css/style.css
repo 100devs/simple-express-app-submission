@@ -131,31 +131,36 @@ main .workOrdersMain {
    padding: 0;
    margin: 0;
 }
-.request .shop {
+.request .dept {
    width: 14rem;
    align-items: center;
    text-align: center;
 }
-.request .shop span {
+.request .dept span {
    font-size: 2rem;
 }
 .workOrders .request {
+   min-height: 6.5rem;
    justify-content: space-around;
+   color: black;
    cursor: pointer;
+   padding: .5rem 0;
    margin: 1rem 0;
    border-radius: 1rem;
 
-   border: 1px solid rgb(0, 77, 0);
+   /* background: rgb(250, 150, 22) !important; */
 }
 .workOrders .request:hover {
    color: rgb(0, 195, 0);
-   background: rgb(0, 77, 0);
+   background: transparent !important;
+   border: 1px solid rgb(0, 77, 0);
 }
 .workOrders span {
    font-size: 1.5rem;
 }
 .workOrders .rightSide {
    flex-direction: column;
+
 }
 .workOrders .rightSide span {
    width: 16.5rem;
@@ -223,10 +228,10 @@ main .workOrdersMain {
    padding: 1rem;
 }
 .buttons .respond {
-   background: rgb(255, 179, 0);
+   background: rgb(250, 150, 0);
 }
 .buttons .close {
-   background: rgb(0, 195, 0);
+   background: rgb(0, 255, 0);
 }
 .buttons .delete {
    color: white;

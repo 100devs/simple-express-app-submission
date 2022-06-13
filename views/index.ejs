@@ -46,9 +46,9 @@
         <main>
             <section class="createWOMain hidden flex">
                <h1>Create Work Order</h1>
-               <form action="/workOrders" method="POST">
+               <form action="" method="">
                   <h2>Select Module</h2>
-                  <select name="module" id="module">
+                  <select name="module" id="mod">
                      <option value="1">Mod 1</option>
                      <option value="2">Mod 2</option>
                      <option value="3">Mod 3</option>
@@ -60,7 +60,7 @@
                   </select>
                   <h2>Select Machine</h2>
                   <div class="machine flex">
-                    <select name="machine" id="machine">
+                    <select name="machine" id="mach">
                        <option value="1">Shell Press</option>
                        <option value="2">Balancer</option>
                        <option value="3">Liner</option>
@@ -72,7 +72,7 @@
                     </select>
                   </div>
                   <h2>Select Help Needed</h2>
-                  <select name="shop" id="">
+                  <select name="shop" id="reqDept">
                      <option class="option" value="1">Lead</option>
                      <option value="2">Electrical</option>
                      <option value="3">Machine Shop</option>
@@ -80,65 +80,20 @@
                      <option value="5">Warehouse</option>
                   </select>
                   <h2>Problem Description</h2>
-                  <textarea name="problemDetail" id="" cols="15" rows="10"></textarea>
+                  <textarea name="probDetail" id="probDetail" cols="15" rows="10"></textarea>
                   <button id="woRequest">Submit</button>
                </form>
             </section>
-            <section class="workOrdersMain flex">
+            <section class="workOrdersMain hidden flex">
                 <section class="tabs flex">
                     <a class="selected">Open WOs</a>
-                    <a>Past WOs</a>
+                    <a>Closed WOs</a>
                </section>
-               <section id="pastDetails">
-                    <h1>Open Work Orders</h1>
+               <section id="openedWorkOrders">
+                    <ul class="workOrders"></ul>
                </section>
-                <section id="detailNotes" class="hidden">
-                    <h1>Past Work Orders</h1>
+                <section id="closedWorkOrders" class="hidden">
                     <ul class="workOrders">
-                    <% for(let i = 0; i < request.length; i++) {%>
-                    <li class="request flex">
-                        <div class="shop flex">
-                            <% switch(request[i].shop) { 
-                              case '1' : %>
-                                <span>Lead</span>
-                              <% break; 
-                              case '2': %>
-                                <span>Electrician</span>
-                              <% break;
-                              case '3': %>
-                                <span>Machine Shop</span>
-                              <% break;
-                              case '4': %>
-                                <span>Millwright</span>
-                              <% break;
-                              case '5': %>
-                                <span>Warehouse</span>
-                              <% break;
-                            } %>
-                        </div>
-                        <div class="rightSide flex">
-                            <span class="woNum">WO# <%= request[i].workOrderNum %></span>
-                            <% switch(request[i].mach) { 
-                            case '1' : %>
-                                <span>Shell Press <%= request[i].mod %><%= request[i].machNum %></span>
-                            <% break; 
-                            case '2': %>
-                                <span>Balancer <%= request[i].mod %><%= request[i].machNum %></span>
-                            <% break;
-                            case '3': %>
-                                <span>Liner <%= request[i].mod %><%= request[i].machNum %></span>
-                            <% break;
-                            case '4': %>
-                                <span>Conversion Press <%= request[i].mod %><%= request[i].machNum %></span>
-                            <% break;
-                            case '5': %>
-                                <span>Autobagger <%= request[i].mod %><%= request[i].machNum %></span>
-                            <% break;
-                            } %> 
-                      <span><%= request[i].problemDetail %></span>
-                   </li>
-                   <% } %>
-                   </div>
                     </ul>
                 </section>
             </section>
@@ -163,7 +118,7 @@
                     <section class="container flex">
                         <div>
                             <h3>Requested</h3>
-                            <span id="reqDept"></span>
+                            <span id="reqShop"></span>
                         </div>
                         <div>
                             <h3>Location</h3>
@@ -232,7 +187,7 @@
                   <input type="text" value="43516" disabled>
                </section>
             </section>
-            <section class="moduleInfoMain hidden flex">
+            <section class="moduleInfoMain flex">
                <h2>module info</h2>
                <section class="shellPress">SP</section>
                <section class="balancer">Balancer</section>

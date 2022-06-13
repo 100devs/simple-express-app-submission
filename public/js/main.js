@@ -5,17 +5,20 @@ let topNavButtons = document.querySelectorAll('.small a');
 topNavButtons.forEach(button => button.addEventListener('click', selectMain));
 let navButtons = document.querySelectorAll('.footer li');
 navButtons.forEach(button => button.addEventListener('click', selectMain));
-let workOrders = document.querySelectorAll('.workOrders li');
-workOrders.forEach(button => button.addEventListener('click', showWORequestMain));
 
-document.querySelector('#machine').addEventListener('change', setMachNums);
-document.querySelector('#module').addEventListener('change', setMachNums);
+
+document.querySelector('#mach').addEventListener('change', setMachNums);
+document.querySelector('#mod').addEventListener('change', setMachNums);
 document.querySelector('.back').addEventListener('click', hideWORequestMain)
+document.querySelector('.respond').addEventListener('click', respondToWorkOrder);
 document.querySelector('.close').addEventListener('click', closeWorkOrder);
+document.querySelector('.delete').addEventListener('click', deleteWorkOder);
+document.querySelector('#woRequest').addEventListener('click', postWorkOder);
 
+// NON SERVER FUNCTIONALITY
 function setMachNums() {
-    let module = Number(document.querySelector('#module').value);
-    let machine = Number(document.querySelector('#machine').value);
+    let module = Number(document.querySelector('#mod').value);
+    let machine = Number(document.querySelector('#mach').value);
     let sp = 1,
         bal = 2,
         liners = 6,
@@ -53,17 +56,18 @@ function setMachNums() {
             break;
     }
 }
-
 function selectTab() {
     this.classList.add('selected');
     if (this === tabs[0]) {
         tabs[1].classList.remove('selected');
-        document.querySelector('#pastDetails').classList.remove('hidden');
-        document.querySelector('#detailNotes').classList.add('hidden');
+        document.querySelector('#openedWorkOrders').classList.remove('hidden');
+        document.querySelector('#closedWorkOrders').classList.add('hidden');
+        getWorkOrders('open');
     } else {
         tabs[0].classList.remove('selected');
-        document.querySelector('#pastDetails').classList.add('hidden');
-        document.querySelector('#detailNotes').classList.remove('hidden');
+        document.querySelector('#openedWorkOrders').classList.add('hidden');
+        document.querySelector('#closedWorkOrders').classList.remove('hidden');
+        getWorkOrders('closed');
     }
 }
 function selectMain() {
@@ -73,11 +77,13 @@ function selectMain() {
     if (!this.classList.contains('topNavButtons')) {
         document.querySelector(`footer .${className}`).classList.add('selected');
     }
+    if (className === 'workOrdersMain') getWorkOrders('open');
 }
 function hideMain(buttons, clickedButton, className) {
     document.querySelector('main .createWOMain').classList.add('hidden');
     document.querySelector('.woRequestMain').classList.add('hidden');
     document.querySelector(`main .${className}`).classList.remove('hidden');
+
     navButtons.forEach(button => button.classList.remove('selected'));
     buttons.forEach(button => {
         if (button !== clickedButton) {
@@ -86,53 +92,47 @@ function hideMain(buttons, clickedButton, className) {
         }
     });
 }
-async function showWORequestMain(num) {
-    let woNum;
-    if (isNaN(num)) {
-        woNum = (this.querySelector('.woNum').innerText).slice(4);
+function showWoInfo(data) {
+    let respondingEmployee,
+        solDetail;
+    let dept = getDepartmentName(data.reqDept);
+    let machine = getMachineName(data.mach);
+    (data.resEmp === 'unknown') ?
+        respondingEmployee = 'No one responding yet' :
+        respondingEmployee = data.resEmp;
+
+    (data.solutionDetail === '') ?
+        solDetail = 'Work Order Still Open' :
+        solDetail = data.solutionDetail
+
+    document.querySelector('#woNum').innerText = data.workOrderNum;
+    document.querySelector('#status').innerText = data.status;
+    document.querySelector('#reqShop').innerText = dept;
+    document.querySelector('#location').innerText = `${machine} ${data.mod}${data.machNum}`;
+    document.querySelector('#problemDetail').innerText = data.probDetail;
+    document.querySelector('#reqBy').innerText = `${data.reqEmp} - ${data.reqEmpTitle}`;
+    document.querySelector('#resEmp').innerText = `${data.resEmp} - ${data.resEmpTitle}`;
+    document.querySelector('#solDetail').innerText = solDetail;
+
+    if (data.status === 'closed') {
+        document.querySelector('.info').style.borderColor = 'rgb(0, 255, 0)';
+        document.querySelector('#status').style.color = 'rgb(0, 255, 0)';
+    } else if (data.respondedTo === true) {
+        document.querySelector('.info').style.borderColor = 'rgb(250, 150, 22)';
+        document.querySelector('#status').style.color = 'rgb(250, 150, 22)';
     } else {
-        woNum = num;
+        document.querySelector('.info').style.borderColor = 'rgb(200, 15, 15)';
+        document.querySelector('#status').style.color = 'rgb(200, 15, 15)';
     }
-    try {
-        const response = await fetch(`getWoInfo/${woNum}`, {
-            method: 'get',
-            headers: { 'Content-Type': 'application/json' },
-        })
-        const data = await response.json();
-        // console.log(data);
 
-        let respondingEmployee,
-            solDetail;
-        let dept = getDepartmentName(data.shop);
-        let machine = getMachineName(data.mach);
-        (data.resEmp === 'unknown') ?
-            respondingEmployee = 'No one responding yet' :
-            respondingEmployee = data.resEmp;
-
-        (data.solutionDetail === '') ?
-            solDetail = 'Work Order Still Open' :
-            solDetail = data.solutionDetail
-
-        document.querySelector('#woNum').innerText = data.workOrderNum;
-        document.querySelector('#status').innerText = data.status;
-        document.querySelector('#reqDept').innerText = dept;
-        document.querySelector('#location').innerText = `${machine} ${data.mod}${data.machNum}`;
-        document.querySelector('#problemDetail').innerText = data.problemDetail;
-        document.querySelector('#reqBy').innerText = 'Danielle Rader';
-        document.querySelector('#resEmp').innerText = respondingEmployee;
-        document.querySelector('#solDetail').innerText = solDetail;
-    } catch (err) {
-        console.log(err)
-    }
     document.querySelector('.workOrdersMain').classList.add('hidden');
     document.querySelector('.woRequestMain').classList.remove('hidden');
 }
-
 function hideWORequestMain() {
     document.querySelector('.workOrdersMain').classList.remove('hidden');
     document.querySelector('.woRequestMain').classList.add('hidden');
+    getWorkOrders('open');
 }
-
 function addOption(max) {
     let select = document.querySelector('#machNum');
     let optionElements = document.querySelectorAll('#machNum option')
@@ -149,27 +149,6 @@ function addOption(max) {
         max--;
     }
 }
-
-function getDepartmentName(num) {
-    switch (Number(num)) {
-        case 1:
-            return 'Lead';
-            break;
-        case 2:
-            return 'Electrician';
-            break;
-        case 3:
-            return 'Machinist';
-            break;
-        case 4:
-            return 'Millwright';
-            break;
-        case 5:
-            return 'Fork Lift';
-            break;
-    }
-}
-
 function getMachineName(num) {
     switch (Number(num)) {
         case 1:
@@ -188,9 +167,165 @@ function getMachineName(num) {
             return 'AB';
             break;
     }
+}
+function getDepartmentName(num) {
+    switch (Number(num)) {
+        case 1:
+            return 'Dept Lead';
+            break;
+        case 2:
+            return 'Electrician';
+            break;
+        case 3:
+            return 'Machinist';
+            break;
+        case 4:
+            return 'Millwright';
+            break;
+        case 5:
+            return 'Warehouse';
+            break;
+    }
+}
+function addWOLiToList(workOrder, list) {
+    let li = document.createElement('li');
+    li.classList.add('request', 'flex');
+    let leftDiv = document.createElement('div');
+    leftDiv.classList.add('dept', 'flex');
+    let rightDiv = document.createElement('div');
+    rightDiv.classList.add('rightSide', 'flex');
 
+    let deptSpan = document.createElement('span'),
+        woNumSpan = document.createElement('span'),
+        locSpan = document.createElement('span'),
+        probSpan = document.createElement('span');
+
+    deptSpan.innerHTML = getDepartmentName(workOrder.reqDept);
+    woNumSpan.classList.add('woNum');
+    woNumSpan.innerHTML = `WO# ${workOrder.workOrderNum}`;
+    locSpan.innerHTML = `${getMachineName(workOrder.mach)} ${workOrder.mod}${workOrder.machNum}`;
+    probSpan.innerHTML = workOrder.probDetail;
+
+    if (workOrder.status === 'closed') {
+        li.style.backgroundColor = 'rgb(0, 255, 0)';
+    } else if (workOrder.respondedTo === true) {
+        li.style.backgroundColor = 'rgb(250, 150, 22)';
+    } else {
+        li.style.backgroundColor = 'rgb(200, 15, 15)'
+    }
+
+    leftDiv.appendChild(deptSpan);
+    rightDiv.appendChild(woNumSpan);
+    rightDiv.appendChild(locSpan);
+    rightDiv.appendChild(probSpan);
+    li.appendChild(leftDiv);
+    li.appendChild(rightDiv)
+    list.appendChild(li);
+
+    li.addEventListener('click', getWorkOrderInfo);
 }
 
+// SERVER REQUESTS
+async function postWorkOder() {
+    try {
+        let reqEmp = document.querySelector('#name').innerText,
+            reqEmpTitle = document.querySelector('#title').innerText,
+            mod = document.querySelector('#mod').value,
+            mach = document.querySelector('#mach').value,
+            machNum = document.querySelector('#machNum').value,
+            reqDept = document.querySelector('#reqDept').value,
+            probDetail = document.querySelector('#probDetail').value;
+        let currDate = new Date();
+        let reqDate = `${currDate.getMonth() + 1}/${currDate.getDate()}/${currDate.getFullYear()}`;
+        let reqTime = `${currDate.getHours()}:${currDate.getMinutes()}`;
+
+        const response = await fetch(`workOrders`, {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                'reqEmp': reqEmp,
+                'reqEmpTitle': reqEmpTitle,
+                'reqDate': reqDate,
+                'reqTime': reqTime,
+                'mod': mod,
+                'mach': mach,
+                'machNum': machNum,
+                'reqDept': reqDept,
+                'probDetail': probDetail
+            })
+        })
+
+        const data = await response.json();
+        console.log(data);
+        location.reload();
+
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function getWorkOrderInfo(num) {
+    let woNum;
+    if (isNaN(num)) {
+        woNum = (this.querySelector('.woNum').innerText).slice(4);
+    } else {
+        woNum = num;
+    }
+    try {
+        const response = await fetch(`getWoInfo/${woNum}`, {
+            method: 'get',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        const data = await response.json();
+        showWoInfo(data);
+    } catch (err) {
+        console.log(err)
+    }
+
+}
+async function getWorkOrders(status) {
+    let list;
+    let openWoUl = document.querySelector('#openedWorkOrders .workOrders');
+    let closedWoUl = document.querySelector('#closedWorkOrders .workOrders');
+    (status === 'open') ?
+        list = openWoUl :
+        list = closedWoUl;
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
+    try {
+        const response = await fetch(`workOrders/${status}`, {
+            method: 'get',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        const data = await response.json();
+        data.forEach(workOrder => {
+            addWOLiToList(workOrder, list);
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function respondToWorkOrder() {
+    let woNum = document.querySelector('#woNum').innerText;
+    let resEmp = document.querySelector('#name').innerText;
+    let title = document.querySelector('#title').innerText;
+    try {
+        const response = await fetch(`respondToWorkOder/${woNum}`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                'resEmp': resEmp,
+                'resEmpTitle': title,
+            })
+        })
+        const data = await response.json();
+        console.log(data);
+
+        getWorkOrderInfo(woNum);
+    } catch (err) {
+        console.log(err)
+    }
+}
 async function closeWorkOrder() {
     let woNum = document.querySelector('#woNum').innerText;
     let resEmp = document.querySelector('#name').innerText;
@@ -205,10 +340,22 @@ async function closeWorkOrder() {
             })
         })
         const data = await response.json();
-        console.log(data);
+        getWorkOrderInfo(woNum);
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function deleteWorkOder() {
+    let woNum = document.querySelector('#woNum').innerText;
+    try {
+        const response = await fetch(`deleteWorkOrder/${woNum}`, {
+            method: 'delete',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        const data = await response.json();
 
-    showWORequestMain(woNum);
-    } catch {
+        document.querySelector('.back').click();
+    } catch (err) {
         console.log(err)
     }
 }

@@ -1,4 +1,3 @@
-const { response } = require('express');
 const express = require('express');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
@@ -10,10 +9,7 @@ let workOrderDb,
     modMachInfoDB,
     dbConnectionStr = 'mongodb+srv://drader2:KodaDash1@cluster0.ugc78.mongodb.net/?retryWrites=true&w=majority';
 
-MongoClient.connect(dbConnectionStr, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
         console.log('Connected To Database');
         workOrderDb = client.db('workOrders');
@@ -51,6 +47,30 @@ app.get('/getWoInfo/:num', (req, res) => {
         .catch(error => console.error(error));
 });
 
+app.get('/workOrders/:status', (req, res) => {
+    workOrderDb.collection('request').find({ status: req.params.status }).toArray()
+    .then(data => {
+        res.json(data);
+    })
+});
+
+app.put('/respondToWorkOder/:num', (req, res) => {
+        workOrderDb.collection('request').updateOne({ workOrderNum: req.params.num }, {
+        $set: {
+            respondedTo: true,
+            resEmp: req.body.resEmp,
+            resEmpTitle: req.body.resEmpTitle
+        }
+    }, {
+        sort: { _id: -1 },
+        upsert: true
+    })
+        .then(data => {
+            res.json('');
+        })
+        .catch(error => console.log(error));
+});
+
 app.put('/closeWorkOrder/:num', (req, res) => {
     workOrderDb.collection('request').updateOne({ workOrderNum: req.params.num }, {
         $set: {
@@ -62,14 +82,14 @@ app.put('/closeWorkOrder/:num', (req, res) => {
         upsert: true
     })
         .then(data => {
-            res.json('success');
+            res.json('');
         })
         .catch(error => console.log(error));
-
 });
 
 app.post('/workOrders', (req, res) => {
     let workOrderNum;
+
     workOrderDb.collection('request').find().toArray()
         .then(results => {
             let usedNums = results.map(workOrder => workOrder.workOrderNum)
@@ -79,20 +99,33 @@ app.post('/workOrders', (req, res) => {
             workOrderDb.collection('request').insertOne({
                 workOrderNum: workOrderNum,
                 status: 'open',
-                mod: req.body.module,
-                mach: req.body.machine,
+                respondedTo: false,
+                reqEmp: req.body.reqEmp,
+                reqEmpTitle: req.body.reqEmpTitle,
+                reqDate: req.body.reqDate,
+                reqTime: req.body.reqTime,
+                mod: req.body.mod,
+                mach: req.body.mach,
                 machNum: req.body.machNum,
-                shop: req.body.shop,
-                problemDetail: req.body.problemDetail,
-                resEmp: 'unknown',
-                // resEmpTitle: '',
-                solutionDetail: '',
+                reqDept: req.body.reqDept,
+                probDetail: req.body.probDetail,
+                resEmp: '',
+                resEmpTitle: '',
+                solutionDetail: ''
             })
                 .then(result => {
-                    res.redirect('/');
+                    res.json(workOrderNum);
                 })
         })
         .catch(error => console.error(error));
+});
+
+app.delete('/deleteWorkOrder/:num', (req, res) => {
+    workOrderDb.collection('request').deleteOne({ workOrderNum: req.params.num })
+    .then(result => {
+        res.json('');
+    })
+    .catch(error => console.error(error));
 });
 
 app.listen(PORT, (req, res) => {
