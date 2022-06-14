@@ -25,6 +25,7 @@ body, html {
    width: 100%;
    margin: 0;
    padding: 0;
+   overflow-y: hidden;
 }
 html {
    font: 62.5% "IBM Plex Serif", sans-serif;
