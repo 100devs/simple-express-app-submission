@@ -77,8 +77,9 @@ html {
 .headshot {
    height: 15rem;
    width: auto;
+   border: 3px solid rgb(0, 77, 0);
+   border-radius: 50%;
    margin: 2rem 0 0 2rem;
-   margin: 0 auto;
 }
 
 .employeeInfo {
@@ -160,7 +161,9 @@ main .workOrdersMain {
 }
 .workOrders .rightSide {
    flex-direction: column;
-
+}
+.workOrders .woNum {
+   font-weight: bold;
 }
 .workOrders .rightSide span {
    width: 16.5rem;
@@ -246,6 +249,10 @@ main .workOrdersMain {
    height: 13rem;
    font-size: 1.6rem;
    overflow-y: scroll;
+}
+#solDetail textarea {
+   height: 12rem;
+   width: 100%;
 }
 
 /* CREATE WO MAIN */

@@ -93,17 +93,9 @@ function hideMain(buttons, clickedButton, className) {
     });
 }
 function showWoInfo(data) {
-    let respondingEmployee,
-        solDetail;
     let dept = getDepartmentName(data.reqDept);
     let machine = getMachineName(data.mach);
-    (data.resEmp === 'unknown') ?
-        respondingEmployee = 'No one responding yet' :
-        respondingEmployee = data.resEmp;
 
-    (data.solutionDetail === '') ?
-        solDetail = 'Work Order Still Open' :
-        solDetail = data.solutionDetail
 
     document.querySelector('#woNum').innerText = data.workOrderNum;
     document.querySelector('#status').innerText = data.status;
@@ -112,7 +104,15 @@ function showWoInfo(data) {
     document.querySelector('#problemDetail').innerText = data.probDetail;
     document.querySelector('#reqBy').innerText = `${data.reqEmp} - ${data.reqEmpTitle}`;
     document.querySelector('#resEmp').innerText = `${data.resEmp} - ${data.resEmpTitle}`;
-    document.querySelector('#solDetail').innerText = solDetail;
+
+    if (data.status === 'open' && !document.querySelector('#solDetail').firstChild) {
+        let textArea = document.createElement('textarea');
+        textArea.classList.add('solDetailText')
+        document.querySelector('#solDetail').appendChild(textArea);
+    } else if (data.status === 'closed') {
+        document.querySelector('#solDetail').innerText = data.solutionDetail;
+    }
+
 
     if (data.status === 'closed') {
         document.querySelector('.info').style.borderColor = 'rgb(0, 255, 0)';
@@ -275,7 +275,8 @@ async function getWorkOrderInfo(num) {
             method: 'get',
             headers: { 'Content-Type': 'application/json' },
         })
-        const data = await response.json();
+        const data = await response.json()
+
         showWoInfo(data);
     } catch (err) {
         console.log(err)
@@ -330,20 +331,27 @@ async function closeWorkOrder() {
     let woNum = document.querySelector('#woNum').innerText;
     let resEmp = document.querySelector('#name').innerText;
     let title = document.querySelector('#title').innerText;
-    try {
-        const response = await fetch(`closeWorkOrder/${woNum}`, {
-            method: 'put',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                'resEmp': resEmp,
-                'resEmpTitle': title
+    let solDetail = document.querySelector('#solDetail textarea').value;
+    if (solDetail !== '') {
+        try {
+            const response = await fetch(`closeWorkOrder/${woNum}`, {
+                method: 'put',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    'resEmp': resEmp,
+                    'resEmpTitle': title,
+                    'solDetail': solDetail
+                })
             })
-        })
-        const data = await response.json();
-        getWorkOrderInfo(woNum);
-    } catch (err) {
-        console.log(err)
+            const data = await response.json();
+            getWorkOrderInfo(woNum);
+        } catch (err) {
+            console.log(err)
+        }
+    } else {
+        alert('Please enter the work was done to fix the problem of the work order.');
     }
+
 }
 async function deleteWorkOder() {
     let woNum = document.querySelector('#woNum').innerText;

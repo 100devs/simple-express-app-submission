@@ -75,7 +75,8 @@ app.put('/closeWorkOrder/:num', (req, res) => {
     workOrderDb.collection('request').updateOne({ workOrderNum: req.params.num }, {
         $set: {
             status: 'closed',
-            resEmp: req.body.resEmp
+            resEmp: req.body.resEmp,
+            solutionDetail: req.body.solDetail
         }
     }, {
         sort: { _id: -1 },
