@@ -175,7 +175,7 @@ main .workOrdersMain {
    max-height: 115rem;
    flex-direction: column;
    align-items: center; 
-   padding: 34rem .5rem 85rem;
+   padding: 31rem .5rem 85rem;
    margin: 2rem .5rem 5rem;
    overflow-y: auto;
 }
@@ -201,7 +201,7 @@ main .workOrdersMain {
    color: red;
 }
 .info .container {
-   min-height: 6rem;
+   min-height: 5rem;
    flex-direction: row;
    justify-content: space-between;
    padding: .5rem 1rem;
