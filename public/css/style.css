@@ -180,10 +180,10 @@ main .workOrdersMain {
    overflow-y: auto;
 }
 .woRequestMain span {
-   font-size: 1.6rem;
+   font-size: 1.4rem;
 }
 .woRequestMain h3 {
-   font-size: 2.2rem;
+   font-size: 2rem;
    font-weight: bold;
    margin: 0;
 }
