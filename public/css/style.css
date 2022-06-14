@@ -273,9 +273,6 @@ main .workOrdersMain {
    font-size: 2rem;
    margin: 1rem 0 0;
 }
-.createWOMain h2:first-child {
-   margin: 0;
-}
 .createWOMain form {
    max-height: 30rem;
    text-align: center;
