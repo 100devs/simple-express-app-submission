@@ -172,11 +172,11 @@ main .workOrdersMain {
 
 /* WO REQUEST MAIN */
 .woRequestMain {
-   max-height: 50rem;
+   max-height: 110rem;
    flex-direction: column;
    align-items: center; 
-   padding: 20rem .5rem .5rem;
-   margin: 2rem .5rem 1rem;
+   padding: 35rem .5rem 75rem;
+   margin: 2rem .5rem 5rem;
    overflow-y: auto;
 }
 .woRequestMain span {
@@ -219,7 +219,7 @@ main .workOrdersMain {
 .buttons {
    width: 100%;
    justify-content: space-between;
-   margin: 2rem 0;
+   margin: 1rem 0 2rem;
 }
 .buttons a {
    width: 11rem;
