@@ -258,9 +258,12 @@ main .workOrdersMain {
 
 /* CREATE WO MAIN */
 .createWOMain {
+   max-height: 50rem;
    flex-direction: column;
    align-items: center;
-   margin: 1rem;
+   /* padding: 5rem 0 0; */
+   margin: 0;
+   overflow-y: auto;
 }
 .createWOMain h1 {
    font-size: 2.5rem;
@@ -270,8 +273,14 @@ main .workOrdersMain {
    font-size: 2rem;
    margin: 1rem 0 0;
 }
+.createWOMain h2:first-child {
+   margin: 0;
+}
 .createWOMain form {
+   max-height: 30rem;
    text-align: center;
+   /* padding: 0 0 5rem; */
+   overflow-y: auto;
 }
 .createWOMain select {
    width: 20rem;
