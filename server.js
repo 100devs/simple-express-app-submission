@@ -1,13 +1,12 @@
 const express = require('express');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
-// const { modInfo, workOrder } = require('./model.js');
 const PORT = 8000;
-
+require('dotenv').config();
 
 let workOrderDb,
     modMachInfoDB,
-    dbConnectionStr = 'mongodb+srv://drader2:KodaDash1@cluster0.ugc78.mongodb.net/?retryWrites=true&w=majority';
+    dbConnectionStr = process.env.DB_STRING;
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
@@ -129,7 +128,7 @@ app.delete('/deleteWorkOrder/:num', (req, res) => {
     .catch(error => console.error(error));
 });
 
-app.listen(PORT, (req, res) => {
+app.listen(process.env.PORT || PORT, (req, res) => {
     console.log(`Running server on port ${PORT}`);
 });
 

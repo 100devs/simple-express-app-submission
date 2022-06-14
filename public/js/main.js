@@ -96,7 +96,6 @@ function showWoInfo(data) {
     let dept = getDepartmentName(data.reqDept);
     let machine = getMachineName(data.mach);
 
-
     document.querySelector('#woNum').innerText = data.workOrderNum;
     document.querySelector('#status').innerText = data.status;
     document.querySelector('#reqShop').innerText = dept;
@@ -107,10 +106,14 @@ function showWoInfo(data) {
 
     if (data.status === 'open' && !document.querySelector('#solDetail').firstChild) {
         let textArea = document.createElement('textarea');
-        textArea.classList.add('solDetailText')
+        textArea.classList.add('solDetailText');
         document.querySelector('#solDetail').appendChild(textArea);
+        document.querySelector('.respond').classList.remove('disabled');
+        document.querySelector('.close').classList.remove('disabled');
     } else if (data.status === 'closed') {
         document.querySelector('#solDetail').innerText = data.solutionDetail;
+        document.querySelector('.respond').classList.add('disabled');
+        document.querySelector('.close').classList.add('disabled');
     }
 
 
