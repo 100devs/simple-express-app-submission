@@ -175,7 +175,7 @@ main .workOrdersMain {
    max-height: 115rem;
    flex-direction: column;
    align-items: center; 
-   padding: 34rem .5rem 80rem;
+   padding: 34rem .5rem 85rem;
    margin: 2rem .5rem 5rem;
    overflow-y: auto;
 }
