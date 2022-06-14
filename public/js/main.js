@@ -12,7 +12,7 @@ navButtons.forEach(button => button.addEventListener('click', selectMain));
 document.querySelector('#mach').addEventListener('change', setMachNums);
 document.querySelector('#mod').addEventListener('change', setMachNums);
 document.querySelector('.back').addEventListener('click', hideWORequestMain)
-document.querySelector('.respond').addEventListener(touchEvent, respondToWorkOrder);
+document.querySelector('.respond').addEventListener('tap', respondToWorkOrder);
 document.querySelector('.close').addEventListener(touchEvent, closeWorkOrder);
 document.querySelector('.delete').addEventListener(touchEvent, deleteWorkOder);
 document.querySelector('#woRequest').addEventListener('click', postWorkOder);
