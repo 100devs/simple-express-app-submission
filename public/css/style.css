@@ -172,10 +172,10 @@ main .workOrdersMain {
 
 /* WO REQUEST MAIN */
 .woRequestMain {
-   max-height: 110rem;
+   max-height: 115rem;
    flex-direction: column;
    align-items: center; 
-   padding: 34rem .5rem 76rem;
+   padding: 34rem .5rem 80rem;
    margin: 2rem .5rem 5rem;
    overflow-y: auto;
 }
