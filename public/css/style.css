@@ -180,10 +180,10 @@ main .workOrdersMain {
    overflow-y: auto;
 }
 .woRequestMain span {
-   font-size: 1.4rem;
+   font-size: 1.2rem;
 }
 .woRequestMain h3 {
-   font-size: 2rem;
+   font-size: 1.6rem;
    font-weight: bold;
    margin: 0;
 }
@@ -219,7 +219,7 @@ main .workOrdersMain {
 .buttons {
    width: 100%;
    justify-content: space-between;
-   margin: 1rem 0 2rem;
+   margin: 2rem 0 2rem;
 }
 .buttons a {
    width: 11rem;
