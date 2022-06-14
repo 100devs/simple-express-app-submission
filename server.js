@@ -13,7 +13,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
         console.log('Connected To Database');
         workOrderDb = client.db('workOrders');
-        modMachInfoDB = client.db('modMachInfo');
+        // modMachInfoDB = client.db('modMachInfo');
     })
     .catch(error => console.error(error));
 
@@ -27,10 +27,7 @@ app.get('/', (req, res) => {
     // res.sendFile(__dirname + '/index.html')
     workOrderDb.collection('request').find().toArray()
         .then(results => {
-            modMachInfoDB.collection('mods').find().toArray()
-                .then(data => {
-                    res.render('index.ejs', { request: results, mods: data })
-                })
+            res.render('index.ejs', { request: results })
         })
         .catch(error => console.error(error));
 });
@@ -50,13 +47,13 @@ app.get('/getWoInfo/:num', (req, res) => {
 
 app.get('/workOrders/:status', (req, res) => {
     workOrderDb.collection('request').find({ status: req.params.status }).toArray()
-    .then(data => {
-        res.json(data);
-    })
+        .then(data => {
+            res.json(data);
+        })
 });
 
 app.put('/respondToWorkOder/:num', (req, res) => {
-        workOrderDb.collection('request').updateOne({ workOrderNum: req.params.num }, {
+    workOrderDb.collection('request').updateOne({ workOrderNum: req.params.num }, {
         $set: {
             respondedTo: true,
             resEmp: req.body.resEmp,
@@ -124,10 +121,10 @@ app.post('/workOrders', (req, res) => {
 
 app.delete('/deleteWorkOrder/:num', (req, res) => {
     workOrderDb.collection('request').deleteOne({ workOrderNum: req.params.num })
-    .then(result => {
-        res.json('');
-    })
-    .catch(error => console.error(error));
+        .then(result => {
+            res.json('');
+        })
+        .catch(error => console.error(error));
 });
 
 app.listen(process.env.PORT || PORT, (req, res) => {
