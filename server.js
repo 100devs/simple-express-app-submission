@@ -6,7 +6,7 @@ require('dotenv').config();
 
 let workOrderDb,
     modMachInfoDB,
-    dbConnectionStr = process.env.DB_STRING;
+    dbConnectionStr = 'mongodb+srv://drader2:KodaDash1@cluster0.ugc78.mongodb.net/?';
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
