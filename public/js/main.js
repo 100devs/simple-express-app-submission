@@ -1,3 +1,5 @@
+let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
+
 document.querySelector('#create').addEventListener('click', selectMain);
 let tabs = document.querySelectorAll('.tabs a');
 tabs.forEach(tab => tab.addEventListener('click', selectTab));
@@ -10,9 +12,9 @@ navButtons.forEach(button => button.addEventListener('click', selectMain));
 document.querySelector('#mach').addEventListener('change', setMachNums);
 document.querySelector('#mod').addEventListener('change', setMachNums);
 document.querySelector('.back').addEventListener('click', hideWORequestMain)
-document.querySelector('.respond').addEventListener('click', respondToWorkOrder);
-document.querySelector('.close').addEventListener('click', closeWorkOrder);
-document.querySelector('.delete').addEventListener('click', deleteWorkOder);
+document.querySelector('.respond').addEventListener(touchEvent, respondToWorkOrder);
+document.querySelector('.close').addEventListener(touchEvent, closeWorkOrder);
+document.querySelector('.delete').addEventListener(touchEvent, deleteWorkOder);
 document.querySelector('#woRequest').addEventListener('click', postWorkOder);
 
 // NON SERVER FUNCTIONALITY
