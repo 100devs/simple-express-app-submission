@@ -327,7 +327,7 @@ async function respondToWorkOrder() {
                 'resEmpTitle': title,
             })
         })
-        const data = await response.json();
+        // const data = await response.json();
         alert('step 3');
 
         getWorkOrderInfo(woNum);
