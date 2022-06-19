@@ -275,6 +275,7 @@ async function getWorkOrderInfo(num) {
     } else {
         woNum = num;
     }
+    alert(woNum);
     try {
         const response = await fetch(`getWoInfo/${woNum}`, {
             method: 'get',
