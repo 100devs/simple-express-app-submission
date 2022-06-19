@@ -329,7 +329,7 @@ async function respondToWorkOrder() {
             })
         })
         // const data = await response.json();
-        alert('step 3');
+        alert(woNum);
 
         getWorkOrderInfo(woNum);
     } catch (err) {
