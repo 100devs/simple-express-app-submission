@@ -12,7 +12,7 @@ navButtons.forEach(button => button.addEventListener('click', selectMain));
 document.querySelector('#mach').addEventListener('change', setMachNums);
 document.querySelector('#mod').addEventListener('change', setMachNums);
 document.querySelector('.back').addEventListener('click', hideWORequestMain)
-document.querySelector('.respond').addEventListener('tap', respondToWorkOrder);
+document.querySelector('.respond').addEventListener(touchEvent, respondToWorkOrder);
 document.querySelector('.close').addEventListener(touchEvent, closeWorkOrder);
 document.querySelector('.delete').addEventListener(touchEvent, deleteWorkOder);
 document.querySelector('#woRequest').addEventListener('click', postWorkOder);
@@ -312,25 +312,27 @@ async function getWorkOrders(status) {
     }
 }
 async function respondToWorkOrder() {
-    let woNum = document.querySelector('#woNum').innerText;
-    let resEmp = document.querySelector('#name').innerText;
-    let title = document.querySelector('#title').innerText;
-    try {
-        const response = await fetch(`respondToWorkOder/${woNum}`, {
-            method: 'put',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                'resEmp': resEmp,
-                'resEmpTitle': title,
-            })
-        })
-        const data = await response.json();
-        console.log(data);
+    alert('success');
+    // let woNum = document.querySelector('#woNum').innerText;
+    // let resEmp = document.querySelector('#name').innerText;
+    // let title = document.querySelector('#title').innerText;
+    // console.log('success')
+    // try {
+    //     const response = await fetch(`respondToWorkOder/${woNum}`, {
+    //         method: 'put',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({
+    //             'resEmp': resEmp,
+    //             'resEmpTitle': title,
+    //         })
+    //     })
+    //     const data = await response.json();
+    //     alert(data);
 
-        getWorkOrderInfo(woNum);
-    } catch (err) {
-        console.log(err)
-    }
+    //     getWorkOrderInfo(woNum);
+    // } catch (err) {
+    //     console.log(err)
+    // }
 }
 async function closeWorkOrder() {
     let woNum = document.querySelector('#woNum').innerText;

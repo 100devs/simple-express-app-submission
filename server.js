@@ -64,7 +64,7 @@ app.put('/respondToWorkOder/:num', (req, res) => {
         upsert: true
     })
         .then(data => {
-            res.json('');
+            res.json('success');
         })
         .catch(error => console.log(error));
 });
