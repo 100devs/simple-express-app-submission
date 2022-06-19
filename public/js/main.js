@@ -275,7 +275,6 @@ async function getWorkOrderInfo(num) {
     } else {
         woNum = num;
     }
-    alert(woNum);
     try {
         const response = await fetch(`getWoInfo/${woNum}`, {
             method: 'get',
@@ -313,13 +312,11 @@ async function getWorkOrders(status) {
     }
 }
 async function respondToWorkOrder() {
-    alert('step 1');
     let woNum = document.querySelector('#woNum').innerText;
     let resEmp = document.querySelector('#name').innerText;
     let title = document.querySelector('#title').innerText;
 
     try {
-        alert('step 2');
         const response = await fetch(`respondToWorkOder/${woNum}`, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
