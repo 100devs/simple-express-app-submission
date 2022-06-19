@@ -317,7 +317,7 @@ async function respondToWorkOrder() {
     let woNum = document.querySelector('#woNum').innerText;
     let resEmp = document.querySelector('#name').innerText;
     let title = document.querySelector('#title').innerText;
-    
+
     try {
         alert('step 2');
         const response = await fetch(`respondToWorkOder/${woNum}`, {
@@ -328,10 +328,13 @@ async function respondToWorkOrder() {
                 'resEmpTitle': title,
             })
         })
-        // const data = await response.json();
-        alert(woNum);
+        const data = await response.json()
+            .then(data => {
+                alert(woNum);
 
-        getWorkOrderInfo(woNum);
+                getWorkOrderInfo(woNum);
+            })
+
     } catch (err) {
         console.log(err)
     }
