@@ -312,27 +312,28 @@ async function getWorkOrders(status) {
     }
 }
 async function respondToWorkOrder() {
-    alert('success');
-    // let woNum = document.querySelector('#woNum').innerText;
-    // let resEmp = document.querySelector('#name').innerText;
-    // let title = document.querySelector('#title').innerText;
-    // console.log('success')
-    // try {
-    //     const response = await fetch(`respondToWorkOder/${woNum}`, {
-    //         method: 'put',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({
-    //             'resEmp': resEmp,
-    //             'resEmpTitle': title,
-    //         })
-    //     })
-    //     const data = await response.json();
-    //     alert(data);
+    alert('step 1');
+    let woNum = document.querySelector('#woNum').innerText;
+    let resEmp = document.querySelector('#name').innerText;
+    let title = document.querySelector('#title').innerText;
+    
+    try {
+        alert('step 2');
+        const response = await fetch(`respondToWorkOder/${woNum}`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                'resEmp': resEmp,
+                'resEmpTitle': title,
+            })
+        })
+        const data = await response.json();
+        alert('step 3');
 
-    //     getWorkOrderInfo(woNum);
-    // } catch (err) {
-    //     console.log(err)
-    // }
+        getWorkOrderInfo(woNum);
+    } catch (err) {
+        console.log(err)
+    }
 }
 async function closeWorkOrder() {
     let woNum = document.querySelector('#woNum').innerText;
