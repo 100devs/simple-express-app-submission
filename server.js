@@ -45,8 +45,8 @@ app.get('/getWoInfo/:num', (req, res) => {
         .catch(error => console.error(error));
 });
 
-app.get('/workOrders/:status', (req, res) => {
-    workOrderDb.collection('request').find({ status: req.params.status }).toArray()
+app.get('/workOrders', (req, res) => {
+    workOrderDb.collection('request').find().toArray()
         .then(data => {
             res.json(data);
         })

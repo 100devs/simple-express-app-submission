@@ -23,27 +23,57 @@
          rel="stylesheet"
       />
    </head>
-   <body>
-    <section class="top flex">
-         <img class="headshot" src="/images/headshot.png" alt="" />
-         <section>
-            <section class="employeeInfo flex">
+   <body class="">
+      <nav class="nav flex">
+         <span>LOGO</span>
+         <ul class="navButtons flex">
+            <li id="accountInfo" class="accountInfoMain topNavButtons">
+               <a href="#"><i class="icon fa-solid fa-user"></i></a>
+            </li>
+            <li id="moduleInfo" class="moduleInfoMain topNavButtons">
+               <a href="#"> <i class="icon fa-solid fa-industry"></i></a>
+            </li>
+            <li id="workOrdersInfo" class="workOrdersMain">
+               <a href="#"><i class="fa-solid fa-clipboard-list"></i></a>
+            </li>
+            <li class="pmInfoMain">
+               <a href="#"><i class="fa-solid fa-calendar-day"></i></a>
+            </li>
+            <li class="storeRoomInfoMain">
+               <a href="#"><i class="fa-solid fa-warehouse"></i></a>
+            </li>
+            <li class="messagingMain">
+               <a href="#"><i class="fa-solid fa-comment"></i></a>
+            </li>
+            <li class="coworkerInfoMain">
+               <a href="#"><i class="fa-solid fa-people-group"></i></a>
+            </li>
+         </ul>
+      </nav>
+
+      <section class="mainContainer">
+         <section class="employee flex">
+            <section class="container flex">
                <span id="name">Danielle Rader</span>
-               <span id="title">Industrial Electrician</span>
-               <span id="crew">Crew C</span>
-               <span>Mod 4</span>
+               <span id="title">Industrial Electrical</span>
+               <span>Engineering</span>
             </section>
-            <section class="small flex">
-               <a id="accountInfo" class="accountInfoMain topNavButtons" href="#"><i class="icon fa-solid fa-user"></i></a>
-               <a id="moduleInfo" class="moduleInfoMain topNavButtons" href="#"><i class="icon fa-solid fa-industry"></i></a>
-            </section>
+            <span class="userPic"
+               ><img class="headshot" src="/images/headshot.png" alt=""
+            /></span>
+            <span>logout</span>
          </section>
-         <section class="create flex">
-            <a class="createWOMain topNavButtons" id="create" href="#">Create Work Order</a>
+         <section class="createContainer flex">
+            <select name="sort" id="sort" class="sort">
+               <option value=""></option>
+               <option value=""></option>
+               <option value=""></option>
+            </select>
+            <a href="#" id="createWO" class="createWOMain create flex"
+               >Create New Work Order</a
+            >
          </section>
-    </section>
-    <section class="container flex">
-        <main>
+         <section class="main">
             <section class="createWOMain hidden flex">
                <form action="" method="">
                   <h2>Select Module</h2>
@@ -59,16 +89,16 @@
                   </select>
                   <h2>Select Machine</h2>
                   <div class="machine flex">
-                    <select name="machine" id="mach">
-                       <option value="1">Shell Press</option>
-                       <option value="2">Balancer</option>
-                       <option value="3">Liner</option>
-                       <option value="4">Conversion Press</option>
-                       <option value="5">Autobagger</option>
-                    </select>
-                    <select name="machNum" id="machNum">
-                        <option value="1">11</option>               
-                    </select>
+                     <select name="machine" id="mach">
+                        <option value="1">Shell Press</option>
+                        <option value="2">Balancer</option>
+                        <option value="3">Liner</option>
+                        <option value="4">Conversion Press</option>
+                        <option value="5">Autobagger</option>
+                     </select>
+                     <select name="machNum" id="machNum">
+                        <option value="1">11</option>
+                     </select>
                   </div>
                   <h2>Select Help Needed</h2>
                   <select name="shop" id="reqDept">
@@ -79,114 +109,106 @@
                      <option value="5">Warehouse</option>
                   </select>
                   <h2>Problem Description</h2>
-                  <textarea name="probDetail" id="probDetail" cols="15" rows="10"></textarea>
+                  <textarea
+                     name="probDetail"
+                     id="probDetail"
+                     cols="15"
+                     rows="10"
+                  ></textarea>
                   <button id="woRequest">Submit</button>
                </form>
             </section>
-            <section class="workOrdersMain hidden flex">
-                <section class="tabs flex">
-                    <a class="selected">Open WOs</a>
-                    <a>Closed WOs</a>
+            <section class="workOrdersMain flex">
+               <section class="title flex">
+                  <span>WO Number</span>
+                  <span>Status</span>
+                  <span>Requested Dept</span>
+                  <span>Requested Location</span>
+                  <span>Problem Detail</span>
                </section>
-               <section id="openedWorkOrders">
-                    <ul class="workOrders"></ul>
+               <ul class="workOrders"></ul>
+               <!-- </section> -->
+               <section id="closedWorkOrders" class="container hidden">
+                  <ul class="workOrders"></ul>
                </section>
-                <section id="closedWorkOrders" class="hidden">
-                    <ul class="workOrders">
-                    </ul>
-                </section>
             </section>
-            <section class="woRequestMain hidden flex">
-                <a href="#" class="back"><i class="fa-solid fa-arrow-left"></i> Back</a>
-                <section class="buttons flex">
-                    <a href="#" class="respond">Respond</a>
-                    <a href="#" class="close">Close</a>
-                    <a href="#" class="delete">Delete</a>
-                </section>
-                <section class="info">
-                    <section class="container flex">
-                        <div>
-                            <h3>Work Order #</h3>
-                            <span id="woNum"></span>
-                        </div>
-                        <div>
-                            <h3>Status</h3>
-                            <span id="status"></span>
-                        </div>     
-                    </section>
-                    <section class="container flex">
-                        <div>
-                            <h3>Requested</h3>
-                            <span id="reqShop"></span>
-                        </div>
-                        <div>
-                            <h3>Location</h3>
-                            <span id="location"></span>
-                        </div>         
-                    </section>
-                    <section class="container">
-                        <h3>Work Order Description</h3>
-                        <span id="problemDetail"></span>
-                    </section>
-                    <section class="container">
-                        <h3>Requested By</h3>
-                        <span id="reqBy"></span>
-                    </section>
-                    <section class="container">
-                        <h3>Responding Employee</h3>
-                        <span id="resEmp"></span>
-                    </section>
-                    <section class="container solDetail">
-                        <h3>Work Order Solution Detail</h3>
-                        <section id="solDetail"></section>
-                    </section>
-                </section>
+            <section class="woInfo flex">
+               <section class="left flex">
+                  <div>WO# <span id="woNum"></span></div>
+                  <div>Status: <span id="status"></span></div>
+
+                  <span id="reqDept">Requested Dept</span>
+                  <span id="location">Requested Location</span>
+                  <span id="probDetail">Problem Detail</span>
+               </section>
+               <section class="right flex">
+                  <span id="reqBy">Requested By</span>
+                  <span>Requested Day</span>
+                  <span>Requested Time</span>
+               </section>
+               <section class="right flex">
+                  <span id="resEmp">Responded By</span>
+                  <span>Responded Day</span>
+                  <span>Responded Time</span>
+               </section>
+               <section class="solDetail">
+                  <textarea name="" id="" cols="30" rows="10"></textarea>
+               </section>
+               <section class="buttons">
+                  <a href="#" class="respond">Respond</a>
+                  <a href="#" class="close">Close</a>
+                  <a href="#" class="delete">Delete</a>
+               </section>
             </section>
             <section class="accountInfoMain hidden flex">
                <h1>User Profile</h1>
                <section class="flex">
                   <h2>Name</h2>
-                  <input type="text" value="Danielle Rader" disabled>
+                  <input type="text" value="Danielle Rader" disabled />
                </section>
                <section class="job flex">
                   <section>
                      <h2>Job Title</h2>
-                     <input type="text" value="Industrial Electrician" disabled>
+                     <input
+                        type="text"
+                        value="Industrial Electrician"
+                        disabled
+                     />
                   </section>
                   <section class="payInput">
                      <h2>Pay</h2>
-                     <input type="text" value="$XX.XX" disabled>
+                     <input type="text" value="$XX.XX" disabled />
                   </section>
                </section>
                <section class="crew flex">
                   <section>
                      <h2>Supervisor</h2>
-                     <input type="text" value="Ted Bonham" disabled>
+                     <input type="text" value="Ted Bonham" disabled />
                   </section>
                   <section class="crewInput">
                      <h2>Crew</h2>
-                     <input type="text" value="C" disabled>
-                  </section>  
-               </section>        
+                     <input type="text" value="C" disabled />
+                  </section>
+               </section>
                <section>
-               <h2>Address</h2>
-                  <input type="text" value="605 N Ash St" disabled>
-                  <input type="text" value="" disabled>
+                  <h2>Address</h2>
+                  <input type="text" value="605 N Ash St" disabled />
+                  <input type="text" value="" disabled />
                </section>
                <section>
                   <h2>City</h2>
-                  <input type="text" value="Deshler" disabled>
+                  <input type="text" value="Deshler" disabled />
                </section>
                <section>
                   <h2>State</h2>
-                  <input type="text" value="OH" disabled>
+                  <input type="text" value="OH" disabled />
                </section>
                <section>
                   <h2>Zip</h2>
-                  <input type="text" value="43516" disabled>
+                  <input type="text" value="43516" disabled />
                </section>
             </section>
-            <section class="moduleInfoMain flex">
+            <section class="moduleInfoMain hidden flex">
                <h2>module info</h2>
                <section class="shellPress">SP</section>
                <section class="balancer">Balancer</section>
@@ -202,7 +224,7 @@
                   <section class="balancer">Balancer</section>
                   <section class="balancer">Balancer</section>
                </section>
-               <section class="backEnd flex">      
+               <section class="backEnd flex">
                   <section class="pressAndBag">
                      <section>CP</section>
                      <section>Autobagger</section>
@@ -226,15 +248,24 @@
             <section class="messagingMain hidden flex">
                <section class="messagesContainer flex">
                   <span class="message user">This is a text</span>
-                  <span class="message coworker">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque corporis, unde suscipit id inventore hic tenetur. Aliquam molestiae dolore culpa vitae tenetur mollitia voluptatum? Doloribus corrupti voluptatibus quia possimus quam.</span>
-                  <span class="message user">This is a text to myself to design the html of the messages tabs.</span>
+                  <span class="message coworker"
+                     >Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                     Cumque corporis, unde suscipit id inventore hic tenetur.
+                     Aliquam molestiae dolore culpa vitae tenetur mollitia
+                     voluptatum? Doloribus corrupti voluptatibus quia possimus
+                     quam.</span
+                  >
+                  <span class="message user"
+                     >This is a text to myself to design the html of the
+                     messages tabs.</span
+                  >
                   <span class="message coworker">This is a text</span>
                   <span class="message user">This is a text</span>
                   <span class="message user">This is a text</span>
                </section>
                <section class="newMessageContainer flex">
                   <form action="">
-                     <input type="text">
+                     <input type="text" />
                      <button>Send</button>
                   </form>
                </section>
@@ -242,29 +273,8 @@
             <section class="coworkerInfoMain hidden flex">
                <h2>coworker info</h2>
             </section>
-        </main>
-    </section>
-    <footer class="footer">
-         <nav class="">
-            <ul class="flex">
-               <li id="workOrdersNav" class="workOrdersMain">
-                  <a href="#"><i class="fa-solid fa-clipboard-list"></i></a>
-               </li>
-               <li class="pmInfoMain">
-                  <a href="#"><i class="fa-solid fa-calendar-day"></i>
-                  </li></a>
-               <li class="storeRoomInfoMain">
-                  <a href="#"><i class="fa-solid fa-warehouse"></i>
-                  </li></a>
-               <li class="messagingMain">
-                  <a href="#"><i class="fa-solid fa-comment"></i>
-                  </li></a>
-               <li class="coworkerInfoMain">
-                  <a href="#"><i class="fa-solid fa-people-group"></i>
-                  </li></a>
-            </ul>
-         </nav>
-    </footer>
-    <script type="text/javascript" src="js/main.js"></script>
+         </section>
+      </section>
+      <script type="text/javascript" src="js/main.js"></script>
    </body>
 </html>

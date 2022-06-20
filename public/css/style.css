@@ -20,12 +20,17 @@
 /******************************************
 /* BASE STYLES
 /*******************************************/
-body, html {
+body,
+html {
    height: 100%;
    width: 100%;
    margin: 0;
    padding: 0;
    overflow-y: hidden;
+}
+body {
+   justify-content: space-between;
+   padding: 0 2rem;
 }
 html {
    font: 62.5% "IBM Plex Serif", sans-serif;
@@ -48,11 +53,148 @@ html {
 /******************************************
 /* TOP
 /*******************************************/
-.top {
+.nav {
    position: fixed;
+   top: 10rem;
+   left: 0;
+   flex-direction: column;
+}
+.nav ul {
+   flex-direction: column;
+   padding: 0 2rem;
+}
+.nav li {
+   text-align: center;
+   list-style: none;
+   cursor: pointer;
+   margin: 0.5rem 0;
+   border-radius: 1rem;
+
+   border: 1px solid black;
+}
+.nav a {
+   font-size: 4rem;
+   padding: 0.5rem;
+}
+
+.mainContainer {
+   margin-left: 10rem;
+}
+.employee {
+   height: 10rem;
+   justify-content: flex-end;
+   align-items: center;
+   padding-right: 1rem;
+   margin: 5rem 0 0 0;
+
+   border: 1px solid black;
+}
+.employee .container {
+   flex-direction: column;
+}
+.userPic {
+   height: 8rem;
+   margin: 0 2rem;
+}
+.headshot {
+   height: 100%;
+   width: auto;
+   border: 0.5rem solid rgb(0, 77, 0);
+   border-radius: 50%;
+   margin: auto auto;
+}
+
+.createContainer {
+   justify-content: flex-end;
+   padding: 1rem;
+   border: 1px solid blue;
+}
+.createContainer .sort {
+   margin-right: 2rem;
+}
+.create {
+   height: 5rem;
+   align-items: center;
+   text-align: center;
+   text-transform: uppercase;
+   background: rgb(231, 0, 0);
+   border-radius: 1rem;
+}
+
+.workOrdersMain {
+   flex-direction: column;
+}
+
+.workOrders {
+   width: 100%;
+   height: 20rem;
+   padding: 0;
+   overflow-y: auto;
+}
+
+.request {
+   min-height: 3rem;
+   width: 100%;
+   font-size: 1.5rem;
+   list-style: none;
    justify-content: space-between;
+   align-items: center;
+   background: black;
+   cursor: pointer;
+   transition: all 0.1s ease-in;
+
+   border: 1px solid white;
+}
+.request:hover {
+   background: white;
+}
+
+.request span {
+   width: 22rem;
+   text-align: center;
+   margin: 0 5rem;
+}
+.title {
+   height: 5rem;
+   align-items: center;
+   font-size: 2rem;
+   font-weight: bold;
+}
+.title span {
+   width: 22rem;
+   text-align: center;
+   margin: 0 5rem;
+}
+
+.woInfo {
+   justify-content: space-between;
+   padding: 1rem 1rem 0;
+   margin-top: 2rem;
+
+   border: 1px solid black;
+}
+
+.woInfo .left,
+.woInfo .right {
+   flex-direction: column;
+}
+
+.woInfo span {
+   width: 22rem;
+   font-size: 1.5rem;
+}
+
+.main .createWOMain {
+}
+/* .top {
+   position: fixed;
+   top: 0;
+   justify-content: space-evenly;
    flex-wrap: wrap;
    margin: 1rem;
+}
+.top .right {
+   width: 50%;
 }
 .top .icon {
    width: 40px;
@@ -66,6 +208,7 @@ html {
    height: 5rem;
    width: 50%;
    text-transform: none;
+   text-align: center;
    line-height: 5rem;
    background: rgb(0, 77, 0);
    padding: 0.5rem 2rem;
@@ -78,9 +221,9 @@ html {
 .headshot {
    height: 15rem;
    width: auto;
-   border: .5rem solid rgb(0, 77, 0);
+   border: 0.5rem solid rgb(0, 77, 0);
    border-radius: 50%;
-   margin: 2rem 0 0 2rem;
+   margin: auto auto;
 }
 
 .employeeInfo {
@@ -94,7 +237,7 @@ html {
    font-weight: bold;
 }
 
-.container {
+.bottom {
    flex-direction: column;
 }
 
@@ -113,16 +256,42 @@ html {
    font-size: 2rem;
    text-decoration: none;
    color: white;
-}
+} */
 
-main {
+/* .bottom {
+   width: 100%;
+   position: fixed;
+   bottom: 0;
+   align-items: center;
+   margin: 0;
+   padding: 1rem 0;
+} */
+/* .bottom .footer {
+   align-self: flex-end;
+} */
+
+/* main {
+   width: 100%;
+   height: 38rem;
+   min-height: 70rem;
+   width: 100%;
+   align-self: flex-start;
+   margin: .5rem;
+   height: 50rem;
    margin-top: 25rem;
-}
+
+   border: 5px solid blue;
+} */
 
 /* WORK ORDER MAIN */
-main .workOrdersMain {
+/* main .workOrdersMain {
+   width: 100%;
    flex-direction: column;
+   justify-content: flex-start;
    margin: 1rem;
+}
+.workOrdersMain .tabs {
+   justify-content: center;
 }
 .workOrdersMain a {
    cursor: pointer;
@@ -146,11 +315,9 @@ main .workOrdersMain {
    justify-content: space-around;
    color: black;
    cursor: pointer;
-   padding: .5rem 0;
+   padding: 0.5rem 0;
    margin: 1rem 0;
    border-radius: 1rem;
-
-   /* background: rgb(250, 150, 22) !important; */
 }
 .workOrders .request:hover {
    color: rgb(0, 195, 0);
@@ -168,15 +335,15 @@ main .workOrdersMain {
 }
 .workOrders .rightSide span {
    width: 16.5rem;
-}
+} */
 
 /* WO REQUEST MAIN */
-.woRequestMain {
-   max-height: 115rem;
+/* .woRequestMain {
+   width: 100%;
+   max-height: 75rem;
    flex-direction: column;
-   align-items: center; 
-   padding: 31rem .5rem 85rem;
-   margin: 2rem .5rem 5rem;
+   align-items: center;
+   margin: 2rem 0.5rem 5rem;
    overflow-y: auto;
 }
 .woRequestMain span {
@@ -193,7 +360,6 @@ main .workOrdersMain {
    background: rgb(0, 0, 0);
    border: 1rem solid rgb(255, 0, 0);
    border-radius: 1rem;
-   /* margin-top: 2rem; */
 }
 #status {
    font-weight: bold;
@@ -204,7 +370,7 @@ main .workOrdersMain {
    min-height: 5rem;
    flex-direction: row;
    justify-content: space-between;
-   padding: .5rem 1rem;
+   padding: 0.5rem 1rem;
    margin: 1rem;
    border-radius: 1rem;
    box-shadow: inset 0.25rem 0.25rem 0.2rem rgb(190, 190, 190),
@@ -219,7 +385,7 @@ main .workOrdersMain {
 .buttons {
    width: 100%;
    justify-content: space-between;
-   margin: 2rem 0 2rem;
+   margin: 1rem 0 1rem;
 }
 .buttons a {
    width: 11rem;
@@ -241,27 +407,21 @@ main .workOrdersMain {
    color: white;
    background: black;
 }
-/* .buttons a:hover {
-   color: black;
-   background: transparent;
-   border: .2rem solid black;
-} */
 #solDetail {
    height: 13rem;
    font-size: 1.6rem;
-   overflow-y: scroll;
+   overflow-y: auto;
 }
 #solDetail textarea {
    height: 12rem;
    width: 100%;
-}
+} */
 
 /* CREATE WO MAIN */
-.createWOMain {
+/* .createWOMain {
    max-height: 50rem;
    flex-direction: column;
    align-items: center;
-   /* padding: 5rem 0 0; */
    margin: 0;
    overflow-y: auto;
 }
@@ -276,7 +436,6 @@ main .workOrdersMain {
 .createWOMain form {
    max-height: 30rem;
    text-align: center;
-   /* padding: 0 0 5rem; */
    overflow-y: auto;
 }
 .createWOMain select {
@@ -302,10 +461,10 @@ main .workOrdersMain {
 }
 .createWOMain button {
    font-size: 2.5rem;
-}
+} */
 
 /* ACCOUNT INFO MAIn */
-.accountInfoMain {
+/* .accountInfoMain {
    height: 70rem;
    width: 70%;
    flex-direction: column;
@@ -347,22 +506,20 @@ main .workOrdersMain {
 .accountInfoMain .payInput input {
    width: 8rem;
    font-size: 1.5rem;
-}
+} */
 
 /* MODULE INFO MAIN */
-.moduleInfoMain {
+/* .moduleInfoMain {
    flex-direction: column;
    align-items: center;
 }
 .moduleInfoMain section {
    height: 3rem;
    margin: 1rem;
-   /* border: 1px solid black; */
-}
-
+} */
 
 /* MESSAGES MAIN */
-.messagingMain,
+/* .messagingMain,
 .messagesContainer {
    width: 100%;
    flex-direction: column;
@@ -373,7 +530,7 @@ main .workOrdersMain {
    overflow-y: auto;
 }
 .newMessageContainer {
-   border-top: .2rem solid rgba(0, 0, 0, .25);
+   border-top: 0.2rem solid rgba(0, 0, 0, 0.25);
    padding-top: 1rem;
 }
 .newMessageContainer input {
@@ -391,7 +548,7 @@ main .workOrdersMain {
    background: rgb(255, 255, 255);
    margin-left: 1rem;
    border-radius: 2rem;
-   border: .2rem solid rgb(0, 77, 0);
+   border: 0.2rem solid rgb(0, 77, 0);
 }
 .message {
    max-width: 30rem;
@@ -432,48 +589,84 @@ main .workOrdersMain .selected,
    box-shadow: inset 0.25rem 0.25rem 0.2rem rgb(150, 150, 150),
       inset -0.25rem -0.25rem 0.2rem rgb(150, 150, 150);
 }
-#workOrdersNav {
-   border: none;
-}
+#openedWorkOrders {
+   overflow-y: auto;
+} */
 
 /******************************************
 /* FOOTER
 /*******************************************/
-.footer {
+/* .footer {
    width: 100%;
-   position: fixed;
    flex-direction: column;
-   bottom: 0;
    margin-bottom: -1.5rem;
-   /* border-top: 1px solid black; */
+}
+.footer .workOrdersMain {
+   margin: 0;
 }
 .footer ul {
    width: 100%;
    align-items: center;
+   justify-content: center;
    padding: 0;
    margin: 0;
 }
 .footer li {
    height: 75px;
+   width: auto;
    display: inline;
    font-size: 4rem;
+   text-align: center;
    background: rgb(0, 77, 0);
    padding: 0 2rem 0 2rem;
+   cursor: pointer;
+}
+.footer li:hover {
+   background: transparent;
+   color: white;
+   border-top: 0.3rem solid rgb(0, 77, 0);
 }
 .footer a {
    color: rgb(0, 195, 0);
    margin: 0 0 1.5rem;
-}
-
-/* .footer li:hover {
-  background: rgb(0, 0, 0);
-  color: white;
 } */
 
-/******************************************
-/* MAIN
-/*******************************************/
+@media screen and (min-width: 400px) {
+   /* .bottom {
+      height: 65%;
+      position: fixed;
+      top: 25rem;
 
-/******************************************
-/* FOOTER
-/*******************************************/
+      border: 1px solid blue;
+   } */
+   /* .bottom .footer ul {
+      width: 100%;
+   } */
+   /* .footer li {
+      width: 20%;
+   } */
+
+   /* .woRequestMain {
+      max-height: 39rem;
+      margin: 0 .5rem;
+      padding: 0;
+   } */
+   /* .woRequestMain .info {
+      overflow-y: auto;
+   } */
+
+   /* .workOrdersMain .container {
+      max-height: 29rem;
+   } */
+   /* 
+   .footer {
+      display: block;
+   }
+
+
+   .footer li:hover {
+      background: transparent;
+      color: white;
+      border-top: 0.3rem solid rgb(0, 77, 0);
+   } */
+}

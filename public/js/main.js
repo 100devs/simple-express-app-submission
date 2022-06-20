@@ -1,20 +1,29 @@
 let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
 
-document.querySelector('#create').addEventListener('click', selectMain);
-let tabs = document.querySelectorAll('.tabs a');
-tabs.forEach(tab => tab.addEventListener('click', selectTab));
-let topNavButtons = document.querySelectorAll('.small a');
-topNavButtons.forEach(button => button.addEventListener('click', selectMain));
-let navButtons = document.querySelectorAll('.footer li');
+// document.querySelector('#create').addEventListener('click', selectMain);
+// let tabs = document.querySelectorAll('.tabs a');
+// tabs.forEach(tab => tab.addEventListener('click', selectTab));
+// let topNavButtons = document.querySelectorAll('.small a');
+// topNavButtons.forEach(button => button.addEventListener('click', selectMain));
+// let navButtons = document.querySelectorAll('.footer li');
+// navButtons.forEach(button => button.addEventListener('click', selectMain));
+// document.querySelector('#accountInfo').addEventListener('click', selectMain)
+// document.querySelector('#moduleInfo').addEventListener('click', selectMain)
+// document.querySelector('#workOrdersInfo').addEventListener('click', selectMain)
+
+let navButtons = document.querySelectorAll('.navButtons li');
+document.querySelector('#createWO').addEventListener('click', selectMain);
 navButtons.forEach(button => button.addEventListener('click', selectMain));
+window.onload = getWorkOrders();
 
 
-document.querySelector('#mach').addEventListener('change', setMachNums);
-document.querySelector('#mod').addEventListener('change', setMachNums);
-document.querySelector('.back').addEventListener('click', hideWORequestMain)
-document.querySelector('.respond').addEventListener(touchEvent, respondToWorkOrder);
-document.querySelector('.close').addEventListener(touchEvent, closeWorkOrder);
-document.querySelector('.delete').addEventListener(touchEvent, deleteWorkOder);
+
+// document.querySelector('#mach').addEventListener('change', setMachNums);
+// document.querySelector('#mod').addEventListener('change', setMachNums);
+// document.querySelector('.back').addEventListener('click', hideWORequestMain)
+// document.querySelector('.respond').addEventListener(touchEvent, respondToWorkOrder);
+// document.querySelector('.close').addEventListener(touchEvent, closeWorkOrder);
+// document.querySelector('.delete').addEventListener(touchEvent, deleteWorkOder);
 document.querySelector('#woRequest').addEventListener('click', postWorkOder);
 
 // NON SERVER FUNCTIONALITY
@@ -72,37 +81,29 @@ function selectTab() {
         getWorkOrders('closed');
     }
 }
-function selectMain() {
-    let className = this.classList[0];
-    hideMain(navButtons, this, className);
-    hideMain(topNavButtons, this, className);
-    if (!this.classList.contains('topNavButtons')) {
-        document.querySelector(`footer .${className}`).classList.add('selected');
+function selectMain(className) {
+    console.log(className);
+    if (className !== 'workOrdersMain') {
+        className = this.classList[0];
     }
-    if (className === 'workOrdersMain') getWorkOrders('open');
-}
-function hideMain(buttons, clickedButton, className) {
-    document.querySelector('main .createWOMain').classList.add('hidden');
-    document.querySelector('.woRequestMain').classList.add('hidden');
-    document.querySelector(`main .${className}`).classList.remove('hidden');
 
-    navButtons.forEach(button => button.classList.remove('selected'));
-    buttons.forEach(button => {
-        if (button !== clickedButton) {
-            className = button.classList[0];
-            document.querySelector(`main .${className}`).classList.add('hidden');
-        }
-    });
+    let mainSections = document.querySelectorAll('.main > section');
+    mainSections.forEach(section => section.classList.add('hidden'));
+    document.querySelector(`.main .${className}`).classList.remove('hidden');
+
+    if (className === 'workOrdersMain') {
+        document.querySelector('.main .woInfo').classList.remove('hidden');
+    }
 }
 function showWoInfo(data) {
     let dept = getDepartmentName(data.reqDept);
     let machine = getMachineName(data.mach);
 
-    document.querySelector('#woNum').innerText = data.workOrderNum;
-    document.querySelector('#status').innerText = data.status;
-    document.querySelector('#reqShop').innerText = dept;
+    document.querySelector('#woNum').innerText = `${data.workOrderNum}`;
+    document.querySelector('#status').innerText = `${data.status}`;
+    document.querySelector('#reqDept').innerText = `Requested Dept: ${dept}`;
     document.querySelector('#location').innerText = `${machine} ${data.mod}${data.machNum}`;
-    document.querySelector('#problemDetail').innerText = data.probDetail;
+    document.querySelector('#probDetail').innerText = data.probDetail;
     document.querySelector('#reqBy').innerText = `${data.reqEmp} - ${data.reqEmpTitle}`;
     document.querySelector('#resEmp').innerText = `${data.resEmp} - ${data.resEmpTitle}`;
 
@@ -195,36 +196,43 @@ function getDepartmentName(num) {
 function addWOLiToList(workOrder, list) {
     let li = document.createElement('li');
     li.classList.add('request', 'flex');
-    let leftDiv = document.createElement('div');
-    leftDiv.classList.add('dept', 'flex');
-    let rightDiv = document.createElement('div');
-    rightDiv.classList.add('rightSide', 'flex');
+    // let leftDiv = document.createElement('div');
+    // leftDiv.classList.add('dept', 'flex');
+    // let rightDiv = document.createElement('div');
+    // rightDiv.classList.add('rightSide', 'flex');
 
     let deptSpan = document.createElement('span'),
         woNumSpan = document.createElement('span'),
         locSpan = document.createElement('span'),
-        probSpan = document.createElement('span');
+        probSpan = document.createElement('span'),
+        statusSpan = document.createElement('span');
 
-    deptSpan.innerHTML = getDepartmentName(workOrder.reqDept);
-    woNumSpan.classList.add('woNum');
     woNumSpan.innerHTML = `WO# ${workOrder.workOrderNum}`;
+    woNumSpan.classList.add('woNum');
+    statusSpan.innerHTML = workOrder.status;
+    deptSpan.innerHTML = getDepartmentName(workOrder.reqDept);
     locSpan.innerHTML = `${getMachineName(workOrder.mach)} ${workOrder.mod}${workOrder.machNum}`;
     probSpan.innerHTML = workOrder.probDetail;
 
     if (workOrder.status === 'closed') {
-        li.style.backgroundColor = 'rgb(0, 255, 0)';
+        li.style.color = 'rgb(0, 255, 0)';
     } else if (workOrder.respondedTo === true) {
-        li.style.backgroundColor = 'rgb(250, 150, 22)';
+        li.style.color = 'rgb(250, 150, 22)';
     } else {
-        li.style.backgroundColor = 'rgb(200, 15, 15)'
+        li.style.color = 'rgb(200, 15, 15)'
     }
 
-    leftDiv.appendChild(deptSpan);
-    rightDiv.appendChild(woNumSpan);
-    rightDiv.appendChild(locSpan);
-    rightDiv.appendChild(probSpan);
-    li.appendChild(leftDiv);
-    li.appendChild(rightDiv)
+    // leftDiv.appendChild(deptSpan);
+    // rightDiv.appendChild(woNumSpan);
+    // rightDiv.appendChild(locSpan);
+    // rightDiv.appendChild(probSpan);
+    // li.appendChild(leftDiv);
+    // li.appendChild(rightDiv)
+    li.appendChild(woNumSpan);
+    li.appendChild(statusSpan);
+    li.appendChild(deptSpan);
+    li.appendChild(locSpan);
+    li.appendChild(probSpan);
     list.appendChild(li);
 
     li.addEventListener('click', getWorkOrderInfo);
@@ -262,8 +270,8 @@ async function postWorkOder() {
 
         const data = await response.json();
         console.log(data);
-        location.reload();
-
+        getWorkOrders();
+        selectMain('workOrdersMain');
     } catch (err) {
         console.log(err)
     }
@@ -281,29 +289,24 @@ async function getWorkOrderInfo(num) {
             headers: { 'Content-Type': 'application/json' },
         })
         const data = await response.json()
-
         showWoInfo(data);
     } catch (err) {
         console.log(err)
     }
 
 }
-async function getWorkOrders(status) {
-    let list;
-    let openWoUl = document.querySelector('#openedWorkOrders .workOrders');
-    let closedWoUl = document.querySelector('#closedWorkOrders .workOrders');
-    (status === 'open') ?
-        list = openWoUl :
-        list = closedWoUl;
+async function getWorkOrders() {
+    let list = document.querySelector('.workOrders');
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
     try {
-        const response = await fetch(`workOrders/${status}`, {
+        const response = await fetch(`workOrders`, {
             method: 'get',
             headers: { 'Content-Type': 'application/json' },
         })
         const data = await response.json();
+        data.reverse();
         data.forEach(workOrder => {
             addWOLiToList(workOrder, list);
         })
@@ -327,7 +330,7 @@ async function respondToWorkOrder() {
         })
         const data = await response.json()
             .then(data => {
-                alert(woNum);
+                // alert(woNum);
 
                 getWorkOrderInfo(woNum);
             })
