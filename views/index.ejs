@@ -25,52 +25,59 @@
    </head>
    <body class="">
       <nav class="nav flex">
-         <span>LOGO</span>
          <ul class="navButtons flex">
             <li id="accountInfo" class="accountInfoMain topNavButtons">
-               <a href="#"><i class="icon fa-solid fa-user"></i></a>
+               <i class="icon fa-solid fa-user"></i>
             </li>
             <li id="moduleInfo" class="moduleInfoMain topNavButtons">
-               <a href="#"> <i class="icon fa-solid fa-industry"></i></a>
+               <i class="icon fa-solid fa-industry"></i>
             </li>
             <li id="workOrdersInfo" class="workOrdersMain">
-               <a href="#"><i class="fa-solid fa-clipboard-list"></i></a>
+               <i class="fa-solid fa-clipboard-list"></i>
             </li>
             <li class="pmInfoMain">
-               <a href="#"><i class="fa-solid fa-calendar-day"></i></a>
+               <i class="fa-solid fa-calendar-day"></i>
             </li>
             <li class="storeRoomInfoMain">
-               <a href="#"><i class="fa-solid fa-warehouse"></i></a>
+               <i class="fa-solid fa-warehouse"></i>
             </li>
             <li class="messagingMain">
-               <a href="#"><i class="fa-solid fa-comment"></i></a>
+               <i class="fa-solid fa-comment"></i>
             </li>
             <li class="coworkerInfoMain">
-               <a href="#"><i class="fa-solid fa-people-group"></i></a>
+               <i class="fa-solid fa-people-group"></i>
             </li>
          </ul>
       </nav>
 
       <section class="mainContainer">
          <section class="employee flex">
-            <section class="container flex">
-               <span id="name">Danielle Rader</span>
-               <span id="title">Industrial Electrical</span>
-               <span>Engineering</span>
-            </section>
-            <span class="userPic"
+            <img class="logo" src="/images/default-monochrome.svg" alt="">
+            </img>            
+            <section class="flex">
+               <section class="container flex">
+                  <span id="name">Danielle Rader</span>
+                  <span id="title">Industrial Electrician</span>
+                  <span>Engineering</span>
+               </section>
+               <span class="userPic"
                ><img class="headshot" src="/images/headshot.png" alt=""
-            /></span>
-            <span>logout</span>
+               /></span>
+               <a href="#" class="logout">Logout</a>
+            </section> 
          </section>
          <section class="createContainer flex">
-            <select name="sort" id="sort" class="sort">
-               <option value=""></option>
-               <option value=""></option>
-               <option value=""></option>
-            </select>
+            <section class="sort flex">
+               <h3>Sort Work Orders </h3>
+               <select name="sort" id="sortOptions" class="sortOptions">
+                  <option value="">Open Status</option>
+                  <option value="">closed Status</option>
+                  <option value="">Responded To</option>
+                  <option value="">Recent Work Orders</option>
+               </select>
+            </section>
             <a href="#" id="createWO" class="createWOMain create flex"
-               >Create New Work Order</a
+               >+ Create New Work Order</a
             >
          </section>
          <section class="main">
@@ -132,32 +139,43 @@
                   <ul class="workOrders"></ul>
                </section>
             </section>
-            <section class="woInfo flex">
-               <section class="left flex">
-                  <div>WO# <span id="woNum"></span></div>
-                  <div>Status: <span id="status"></span></div>
-
-                  <span id="reqDept">Requested Dept</span>
-                  <span id="location">Requested Location</span>
-                  <span id="probDetail">Problem Detail</span>
+            <section class="woInfo hidden flex">
+               <section class="buttons flex">
+                  <a href="#" class="respond hidden">Respond</a>
+                  <a href="#" class="close hidden">Close</a>
+                  <a href="#" class="delete hidden">Delete</a>
                </section>
-               <section class="right flex">
-                  <span id="reqBy">Requested By</span>
-                  <span>Requested Day</span>
-                  <span>Requested Time</span>
-               </section>
-               <section class="right flex">
-                  <span id="resEmp">Responded By</span>
-                  <span>Responded Day</span>
-                  <span>Responded Time</span>
-               </section>
-               <section class="solDetail">
-                  <textarea name="" id="" cols="30" rows="10"></textarea>
-               </section>
-               <section class="buttons">
-                  <a href="#" class="respond">Respond</a>
-                  <a href="#" class="close">Close</a>
-                  <a href="#" class="delete">Delete</a>
+               <section class="info flex">
+                  <section class="requested flex">
+                     <section class="left flex">
+                        <div>WO# <span id="woNum"></span></div>
+                        <div>Status: <span id="status"></span></div>
+                        <div>Requested Dept: <span id="department"></span></div>
+                        <div>
+                           Requested Location: <span id="location"></span>
+                        </div>
+                     </section>
+                     <section class="middle flex">
+                        <div>Requested By: <span id="reqBy"></span></div>
+                        <div>Requested Day: <span id="reqDate"></span></div>
+                        <div>Requested Time: <span id="reqTime"></span></div>
+                     </section>
+                     <section class="textDetail">
+                        <h2>Problem Detail</h2>
+                        <span id="detail"></span>
+                     </section>
+                  </section>
+                  <section class="responded flex">
+                     <section class="right flex">
+                        <div>Responded By: <span id="resEmp"></span></div>
+                        <div>Responded Day: <span id="resDate"></span></div>
+                        <div>Responded Time: <span id="resTime"></span></div>
+                     </section>
+                     <section class="textDetail flex">
+                        <h2>Solution Detail</h2>
+                        <section class="solDetail"></section>
+                     </section>
+                  </section>
                </section>
             </section>
             <section class="accountInfoMain hidden flex">

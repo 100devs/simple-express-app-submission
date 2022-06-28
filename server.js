@@ -57,7 +57,9 @@ app.put('/respondToWorkOder/:num', (req, res) => {
         $set: {
             respondedTo: true,
             resEmp: req.body.resEmp,
-            resEmpTitle: req.body.resEmpTitle
+            resEmpTitle: req.body.resEmpTitle,
+            resDate: req.body.resDate,
+            resTime: req.body.resTime,
         }
     }, {
         sort: { _id: -1 },
@@ -73,7 +75,6 @@ app.put('/closeWorkOrder/:num', (req, res) => {
     workOrderDb.collection('request').updateOne({ workOrderNum: req.params.num }, {
         $set: {
             status: 'closed',
-            resEmp: req.body.resEmp,
             solutionDetail: req.body.solDetail
         }
     }, {
@@ -110,6 +111,8 @@ app.post('/workOrders', (req, res) => {
                 probDetail: req.body.probDetail,
                 resEmp: '',
                 resEmpTitle: '',
+                resDate: '',
+                resTime: '',
                 solutionDetail: ''
             })
                 .then(result => {
