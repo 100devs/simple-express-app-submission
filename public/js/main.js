@@ -133,15 +133,28 @@ function hideWORequestMain() {
     document.querySelector('.woRequestMain').classList.add('hidden');
     getWorkOrders('open');
 }
+function render() {
+    alert('2')
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('0badd11ed0483edfa1ed', {
+        cluster: 'us2',
+    });
+
+    var channel = pusher.subscribe('WorkOrderSubmit');
+    channel.bind('newWorkOrder', function (data) {
+        console.log(data.message);
+    });
+}
 function selectMain(className) {
-    console.log(className)
     if (className !== 'workOrdersMain') {
         className = this.classList[0];
     }
-    if (this.classList[0] === 'workOrdersMain') {
+    if (className === 'workOrdersMain') {
         document.querySelector('.sort').classList.remove('hidden');
         getWorkOrders();
-        
+
     } else {
         document.querySelector('.sort').classList.add('hidden');
     }
@@ -262,7 +275,33 @@ function showWoInfo(data) {
     document.querySelector('.woInfo').classList.remove('hidden');
 }
 
+var pusher = new Pusher('0badd11ed0483edfa1ed', {
+    cluster: 'us2'
+});
+
+var channel = pusher.subscribe('my-channel');
+channel.bind('my-event', function (data) {
+    getWorkOrders();
+    selectMain('workOrdersMain');
+    document.querySelector('.sort').classList.remove('hidden');
+});
+
 // SERVER REQUESTS
+async function alertOfWO() {
+    const temp = 'hello world';
+    const info = { message: temp }
+    try {
+        const response = await fetch(`submitWO`, {
+            method: 'post',
+            body: JSON.stringify(info),
+            headers: { 'Content-Type': 'application/json' },
+        })
+        const data = await response.json();
+        console.log(data)
+    } catch (err) {
+        console.log(err)
+    }
+}
 async function closeWorkOrder() {
     let woNum = document.querySelector('#woNum').innerText;
     let solDetail = document.querySelector('.solDetail textarea').value;
@@ -301,7 +340,6 @@ async function deleteWorkOder() {
     }
 }
 async function getWorkOrders() {
-    console.log('success');
     let list = document.querySelector('.workOrders');
     while (list.firstChild) {
         list.removeChild(list.firstChild);
@@ -373,9 +411,10 @@ async function postWorkOder() {
         })
 
         const data = await response.json();
-        getWorkOrders();
-        selectMain('workOrdersMain');
-        document.querySelector('.sort').classList.remove('hidden');
+        // getWorkOrders();
+        // selectMain('workOrdersMain');
+        // document.querySelector('.sort').classList.remove('hidden');
+        alertOfWO();
     } catch (err) {
         console.log(err)
     }

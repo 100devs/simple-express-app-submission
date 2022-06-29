@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors')
 const MongoClient = require('mongodb').MongoClient;
+const workOrders = require('./routes/workOrders')
 const PORT = 8000;
 require('dotenv').config();
 
@@ -22,6 +23,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors())
+app.use('/submitWO', workOrders);
 
 app.get('/', (req, res) => {
     // res.sendFile(__dirname + '/index.html')
