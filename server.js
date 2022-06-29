@@ -26,7 +26,6 @@ app.use(cors())
 app.use('/submitWO', workOrders);
 
 app.get('/', (req, res) => {
-    // res.sendFile(__dirname + '/index.html')
     workOrderDb.collection('request').find().toArray()
         .then(results => {
             res.render('index.ejs', { request: results })

@@ -1,4 +1,5 @@
 let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
+let UPDATED = false;
 
 let navButtons = document.querySelectorAll('.navButtons li');
 document.querySelector('#createWO').addEventListener('click', selectMain);
@@ -12,6 +13,21 @@ document.querySelector('.respond').addEventListener('click', respondToWorkOrder)
 document.querySelector('.close').addEventListener('click', closeWorkOrder);
 document.querySelector('.delete').addEventListener('click', deleteWorkOder);
 document.querySelector('#woRequest').addEventListener('click', postWorkOder);
+
+
+var pusher = new Pusher('0badd11ed0483edfa1ed', {
+    cluster: 'us2'
+});
+
+var channel = pusher.subscribe('my-channel');
+channel.bind('my-event', function (data) {
+    getWorkOrders();
+    if (UPDATED === true) {
+        selectMain('workOrdersMain');
+        UPDATED = false;
+    }
+    document.querySelector('.sort').classList.remove('hidden');
+});
 
 // NON SERVER FUNCTIONALITY
 function addOption(module, machLimit) {
@@ -133,29 +149,14 @@ function hideWORequestMain() {
     document.querySelector('.woRequestMain').classList.add('hidden');
     getWorkOrders('open');
 }
-function render() {
-    alert('2')
-    // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
-
-    var pusher = new Pusher('0badd11ed0483edfa1ed', {
-        cluster: 'us2',
-    });
-
-    var channel = pusher.subscribe('WorkOrderSubmit');
-    channel.bind('newWorkOrder', function (data) {
-        console.log(data.message);
-    });
-}
-function selectMain(className) {
+function selectMain(className, reload) {
     if (className !== 'workOrdersMain') {
         className = this.classList[0];
     }
-    if (className === 'workOrdersMain') {
+    if (className === 'workOrdersMain' && reload === false) {
         document.querySelector('.sort').classList.remove('hidden');
         getWorkOrders();
-
-    } else {
+    } else if (className !== 'workOrdersMain') {
         document.querySelector('.sort').classList.add('hidden');
     }
 
@@ -275,17 +276,6 @@ function showWoInfo(data) {
     document.querySelector('.woInfo').classList.remove('hidden');
 }
 
-var pusher = new Pusher('0badd11ed0483edfa1ed', {
-    cluster: 'us2'
-});
-
-var channel = pusher.subscribe('my-channel');
-channel.bind('my-event', function (data) {
-    getWorkOrders();
-    selectMain('workOrdersMain');
-    document.querySelector('.sort').classList.remove('hidden');
-});
-
 // SERVER REQUESTS
 async function alertOfWO() {
     const temp = 'hello world';
@@ -296,8 +286,8 @@ async function alertOfWO() {
             body: JSON.stringify(info),
             headers: { 'Content-Type': 'application/json' },
         })
-        const data = await response.json();
-        console.log(data)
+        const data = await response.json()
+
     } catch (err) {
         console.log(err)
     }
@@ -315,7 +305,7 @@ async function closeWorkOrder() {
                 })
             })
             const data = await response.json();
-            getWorkOrders();
+            alertOfWO();
             getWorkOrderInfo(woNum);
         } catch (err) {
             console.log(err)
@@ -333,8 +323,8 @@ async function deleteWorkOder() {
             headers: { 'Content-Type': 'application/json' },
         })
         const data = await response.json();
-        location.reload();
-
+        alertOfWO();
+        UPDATED = true;
     } catch (err) {
         console.log(err)
     }
@@ -367,19 +357,17 @@ async function getWorkOrderInfo(num) {
     } else {
         woNum = num;
     }
-
-
     try {
         const response = await fetch(`getWoInfo/${woNum}`, {
             method: 'get',
             headers: { 'Content-Type': 'application/json' },
         })
         const data = await response.json()
+
         showWoInfo(data);
     } catch (err) {
         console.log(err)
     }
-
 }
 async function postWorkOder() {
     try {
@@ -411,10 +399,8 @@ async function postWorkOder() {
         })
 
         const data = await response.json();
-        // getWorkOrders();
-        // selectMain('workOrdersMain');
-        // document.querySelector('.sort').classList.remove('hidden');
         alertOfWO();
+        UPDATED = true;
     } catch (err) {
         console.log(err)
     }
@@ -439,8 +425,9 @@ async function respondToWorkOrder() {
             })
         })
         const data = await response.json()
-        getWorkOrders();
+        alertOfWO()
         getWorkOrderInfo(woNum);
+
     } catch (err) {
         console.log(err)
     }
