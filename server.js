@@ -82,12 +82,9 @@ app.put('/closeWorkOrder/:num', (req, res) => {
 });
 
 app.post('/workOrders', (req, res) => {
-    console.log(req.body);
     try {
         let workOrderNum;
-        // let usedNums = results.map(workOrder => workOrder.workOrderNum)
         workOrderNum = setWONum();
-        console.log(workOrderNum);
         const newWorkOrder = new WorkOrder({
             workOrderNum: workOrderNum,
             status: 'open',
@@ -113,38 +110,6 @@ app.post('/workOrders', (req, res) => {
     catch (err) {
         console.log(err);
     }
-
-
-    // workOrderDb.collection('request').find().toArray()
-    //     .then(results => {
-    //         let usedNums = results.map(workOrder => workOrder.workOrderNum)
-    //         workOrderNum = setWONum();
-    //     })
-    //     .then(data => {
-    //         workOrderDb.collection('request').insertOne({
-    //             workOrderNum: workOrderNum,
-    //             status: 'open',
-    //             respondedTo: false,
-    //             reqEmp: req.body.reqEmp,
-    //             reqEmpTitle: req.body.reqEmpTitle,
-    //             reqDate: req.body.reqDate,
-    //             reqTime: req.body.reqTime,
-    //             mod: req.body.mod,
-    //             mach: req.body.mach,
-    //             machNum: req.body.machNum,
-    //             reqDept: req.body.reqDept,
-    //             probDetail: req.body.probDetail,
-    //             resEmp: '',
-    //             resEmpTitle: '',
-    //             resDate: '',
-    //             resTime: '',
-    //             solutionDetail: ''
-    //         })
-    //             .then(result => {
-    //                 res.json(workOrderNum);
-    //             })
-    //     })
-    // .catch (error => console.error(error));
 });
 
 app.delete('/deleteWorkOrder/:num', (req, res) => {

@@ -423,9 +423,8 @@ async function respondToWorkOrder() {
                 'resTime': resTime,
             })
         })
-        const data = await response.json()
-        console.log('success')
-        alertOfWO()
+        await response.json()
+        alertOfWO();
         getWorkOrderInfo(woNum);
 
     } catch (err) {
