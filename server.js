@@ -2,19 +2,19 @@ const express = require('express');
 const app = express();
 const cors = require('cors')
 const MongoClient = require('mongodb').MongoClient;
+const mongoose = require('mongoose');
+const WorkOrder = require('./models/workOrders');
 const workOrders = require('./routes/workOrders')
 const PORT = 8000;
 require('dotenv').config();
 
 let workOrderDb,
     modMachInfoDB,
-    dbConnectionStr = 'mongodb+srv://drader2:KodaDash1@cluster0.ugc78.mongodb.net/?';
+    dbConnectionStr = 'mongodb+srv://drader2:KodaDash1@cluster0.ugc78.mongodb.net/workOrders?';
 
-MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+mongoose.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
         console.log('Connected To Database');
-        workOrderDb = client.db('workOrders');
-        // modMachInfoDB = client.db('modMachInfo');
     })
     .catch(error => console.error(error));
 
@@ -26,54 +26,46 @@ app.use(cors())
 app.use('/submitWO', workOrders);
 
 app.get('/', (req, res) => {
-    workOrderDb.collection('request').find().toArray()
-        .then(results => {
-            res.render('index.ejs', { request: results })
-        })
-        .catch(error => console.error(error));
-});
-
-app.get('/getWoInfo/:num', (req, res) => {
-    workOrderDb.collection('request').find().toArray()
-        .then(data => {
-            let woNumsArr = data.map(workOrder => workOrder.workOrderNum);
-            woNumsArr.forEach((num, i) => {
-                if (num === req.params.num) {
-                    res.json(data[i]);
-                }
-            })
-        })
-        .catch(error => console.error(error));
+    res.render('index.ejs');
 });
 
 app.get('/workOrders', (req, res) => {
-    workOrderDb.collection('request').find().toArray()
-        .then(data => {
-            res.json(data);
-        })
+    WorkOrder.find({}, (err, workOrders) => {
+        if (err) res.send(err);
+
+        res.json(workOrders);
+    });
+});
+
+app.get('/getWoInfo/:num', (req, res) => {
+    WorkOrder.find({ workOrderNum: req.params.num }, (err, workOrder) => {
+        if (err) res.send(err);
+        res.json(workOrder[0]);
+    });
 });
 
 app.put('/respondToWorkOder/:num', (req, res) => {
-    workOrderDb.collection('request').updateOne({ workOrderNum: req.params.num }, {
+    WorkOrder.updateOne({ workOrderNum: req.params.num }, {
         $set: {
             respondedTo: true,
             resEmp: req.body.resEmp,
             resEmpTitle: req.body.resEmpTitle,
             resDate: req.body.resDate,
-            resTime: req.body.resTime,
+            resTime: req.body.resTime
         }
     }, {
         sort: { _id: -1 },
         upsert: true
-    })
-        .then(data => {
-            res.json('');
-        })
-        .catch(error => console.log(error));
+    }, (err, doc) => {
+        if (err) {
+            console.log("Something wrong when updating data!");
+        }
+        res.json('')
+    });
 });
 
 app.put('/closeWorkOrder/:num', (req, res) => {
-    workOrderDb.collection('request').updateOne({ workOrderNum: req.params.num }, {
+    WorkOrder.updateOne({ workOrderNum: req.params.num }, {
         $set: {
             status: 'closed',
             solutionDetail: req.body.solDetail
@@ -81,54 +73,86 @@ app.put('/closeWorkOrder/:num', (req, res) => {
     }, {
         sort: { _id: -1 },
         upsert: true
-    })
-        .then(data => {
-            res.json('');
-        })
-        .catch(error => console.log(error));
+    }, (err, doc) => {
+        if (err) {
+            console.log("Something wrong when updating data!");
+        }
+        res.json('')
+    });
 });
 
 app.post('/workOrders', (req, res) => {
-    let workOrderNum;
+    console.log(req.body);
+    try {
+        let workOrderNum;
+        // let usedNums = results.map(workOrder => workOrder.workOrderNum)
+        workOrderNum = setWONum();
+        console.log(workOrderNum);
+        const newWorkOrder = new WorkOrder({
+            workOrderNum: workOrderNum,
+            status: 'open',
+            respondedTo: false,
+            reqEmp: req.body.reqEmp,
+            reqEmpTitle: req.body.reqEmpTitle,
+            reqDate: req.body.reqDate,
+            reqTime: req.body.reqTime,
+            mod: req.body.mod,
+            mach: req.body.mach,
+            machNum: req.body.machNum,
+            reqDept: req.body.reqDept,
+            probDetail: req.body.probDetail,
+            resEmp: '',
+            resEmpTitle: '',
+            resDate: '',
+            resTime: '',
+            solutionDetail: ''
+        });
+        newWorkOrder.save();
+        res.json(workOrderNum);
+    }
+    catch (err) {
+        console.log(err);
+    }
 
-    workOrderDb.collection('request').find().toArray()
-        .then(results => {
-            let usedNums = results.map(workOrder => workOrder.workOrderNum)
-            workOrderNum = setWONum(usedNums);
-        })
-        .then(data => {
-            workOrderDb.collection('request').insertOne({
-                workOrderNum: workOrderNum,
-                status: 'open',
-                respondedTo: false,
-                reqEmp: req.body.reqEmp,
-                reqEmpTitle: req.body.reqEmpTitle,
-                reqDate: req.body.reqDate,
-                reqTime: req.body.reqTime,
-                mod: req.body.mod,
-                mach: req.body.mach,
-                machNum: req.body.machNum,
-                reqDept: req.body.reqDept,
-                probDetail: req.body.probDetail,
-                resEmp: '',
-                resEmpTitle: '',
-                resDate: '',
-                resTime: '',
-                solutionDetail: ''
-            })
-                .then(result => {
-                    res.json(workOrderNum);
-                })
-        })
-        .catch(error => console.error(error));
+
+    // workOrderDb.collection('request').find().toArray()
+    //     .then(results => {
+    //         let usedNums = results.map(workOrder => workOrder.workOrderNum)
+    //         workOrderNum = setWONum();
+    //     })
+    //     .then(data => {
+    //         workOrderDb.collection('request').insertOne({
+    //             workOrderNum: workOrderNum,
+    //             status: 'open',
+    //             respondedTo: false,
+    //             reqEmp: req.body.reqEmp,
+    //             reqEmpTitle: req.body.reqEmpTitle,
+    //             reqDate: req.body.reqDate,
+    //             reqTime: req.body.reqTime,
+    //             mod: req.body.mod,
+    //             mach: req.body.mach,
+    //             machNum: req.body.machNum,
+    //             reqDept: req.body.reqDept,
+    //             probDetail: req.body.probDetail,
+    //             resEmp: '',
+    //             resEmpTitle: '',
+    //             resDate: '',
+    //             resTime: '',
+    //             solutionDetail: ''
+    //         })
+    //             .then(result => {
+    //                 res.json(workOrderNum);
+    //             })
+    //     })
+    // .catch (error => console.error(error));
 });
 
 app.delete('/deleteWorkOrder/:num', (req, res) => {
-    workOrderDb.collection('request').deleteOne({ workOrderNum: req.params.num })
-        .then(result => {
-            res.json('');
-        })
-        .catch(error => console.error(error));
+    WorkOrder.deleteOne({ workOrderNum: req.params.num }, (err, workOrders) => {
+        if (err) res.send(err);
+
+        res.json(workOrders);
+    });
 });
 
 app.listen(process.env.PORT || PORT, (req, res) => {
@@ -137,10 +161,10 @@ app.listen(process.env.PORT || PORT, (req, res) => {
 
 function setWONum(usedNums) {
     let num = 0;
-    while (usedNums.includes(num) || num === 0) {
-        num = Math.ceil(Math.random() * 999);
-        num = ("0000" + num).slice(-6);
-    }
+    // while (usedNums.includes(num) || num === 0) {
+    num = Math.ceil(Math.random() * 999);
+    num = ("0000" + num).slice(-6);
+    // }
     return num;
 }
 

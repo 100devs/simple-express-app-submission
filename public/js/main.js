@@ -14,7 +14,7 @@ document.querySelector('.close').addEventListener('click', closeWorkOrder);
 document.querySelector('.delete').addEventListener('click', deleteWorkOder);
 document.querySelector('#woRequest').addEventListener('click', postWorkOder);
 
-
+//PUSHER
 var pusher = new Pusher('0badd11ed0483edfa1ed', {
     cluster: 'us2'
 });
@@ -363,7 +363,6 @@ async function getWorkOrderInfo(num) {
             headers: { 'Content-Type': 'application/json' },
         })
         const data = await response.json()
-
         showWoInfo(data);
     } catch (err) {
         console.log(err)
@@ -425,6 +424,7 @@ async function respondToWorkOrder() {
             })
         })
         const data = await response.json()
+        console.log('success')
         alertOfWO()
         getWorkOrderInfo(woNum);
 
