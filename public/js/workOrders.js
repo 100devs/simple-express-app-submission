@@ -7,6 +7,7 @@ let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
 // console.log(window)
 window.onload = getWorkOrders();
 
+document.querySelector('#sortOptions').addEventListener('change', getWorkOrders)
 document.querySelector('.respond').addEventListener('click', respondToWorkOrder);
 document.querySelector('.close').addEventListener('click', closeWorkOrder);
 document.querySelector('.delete').addEventListener('click', deleteWorkOder);
@@ -265,14 +266,36 @@ async function deleteWorkOder() {
         console.log(err)
     }
 }
-async function getWorkOrders() {
+async function getOpenWorkOrders() {
     let list = document.querySelector('.workOrders');
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
     try {
 
-        const response = await fetch(`workOrders/loadWorkOrders`, {
+        const response = await fetch(`workOrders/openedWorkOrders`, {
+            method: 'get',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        const data = await response.json();
+        data.reverse();
+        data.forEach(workOrder => {
+            addWOLiToList(workOrder, list);
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+async function getWorkOrders() {
+    let sortOption = document.querySelector('#sortOptions').value;
+    let list = document.querySelector('.workOrders');
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
+    try {
+
+        const response = await fetch(`workOrders/loadWorkOrders/${sortOption}`, {
             method: 'get',
             headers: { 'Content-Type': 'application/json' },
         })

@@ -6,11 +6,34 @@ router.get('/', (req, res) => {
     res.render('workOrders');
 });
 
-router.get('/loadWorkOrders', (req, res) => {
-    WorkOrder.find({}, (err, workOrders) => {
-        if (err) res.send(err);
-        res.json(workOrders);
-    });
+router.get('/loadWorkOrders/:sortOption', (req, res) => {
+    let option = req.params.sortOption;
+    switch (option) {
+        case 'open':
+            WorkOrder.find({ status: 'open' }, (err, workOrders) => {
+                if (err) res.send(err);
+                res.json(workOrders)
+            });
+            break;
+        case 'closed':
+            WorkOrder.find({ status: 'closed' }, (err, workOrders) => {
+                if (err) res.send(err);
+                res.json(workOrders)
+            });
+            break;
+        case 'responded':
+            WorkOrder.find({ status: 'open', respondedTo: true }, (err, workOrders) => {
+                if (err) res.send(err);
+                res.json(workOrders)
+            });
+            break;
+        default:
+            WorkOrder.find({}, (err, workOrders) => {
+                if (err) res.send(err);
+                res.json(workOrders);
+            });
+            break;
+    }
 });
 
 router.get('/getWoInfo/:num', (req, res) => {

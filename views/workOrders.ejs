@@ -63,17 +63,17 @@
                <span class="userPic"
                ><img class="headshot" src="/images/headshot.png" alt=""
                /></span>
-               <a href="/user" class="logout">Logout</a>
+               <a href="/user" class="logout">Login</a>
             </section> 
          </section>
          <section class="createContainer flex">
             <section class="sort flex">
                <h3>Sort Work Orders </h3>
                <select name="sort" id="sortOptions" class="sortOptions">
-                  <option value="">Open Status</option>
-                  <option value="">closed Status</option>
-                  <option value="">Responded To</option>
-                  <option value="">Recent Work Orders</option>
+                  <option value="recent">Recent</option>
+                  <option value="open">Open</option>
+                  <option value="closed">Closed</option>
+                  <option value="responded">Responded To</option>
                </select>
             </section>
             <a href="/create" id="createWO" class="createWOMain create flex"
