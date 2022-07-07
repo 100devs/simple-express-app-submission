@@ -1,5 +1,4 @@
 let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
-let UPDATED = false;
 
 // let navButtons = document.querySelectorAll('.navButtons li');
 // document.querySelector('#createWO').addEventListener('click', selectMain);
@@ -8,14 +7,9 @@ let UPDATED = false;
 // console.log(window)
 window.onload = getWorkOrders();
 
-
-// document.querySelector('#mach').addEventListener('change', setMachNums);
-// document.querySelector('#mod').addEventListener('change', setMachNums);
 document.querySelector('.respond').addEventListener('click', respondToWorkOrder);
 document.querySelector('.close').addEventListener('click', closeWorkOrder);
 document.querySelector('.delete').addEventListener('click', deleteWorkOder);
-document.querySelector('#woRequest').addEventListener('click', postWorkOder);
-
 
 //PUSHER
 var pusher = new Pusher('0badd11ed0483edfa1ed', {
@@ -24,31 +18,11 @@ var pusher = new Pusher('0badd11ed0483edfa1ed', {
 
 var channel = pusher.subscribe('my-channel');
 channel.bind('my-event', function (data) {
-    getWorkOrders();
-    if (UPDATED === true) {
-        selectMain('workOrdersMain');
-        UPDATED = false;
-    }
-    document.querySelector('.sort').classList.remove('hidden');
+    document.querySelector('#workOrdersInfo').click();
 });
 
 // NON SERVER FUNCTIONALITY
-function addOption(module, machLimit) {
-    let select = document.querySelector('#machNum');
-    let optionElements = document.querySelectorAll('#machNum option')
-    let value = 1;
-    let machNum = Number(`${module}1`);
-    optionElements.forEach(option => select.removeChild(option));
-    while (machLimit > 0) {
-        let option = document.createElement('option');
-        option.value = value;
-        option.innerText = machNum.toString()
-        select.appendChild(option);
-        value++;
-        machNum++;
-        machLimit--;
-    }
-}
+
 function addWOLiToList(workOrder, list) {
     // alert('success')
     let li = document.createElement('li');
@@ -182,46 +156,6 @@ function selectTab() {
         getWorkOrders('closed');
     }
 }
-function setMachNums() {
-    let module = Number(document.querySelector('#mod').value);
-    let machine = Number(document.querySelector('#mach').value);
-    let sp = 1,
-        bal = 2,
-        liners = 6,
-        cp = 3,
-        ab = 3;
-
-    if (module === 1 || module === 3 || module === 4 || module === 7) {
-        bal = 3
-    }
-    if (module === 7) {
-        liners = 1;
-        cp = 1;
-        ab = 1;
-    } else if (module === 5 || module === 6) {
-        liners = 5;
-        cp = 2;
-        ab = 2;
-    }
-
-    switch (machine) {
-        case 1:
-            addOption(module, sp);
-            break;
-        case 2:
-            addOption(module, bal);
-            break;
-        case 3:
-            addOption(module, liners);
-            break;
-        case 4:
-            addOption(module, cp);
-            break;
-        case 5:
-            addOption(module, ab);
-            break;
-    }
-}
 function showWoInfo(data) {
     let dept = getDepartmentName(data.reqDept);
     let machine = getMachineName(data.mach);
@@ -285,7 +219,7 @@ function showWoInfo(data) {
 // WORKORDER REQUESTS
 async function alertOfWO() {
     try {
-        const response = await fetch(`user`, {
+        const response = await fetch(`submitWO`, {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
         })
@@ -327,7 +261,6 @@ async function deleteWorkOder() {
         })
         const data = await response.json();
         alertOfWO();
-        UPDATED = true;
     } catch (err) {
         console.log(err)
     }
@@ -338,7 +271,7 @@ async function getWorkOrders() {
         list.removeChild(list.firstChild);
     }
     try {
-        
+
         const response = await fetch(`workOrders/loadWorkOrders`, {
             method: 'get',
             headers: { 'Content-Type': 'application/json' },
@@ -373,42 +306,7 @@ async function getWorkOrderInfo(num) {
         console.log(err)
     }
 }
-async function postWorkOder() {
-    try {
-        let reqEmp = document.querySelector('#name').innerText,
-            reqEmpTitle = document.querySelector('#title').innerText,
-            mod = document.querySelector('#mod').value,
-            mach = document.querySelector('#mach').value,
-            machNum = document.querySelector('#machNum').value,
-            reqDept = document.querySelector('#reqDept').value,
-            probDetail = document.querySelector('#probDetail').value;
-        let currDate = new Date();
-        let reqDate = `${currDate.getMonth() + 1}/${currDate.getDate()}/${currDate.getFullYear()}`;
-        let reqTime = `${currDate.getHours()}:${currDate.getMinutes()}`;
 
-        const response = await fetch(`workOrders`, {
-            method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                'reqEmp': reqEmp,
-                'reqEmpTitle': reqEmpTitle,
-                'reqDate': reqDate,
-                'reqTime': reqTime,
-                'mod': mod,
-                'mach': mach,
-                'machNum': machNum,
-                'reqDept': reqDept,
-                'probDetail': probDetail
-            })
-        })
-
-        const data = await response.json();
-        alertOfWO();
-        UPDATED = true;
-    } catch (err) {
-        console.log(err)
-    }
-}
 async function respondToWorkOrder() {
     let woNum = document.querySelector('#woNum').innerText;
     let resEmp = document.querySelector('#name').innerText;

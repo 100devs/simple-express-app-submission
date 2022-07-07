@@ -57,7 +57,7 @@ router.put('/closeWorkOrder/:num', (req, res) => {
     });
 });
 
-router.post('/workOrders', (req, res) => {
+router.post('/postWorkOrder', (req, res) => {
     try {
         let workOrderNum;
         workOrderNum = setWONum();

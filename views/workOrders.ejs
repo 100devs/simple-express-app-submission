@@ -32,8 +32,8 @@
             <li id="moduleInfo" class="moduleInfoMain topNavButtons">
                <i class="icon fa-solid fa-industry"></i>
             </li>
-            <li id="workOrdersInfo" class="workOrdersMain">
-               <a href="#"><i class="fa-solid fa-clipboard-list"></i></a>
+            <li class="workOrdersMain">
+               <a href="/workOrders"><i id="workOrdersInfo" class="fa-solid fa-clipboard-list"></i></a>
             </li>
             <li class="pmInfoMain">
                <i class="fa-solid fa-calendar-day"></i>
@@ -76,55 +76,11 @@
                   <option value="">Recent Work Orders</option>
                </select>
             </section>
-            <a href="#" id="createWO" class="createWOMain create flex"
+            <a href="/create" id="createWO" class="createWOMain create flex"
                >+ Create New Work Order</a
             >
          </section>
          <section class="main">
-            <section class="createWOMain hidden flex">
-               <form action="" method="">
-                  <h2>Select Module</h2>
-                  <select name="module" id="mod">
-                     <option value="1">Mod 1</option>
-                     <option value="2">Mod 2</option>
-                     <option value="3">Mod 3</option>
-                     <option value="4">Mod 4</option>
-                     <option value="5">Mod 5</option>
-                     <option value="6">Mod 6</option>
-                     <option value="7">Mod 7</option>
-                     <option value="8">Mod 8</option>
-                  </select>
-                  <h2>Select Machine</h2>
-                  <div class="machine flex">
-                     <select name="machine" id="mach">
-                        <option value="1">Shell Press</option>
-                        <option value="2">Balancer</option>
-                        <option value="3">Liner</option>
-                        <option value="4">Conversion Press</option>
-                        <option value="5">Autobagger</option>
-                     </select>
-                     <select name="machNum" id="machNum">
-                        <option value="1">11</option>
-                     </select>
-                  </div>
-                  <h2>Select Help Needed</h2>
-                  <select name="shop" id="reqDept">
-                     <option class="option" value="1">Lead</option>
-                     <option value="2">Electrical</option>
-                     <option value="3">Machine Shop</option>
-                     <option value="4">Millwright</option>
-                     <option value="5">Warehouse</option>
-                  </select>
-                  <h2>Problem Description</h2>
-                  <textarea
-                     name="probDetail"
-                     id="probDetail"
-                     cols="15"
-                     rows="10"
-                  ></textarea>
-                  <button id="woRequest">Submit</button>
-               </form>
-            </section>
             <section class="workOrdersMain flex">
                <section class="title flex">
                   <span>WO Number</span>

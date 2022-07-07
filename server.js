@@ -33,9 +33,9 @@ app.use(cors())
 app.use('/submitWO', pusher);
 app.use('/', require('./routes/index'));
 app.use('/workOrders', require('./routes/workOrders'));
-// app.use('/workOrders', require('./routes/workOrders'));
 app.use('/user', require('./routes/user'));
 app.use('/account', require('./routes/account'));
+app.use('/create', require('./routes/create'));
 
 app.listen(process.env.PORT || PORT, (req, res) => {
     console.log(`Running server on port ${PORT}`);
