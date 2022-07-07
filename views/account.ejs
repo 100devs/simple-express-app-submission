@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="description" content="Your description goes here" />
+      <meta name="keywords" content="one, two, three" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>SimpleWorx</title>
+
+      <!-- external CSS link -->
+      <link rel="stylesheet" href="css/normalize.css" />
+      <link rel="stylesheet" href="css/style.css" />
+
+      <!-- font awesome -->
+      <script
+         src="https://kit.fontawesome.com/cab467bb3d.js"
+         crossorigin="anonymous"
+      ></script>
+      <!-- fonts -->
+      <link
+         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300;400;500;700&display=swap"
+         rel="stylesheet"
+      />
+   </head>
+   <body class="">
+      <nav class="nav flex">
+         <ul class="navButtons flex">
+            <li id="accountInfo" class="accountInfoMain topNavButtons">
+               <a href="/account"><i class="icon fa-solid fa-user"></i></a>
+            </li>
+            <li id="moduleInfo" class="moduleInfoMain topNavButtons">
+               <i class="icon fa-solid fa-industry"></i>
+            </li>
+            <li id="workOrdersInfo" class="workOrdersMain">
+               <a href="/workOrders"><i class="fa-solid fa-clipboard-list"></i></a>
+            </li>
+            <li class="pmInfoMain">
+               <i class="fa-solid fa-calendar-day"></i>
+            </li>
+            <li class="storeRoomInfoMain">
+               <i class="fa-solid fa-warehouse"></i>
+            </li>
+            <li class="messagingMain">
+               <i class="fa-solid fa-comment"></i>
+            </li>
+            <li class="coworkerInfoMain">
+               <i class="fa-solid fa-people-group"></i>
+            </li>
+         </ul>
+      </nav>
+
+      <section class="mainContainer">
+         <section class="employee flex">
+            <img class="logo" src="/images/default-monochrome.svg" alt="">
+            </img>            
+            <section class="flex">
+               <section class="container flex">
+                  <span id="name">Danielle Rader</span>
+                  <span id="title">Industrial Electrician</span>
+                  <span>Engineering</span>
+               </section>
+               <span class="userPic"
+               ><img class="headshot" src="/images/headshot.png" alt=""
+               /></span>
+               <a href="/user" class="logout">Logout</a>
+            </section> 
+         </section>
+         <section class="main">
+            <section class="accountInfoMain flex">
+               <h1>User Profile</h1>
+               <section class="flex">
+                  <h2>Name</h2>
+                  <input type="text" value="Danielle Rader" disabled />
+               </section>
+               <section class="job flex">
+                  <section>
+                     <h2>Job Title</h2>
+                     <input
+                        type="text"
+                        value="Industrial Electrician"
+                        disabled
+                     />
+                  </section>
+                  <section class="payInput">
+                     <h2>Pay</h2>
+                     <input type="text" value="$XX.XX" disabled />
+                  </section>
+               </section>
+               <section class="crew flex">
+                  <section>
+                     <h2>Supervisor</h2>
+                     <input type="text" value="Ted Bonham" disabled />
+                  </section>
+                  <section class="crewInput">
+                     <h2>Crew</h2>
+                     <input type="text" value="C" disabled />
+                  </section>
+               </section>
+               <section>
+                  <h2>Address</h2>
+                  <input type="text" value="605 N Ash St" disabled />
+                  <input type="text" value="" disabled />
+               </section>
+               <section>
+                  <h2>City</h2>
+                  <input type="text" value="Deshler" disabled />
+               </section>
+               <section>
+                  <h2>State</h2>
+                  <input type="text" value="OH" disabled />
+               </section>
+               <section>
+                  <h2>Zip</h2>
+                  <input type="text" value="43516" disabled />
+               </section>
+            </section>
+         </section>
+      </section>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pusher/7.1.1-beta/pusher.min.js" integrity="sha512-BPyqC/fsFB0wLkveLSwmEDvb8AHSezUQqCSL2mMieTTPvC4BfjIJIuLVH+4M6cRJFvYiwvdW1DKcVg77g4Mlrg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <!-- <script type="text/javascript" src="js/main.js"></script> -->
+   </body>
+</html>

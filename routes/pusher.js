@@ -20,8 +20,6 @@ router.post('/', (req, res) => {
         // os: req.body.os
     });
     res.json('')
-
-    // return res.json({success: true, message: 'Thank you for voting'})
 });
 
 module.exports = router;

@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const cors = require('cors')
-const MongoClient = require('mongodb').MongoClient;
+// const MongoClient = require('mongodb').MongoClient;
 const mongoose = require('mongoose');
-const WorkOrder = require('./models/workOrder');
+// const WorkOrder = require('./models/workOrder');
 const pusher = require('./routes/pusher')
 const PORT = 8000;
 require('dotenv').config();
@@ -24,9 +24,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors())
 
+// app.get('/user', (req, res) => {
+//     console.log('success')
+//     res.render('user.ejs')
+// });
+
 //routes
 app.use('/submitWO', pusher);
-app.use('/', require('./routes/workOrders'));
+app.use('/', require('./routes/index'));
+app.use('/workOrders', require('./routes/workOrders'));
+// app.use('/workOrders', require('./routes/workOrders'));
+app.use('/user', require('./routes/user'));
+app.use('/account', require('./routes/account'));
 
 app.listen(process.env.PORT || PORT, (req, res) => {
     console.log(`Running server on port ${PORT}`);

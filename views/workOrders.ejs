@@ -33,7 +33,7 @@
                <i class="icon fa-solid fa-industry"></i>
             </li>
             <li id="workOrdersInfo" class="workOrdersMain">
-               <a href="/workOrders"><i class="fa-solid fa-clipboard-list"></i></a>
+               <a href="#"><i class="fa-solid fa-clipboard-list"></i></a>
             </li>
             <li class="pmInfoMain">
                <i class="fa-solid fa-calendar-day"></i>
@@ -66,11 +66,22 @@
                <a href="/user" class="logout">Logout</a>
             </section> 
          </section>
-         <section class="main">
-            <h1>Index.ejs</h1>
+         <section class="createContainer flex">
+            <section class="sort flex">
+               <h3>Sort Work Orders </h3>
+               <select name="sort" id="sortOptions" class="sortOptions">
+                  <option value="">Open Status</option>
+                  <option value="">closed Status</option>
+                  <option value="">Responded To</option>
+                  <option value="">Recent Work Orders</option>
+               </select>
+            </section>
+            <a href="#" id="createWO" class="createWOMain create flex"
+               >+ Create New Work Order</a
+            >
          </section>
-         <!-- <section class="main"> -->
-            <!-- <section class="createWOMain hidden flex">
+         <section class="main">
+            <section class="createWOMain hidden flex">
                <form action="" method="">
                   <h2>Select Module</h2>
                   <select name="module" id="mod">
@@ -113,8 +124,8 @@
                   ></textarea>
                   <button id="woRequest">Submit</button>
                </form>
-            </section> -->
-            <!-- <section class="workOrdersMain flex">
+            </section>
+            <section class="workOrdersMain flex">
                <section class="title flex">
                   <span>WO Number</span>
                   <span>Status</span>
@@ -124,11 +135,11 @@
                </section>
                <ul class="workOrders"></ul>
                <!-- </section> -->
-               <!-- <section id="closedWorkOrders" class="container hidden">
+               <section id="closedWorkOrders" class="container hidden">
                   <ul class="workOrders"></ul>
-               </section> -->
-            <!-- </section> -->
-            <!-- <section class="woInfo hidden flex">
+               </section>
+            </section>
+            <section class="woInfo hidden flex">
                <section class="buttons flex">
                   <a href="#" class="respond hidden">Respond</a>
                   <a href="#" class="close hidden">Close</a>
@@ -166,8 +177,8 @@
                      </section>
                   </section>
                </section>
-            </section> -->
-            <!-- <section class="accountInfoMain hidden flex">
+            </section>
+            <section class="accountInfoMain hidden flex">
                <h1>User Profile</h1>
                <section class="flex">
                   <h2>Name</h2>
@@ -214,8 +225,8 @@
                   <h2>Zip</h2>
                   <input type="text" value="43516" disabled />
                </section>
-            </section> -->
-            <!-- <section class="moduleInfoMain hidden flex">
+            </section>
+            <section class="moduleInfoMain hidden flex">
                <h2>module info</h2>
                <section class="shellPress">SP</section>
                <section class="balancer">Balancer</section>
@@ -245,14 +256,14 @@
                      <section>Autobagger</section>
                   </section>
                </section>
-            </section> -->
-            <!-- <section class="pmInfoMain hidden flex">
+            </section>
+            <section class="pmInfoMain hidden flex">
                <h2>pm info</h2>
-            </section> -->
-            <!-- <section class="storeRoomInfoMain hidden flex">
+            </section>
+            <section class="storeRoomInfoMain hidden flex">
                <h2>storeroom</h2>
-            </section> -->
-            <!-- <section class="messagingMain hidden flex">
+            </section>
+            <section class="messagingMain hidden flex">
                <section class="messagesContainer flex">
                   <span class="message user">This is a text</span>
                   <span class="message coworker"
@@ -276,14 +287,14 @@
                      <button>Send</button>
                   </form>
                </section>
-            </section> -->
-            <!-- <section class="coworkerInfoMain hidden flex">
+            </section>
+            <section class="coworkerInfoMain hidden flex">
                <h2>coworker info</h2>
             </section>
-         </section> -->
+         </section>
       </section>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/pusher/7.1.1-beta/pusher.min.js" integrity="sha512-BPyqC/fsFB0wLkveLSwmEDvb8AHSezUQqCSL2mMieTTPvC4BfjIJIuLVH+4M6cRJFvYiwvdW1DKcVg77g4Mlrg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script type="text/javascript" src="js/main.js"></script>
-      <!-- <script type="text/javascript" src="js/workOrders.js"></script> -->
+      <script type="text/javascript" src="js/workOrders.js"></script>
    </body>
 </html>

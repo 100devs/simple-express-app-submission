@@ -3,13 +3,12 @@ const router = express.Router();
 const WorkOrder = require('../models/workOrder.js');
 
 router.get('/', (req, res) => {
-    res.render('index');
+    res.render('workOrders');
 });
 
-router.get('/workOrders', (req, res) => {
+router.get('/loadWorkOrders', (req, res) => {
     WorkOrder.find({}, (err, workOrders) => {
         if (err) res.send(err);
-
         res.json(workOrders);
     });
 });
