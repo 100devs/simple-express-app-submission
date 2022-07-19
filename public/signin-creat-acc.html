@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  	<meta charset="utf-8">
+  	<meta name="description" content="Your description goes here">
+  	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://kit.fontawesome.com/a0dee5f62e.js" crossorigin="anonymous"></script>
+		<title>The Plant Spot</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/reset.css">
+	</head>
+	<body>
+		<header>
+			<ul class="flex headerNav">
+				<li><a href="index.html"><i class ="fa-solid fa-house"></i></a></li>
+				<li><a href="/popular_following_posts.ejs"><i class="fa-brands fa-pagelines"></i></a></li>
+				<li><a href="index.html#about"><i class="fa-solid fa-circle-question"></i></a></li>
+				<li><a href="/profile.ejs"><i class="fa-solid fa-user"></i></a></li>
+			</ul> 
+		</header>
+		<section class="login flex">
+			<h1>Sign In</h1>
+			<form action = "/users" method = "GET">
+				<label for="username">Username</label>
+				<input type = "text" placeholder = "username" name = "username">
+				<label for="password">Password</label>
+				<input type = "password" placeholder="password" name="password">
+				<button type="submit">Submit</button>
+			</form>
+			<p>Don't have an account? Click <button id="createAcc">here!</button></p>
+		</section>
+		<section class="hidden createAccount">
+            <h1>Create Account</h1>
+			<form action = "/users" method = "POST">
+				<input id="username" type = "text" placeholder = "username" name = "username">
+				<input  id="password" type = "password" placeholder="password" name="password">
+				<input type = "text" placeholder = "name" name = "name">
+				<textarea type = "text" placeholder = "short bio" name = "bio"></textarea>
+				<button type="submit" id="submit">Submit</button>
+			</form>
+			<p>Already have an account? Sign-in <button id="loginAcc">here!</button></p>
+		</section>
+		<script type="text/javascript" src="/main.js"></script>
+	</body>
+</html>
