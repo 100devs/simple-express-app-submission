@@ -7,6 +7,7 @@ require('dotenv').config()
 
 const password = process.env.MONGO_PASS
 console.log(process.env);
+const PORT = process.eventNames.PORT;
 
 MongoClient.connect(`mongodb+srv://sashamars:${password}@cluster0.0tvvaxm.mongodb.net/?retryWrites=true&w=majority`, {useUnifiedTopology: true})
     .then(client => {
@@ -89,8 +90,8 @@ MongoClient.connect(`mongodb+srv://sashamars:${password}@cluster0.0tvvaxm.mongod
         })
         
         // userCollection.deleteMany({});
-        app.listen(4000, () => {
-            console.log('Server running on 4000');
+        app.listen(PORT, () => {
+            console.log(`Server running on ${PORT}`);
         });
     })
     .catch(error => console.log(error));
