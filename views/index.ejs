@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Shopping List CRUD App</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/styles.css"> 
+
+</head>
+<body>
+  <h1 id="title" class=title> Shopping List App</h1>
+
+
+  <!-- <label for="Store">Store:</label>
+    <select name="store" id="store">
+      <option value="SafeWay" selected>SafeWay</option>
+      <option value="Trader Hoe's">Trader Hoe's</option>
+      <option value="Costco">Costco</option>
+    </select> -->
+
+
+  <div class=flex>
+    <div class="listInput flexChild">
+      <h1>Add an Item</h1>
+
+      <form class="form" action="/quotes" method="POST">
+          <input autocapitalize type="text" minlength=1 placeholder="Item" name="name" id="input-name">
+          <input type="text" placeholder="Quantity" name="quote" id="input-quote">
+          <!-- type="number" min="0" -->
+          <button id='submit-button' type="submit">&#10132;</button>
+         
+          <div id="message"></div>
+      </form>
+
+      <!-- <button id="update-button">Replace!</button> -->
+      <!-- <button id="delete-button">Delete</button> -->
+      <!-- <button id="delete-all-button">Delete All</button> -->
+    </div>
+
+
+
+    <!-- <div class="replace flexChild">
+        <h2>Replace Something</h2>
+        <p>
+          Replace Something
+        </p>
+        <button id="update-button">Replace!</button>
+    </div>
+
+    <div class="delete flexChild">
+      <h2>Remove</h2>
+      <p>
+        Remove a listing
+      </p>
+      
+    </div>
+  </div> -->
+
+  <div class=listView>
+    <h2> Current List </h2>
+    <ul class="quotes">
+      <!-- Loop through quotes -->
+      <% for(var i = 0; i < quotes.length; i++) {%>
+        <li class="quote listItem">
+          <!-- Output name from the iterated quote object -->
+          <span class="" id="listName<%=[i]%>"><%= quotes[i].name %></span>
+          <!-- Output quote from the iterated quote object -->
+          <span class="" id="listNumber<%=[i]%>"><%= quotes[i].quote %></span>
+          <span hidden class="stData" id="boolean-value-<%=[i]%>"><%= quotes[i].st %></span>
+          <button class='unicode' id="stikethrough-button-<%=[i]%>">&#9989;</button>
+          <button class='unicode' id="delete-listing-button-<%=[i]%>">&#128465;</button>
+          
+        </li>
+      <% } %>
+    </ul>
+  </div>
+
+  <script src="/main.js"></script>
+
+</body>
+</html>
