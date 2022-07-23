@@ -1,0 +1,48 @@
+
+
+h1{
+    color: red;
+}
+
+body {
+   background-color: lightblue;
+    font-size: 1rem;
+
+}
+
+header{
+    width:100%;
+    height: 120px;
+    float: left;
+    background-color: gray;
+    border: 2px solid black;
+    clear: both;
+} 
+
+footer {
+    width:100%;
+    height: 120px;
+    float: left;
+    background-color: gray;
+    border: 2px solid black;
+    clear: both;
+}
+
+.container {
+    border: 2px solid green;
+    float: right;
+    width: 100%;
+
+}
+
+.inner {
+    border: 2px solid red;
+    width: 50%;
+    float: left;
+}
+
+.innerTwo {
+    border: 2px solid red;
+    width: 50%;
+    float: right;
+}
