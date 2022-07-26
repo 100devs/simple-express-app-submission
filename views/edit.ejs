@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Er Done</title>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://kit.fontawesome.com/e6b1c13a6e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main class="todo-container">
+        <h2>To Do List</h2>
+        <section class="input">
+                     
+        </section>
+        <section class="display">
+            <ul class="list">
+                <% toDoList.forEach(task => { %>
+                    <% if (task._id == idTask) { %>
+                        <li class="list-item">
+                            <form action="/edit/<%=task._id %>" method="POST">
+                                <input type="text" name="title" placeholder="<%=task.title%>">
+                                <textarea name="content" id="" cols="30" rows="10" placeholder="<%= task.content%>"></textarea>
+                                <button type="submit" class="confirm">Confirm</button>
+                                <a href="/" class="cancel">Cancel</a>
+                            </form>
+                        </li>
+                    <% } else { %>
+                            <li class="list-item">
+                                <div class="list-item-title">
+                                    <%= task.title %>
+                                </div>
+                                <div class="list-item-desc">
+                                    <%= task.content %>
+                                </div>
+                                <div class="icons">
+                                    <a href="/edit/<%=task._id %>" class="edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="/remove/<%=task._id %>" class="delete"><i class="fa-solid fa-trash-can"></i></a>
+                                </div>
+                            </li>
+                    <% } %>
+                <% }) %>
+            </ul>
+            
+        </section>
+    </main>
+</body>
+
+
+</html>

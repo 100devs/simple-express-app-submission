@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: rgb(5, 52, 71);
+    height: 100%;
+    padding-top: 5rem;
+}
+
+.todo-container {
+    background-color: rgb(8, 66, 89);
+    border-radius: 20px;
+    color: white;
+    width: 600px;
+    height: 100%;
+    margin: 0 auto 5%;
+    padding: 1rem;
+}
+
+.input {
+    width: 90%;
+    margin: 0 auto;
+    padding: 3px;
+}
+
+h2 {
+    padding: 10px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+}
+
+.input {
+    margin-bottom: 2px;
+    padding: 5px;
+    display: flex;
+    width: 100%;
+}
+
+.list {
+    width: 100%;
+}
+
+.display {
+    display: flex;
+    width: 100%;
+}
+
+.icons {
+    text-align: end;
+    display: inline-block;
+    margin: 5px;
+}
+
+input {
+    margin: 8px 8px 8px 0;
+    padding: 3px;
+    display: block;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+#submit {
+    background-color: rgb(5, 171, 200);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 8px auto;
+    padding: 5px; 
+}
+
+ul {
+    list-style: none;
+}
+
+.list-item {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: rgb(2, 102, 122);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.list-item-desc {
+    font-size: .85rem;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.confirm, .cancel {
+    text-decoration: none;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 8px 5px;
+}
+
+.confirm {
+    background-color: rgb(124, 213, 227);
+}
+
+.cancel {
+    background-color: rgb(227, 205, 124);
+}
+
+.concel:hover {
+    background-color: red;
+}
