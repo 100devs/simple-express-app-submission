@@ -13,7 +13,7 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 
-mongoose.connect(process.env.DBSTRING, 
+mongoose.connect((process.env.DBSTRING || DBSTRING), 
     {useNewUrlParser: true},
     () => {console.log('Connected to db!')}
 )
@@ -82,6 +82,6 @@ app
         })
     })
 
-    app.listen(process.env.PORT || PORT, () => {
-        console.log(`Server is running on port ${PORT}`)
-    })
+app.listen(process.env.PORT || PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
+})
