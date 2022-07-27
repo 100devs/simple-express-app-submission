@@ -10,7 +10,24 @@ Array.from(editText).forEach((element)=>{
     console.log('changed')
 })
 
+document.querySelector('button').addEventListener('click',showMed)
 
+async function showMed(){
+    const mName = this.parentNode.childNodes[1].innerText
+    try {
+        const response = await fetch ('showMed', {
+            method: 'get',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'medNameS': mName,
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+    }catch(err){
+        console.log(err)
+    }
+}
 
 async function deleteMed(){
     const mName = this.parentNode.childNodes[1].innerText

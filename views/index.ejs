@@ -7,6 +7,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Some google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <!DOCTYPE html>
@@ -15,19 +21,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Med Tracker</title>
 </head>
-<header>
-    <section>
+
+<header class="parent">
+
     <h1>MedMinder v1</h1>
-    </section>
+
+<nav>
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="/medMinder">Current Medications</a></li>
+        </ul>
+    </nav>
+    
 </header>
 
-<body>
-    <section class="container">
-    <section class="inner">
 
-        <h1>Current Meds</h1>
+<body>
+    <section class="parent">
+    <section class="container">
+
+        <h1>Current Medications</h1>
+
     <ul class="meds">
     <% for(let i=0; i < info.length; i++) {%>
         <li class="med">
@@ -36,8 +52,8 @@
             <span><%= info[i].doseFreq %></span>
             <span><%= info[i].doseDay %></span>
             <span><%= info[i].confirm %></span>
-            <span class='fa fa-edit'></span>
-            <span class='fa fa-trash'></span>
+            <span title="Edit this Medication" class='fa fa-edit'></span>
+            <span ttile="Delete this Medication"class='fa fa-trash'></span>
         </li>
     <% } %>
     </ul>
@@ -49,19 +65,25 @@
         <input type="text" placeholder="Dosage" name="doseAmt">
         <input type="text" placeholder="Frequency" name="doseFreq">
         <input type="select" placeholder="Day" name="doseDay">
-        <input type="submit">
+        <input type="submit" title="Add a Medication" value="Add Medication">
     </form>
 
     
 
     </section>
 
-    <section class="innerTwo">
-        <h2> Here's where Ill put something else. Calendar, maybe?</h2>
+    <section class="aside">
+        <h2>How to use:</h2>
+        <p>Enter the details of the medication you would like to add to your list into the "Add Medication" form.</p>
+        <p>If you need to change details of a specific medication, enter the new details into the form, and then click the "Edit" key next to the medication you would like updated.</p>
     </section>
-
 </section>
+
+<footer>
+    <h3>Here's where the footer will go. Maybe a nav? Copyright? </h3>
+</footer>
     
+
     <script src='js/main.js'></script>
 </body>
 </html>

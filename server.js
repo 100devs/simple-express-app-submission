@@ -1,3 +1,4 @@
+const { response } = require('express')
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
@@ -20,28 +21,37 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-// app.get('/',(request, response)=>{
+app.get('/',(request, response)=>{
    
  
-//         response.sendFile(__dirname + '/index.html')
-//         console.log('html sent.')
-//    })
+        response.sendFile(__dirname + '/index.html')
+        console.log('html sent.')
+   })
 
-app.get('/',(request, response)=>{
-    db.collection('meds').find().sort({confirm: -1}).toArray()
+app.get('/medMinder',(request, response)=>{
+    db.collection('meds').find().toArray()
     .then(data => {
         response.render('index.ejs', { info: data })
     })
     .catch(error => console.error(error))
 })
 
+app.get('/showMed/:medName', (request,response) => { console.log(request.params)
+    db.collection('meds')
+    if (meds[request.params.name]){
+        response.json([medName])
+    } else {
+       
+        response.json().innerText
+    }
+})
 
 app.post('/addMed', (request, response) => {
     db.collection('meds').insertOne({medName: request.body.medName,
     doseAmt: request.body.doseAmt, doseFreq: request.body.doseFreq, doseDay: request.body.doseDay})
     .then(result => {
         console.log('Medication Added')
-        response.redirect('/')
+        response.redirect('/medMinder')
     })
     .catch(error => console.error(error))
 })

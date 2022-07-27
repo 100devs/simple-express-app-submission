@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Some google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+    
+    <title>MedMinder</title>
+</head>
+
+    <header class="parent">
+       
+        
+        <h1>MedMinder v1</h1>
+
+
+    
+     <nav>
+            <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="/medMinder">Current Medications</a></li>
+            </ul>
+        </nav>
+        
+</header>
+
+
+<body>
+    <section class="parent">
+
+    <section class="container">
+    <h1>Heres a landing page to give the app some direction.</h1>
+    <h2>Search for a medication in your Current Medications:</h2>
+   <form action="/:showMed" method="GET">
+    <input type="text" placeholder="Medication Name" name="medName">
+    <button type="submit" value="search">Search List</button>
+   </form>
+    <h3> Med Information:</h3>
+    <h4></h4>
+    </section>
+
+<section class="aside">
+
+<h2>What is This?</h2>
+<h3>A simple tool to keep track of your Medications.</h3>
+
+<p>Considering this the MVP for a much larger project I'm working on.</p>
+<p>The idea here is to be able to create a list of your medications, and add them to that list,</p>
+<p>delete them from that list, and even edit them in that list. Later, I will add</p>
+<p>login/account functionality, so that multiple users can use the app. Also, a calendar that will </p>
+<p>show the days that meds have been taken effectively, and change color(green/red) depending on user activation.</p> <p>These elemnts will segue into a larger project, which is intended to be a sort of personal assistant type thing. Still working out the kinks, really. </p>
+
+<h3>Click <a href="/showMed" name="link" target="_top">here</a> to view your current list. </h3>
+</section>
+
+</section>
+</body>
+<footer>
+    <h3>Here's where the footer will go. Maybe a nav? Copyright? </h3>
+</footer>
+
+<script src="js/main.js"></script>
+</html>
