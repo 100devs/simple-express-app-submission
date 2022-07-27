@@ -13,17 +13,29 @@ Array.from(editText).forEach((element)=>{
 document.querySelector('button').addEventListener('click',showMed)
 
 async function showMed(){
-    const mName = this.parentNode.childNodes[1].innerText
+  const mName = document.getElementById("medName").value;
+  console.log('Hi! searching', mName);
     try {
-        const response = await fetch ('showMed', {
+        const response = await fetch ('showMed/' + mName, {
             method: 'get',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'medNameS': mName,
-            })
+            headers: {'Content-type': 'application/json'}
         })
         const data = await response.json()
-        console.log(data)
+      console.log(data)
+
+
+      const outputHolder = document.getElementById("medInformation");
+      // TODO: empty outputHolder of existing data
+
+      const name = document.createElement('p');
+      name.innerText = data.medName;
+
+      const doseAmt = document.createElement('p');
+      doseAmt.innerText = data.doseAmt;
+
+      outputHolder.appendChild(name);
+      outputHolder.appendChild(doseAmt);
+
     }catch(err){
         console.log(err)
     }
@@ -32,7 +44,7 @@ async function showMed(){
 async function deleteMed(){
     const mName = this.parentNode.childNodes[1].innerText
     const dAmt = this.parentNode.childNodes[3].innerText
-    
+
     try{
         const response = await fetch('deleteMed', {
             method: 'delete',
@@ -40,7 +52,7 @@ async function deleteMed(){
             body: JSON.stringify({
               'medNameS': mName,
               'doseAmtS': dAmt
-            
+
             })
           })
         const data = await response.json()
