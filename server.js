@@ -95,6 +95,5 @@ app.delete('/deleteMed', (request, response) => {
 })
 
 app.listen(process.env.PORT || PORT, ()=>{
-    const port = server.address().port;
     console.log(`Server running on port ${PORT}`)
 })
