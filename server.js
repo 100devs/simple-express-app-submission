@@ -36,9 +36,9 @@ app.get('/medMinder',(request, response)=>{
     .catch(error => console.error(error))
 })
 
-app.get('/showMed/:medName', (request,response) => { console.log(request.params)
+app.get('/showMed', (request,response) => { console.log(request.params.name)
     db.collection('meds')
-    if (meds[request.params.name]){
+    if ("meds"[request.params.name]){
         response.json([medName])
     } else {
        

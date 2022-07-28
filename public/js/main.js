@@ -18,11 +18,12 @@ async function showMed(){
         const response = await fetch ('showMed', {
             method: 'get',
             headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'medNameS': mName,
+            name: JSON.stringify({
+                mName
             })
+
         })
-        const data = await response.json()
+        const data = await response.json().Stringify
         console.log(data)
     }catch(err){
         console.log(err)
@@ -45,7 +46,6 @@ async function deleteMed(){
           })
         const data = await response.json()
         console.log(data)
-        location.reload()
 
     }catch(err){
         console.log(err)
