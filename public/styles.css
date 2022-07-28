@@ -1,0 +1,120 @@
+/* main style file */
+
+* {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.titleContent {
+    text-align: center;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#mainForm {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    border: 1px solid lightgrey;
+    padding: 2rem;
+    margin-top: 10%;
+    font-size: 1.25rem;
+}
+
+.formTitleInclude span {
+    color: green;
+}
+.formTitleExclude span {
+    color: orange;
+}
+
+.formContent {
+    display: flex;
+    column-gap: 20px;
+    row-gap: 5px;
+    flex-wrap: wrap;
+}
+
+.buttonOne {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.buttonOneHover {
+    cursor: pointer;
+}
+
+.resetButtonDisabled {
+    color: lightgray;
+    margin: 0 auto;
+    width: min-content;
+}
+
+.resetButtonEnabled {
+    color: red;
+    margin: 0 auto;
+    width: min-content;
+}
+
+.resetButtonEnabled:hover {
+    cursor: pointer;
+}
+
+.resetButtonHover:hover {
+    background: rgb(234, 234, 234);
+}
+
+.recipeContainer {
+    display: flex;
+    padding: 5rem 10rem 0 10rem;
+    column-gap: 3rem;
+}
+
+.recipeTitle {
+    font-size: 2rem;
+    color: blue;
+    text-decoration: none;
+}
+
+.recipeTitle:hover {
+    text-decoration: underline;
+}
+
+.recipeSummary {
+    font-size: 1.25rem;
+    line-height: 1.25;
+}
+
+.recipeTextContent {
+    width: 50%;
+}
+
+.recipeImage {
+    width: 100%;
+}
+
+
+@media screen and (max-width: 1175px) {
+    .recipeContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem 5%;
+    }
+    .recipeImageContent {
+        order: 1;
+        width: 50%;
+    }
+    .recipeTextContent {
+        order: 2;
+        width: 75%
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .container {
+        width: 90%;
+    }
+}
