@@ -19,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leroialfonse/rap-names-express-blueprint.git"
+    "url": "git+https://github.com/leroialfonse/MedMinder.git"
   },
   "bugs": {
-    "url": "https://github.com/leroialfonse/rap-names-express-blueprint/issues"
+    "url": "git+https://github.com/leroialfonse/MedMinder/issues"
   },
-  "homepage": "https://github.com/leroialfonse/rap-names-express-blueprint#readme",
+  "homepage": "https://github.com/leroialfonse/MedMinder#readme",
   "description": "",
   "devDependencies": {
     "nodemon": "^2.0.19"
