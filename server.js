@@ -1,9 +1,10 @@
+require('dotenv').config()
+
 const { response } = require('express')
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
 const PORT = 2000
-require('dotenv').config()
 const cors = require('cors')
 
 
