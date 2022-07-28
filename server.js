@@ -43,7 +43,7 @@ app.get('/showMed', (request,response) => { console.log(request.params.name)
     } else {
        
         response.json().innerText
-    }
+        }
 })
 
 app.post('/addMed', (request, response) => {
