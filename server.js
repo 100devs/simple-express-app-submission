@@ -4,6 +4,7 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 const PORT = 2000
 require('dotenv').config()
+const cors = require('cors')
 
 
 let db,
@@ -20,6 +21,7 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cors())
 
 app.get('/',(request, response)=>{
    
