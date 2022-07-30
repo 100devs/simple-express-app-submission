@@ -78,6 +78,35 @@ section{
 }
 
 
+
+/* (A) CONTAINER */
+#grid-col {
+  /* (A1) GRID LAYOUT */
+  display: grid;
+ 
+  /* (A2) SPECIFY COLUMNS */
+  grid-template-columns: auto auto auto;
+ 
+  /* we can also specify exact pixels, percentage, repeat
+  grid-template-columns: 50px 100px 150px;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-columns: 100px 20% auto;
+  grid-template-columns: repeat(3, auto); */
+}
+ 
+/* (B) GRID CELLS */
+div.cell {
+background: lightgray;
+  /* background: LightBlue; */
+  border: 1px solid Blue;
+  padding: 10px;
+}
+ 
+/* (C) RESPONSIVE - 1 COLUMN ON SMALL SCREENS */
+@media screen and (max-width: 640px) {
+  #grid-col { grid-template-columns: 100%; }
+}
+
 footer {
     width: auto;
     display: flex;  

@@ -10,6 +10,17 @@ Array.from(editText).forEach((element)=>{
     console.log('changed')
 })
 
+element.querySelector('#clear').addEventListener('click', clear)
+ 
+async function clear(){
+    // const mName = document.getElementById("medName")
+    console.log('clearing, please wait.')
+
+    outputHolder.replaceChildren();
+
+
+}
+
 document.querySelector('button').addEventListener('click',showMed)
 
 async function showMed(){
@@ -22,6 +33,7 @@ async function showMed(){
         })
         const data = await response.json()
       console.log(data)
+    //   onclick('click')
 
 
       const outputHolder = document.getElementById("medInformation");

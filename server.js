@@ -33,20 +33,19 @@ app.get('/',(request, response)=>{
 
 app.get('/medMinder',(request, response)=>{
     db.collection('meds').find().toArray()
-    .then(data => {
-        response.render('index.ejs', { info: data })
+    .then((data) => {
+        response.render('index.ejs', { info: data });
     })
-    .catch(error => console.error(error))
-})
+    .catch((error) => console.error(error));
+});
 
-app.get('/showMed', (request,response) => { console.log(request.params.name)
-    db.collection('meds')
-    if ("meds"[request.params.name]){
-        response.json([medName])
-    } else {
-       
-        response.json().innerText
-        }
+app.get('/showMed/:medName', async (request,response) => { console.log("showMed Params:", request.params);
+const params =request.params;
+const medName = params.medName;
+    const med = await db.collection('meds').findOne({ medName });
+
+
+   response.send(med);
 })
 
 app.post('/addMed', (request, response) => {
