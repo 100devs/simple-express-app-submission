@@ -1,11 +1,14 @@
 let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
+let RELOAD = false,
+    WORK_ORDER_NUM;
 
 // let navButtons = document.querySelectorAll('.navButtons li');
 // document.querySelector('#createWO').addEventListener('click', selectMain);
 // navButtons.forEach(button => button.addEventListener('click', selectMain));
 // document.querySelector('#workOrdersInfo').addEventListener('click', getWorkOrders);
 // console.log(window)
-window.onload = getWorkOrders();
+// window.onload = getWorkOrders();
+getWorkOrders();
 
 document.querySelector('#sortOptions').addEventListener('change', getWorkOrders)
 document.querySelector('.respond').addEventListener('click', respondToWorkOrder);
@@ -19,7 +22,14 @@ var pusher = new Pusher('0badd11ed0483edfa1ed', {
 
 var channel = pusher.subscribe('my-channel');
 channel.bind('my-event', function (data) {
-    document.querySelector('#workOrdersInfo').click();
+    // document.querySelector('#workOrdersInfo').click();
+    getWorkOrders();
+    if (RELOAD === true) {
+        getWorkOrderInfo(WORK_ORDER_NUM);
+        RELOAD = false;
+    } else {
+        document.querySelector('.woInfo').classList.add('hidden');
+    }
 });
 
 // NON SERVER FUNCTIONALITY
@@ -218,6 +228,21 @@ function showWoInfo(data) {
 //USER REQUESTS
 
 // WORKORDER REQUESTS
+async function loadPage() {
+    try {
+        const response = await fetch(`workOrders`, {
+            method: 'get',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        await response.json()
+        RELOAD = true;
+        alertOfWO(woNum);
+
+        // getWorkOrderInfo(woNum);
+    } catch (err) {
+        console.log(err)
+    }
+}
 async function alertOfWO() {
     try {
         const response = await fetch(`submitWO`, {
@@ -225,7 +250,6 @@ async function alertOfWO() {
             headers: { 'Content-Type': 'application/json' },
         })
         const data = await response.json()
-
     } catch (err) {
         console.log(err)
     }
@@ -243,8 +267,9 @@ async function closeWorkOrder() {
                 })
             })
             const data = await response.json();
+            RELOAD = true;
+            WORK_ORDER_NUM = woNum;
             alertOfWO();
-            getWorkOrderInfo(woNum);
         } catch (err) {
             console.log(err)
         }
@@ -261,6 +286,7 @@ async function deleteWorkOder() {
             headers: { 'Content-Type': 'application/json' },
         })
         const data = await response.json();
+        RELOAD = false;
         alertOfWO();
     } catch (err) {
         console.log(err)
@@ -303,7 +329,8 @@ async function getWorkOrders() {
         data.reverse();
         data.forEach(workOrder => {
             addWOLiToList(workOrder, list);
-        })
+        });
+
     } catch (err) {
         console.log(err)
     }
@@ -350,9 +377,11 @@ async function respondToWorkOrder() {
             })
         })
         await response.json()
+        RELOAD = true;
+        WORK_ORDER_NUM = woNum;
         alertOfWO();
-        getWorkOrderInfo(woNum);
 
+        // getWorkOrderInfo(woNum);
     } catch (err) {
         console.log(err)
     }

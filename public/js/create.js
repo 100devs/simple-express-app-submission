@@ -70,6 +70,7 @@ async function alertOfWO() {
             headers: { 'Content-Type': 'application/json' },
         })
         const data = await response.json()
+        // alert('true')
         document.querySelector('#workOrdersInfo').click();
     } catch (err) {
         console.log(err)
