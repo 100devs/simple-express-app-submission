@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Current Recipes</h1>
+    <ul class="recipes">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="recipe">
+            <span><%= info[i].recipeName%></span> <br>
+            <span style="text-indent: 20px; display: block;">Ingredients!</span>
+            <ul>
+            
+                <% if (typeof info[i].recipeIngredients == "object") { %>
+
+                    <% for(let k=0; k < info[i].recipeIngredients.length; k++) { %>
+
+                        <li><%=info[i].recipeIngredients[k] %></li>    
+
+                    <% } %>
+          
+                <% } else { %>
+
+                        <li><%= info[i].recipeIngredients %></li>
+
+                <% } %>
+           
+            </ul>
+
+            <span>Instructions</span>
+            <ul> 11
+                
+            </ul>
+
+            
+            <span><%= info[i].likes %></span>
+            <span class='fa fa-thumbs-up'></span>
+            <span class='fa fa-trash'></span>
+            <!-- <span class='fa fa-pencil-alt'></span> -->
+            <br>
+            <br>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Add A Recipe!:</h2>
+
+    <form id="form" action="/addRecipe" method="POST">
+        <input id="recipeName" type="text" placeholder="Recipe Name" minlength="2" required name="recipeName">
+
+        <input id='0' class="Ingredients" type="text" placeholder="Add Ingredients" name="recipeIngredient">
+
+        <!-- <input style="height: 50px;" type="text"> -->
+
+        <button id="button" type="button">Add More Ingredients</button>
+        <button id="deleteButton" type="button">Erase ingredient</button>
+
+        <!-- <input class="ingredient" type="text" placeholder="Birth Name" name="birthName"> -->
+
+        <!-- <input type=""> -->
+        <input id="submitItems" type="submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html> 
+
