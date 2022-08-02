@@ -70,7 +70,7 @@ a{
 }
 
 .nav-branding{
-    font-size: 2rem;
+    font-size: 2em;
     text-emphasis: bold;
     color: navy;
 }
@@ -142,6 +142,10 @@ a{
 
     .nav-menu.active{
         left:0;
+    }
+
+    .aside{
+        flex-wrap: wrap;
     }
 }
 
