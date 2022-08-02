@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Modpack DB</title>
+        <link rel="stylesheet" href="../style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Noto+Sans&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="../scripts/editdb.js" defer></script>
+    </head>
+    <body id="editorBody">
+        <nav>
+            <span id="home"><a href="/info">home</a></span>
+            <h1>MCMODPACKDB</h1>
+            <div class="dropdown">
+                <span class="dropbtn">USER</span>
+                <div class="dropdown-content">
+                    <a href="#">Manage Account</a>
+                    <a href="#" id="logoutEditor">Logout</a>
+                    <a href="login.html" id="loginEditor" class="hidden">Login</a>
+                </div>
+            </div>
+        </nav>
+        <section id="mpAddContainer">
+            <section class="editorSearch">
+                <h1>Add a new modpack</h1>
+                <input id="editorSearchInputAdd" type="search" placeholder="search modpacks" name="search">
+            </section>
+            <ul id="mpEditorAdd" class="mpEditorUL">
+                <li>
+                    <span>Modpack Name</span>
+                    <span>Modpack ID</span>
+                    <span class="addButton"><a href="#">+</a></span>   
+                </li>
+                <li>
+                    <span>Modpack Name</span>
+                    <span>Modpack ID</span>
+                    <span class="addButton"><a href="#">+</a></span>  
+                </li>
+                <li>
+                    <span>Modpack Name</span>
+                    <span>Modpack ID</span>
+                    <span class="addButton"><a href="#">+</a></span>  
+                </li>
+            </ul>
+        </section>
+        <section id="mpRemoveContainer">
+            <section class="editorSearch">
+                <h1>Remove a modpack</h1>
+                <!-- <input id="editorSearchInputRemove" type="search" placeholder="search modpacks" name="search"> -->
+            </section>
+            <ul id="mpEditorRemove" class="mpEditorUL">
+                <li>
+                    <span>Modpack Name</span>
+                    <span>Modpack ID</span>
+                    <span class="addButton"><a href="#">-</a></span>   
+                </li>
+                <li>
+                    <span>Modpack Name</span>
+                    <span>Modpack ID</span>
+                    <span class="addButton"><a href="#">-</a></span>  
+                </li>
+                <li>
+                    <span>Modpack Name</span>
+                    <span>Modpack ID</span>
+                    <span class="addButton"><a href="#">-</a></span>  
+                </li>
+            </ul>
+        </section>
+        <footer id="ejsFoot">
+            <span><a href="#">github</a></span>
+            <span><a href="#">contribute</a></span>         
+        </footer>
+    </body>
+</html>

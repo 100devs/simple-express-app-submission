@@ -1,0 +1,647 @@
+/*base box model styling*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+@font-face{
+    font-family: "arkpixel";
+    src: url("./fonts/ark-pixel-16px-latin.ttf") format("truetype");
+    font-style: normal;
+}
+
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+
+/*CURSOR*/
+.cursor{
+    cursor: pointer;
+}
+
+nav{
+    width: 100%;
+    margin: 10px 0 0 0;
+    height: 75px;
+    background: rgb(84, 84, 84);
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'arkpixel', 'sans-serif';
+}
+
+/******************************************
+/* LOGIN / SIGN-UP
+/*******************************************/
+
+#loginBody, #signupBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url(./assets/mcbg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#loginBox, #signUpBox{
+    /* background: rgb(207 201 178); */
+    height: 350px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #c6c6c6;
+    box-shadow: 8px 0 0 0 #555555,
+        0 8px 0 0 #555555,
+        4px 4px 0 0 #555555,
+        -8px 0 0 0 #e8e8e8,
+        0 -8px 0 0 #e8e8e8,
+        -4px -4px 0 0 #e8e8e8,
+        0 0 0 4px #b5b4b5,
+        4px 8px 0 0 #555,
+        8px 4px 0 0 #555,
+        -4px -8px 0 0 #e8e8e8,
+        -8px -4px 0 0 #e8e8e8,
+        8px -4px 0 0 #000,
+        4px -8px 0 0 #000,
+        -8px 4px 0 0 #000,
+        -4px 8px 0 0 #000,
+        -8px -8px 0 0 #000,
+        8px 8px 0 0 #000,
+        -12px 0 0 0 #000,
+        -12px -4px 0 0 #000,
+        12px 0 0 0 #000,
+        12px 4px 0 0 #000,
+        0 -12px 0 0 #000,
+        -4px -12px 0 0 #000,
+        0 12px 0 0 #000,
+        4px 12px 0 0 #000;
+}
+#loginForm, #signupForm{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+#loginForm input, #signupForm input{
+    width: 100%;
+    margin: 5px 0;
+    background: white;
+}
+#loginForm > button, #signupForm > button{
+    border: 1px solid black;
+    width: 40%;
+    margin-top: 5px;
+    padding: 2% 0;
+}
+
+#test, #logout, #hasAccount{
+    border: 2px solid black;
+    margin-top: 13px;
+    padding: 10px 0;
+    width: 50%;
+    color: white;
+    transition: background .25s ease-in-out 0s;
+    transition: box-shadow .1s ease-in-out 0s;
+    background: #6d6d6d;
+    /* maybe switch to image? */
+    box-shadow: inset 4px 0 0 0 #aaaaaa,
+        inset 0 4px 0 0 #aaaaaa,
+        inset 2px 2px 0 0 #aaaaaa,
+        inset -4px 0 0 0 #565656,
+        inset 0 -4px 0 0 #565656,
+        inset -2px -2px 0 0 #565656,
+        inset 0 0 0 4px #585858,
+        inset 0 0 0 4px #585858,
+        inset 2px 4px 0 0 #555,
+        inset 4px 2px 0 0 #555,
+        inset -2px -4px 0 0 #585858,
+        inset -4px -2px 0 0 #585858;
+}
+#test:hover, #logout:hover, #hasAccount:hover{
+    background: #80a3dfa8;
+    box-shadow: inset 4px 0 0 0 #a4b4d0,
+    inset 0 4px 0 0 #a4b4d0,
+    inset 2px 2px 0 0 #a4b4d0,
+    inset -4px 0 0 0 #7489a5,
+    inset 0 -4px 0 0 #7489a5,
+    inset -2px -2px 0 0 #7489a5,
+    inset 0 0 0 4px #7489a5,
+    inset 0 0 0 4px #7489a5,
+    inset 2px 4px 0 0 #555,
+    inset 4px 2px 0 0 #555,
+    inset -2px -4px 0 0 #7489a5,
+    inset -4px -2px 0 0 #7489a5;
+}
+#hasAccount{
+    padding: 10px 50px;
+}
+#signupForm + span{
+    margin-top: 30px;
+}
+#redirectSignup{
+    color: black;
+}
+#redirectSignup:hover{
+    color: #80a3df;
+}   
+/* 
+#565656
+#aaaaaa
+#585858
+*/
+#test{
+    margin-top: 10px;
+}
+
+#continue{
+    margin-top: 30px;
+}
+
+#continue a{
+    padding: 10px 30px;
+    border: 2px solid black;
+    transition: background .25s ease-in-out 0s;
+}
+#continue a:hover{
+    background: #80a3df;
+}
+
+/* #continue a{
+    padding: 10px 0;
+    width: 200px;
+    border: 2px solid black;
+    width: 200px;
+    padding: 10px 0;
+    margin-top: 15px;
+    transition: background .25s ease-in-out 0s;
+}
+#continue a:hover{
+    background: #80a3df;
+} */
+
+/******************************************
+/* Main Page
+/*******************************************/
+#indexHTML{
+    background: url(./assets/mcbg2.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "arkpixel", 'sans-serif';
+}
+#home{
+    font-size: 23px;
+}
+.dropdown .hidden{
+    display: none;
+}
+
+.dropdown, .hidden{
+    display: none;
+}
+
+nav > span{
+    width: 100px;
+    text-align: center;
+}
+
+#hero{
+    width: 64%;
+    margin: 40px 18%;
+    padding: 35px 0;
+    background-color: #c6c6c6;
+    box-shadow: 8px 0 0 0 #555555,
+        0 8px 0 0 #555555,
+        4px 4px 0 0 #555555,
+        -8px 0 0 0 #e8e8e8,
+        0 -8px 0 0 #e8e8e8,
+        -4px -4px 0 0 #e8e8e8,
+        0 0 0 4px #b5b4b5,
+        4px 8px 0 0 #555,
+        8px 4px 0 0 #555,
+        -4px -8px 0 0 #e8e8e8,
+        -8px -4px 0 0 #e8e8e8,
+        8px -4px 0 0 #000,
+        4px -8px 0 0 #000,
+        -8px 4px 0 0 #000,
+        -4px 8px 0 0 #000,
+        -8px -8px 0 0 #000,
+        8px 8px 0 0 #000,
+        -12px 0 0 0 #000,
+        -12px -4px 0 0 #000,
+        12px 0 0 0 #000,
+        12px 4px 0 0 #000,
+        0 -12px 0 0 #000,
+        -4px -12px 0 0 #000,
+        0 12px 0 0 #000,
+        4px 12px 0 0 #000;
+}
+/* #hero h1{
+    text-align: center;
+    margin: 10px 0 20px 0;
+} */
+
+#searchBars{
+    margin: 20px 17%;
+    padding: 20px 5%;
+    width: 66%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #424242eb;
+    color: #fbfbfb;
+}
+#searchBars h1{
+    font-size: 45px;
+    width: 50%;
+}
+#searchBars input{
+    background: #0c0c0c;
+    width: 50%;
+    padding: 10px;
+    font-size: 21px;
+    font-weight: bold;
+    font-family: 'arkpixel', 'sans-serif';
+    border: 3px solid #cfcfcf;
+    color: #cfcfcf;
+}
+.modPackInfoContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#modPackNames{
+    border: 1px solid black;
+    background: #55575a;
+    /* border-radius: 10px; */
+    height: 600px;
+    margin: 0 5%;
+    overflow-y: auto;
+}
+
+/* width */
+#modPackNames::-webkit-scrollbar, .modsUL::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+#modPackNames::-webkit-scrollbar-track, .modsUL::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+/* Handle */
+#modPackNames::-webkit-scrollbar-thumb, .modsUL::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+/* Handle on hover */
+#modPackNames::-webkit-scrollbar-thumb:hover, .modsUL::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.mpIMG{
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+}
+.modPack{
+    list-style: none;
+    padding: 20px 10px;
+    margin: 3px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    /* transition: transform .1s linear;
+    -webkit-transition: transform .1s linear;
+    -moz-transition: transform .1s linear;
+    -o-transition: transform .1s linear; */
+}
+
+/* .modPack:hover{
+    transform: scale(1.025);
+    border: 1px solid black;
+} */
+.modPack a{
+    color: black;
+}
+ 
+.viewModPack span{
+    cursor: pointer;
+}
+
+.mpLink{
+    text-decoration: underline;
+}
+
+.dropbtn {
+    color: white;
+    border: 1px solid white;
+    padding: 10px 0;
+    width: 100px;
+    text-align: center;
+    font-size: 19px;
+}
+.dropdown {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    margin-top: 40px;
+    text-align: end;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #80a3df}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {border: 1px solid white}
+
+#expandedContainer{
+    width: 100%;
+    /* height: 1000px; */
+}
+
+@keyframes slide {
+    0% {
+        transform: scaleY(.6);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.expanded{
+    background-color: #424242eb;
+    /* box-shadow: 8px 0 0 0 #555555,
+        0 8px 0 0 #555555,
+        4px 4px 0 0 #555555,
+        -8px 0 0 0 #e8e8e8,
+        0 -8px 0 0 #e8e8e8,
+        -4px -4px 0 0 #e8e8e8,
+        0 0 0 4px #b5b4b5,
+        4px 8px 0 0 #555,
+        8px 4px 0 0 #555,
+        -4px -8px 0 0 #e8e8e8,
+        -8px -4px 0 0 #e8e8e8,
+        8px -4px 0 0 #000,
+        4px -8px 0 0 #000,
+        -8px 4px 0 0 #000,
+        -4px 8px 0 0 #000,
+        -8px -8px 0 0 #000,
+        8px 8px 0 0 #000,
+        -12px 0 0 0 #000,
+        -12px -4px 0 0 #000,
+        12px 0 0 0 #000,
+        12px 4px 0 0 #000,
+        0 -12px 0 0 #000,
+        -4px -12px 0 0 #000,
+        0 12px 0 0 #000,
+        4px 12px 0 0 #000; */
+    margin-top: 50px;
+    width: 100%;
+    margin: 50px 0%;
+    padding: 25px 25% 45px 25%;
+    transform-origin: top;
+    color: white;
+    animation: slide .4s ease-in-out;
+}
+
+/* .expanded::before{
+    transform: scaleY(0);
+} */
+
+.close{
+    position: relative;
+    left: 100%;
+}
+.close svg{
+    height: 25px;
+    fill: white;
+    width: 25px;
+    background: #6e6e6e;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.close svg:hover{
+    background: #f55a5a;
+}
+
+.general{
+    display: flex;
+    flex-direction: row;
+    /* margin: 0 5%; */
+    margin-bottom: 15px;
+}
+.general > img{
+    min-height: 150px;
+    min-width: 150px;
+    /* border: 5px solid black; */
+}
+.generalText{
+    width: 100%;
+    font-family: 'Noto Sans', 'sans-serif';
+    padding: 0 25px;
+}
+.description{
+    margin-top: 20px;
+    word-break: break-word;
+}
+.generalText > h2{
+    margin-bottom: 5px;
+    font-size: 40px;
+}
+.generalText > div{
+    display: flex;
+    justify-content: space-between;
+}   
+.modsContainer{
+    padding: 0 5%;
+}
+.labels{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0 20px 0 10px;
+    margin-bottom: 5px;
+    font-family: 'Noto Sans', 'sans-serif';
+}
+.mpLinkExt a{
+    color: white;
+    text-decoration: underline;
+}
+.labels > span{
+    width: 50%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modsUL{
+    /* border: 1px solid black;
+    background: #55575a; */
+    color: black;
+    /* border-radius: 10px; */
+    height: 260px;
+    overflow: auto;
+}
+.modsUL li{
+    list-style: none;
+    padding: 20px 10px;
+    font-size: 15px;
+    margin-bottom: 3px;
+    background: #e7e7e7;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.modsUL span{
+    width: 50%;
+    font-size: 20px;
+}
+.modsLi svg{
+    height: 10px;
+    width: 10px;
+    fill: black;
+    stroke: black;
+}
+
+#ejsFoot{
+    width: 100%;
+    height: 100px;
+    background: rgb(84, 84, 84);
+    margin-bottom: 10px;
+    padding: 0% 35%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+}
+#ejsFoot span{
+    width: 150px;
+    text-align: center;
+}
+#ejsFoot a{
+    font-size: 20px;
+}
+/******************************************
+/* MODPACK EDITOR
+/*******************************************/
+
+#editorBody{
+    background: url(./assets/mcbg6.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#mpAddContainer, #mpRemoveContainer{
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #141414cf;
+}
+.editorSearch{
+    text-align: center;
+
+}
+.editorSearch h1{
+    font-size: 30px;
+    color: white;
+}
+#editorSearchInputAdd, #editorSearchInputRemove{
+    background: black;
+    color: #cfcfcf;
+    border: 2px solid #cfcfcf;
+    padding: 10px;
+    font-size: 16px;
+    width: 400px;
+    margin: 20px;
+}
+.mpEditorUL{
+    width: 40%;
+    margin: 0 30%;
+    background: white;
+}
+.mpEditorUL li{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+.addButton a{
+    color: black;
+}
+
+/* #modPackEditor h2, #mpEditTitle{
+    margin: 10px 0;
+}
+
+#addModButton{
+    border: 1px solid black;
+    padding: 5px;
+}
+.submitMod{
+    display: flex;
+    justify-content: space-around;
+}
+#mp_linkContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    border: 1px solid black;
+    padding: 5px;
+    height: 40px;
+}
+
+#mods{
+    margin-top: 20px;
+}
+
+.addMod{
+    margin-top: 5px;
+}
+
+#return a{
+    color: black;
+    border: 1px solid black;
+} */
