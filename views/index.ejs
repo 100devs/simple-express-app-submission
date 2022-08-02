@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VG Community Database</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h1>COMMUNITY COMPLETED GAMES!</h1>
+    <h2>SUBMIT A GAME YOU'VE COMPLETED TO SHARE WITH OTHERS WHAT YOU'VE BEATEN! </H2>
+<section class="inputArea">
+      <form action="/addGame" method="POST" class="submission">
+          <input type="text" placeholder="Title" name="title">
+          <input type="text" placeholder="Genre" name="genre">
+          <select type="text" placeholder="Platform" name="platform">
+            <option value="Nin">Please Choose Your Platform</option>
+            <option value="Nin">Nintendo</option>
+            <option value="PS">Playstation</option>
+            <option value="Xbox">Xbox</option>
+            <option value="PC">PC</option>
+            <option value="Mobile">Mobile</option>
+          </select>
+          <input type="text" placeholder="URL OF COVER ART HERE" name="imgUrl"><br>
+          <input type="submit" class="submit">
+      </form>
+</section>
+
+<section class="community">
+    <ul class="submissions">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="gameProfile">
+          <i class="fa-solid fa-x"></i><br>
+          <img class="gameCover" src= <%= info[i].Img %> ><br>
+            <span><%= info[i].title %></span><br>
+            <span><%= info[i].genre %></span><br>
+            <span><%= info[i].platform %></span><br>
+            <span><%= info[i].upVotes %></span><br>
+            <i class="fa-solid fa-angle-up"></i>
+            <i class="fa-solid fa-angle-down"></i>
+        </li>
+    <% } %>
+
+    </ul>
+</section>
+
+<footer>
+  © Austin Pedigo
+</footer>
+
+
+    <script src='js/main.js'></script>
+    <script src="https://kit.fontawesome.com/bbc193bfe3.js" crossorigin="anonymous"></script>
+</body>
+</html>
