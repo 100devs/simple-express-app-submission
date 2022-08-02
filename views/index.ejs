@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- we receive the title prop from the routes -->
+    <title><%= title %> </title>
+</head>
+<body>
+    <h1>The Sheet!!</h1>
+    <h2>Add new networking friends:</h4>
+    <form action="/add" method="post">
+        <input type="text" name="eventName" placeholder="Where did you meet?">
+        <input type="date" name="date" placeholder="When did you meet?">
+        <input type="text" name="name" placeholder="enter name..." required>
+        <input type="text" name="companyPosition" placeholder="enter companyPosition...">
+        <input type="text" name="spark" placeholder="What was the spark...?">
+        <input type="email" name="email" placeholder="enter email...">
+        <input type="date" name="followUp" placeholder="When should you follow up...?">
+        <!-- <select name="addLinkedIn">
+            <option selected>LinkedIn?</option>
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select> -->
+        <input type="text" name="twitter" placeholder="Twitter handler">
+        <input type="submit">
+    </form>
+
+    <h4>MVP</h4>
+    <ul>
+        <li>Add new frieds to mongo <span>name field is required and needs to be unique</span></li>
+        <li>Display all entries on a table as soon as they are created</li>
+        <li>delete friends (click on the trash can)</li>
+        <li>change the status of <span>AddedOnlinkedIn</span> by clicking it</li>
+        <li>full <span>CRUD</span> achieved!</li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>eventName</th>
+                <th>Date</th>
+                <th>name</th>
+                <th>companyPosition</th>
+                <th>spark</th>
+                <th>email</th>
+                <th>followUp</th>
+                <th>twitter</th>
+                <th>AddedOnlinkedIn</th>
+                <!-- <th>Actions</th> -->
+
+            </tr>
+        </thead>
+        
+        <tbody>
+             
+            <% items.forEach((user, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= user.eventName %></td>
+                    <td><%= user.date? user.date.toDateString():"" %></td>
+                    <td><%= user.name %></td>
+                    <td><%= user.companyPosition %></td>
+                    <td><%= user.spark %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.followUp? user.followUp.toDateString():"" %></td>
+                    <td><%= user.twitter %></td>
+                    <td class="linkedIn"><%= user.addLinkedIn %></td>
+                    
+                    <td>
+                       <!-- <i class="fas fa-edit fa-lg"></i> -->
+                       <i class="fas fa-trash fa-lg"></i>
+
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+
+    </table>
+
+    <script src='js/main.js'></script>
+   
+</body>
+</html>
+
+<!-- use a layout for reusable components and import them with: -->
+<!-- < %- include('layout/header') % > --> 
