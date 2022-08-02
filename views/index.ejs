@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Inventory</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="style.css"> 
+
+	</head>
+	<body>
+		<h1>Inventory in Stock</h1>
+
+		<!-- add new part to inventory form -->
+
+		<details>
+			<summary>Add New Part Number</summary>
+			<section >
+				<form  action="/inventory" method="POST">
+	
+					<h4>add new partnumber</h4>
+						<input type="text" placeholder="part number"  name="part" id="newPart" required>
+		
+						<input type="text" placeholder="engine model" name="model" id="newModel" required >
+	
+						<input type="text" placeholder="engine manufacturer" name="engine_man" id="newManufacturer" required >
+		
+						<input type="number"  name="quantity" id="newQuantity" min="0" max="100"  value="0">
+						<button type="submit"> send</button>	
+				</form>
+			</section>
+		</details>
+
+
+
+
+		<!-- add new property to all entrys matching-->
+		<!-- <details>
+			<summary>Add New property to all a partnumber</summary>
+			<section >
+				<form  action="/api/addtoall" method="POST">
+	
+					<h4>add property field</h4>
+					<label class="new-field" for="new-property">New Feild to add
+						<input type="text" placeholder="New Field to Insert"  name="propertyAdd" id="new-property" required>
+					</label>
+
+					<label class="new-field"for="new-value">New Field Value
+						<input type="text" placeholder="Number or Word" name="propertyValue" id="new-value" required >
+					</label>
+
+
+					<label for="target-select">Property to match
+						<input type="text" placeholder="partnumber" name="targetSelector" id="target-select" required >
+					</label>
+
+					<label for="target-value"> Value to match
+						<input type="text" placeholder="3618046" name="targetValue" id="target-value" required >
+					</label>
+	
+						<button type="submit"> send</button>	
+				</form>
+			</section>
+		</details> -->
+		
+		
+
+
+
+
+		<section>
+			<h3>Inventory:</h3>
+			<!-- <button id="update-all" class="update_inventory">Update All Inventory</button> -->
+		</section>
+		
+		<!-- inventory list -->
+		<ol id="inventory">
+			<% for(let i =0; i<inventory.length; i++) {%>
+				<!-- get specific properties interested in -->
+				<%let {instock:instock,partnumber:partnumber,model:model,...leftover} = inventory[i] %>
+
+
+				<!-- partnumber entry into DOM -->
+				<li class="partnumber" >
+					<section class="part-info" >
+
+						<!-- new section for leftover keys -->
+						<section>
+							<details>
+								<summary>extra properties</summary>
+								<h5>extra properties</h5>
+								<ul>
+								<%for (const key in leftover ){%>
+									<li>
+										<!-- insert left overkeys not used -->
+										<span><%=key%>: </span><span><%=leftover[key]%></span>
+									</li>
+								<%}%>
+								</ul>
+							</details>
+						
+						</section>
+						
+						<!-- part number -->
+						<!-- <div class="part_id"> -->
+							<%if(instock > 7){%>
+								<div class="part_id good-stock" >
+							<%}else if(instock >= 4 ){%>
+								<div class="part_id medium-stock">
+							<%}else{%>
+								<div class="part_id low-stock">
+							<%} %>
+							<h5>Partnumber</h5>
+							<span ><%= partnumber %></span>
+						</div>
+						
+						<!-- engine model  -->
+						<div class="model_id">
+							<h5>Model</h5>
+							<span ><%= model %></span>
+						</div>
+						
+						
+
+						<!-- quantity changed requested -->
+						<div class="quantity">
+							<h5>Quantity</h5>
+							<input type="number" disabled value=<%=instock %>></input>
+						</div>
+						
+
+						<!-- current quantity in api -->
+						<div class="instock">
+							<p>instock: <span class=""><%= instock %></span> </p>
+						</div>
+						
+						
+						
+					</section><!--
+					  
+
+					--><div class="controls">
+
+
+						<section class="delete-sect">
+							<details>
+								<summary>delete</summary>
+								<button data-button="delete-button">
+									delete
+								</button>
+							</details>		
+						</section>
+						 
+	
+						 <section class="update-area">
+							<h5>Change inventory</h5>
+							<section class="inventory-change">
+								<button data-button="add-button">
+									increase amount
+								</button><!--
+
+								  --><button data-button="reduce-button">
+									reduce amount
+								</button>
+							</section>
+						
+
+							<section class="inventory-update">
+								<button data-button="update-button">
+									update
+								</button>
+							</section>
+						</section>
+					</div>
+
+
+					
+					
+				</li>
+				
+
+			<% } %>
+		</ol> 
+		<!-- end of part listing -->
+			
+		
+
+		<script  src="main.js"></script>
+	</body>
+</html>
