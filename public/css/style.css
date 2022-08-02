@@ -1,0 +1,343 @@
+* {
+    box-sizing: border-box;
+}
+
+/* WIREFRAME */
+
+html {
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    display: grid;
+    width: 39rem;
+    height: 100vh;
+    grid-template-rows: 1fr 1fr minmax(0,6fr) 4rem minmax(0,4fr);
+    padding: 2rem;
+    background: linear-gradient(0.25turn,seashell 0%, #fff 25%, #fff 75%, seashell 100% )
+}
+
+div.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.selection-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.tasks-container {
+    display: flex;
+}
+
+div.add-to-do {
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+section#todo-list {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 12fr;
+}
+
+div.chore-container {
+    height: 100%;
+    overflow: auto;
+}
+
+section#todo-list h3,
+li.task {
+    display: grid;
+    grid-template-columns: 1fr 6fr 3fr;
+}
+
+div.add-to-do {
+    height: 100%;
+    width: 100%;
+}
+
+form.add-item-form {
+    display: flex;
+}
+
+form.add-item-form > * {
+    width: 50%;
+    border: .5px solid #bbb;
+    border-radius: .5rem;
+    font-size: 1.4rem;
+    padding: .8rem;
+}
+
+div.messages-container {
+    display: grid;
+    grid-template-rows: minmax(0, 6fr) 1fr;
+}
+
+#category,
+.add-item-form button {
+    display: none;
+}
+
+/* COLORS */
+
+/* div#produce {
+    border: 1px solid rgb(76, 197, 123);
+    background:rgb(206, 255, 225);
+}
+div#frozen {
+    border: 1px solid rgb(89, 155, 253);
+    background:rgb(195, 219, 255);
+}
+div#bakery {
+    border: 1px solid rgb(214, 163, 68);
+    background:rgb(255, 243, 192);
+}
+div#other {
+    border: 1px solid rgb(182, 92, 209);
+    background:rgb(243, 203, 255);
+} */
+ul.colorWHITE {
+    background: #fff;
+}
+
+ul.colorGREEN {
+    background: rgb(76, 197, 123)
+}
+
+ul.colorBLUE {
+    background: rgb(89, 155, 253)
+}
+
+ul.colorORANGE {
+    background: rgb(214, 163, 68);
+}
+
+ul.colorPINK {
+    background: rgb(182, 92, 209);
+}
+
+/* DESIGN */
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+}
+
+div.selection-container {
+    display: flex;
+    justify-content: center;
+}
+
+span.selection {
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+span.todo,
+span.grocery {
+    width: 10rem;
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+}
+
+.category-title{
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+span.todo {
+    background-color: seashell;
+    border-radius: 5px 0 0 5px;
+    border-right: 1px solid #ccc;
+}
+
+span.grocery {
+    background-color: seashell;
+    border-radius: 0 5px 5px 0px;
+}
+
+span.selection:hover {
+    -webkit-box-shadow: inset 0 0 .5rem #ccc;
+    box-shadow: inset 0 0 .5rem #ccc;
+}
+
+span.center{
+    margin: auto;
+}
+
+span.fa-trash {
+    font-size: 1rem;
+    margin: auto;
+    padding: .2rem;
+}
+
+li.task {
+    font-size: 1.4rem;
+    padding: .5rem;
+}
+
+span.deadline {
+    text-align: center;
+}
+
+section#grocery-list {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 3rem minmax(0,1fr);
+}
+
+ul.tasksContainer {
+    height: 100%;
+}
+
+div.groceries-container {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    max-height: 100%;
+}
+
+.grid-26-1 {
+    display: grid;
+    grid-template-rows: 26px 1fr;
+}
+
+section#grocery-right {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    max-height: 100%;
+    min-height: 0;
+}
+
+li.category-title {
+    text-align: center;
+    padding: .5rem;
+}
+
+section#grocery-right > div,
+div.uncategorized-groceries {
+    max-height: 100%;
+    overflow: auto;
+    border-radius: .5rem;
+}
+
+div.uncategorized-groceries {
+    border: 1px solid black;
+}
+
+div#produce {
+    border: 1px solid rgb(76, 197, 123);
+    background:rgb(206, 255, 225);
+}
+
+div#frozen {
+    border: 1px solid rgb(89, 155, 253);
+    background:rgb(195, 219, 255);
+}
+
+div#bakery {
+    border: 1px solid rgb(214, 163, 68);
+    background:rgb(255, 243, 192);
+}
+
+div#other {
+    border: 1px solid rgb(182, 92, 209);
+    background:rgb(243, 203, 255);
+}
+
+/* SCROLL BAR DESIGNS
+@media (min-width: 40rem) {
+    
+    div.chore-container::-webkit-scrollbar,
+    div.groceries-container::-webkit-scrollbar,
+    div.chat-container::-webkit-scrollbar {
+        width: 1em;
+    }
+    div.chore-container::-webkit-scrollbar-track,
+    div.groceries-container::-webkit-scrollbar-track,
+    div.chat-container::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    } 
+    div.chore-container::-webkit-scrollbar-thumb,
+    div.groceries-container::-webkit-scrollbar-thumb,
+    div.chat-container::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+} */
+
+/* MESSAGES SECTION */
+
+li.message {
+    line-height: 2.5rem;
+    border-bottom: 1px solid #ccc;
+    margin: 0 1rem;
+}
+
+ul.messages li:last-child {
+    border-bottom: none;
+}
+
+li.messageDate {
+    line-height: 3rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.chat-container {
+    max-height: 100%;
+    overflow: auto;
+}
+
+.send-message-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.send-message-form input {
+    width: 100%;
+    border: .5px solid #bbb;
+    border-radius: .5rem;
+    font-size: 1.4rem;
+    padding: .8rem;
+}
+
+li.message span,
+li.messageDate {
+    font-size: 1.4rem;
+}
+
+span.date {
+    margin-right: 1rem;
+}
+
+.send-message-form button {
+    display: none;
+}
+
+/* ADDITIONAL STYLES */
+
+h3 {
+    font-size: 2rem;
+}
+
+h3.grocery {
+    margin: auto;
+}
+
+li.category-title {
+    font-size: 1.6rem;
+}

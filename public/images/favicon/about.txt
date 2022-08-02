@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Dancing Script
+- Font Author: Copyright 2016 The Dancing Script Project Authors (https://github.com/googlefonts/DancingScript), with Reserved Font Name 'Dancing Script'.
+- Font Source: http://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7B7y0HTeB9ptDqpw.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
