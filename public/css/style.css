@@ -1,0 +1,194 @@
+/*******************
+*   BLOCK + ELEMENT
+*******************/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background:#ebe8f3;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: #6141a6;
+}
+
+p {
+    font-size: 1.3125rem;
+    line-height: 1.5em;
+    padding: 1.25em 0;
+    font-weight: 500;
+}
+
+button {
+    font-size: 1rem;
+    padding: 0.5em 1.25em;
+    border-radius: 0.5em;
+    background: white;
+}
+
+button + button {
+    margin-left: 1em;
+}
+
+.fa-solid {
+    padding-right: 0.5em;
+}
+
+.flex {
+    display:flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.title {
+    text-align: center;
+    border-bottom: 1px solid #d1d5d6;
+    padding-bottom: 1em;
+}
+
+.reply-btn {
+    border: 0;
+    color: #7f56da;
+}
+
+.edit-btn {
+    border: 1px solid #d1d5d6;
+}
+
+.delete-btn {
+    border: 0;
+    background: #7f56da;
+    color: white;
+}
+
+.hero {
+    max-width: 1100px;
+    width: 65%;
+    margin: 0 auto;
+    background: white;
+    padding: 3em;
+    box-shadow: 1em, 0.125em, 0.125em, #666;
+}
+
+.comment-scroller {
+    max-height: 150vh;
+    /* overflow-y: scroll; */
+    overflow-y: auto;
+}
+.comment {
+    padding: 1.5em 0 1em;
+    border-bottom: 1px solid #d1d5d6;
+}
+
+.comment__header {
+    width: 100%;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.comment__date {
+    color: #666;
+}
+.comment__text {
+    width: 100%;
+    padding-left: 1em;
+    /* padding: 0.5em 0; */
+}
+
+.comment__buttons {
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.new-message {
+    margin: 1em 0;
+    padding: 1.5em;
+    border-radius: 0.5em;
+    border: 0.125em solid #d3d4d8;
+}
+
+.new-message__form {
+    justify-content: flex-end
+}
+.new-message__textarea {
+    font-size: 1.3125rem;
+    font-weight: 500;
+    width: 100%;
+    margin-bottom: 1.5em;
+    height: 8em;
+    border: 0;
+    overflow-wrap: normal;
+    resize: none;
+    outline: none;
+}
+
+.new-message__textarea::placeholder {
+    font-size: 1.3125rem;
+}
+
+.new-message__input::selection {
+    border: 0;
+}
+
+.new-message__new-btn, .new-message__update-btn {
+    border: 0;
+    background: #7f56da;
+    /* #B1DA56 */
+    /* #7f56da */
+    color: white;
+}
+
+.new-message__cancel-btn {
+    border: 1px solid #d1d5d6;
+    color: #553333
+}
+
+.form__btn {
+    font-size: 1.3125rem;
+}
+/*******************
+*   MODIFIERS
+*******************/
+
+.reply-btn:hover {
+    background: rgba(127, 86, 218, 0.2);
+}
+
+.edit-btn:hover, .new-message__cancel-btn:hover {
+    background: rgba(127, 86, 218, 0.3);
+}
+
+.delete-btn:hover, .new-message__new-btn:hover, .new-message__update-btn:hover {
+    background: #a964ff;
+}
+
+.default-hidden {
+    display: none;
+}
+
+/*******************
+*   ANIMATIONS
+*******************/
+
+
+/*******************
+*   MEDIA QUERIES
+*******************/
