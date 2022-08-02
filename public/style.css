@@ -1,0 +1,9 @@
+body {
+  width: 50%;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
