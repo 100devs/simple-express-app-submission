@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unplayed Game Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>My unplayed game library</h1>
+    <form action="/addGames" method="POST">
+        <input type="text" name="gameName" id="gameName">
+        <button type="submit">Submit</button>
+    </form>
+    
+    <section>
+      <h2>Currently playing</h2>
+      <ul class="games">
+        <!-- Loop through games -->
+          <% for(var i = 0; i < gameName.length; i++) {%>
+            <% if(gameName[i].completion === false) { %>
+              <li class="uncompletedGames">
+                <!-- Output name from the iterated quote object -->
+                <span><%= gameName[i].gameName %></span>
+                <span class='fa fa-trash'></span>
+                <span class='fa fa-check'></span>
+              </li>
+            <% } %>
+          <% } %>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Games To Play</h2>
+      <ul class="games">
+        <!-- Loop through games -->
+          <% for(var i = 0; i < gameName.length; i++) {%>
+            <% if(gameName[i].completion === false) { %>
+              <li class="uncompletedGames">
+                <!-- Output name from the iterated quote object -->
+                <span><%= gameName[i].gameName %></span>
+                <span class='fa fa-trash'></span>
+                <span class='fa fa-check'></span>
+              </li>
+            <% } %>
+          <% } %>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Completed games</h2>
+      <!-- Loop through games -->
+        <% for(var i = 0; i < gameName.length; i++) {%>
+          <% if(gameName[i].completion === true) { %>
+            <li class="completedGames">
+              <!-- Output name from the iterated quote object -->
+              <span><%= gameName[i].gameName %></span>
+              <span class='fa fa-backward'></span>
+              <span class='fa fa-trash'></span>
+            </li>
+          <% } %>
+        <% } %>
+    </section>
+
+    <script src='js/main.js'></script>
+</body>
+</html>
