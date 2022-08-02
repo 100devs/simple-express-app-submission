@@ -1,0 +1,120 @@
+/* LAYOUT */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    justify-content: center;
+    padding: 5px;
+}
+
+input,
+select {
+    width: 50%;
+    padding: 4px;
+}
+
+form.users {
+    width: 20%;
+    justify-content: flex-start;
+}
+
+form.users>input,
+button {
+    width: 100%;
+}
+
+
+button {
+    padding: 4px;
+}
+
+section.forms {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.delete {
+    width: 50px;
+}
+
+h1 {
+    font-size: 2.2em;
+}
+
+a {
+    padding: 5px;
+    text-align: center;
+    margin: 0, auto;
+    display: block;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+span {
+    font-weight: 700;
+}
+
+ul.surfboards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+ul.surfboards>li {
+    width: 100%;
+}
+
+li {
+    padding: 2px;
+}
+
+li.surfboard {
+    list-style-type: none;
+}
+
+a.home {
+    font-size: .85em;
+    font-weight: 500;
+}
+
+ul.dims {
+    width: fit-content;
+}
+
+ul.dims>li {
+    width: fit-content;
+}
+
+/* STYLES */
+
+button {
+    background: rgb(64, 160, 255);
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    margin-top: 3px;
+}
+
+button:hover {
+    opacity: 70%;
+}
+
+input, select {
+    background: rgb(239, 239, 239);
+    border: 1px solid black;
+}
