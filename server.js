@@ -6,7 +6,7 @@ const req = require('express/lib/request')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
 
-const connectionString = 'mongodb+srv://Sean:gpVcS8bh4xXB8Zc@cluster0.h8q4j.mongodb.net/?retryWrites=true&w=majority'
+const connectionString = 
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
