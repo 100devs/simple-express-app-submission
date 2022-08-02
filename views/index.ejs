@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9346d5df99.js" crossorigin="anonymous"></script>
+    <title>Notes on Naginata</title>
+    <link type="text/css" rel="stylesheet" href="/css/style.css"> 
+</head>
+<body>
+    <nav>
+        <!-- toggles need to be siblings to affected elements -->
+        <label data-action="toggle" for="filterToggle" tabindex="0" aria-pressed="false" aria-label="filter by tag"><i class="fa-solid fa-filter"></i></label>
+        <input role="button" type="checkbox" id="filterToggle" value="filter-visible">
+        <label data-action="toggle" for="showSearch" tabindex="0" aria-label="search by term"><i class="fa-solid fa-magnifying-glass"></i></label>
+        <input role="button" type="checkbox" id="showSearch" aria-pressed="false" value="search-visible">
+        <input type="text" id="search" aria-label="Type search term and Enter" placeholder="Type search term and Enter key" value=""> 
+        <section data-type="titles" class="wrapper">
+            <h1 data-action="goTopShowAll" tabindex="0" aria-label="show all and return to top">Naginata</h1>
+            <h2>Unsorted notes</h2>
+        </section>
+        <button data-action="do-something" value="add" aria-label="add new entry">+</button>
+        <ul>
+            <li data-tag="definition" tabindex="0">Definition</li>
+            <li data-tag="technique" tabindex="0">Technique</li>
+            <li data-tag="standards" tabindex="0">Standards</li>
+        </ul>
+    </nav>
+    <main class="wrapper">
+        <section class="data-updates">
+            <form data-action-type="add" class="hidden" action="/addPic" method="POST">
+                <h3>Add entry</h3>
+                <input type="text" placeholder="Enter passcode" name="passcode">
+                <input type="text" placeholder="Enter title" name="title">
+                <input type="text" placeholder="Add img url" name="imgURL">
+                <input type="text" placeholder="Non-image source url" name="vidURL">
+                <input type="text" placeholder="caption" name="caption">
+                <input type="text" placeholder="Add ', '-separated tags" name="tags">
+                <button type="submit">Submit</button>
+            </form>
+            <section data-action-type="update" class="hidden wrapper update">
+                <h3>Update an entry</h3>
+                <p>You can only update one field at a time for the selected entry.</p>
+                <span data-type="entry-update"></span>
+                <label for="field">Field to update</label>
+                <select id="field" name="field">
+                    <option value="Choose field" selected>Choose field</option>
+                    <option value="Title">Title</option>
+                    <option value="Asset URL">Asset URL</option>
+                    <option value="Caption">Caption</option>
+                    <option value="Tags">Tags</option>
+                </select>
+                <input type="text" placeholder="New input" name="edit">
+                <label class='hidden' data-type="asset-label" for="video">If URL, is it something other than an image?<input type="checkbox" id="video" name="video" value='video'></label>
+                <button data-action="update">Update this entry</button>
+            </section>
+        </section>
+
+        <section class="results">
+                <% for (let i=0; i<stuff.length; i++) { %>
+                <div>
+                    <h3><%= stuff[i].title %></h3>
+                    <section class="button-box">
+                        <button data-action="do-something" data-detail="update-entry" value="update">Update</button> 
+                        <button data-action="delete" value="delete">Delete</button>
+                    </section>
+                    <img src="<%= stuff[i].imgURL %>" alt="<%=stuff.caption%>"> 
+
+                    <% if (stuff[i].vidURL !== '' && stuff[i].vidURL !== undefined) { %>
+                        <a data-type="vid" href="<%= stuff[i].vidURL %>" target=_blank ><span>Source URL</span></a>
+                    <% }%>
+                    <figcaption><%= stuff[i].caption %></figcaption>
+                    <span class="current-tags"><%= stuff[i].tags.join(', ') %></span>
+                    
+                </div>
+                <% }%>
+        </section>
+    </main>
+    <script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>

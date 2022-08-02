@@ -1,0 +1,365 @@
+.wrapper {
+    display: flex;
+    /* flex-direction: column; */
+}
+
+h1 {
+    margin: 0; /* avoid bounce/nav width change when hidden */
+    color: tomato;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    color: white;
+    letter-spacing: 0.2rem;
+    font-size: 1rem;
+    margin: 0 1rem;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    margin: 0.5rem 0;
+    display: block;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+i {
+    margin-right: 1rem;
+}
+
+img {
+    max-width: 20rem;
+    height: auto;
+    filter:grayscale(1);
+    transition: all 0.5s ease-in 0s;
+    display: block;
+}
+
+img:hover {
+    filter:grayscale(0);
+}
+
+figcaption {
+    margin: 0.5rem 0;
+    width: 20rem;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5em;
+}
+
+p,
+label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input{
+    display: block;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+select,
+option {
+    padding: 0.5rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    border: 1px solid hsl(225, 73%, 57%);
+    background: hsl(225, 73%, 57%);
+    color: white;
+}
+
+button:hover,
+button:active {
+    background: white;
+    color: hsl(225, 73%, 57%);
+    cursor: pointer;
+}
+
+.results {
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 100%; */
+    /* width: 60%; */
+    /* height: 60vh; */
+    /* padding: 1rem; */
+    /* margin-left: 3rem; */
+    /* overflow-y:scroll; */
+}
+
+.current-tags {
+    font: italic 0.7rem sans-serif;
+    margin: 1em 0;
+}
+
+div {
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+    border: 1px dashed hsla(225, 73%, 57%, 0.736);
+    border-radius: 0.2rem;
+    background: lavender;
+    transition: box-shadow 0.3s ease-in 0.1s;
+
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+div:hover {
+    box-shadow:0.5rem 0.5rem 1rem hsla(225, 73%, 57%, 0.171);
+}
+
+div button {
+    margin: 0 1em 1em 0;
+}
+
+div button[data-action="delete"]{
+    border: 1px solid hsla(225, 73%, 57%, 0.736);
+    color: hsl(225, 73%, 57%);
+    font-weight: bold;
+    background: lavender;
+}
+
+div button[data-action="delete"]:hover {
+    border: 2px solid hsla(225, 73%, 57%, 0.736);
+}
+
+.button-box {
+    display: flex;
+}
+
+.data-updates {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-updates > * {
+    padding: 2rem;
+}
+
+.update {
+    padding: 2rem;
+    flex-direction: column;
+    background: lavenderblush;
+}
+
+.update > * {
+    margin: 0.5rem 0;
+}
+
+span[data-type="entry-update"] {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+/* STRUCTURE */
+
+body {
+    margin: 0;
+    background: lavender;
+}
+
+main {
+    padding: 1rem 2rem;
+}
+
+nav {
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    z-index:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsl(225, 84%, 19%);
+    color: white;
+}
+
+nav section {
+    width: 50%;
+    /* is flex container */
+    align-items: baseline;
+    padding: 0;
+}
+
+nav ul {
+    display: none;
+}
+
+label[for="filterToggle"]:hover{
+    cursor: pointer;
+}
+
+#filterToggle {
+    visibility: hidden;
+}
+
+#filterToggle:checked ~ ul {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /*for mobile*/
+    width: 100%;
+    position: fixed;
+    top: 5rem; /* = nav height */
+    left: 0;
+    background: hsl(225, 84%, 19%);
+}
+
+nav ul li{
+    padding: 1rem; 
+}
+nav ul li:hover {
+    background: tomato;
+    cursor: pointer;
+}
+
+#search,
+label[for='search'] {
+    display: none;
+}
+
+#showSearch {
+    visibility: hidden;
+}
+
+#showSearch:checked ~ label[for='search'] {
+    margin: 0;
+    display: flex;
+    /* position: fixed; */
+}
+#showSearch:checked ~ #search {
+    margin: 0 1rem 0 0; /*keep apart from Add button */
+    display: inline-block;
+    min-width: 15rem;
+}
+
+#showSearch:checked ~ section[data-type='titles'] { /*no room for you*/
+    display: none;
+}
+
+/* make it so that hidden if the other is visible? 
+Problem: need to also change the checked or unchecked boolean */
+/* #filterToggle:checked ~ #showSearch:checked ~ #search,
+#filterToggle:checked ~ #showSearch:checked ~ ul {
+    display: none;
+} */
+
+nav h1:hover {
+    cursor: pointer;
+}
+
+.results div h3 {
+    width: 20rem;
+}
+
+nav button {
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
+
+
+/* EFFECT */
+/* keep last for safety */
+.hidden {
+    display: none;
+}
+
+/* media queries */
+@media screen and (max-width:840px){
+
+    * {
+        box-sizing: border-box;
+    }
+    h2 {
+        display: none;
+    }
+
+    nav h1 {
+        display: block;
+    }
+
+    nav ul { 
+        margin: 1rem 0;
+        padding: 0;
+    }
+    nav li {
+        margin: 0 0.5rem 0 0;
+    }
+    nav button {
+        margin: 0;
+        font-weight: bold;
+    }
+
+    #filterToggle:checked ~ ul {
+        top: 4rem;
+    } 
+
+    .wrapper {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    div {
+        width: 100%;
+        padding: 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .results div h3 {
+        max-width: 90%;
+    }
+
+    img {
+        max-width: 100%;
+    }
+    figcaption {
+        max-width: 90%;
+    }
+    .update {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width:509px){
+    .button-box {
+        flex-direction: column;
+        width: 90%;
+    }
+    nav {
+        justify-content: space-between;
+    }
+
+    #search {
+        position: fixed;
+        top: 6rem;
+        left: 0;
+        padding: 1rem 1.5rem;
+        width: 100vw;
+        font-size: larger;
+    }
+    #filterToggle:checked ~ #search {
+        top: 7rem; /*make way for active filter bar - currently 1 row*/
+    }
+}
