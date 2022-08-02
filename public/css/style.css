@@ -1,64 +1,7 @@
-html {
-    font-size: 62.5%;
+h1{
+    color: red;
 }
-body {
-    width: 80%;
-    margin: 0 auto;
-    background-color: rgb(222, 221, 221);
-    /* border: .1rem black solid; */
-}
-.noteArea {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-.note {
-    width: 30rem;
-    height: 30rem;
-    margin: 1rem;
-    font-size: 1.6rem;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    /* flex: 1 0 21%; */
-    border: .1rem black solid;
-    position: relative;
-    padding: 1rem;
-    border-radius: 1rem;
-}
-
-.infoOfNote{
-    width: 90%;
-    overflow-wrap: break-word;
-}
-.id, .color {
-    display: none;
-}
-.clickMe {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-}
-#header {
-    text-align: center;
-    font-size: 3rem;
-}
-footer {
-    text-align: center;
-    font-size: 2rem;
-}
-#createNewNote {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-#createNewNote form {
-    display: inline-block;
-    vertical-align: top;
-}
-#newNote {
-    text-align: center;
-    font-size: 2rem;
+.completed{
+    color: gray;
+    text-decoration: line-through;
 }

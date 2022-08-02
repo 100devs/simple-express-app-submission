@@ -1,17 +1,12 @@
-### TAKE NOTES APP
-
-## Full CRUD app to record notes and save them into a mongoDB database.
-
-npm init
-npm install mongodb
+npm install
+npm install mongoDB
 npm install express
+add DB_STRING to .env file
 
-create .env file with DB_string for your own mongoDB databse.
-
-example of working code here: https://ctd-take-notes.herokuapp.com/
-
+Link to working code 
+https://ctd-shopping-list.herokuapp.com/
 ```
 I completed the challenge: 5
 I feel good about my code: 5
-Ready to learn about user accounts so that people can have their own notes!
+Ready to learn about user accounts!
 ```

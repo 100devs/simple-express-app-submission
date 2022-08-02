@@ -1,66 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- FONT ICONS -->
-        <script src="https://kit.fontawesome.com/db349aca81.js" crossorigin="anonymous"></script>
-        <!-- STYLESHEET -->
-        <link rel="stylesheet" href="css/style.css">
-        <title>Note App</title>
-    </head>
-    <body>
-        
-    <main>
-        <h1 id="header">Notes</h1>
-        <h2 id="newNote">Create a New Note</h2>
-        <section id="createNewNote">
-            <form action="/submit-note" method="POST">
-                <input type="text" name="noteName" id="noteName" placeholder="Enter Note Name">
-                <select name="noteColor" id="noteColor" placeholder="Yellow">
-                    <option value="Yellow">Yellow</option>
-                    <option value="Blue">Blue</option>
-                    <option value="Green">Green</option>
-                    <option value="Orange">Orange</option>
-                    <option value="Purple">Purple</option>
-                    <option value="Pink">Pink</option>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Todo List: </h1>
+    <ul class="todoItems">
+    <% for(let i=0; i < items.length; i++) {%>
+        <li class="item">
+            <% if(items[i].completed === true) {%>
+                <span class='completed'><%= items[i].thing %></span>
+            <% }else{ %>
+                <span><%= items[i].thing %></span>
+            <% } %>    
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul>
 
-                </select>
-                <textarea cols="20" rows="5" id="noteInfo" name="noteInfo"></textarea>
-                <input type="submit" value="Submit" id="submitNote">
-                
+    <h2>Left to do: <%= left %></h2>
 
-            </form>
+    <h2>Add A Todo:</h2>
 
-        </section>
-        
-        <section id="noteSection">
-            <section class="noteArea">
-                <% for (let i = 0; i < notes.length; i++) {%>
-                    
-                    <div class="note">
-                        <span class="id"><%= notes[i]._id %></span>
-                        <h3 class="nameOfNote"><%= notes[i].noteName %></h3>
-                        <span class="color"><%= notes[i].noteColor %></span>
-                        <p class="infoOfNote"><%= notes[i].noteInfo %> </p>
-                        <span class='clickMe'><i class="fa-solid fa-trash"></i></span>
-                    </div>
-                <% } %> 
-            </section>
-        </section>
+    <form action="/addTodo" method="POST">
+        <input type="text" placeholder="Thing To Do" name="todoItem">
+        <input type="submit">
+    </form>
+    
 
-
-    </main>
-    <footer>
-        <p class="copyright">&copy; <a href='https://github.com/codebymatthew/takeNotes' target="_blank">codebymatthew</a> & <a href='https://github.com/ChrisThompsonDev/takeNotes' target="_blank">ChrisThompsonDev</a>. All rights reserved.</p>
-    </footer>
-
-
-
-
-
-
-        <script src="js/main.js"></script>
-    </body>
+    <script src='js/main.js'></script>
+</body>
 </html>
