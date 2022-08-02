@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Songs API</title>
+
+    <link rel="stylesheet" href="static/css/normalize.css">
+    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Party Like It's 2009</h1>
+    <h5>Suggest a band here</h5>
+</header>
+
+<section class="form">
+    <form action="/bandsuggest" method="POST">
+        <input type="text" placeholder="band" name="band">
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<section class="bandlist">
+    <h2>Current Bands Listed</h2>
+<!--    <%= bands %>-->
+    <% for(let i=0;i<bands.length;i++) {%>
+        <li class="band">
+            <span><%= bands[i].band %></span> -
+            <span><%= bands[i].song %></span>
+        </li>
+    <% } %>
+</section>
+
+
+<script src="static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Songs API</title>
+
+    <link rel="stylesheet" href="static/css/normalize.css">
+    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Party Like It's 2009</h1>
+    <h5>Add a band and their best song</h5>
+</header>
+
+<section class="form">
+    <form action="/songs" method="POST">
+        <input type="text" placeholder="new band" name="band">
+        <input type="text" placeholder="new song" name="song">
+        <button type="submit">Add</button>
+    </form>
+</section>
+
+<!-- TODO: fix update form -->
+
+<section class="form">
+    <form action="/songs" method="PUT">
+        <input type="text" placeholder="update band" name="band">
+        <input type="text" placeholder="update song" name="song">
+    </form>
+    <button id="update-button">Update FOB</button>
+</section>
+
+<section class="form">
+    <button id="delete-button">Delete Band</button>
+</section>
+
+<section id="message">
+
+</section>
+
+<section class="bandlist">
+    <h2>Current Songs List</h2>
+    <!--    <%= bands %>-->
+    <% for(let i=0;i<bands.length;i++) {%>
+        <li class="band">
+            <span><%= bands[i].band %></span> -
+            <span><%= bands[i].song %></span>
+        </li>
+    <% } %>
+</section>
+
+
+<script src="/static/js/dev.js"></script>
+</body>
+</html>
