@@ -1,0 +1,108 @@
+<!-- EJS file -->
+<!DOCTYPE html>
+<html lang="en" id="indexHTML">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MCMPDB</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Noto+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+        <script src="./scripts/index.js" defer></script>
+    </head>
+    <body>
+        <nav>
+            <span id="home">spin</span>
+            <h1>MCMODPACKDB</h1>
+            <div class="dropdown">
+                <span class="dropbtn">USER</span>
+                <div class="dropdown-content">
+                    <a href="pages/modpackedit.html">Add Modpack</a>
+                    <a href="#">Manage Account</a>
+                    <a href="#" id="logoutEJS">Logout</a>
+                    <a href="pages/login.html" id="loginEJS" class="hidden">Login</a>
+                </div>
+            </div>
+        </nav>
+        <!-- <img id="bgImg" src="./assets/mcbg.png" alt="bg"> -->
+        <!-- <section id="aboutContainer">
+            <h1>A curated list of the best minecraft modpacks.</h1>
+            <span>in</span>
+        </section> -->
+        <section id="searchBars">
+            <h1>Minecraft Modpacks</h1>
+            <input type="search" placeholder="search for a modpack..." name="searchModPack">
+        </section>
+        <section id="hero">
+            <ul id="modPackNames">
+                <%# console.log(info.database) %> 
+                <% for(var i = 0; i < info.database.length; i++) {%>
+                    <li class="modPack">
+                        <div class="modPackInfoContainer">
+                            <img src="<%= info.database[i].mpIcon || "./assets/grassblock.png" %>" class="mpIMG">
+                            <div>
+                                <h3 class="mpName"><%= info.database[i].name %></h3>
+                                <div class="mpInfo">
+                                    <span class="mpVersion">version: <%= info.database[i].mpVer %> |</span>
+                                    <span class="mcVersion">game version: <%= info.database[i].mcVer %> | </span>
+                                    <span class="mpLink"><a href="<%= info.database[i].url %>">source</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="view-<%= i %>" class="viewModPack" onClick="findMod(this.id)">
+                            <span>view modpack &rarr;</span>
+                        </div>
+                        
+                        <%# for(var j = 0; j < info.database[i].mods.length; j++) {%>
+                            <!-- <li class="modList">
+                                <span><%# info.database[i].mods[j].modName %></span>
+                            </li> -->
+                        <%# } %>
+
+                    </li>
+                <% } %>
+            </ul>
+        </section>
+        <section id="expandedContainer">
+            <% for(var k = 0; k < info.database.length; k++) {%> 
+                <div id="expanded-<%= k %>" class="expanded hidden">
+                    <span class="close"><svg id="close-<%= k %>" onClick="closeModPack(this.id)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg></span>
+                    <section class="general">
+                        <img src="<%= info.database[k].mpIcon || "./assets/grassblock.png" %>" alt="modpackicon">
+                        <div class="generalText">
+                            <h2><%= info.database[k].name %> </h2>
+                            <div>
+                                <span class="currVersion">current version</br><%= info.database[k].mpVer || "No Version" %></span>
+                                <span class="gameVersion">game version</br><%= info.database[k].mcVer || "No Version" %></span>
+                                <span class="authors">author(s)</br><%= info.database[k].author || "No Author" %></span>
+                                <span class="mpLinkExt"><a href="<%= info.database[k].url %>">link</a></span>
+                            </div>
+                            <!-- <p class="description">description:</br>descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription</p> -->
+                        </div>
+                    </section>
+                    <div class="modsContainer">
+                        <section class="labels">
+                            <span>Mod Name</span>
+                            <span>Mod Author(s)</span>
+                        </section>
+                        <ul class="modsUL">
+                            <!-- for every mod in modpack -->
+                            <% for(var l = 0; l < info.database[k].mods.length; l++) {%> 
+                                <li class="modsLi">
+                                    <span><%= info.database[k].mods[l].modName %> </span>
+                                    <span><%= info.database[k].mods[l].modAuthor %>  <a href=<%= info.database[k].mods[l].modURL %> ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/></svg></a></span>
+                                </li>
+                            <% } %> 
+                        </ul>
+                    </div>
+                </div>
+            <% } %> 
+        </section>
+        <footer id="ejsFoot">
+            <span><a href="#">github</a></span>
+            <span><a href="#">contribute</a></span>           
+        </footer>
+    </body>
+</html>

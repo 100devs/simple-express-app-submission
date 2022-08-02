@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>log-in</title>
+        <link rel="stylesheet" href="../style.css">
+        <script src="../scripts/login.js" defer></script>
+    </head>
+    <body id="loginBody">
+        <section id="loginBox">
+            <h1>MC Modpack DB</h1>
+            <span>Please enter your username and password</span>
+            <span> or click the 'continue' button to proceed without logging in</span>
+            <form id="loginForm">
+                <input type="text" placeholder="user" name="user" required>
+                <input type="password" placeholder="pass" name="pass" required>
+                <button class="cursor" type="submit">Log-in</button>
+            </form>
+            <button id="test" class="cursor" type="button">Test</button>
+            <button id="logout" class="cursor" type="button">Logout</button>
+            <span><a id="redirectSignup" href="../pages/signup.html">create an account</a></span>
+        </section>
+        <!-- <button id="continue" class="cursor" type="button"><a href="/info">Continue to DB</a></button> -->
+        <span id="continue"><a href="/info">Continue to DB</a></span>
+    </body>
+</html>
