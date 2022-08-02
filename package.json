@@ -1,0 +1,29 @@
+{
+  "name": "simple-express-app-submission",
+  "version": "1.0.0",
+  "description": "### Goal: Make Your Own CRUD APP and Push To Heroku",
+  "main": "app.js",
+  "scripts": {
+    "server": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ttesori/simple-express-app-submission.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ttesori/simple-express-app-submission/issues"
+  },
+  "homepage": "https://github.com/Ttesori/simple-express-app-submission#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^4.8.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.19"
+  }
+}

@@ -1,0 +1,14 @@
+body {
+}
+
+.swatch {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ccc;
+}
+
+.colors-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  gap: 1em;
+}
