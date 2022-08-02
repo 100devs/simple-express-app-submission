@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/img/favicon-16x16.png" sizes="16x16">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico"/>   
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&family=Orbitron&family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title>node mongodb todo list</title>
+
+</head>
+<body>
+    <main>
+        <section id="section-list">
+            <% for(let i = 0; i < listData.length; i++) {%>
+                <section class="actionList paper" name="<%= listData[i]._id %>">
+                    <section class="actionList-header">
+                        <input class="listName camoInput" placeholder="List Name" value="<%= listData[i].name %>" type="text">
+                        <span class="listID hidden"><%= listData[i]._id %></span>
+                        <span class="material-symbols-outlined actionList-closeButton">
+                            close
+                        </span>
+                    </section>                   
+                     <section class="section-addTask-button">
+                            <span class="material-symbols-outlined">
+                                add
+                            </span>
+                            <span class="section-addTaskButton-text">
+                                Add a Task
+                            </span>                            
+                    </section>
+                        <h3>Tasks</h3>
+                    <ul class="todos">
+                        
+                        <% for(let j = 0; j < listData[i].tasks.length; j++) {%>
+                            <li class="todo-li" draggable="true">
+                                <span class="taskID hidden"><%= listData[i].tasks[j].id %></span>
+                                <span class="listID hidden"><%= listData[i]._id %></span>
+                                <span class="task-name"><%= listData[i].tasks[j].taskName %></span>
+                                
+                                <span class="material-symbols-outlined task-delete hidden">
+                                    delete
+                                </span>
+                                <section class="task-dropdown">
+                                    <span class="material-symbols-outlined task-actions-expand">
+                                        more_vert
+                                    </span>
+                                    <div class="task-actions-dropdown">
+                                        <a href="#" class="task-edit">Edit</a>
+                                        <a href="#">To Top</a>
+                                        <a href="#">To Bottom</a>
+                                        <a href="#" class="task-delete">Delete</a>
+                                      </div>
+                                </section>
+                                
+                                <!-- <span class="task-difficulty"></span> -->
+                                <!-- <span class="task-notes hidden"></span> -->
+                            </li>
+                        <% } %>
+                    </ul>
+                </section>
+            <% } %>
+        </section>
+    </main>
+   
+    <div class="modal-todo-input">
+        <div class="modal-content">
+            <form id="modal-input-form" method="POST">     
+                <section class="modal-header">
+                    <input id="modal-todo-taskname" class="camoInput" type="text" name="taskName" placeholder="Task name...">
+                    <span class="btn modal-input-task-close">&times;</span>
+                </section>
+                       
+                <span id="task-modal-taskid" class="hidden"></span>
+                
+                <label for="modal-todo-notes">Notes</label><br>
+                <textarea id="modal-todo-notes" name="notes"
+                          rows="8" cols="40"></textarea><br>
+                <label for="select-difficulty">Difficulty</label>
+                <select name="difficulty" id="select-difficulty">
+                    <option value="1">Trivial</option>
+                    <option value="2">Easy</option>
+                    <option value="3">Medium</option>
+                    <option value="5">Hard</option>
+                    <option value="8">Epic</option>
+                </select><br>
+                <label for="select-dueDate">Due Date</label>
+                <input type="date" id="select-dueDate" name="dueDate">
+                <section class="modal-footer">
+                    <a href="" class='btn' id="submitTodo">
+                        Save
+                    </a>
+                    <a href="" class="btn modal-input-task-close">
+                        Cancel
+                    </a>
+                </section>                
+            </form>
+                    
+            
+        </div>
+      </div>
+    
+    <section id="addListSection" class="paper">
+        <form action="/addList" method="POST">
+            <a href="javascript:{}" id="addListButton" onclick="this.closest('form').submit();return false;">
+                <span class="material-symbols-outlined" id="addListButtonSymbol">
+                    add_box
+                </span>
+                <!-- <span id="addListBeta">+</span> -->
+            </a>
+        </form>        
+    </section>
+    
+    <script src="/js/main.js"></script>
+</body>
+</html>

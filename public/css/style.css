@@ -1,0 +1,388 @@
+:root {
+    --main-text-color: #5e6c84;
+
+    --main-primary-color: 71, 95, 148;
+    --main-secondary-color: 89, 119, 186;
+
+    --secondary-primary-color: 255, 81, 36;
+    --secondary-secondary-color: 255, 95, 35;
+
+    --third-primary-color: 253, 220, 92;
+    --third-secondary-color: 255, 232, 92;
+
+}
+
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+/* Clear fix hack */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+   clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+html, 
+body {
+    height: 100%;
+}
+
+body {
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    z-index:-1;
+
+    background: linear-gradient(to bottom,  #9bb8b3 0%,#b3eee2 100%); /* W3C */
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+
+}
+
+footer {
+
+}
+
+input {
+    border: 1px solid lightgrey;
+    width: 100%;
+}
+input:focus {border: 0!important; outline:none!important;}
+
+span, a {
+    display:flex;
+}
+
+.btn {
+    padding: 3px 10px;
+    border-radius: 5px;
+    background: linear-gradient(322deg, rgba(var(--main-secondary-color),1) 0%, rgba(var(--main-primary-color)) 100%);
+    color:white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-left: 10px;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+#section-list{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.actionList{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px 10px 10px;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    min-width: 15vw;
+    min-height: 20vw;
+
+   
+}
+.paper {
+    background: linear-gradient(to bottom,  #e8e8ea 0%,#efefef 100%); /* W3C */  
+
+    border-radius:2px;
+    border-left: 2px solid #f5f5f7;
+    border-bottom: 2px solid #f5f5f7;
+    border-right: 1px solid #adc0bc;
+    border-top: 1px solid #f4f4f6;
+  
+    box-shadow: 0 0 2px 0 #f4f4f6 inset,
+      0em 100px 500px -5px rgba(255,255,255,.5),
+      -1em 1em 3em 1em rgba(255,255,255,.2),
+      -5em 1em 30em 1em rgba(255,255,255,.2),
+      0em 2px 0 rgba(255,255,255,.7),
+      0em 10px 50px -10px rgba(255,255,255,1),
+      1.2em -0.8em 2em 0em #044134,
+      5.5em -1em 50em 0em #044134,
+      0px -5px 25px 0px #808f8c;
+
+      transition: all .5s ease;
+    
+    backface-visibility:hidden;
+}
+
+.actionList ul {
+    list-style: none;
+    padding-left: 0;
+}   
+
+#addListSection {
+    position: absolute;
+    bottom:20%;
+    right:1rem;
+}
+
+#addListButtonSymbol {
+    font-size: 4rem;
+    color: black;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+.actionList-header {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+
+.actionList-closeButton{
+    cursor: pointer;
+}
+
+.form-addToDo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.todo-li{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    align-items:center;
+    padding: 5px 10px;
+    cursor: grab;
+    
+}
+
+.todo-li .task-name{
+    flex: 1 0 80%;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.dragging {
+    opacity: 0.8;
+}
+
+.hovered {    
+    border: 5px solid gray;
+}
+
+.actionList .todos{
+    border: 1px solid lightgrey;
+    border-radius:5px;
+    padding: 0 4px 0 4px;
+}
+
+.button-primary{
+    border-radius: 5px;
+    padding: 5px 10px;
+    background: blue;
+    color: white;
+
+}
+.task-delete{
+    cursor: pointer;
+}
+
+.section-addTask-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--main-text-color);
+    
+    border-radius: 5px;
+    padding: 2px 5px;
+    background: lightgrey;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-bottom: 1rem;
+}
+.section-addTask-button:hover{
+    background: linear-gradient(to bottom, #e8e8ea 0%,#efefef 100%);
+}
+
+.section-addTask span{
+    display: flex;
+    align-items: center;
+}
+
+/* Modal */
+.modal-todo-input {
+    display: none;
+    position: fixed; 
+    padding-top: 30vh;
+    left: 0; 
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .modal-content {
+    /* position: relative; */
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-evenly;
+    background-color: white;
+    border-radius: 2px;
+    padding: 20px; 
+    margin: auto; 
+    max-width: 450px;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  .modal-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(var(--main-primary-color));
+  }  
+  .modal-header span{
+    display: flex;
+  }
+
+  .modal-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-top:20px;
+  }
+
+  .close-btn {
+    float: right;  
+    font-size: 24px;  
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #modal-input-form #modal-todo-taskname,  #modal-input-form label{
+    margin-top:10px;
+    margin-bottom: 10px;
+  }
+
+  #modal-todo-taskname{
+    border:0;
+    outline:0;
+  }
+  #modal-todo-taskname:hover{
+    border: 1px solid lightgray;;
+  }
+
+  .modal-input-task-close{
+    cursor:pointer;
+  }
+  .btn:hover {
+    background: darkgray;
+  }
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+
+  @-webkit-keyframes animateright {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  @keyframes animateright {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+
+  .task-actions-expand{
+   visibility: hidden;
+   color: var(--main-text-color);
+  }
+
+  .todo-li:hover .task-actions-expand{
+    visibility: visible;
+    cursor: pointer;
+  }
+
+.task-dropdown{
+    position: relative;
+    display: inline-block;
+  }
+
+.task-actions-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+.task-actions-dropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+.task-actions-dropdown a:hover{
+    background: rgb(var(--main-primary-color));
+    color: white;
+}
+
+.camoInput {
+  border:0;
+  outline:0;
+  background: transparent;
+  color: var(--main-text-color);
+}
+
+.show {
+  display: block;
+}
+
+@media (max-width:600px){
+  .actionList{    
+    min-width: 0;
+    min-height: 0;   
+  }
+  
+}
