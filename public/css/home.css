@@ -1,0 +1,217 @@
+/* General
+   ========================================================================== */
+
+.flex{
+    display: flex;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.justifyContent{
+    justify-content: center;
+}
+
+.alignItems{
+    align-items: center;
+}
+
+
+/* Link
+   ========================================================================== */
+
+a, body{
+    color: black;
+}
+
+a{
+    text-decoration: none;
+}
+
+footer a:hover, .nav a:hover{
+    color: rgb(245, 228, 228);
+}
+
+
+
+/* Body
+   ========================================================================== */
+
+
+ body{
+    background: url('image/abby.png'),  url('image/hokusai.png'), url('image/davinci1.png'),url('image/beni.png'), radial-gradient( rgb(240, 240, 240),rgb(149, 201, 219),rgb(105, 164, 184),rgb(64, 123, 143),rgb(41, 107, 129) );
+    background: url('image/abby.png'),  url('image/hokusai.png'), url('image/davinci1.png'),url('image/beni.png'), -webkit-radial-gradient( rgb(240, 240, 240),rgb(149, 201, 219),rgb(105, 164, 184),rgb(64, 123, 143),rgb(41, 107, 129));
+    background: url('image/abby.png'),  url('image/hokusai.png'), url('image/davinci1.png'),url('image/beni.png'), -moz-radial-gradient( rgb(240, 240, 240),rgb(149, 201, 219),rgb(105, 164, 184),rgb(64, 123, 143),rgb(41, 107, 129));
+    background-repeat: no-repeat;
+    background-size: 20%, 58%, 30%, 25%, cover;
+    background-position: 5% 94%, 135% 94.2%, -1% 51.6%, 97% 53.4%, 0px;
+    font-size: 2rem;
+    color: white;
+}
+
+
+
+/* Nav
+   ========================================================================== */
+
+
+li{
+    list-style-type: none;
+}
+
+ul{
+    justify-content: space-around;
+    width: 100%;
+}
+
+nav{
+width: 80%;
+ margin-top: 6rem;
+ background: rgb(255, 255, 255, .85);
+ border-radius: 5px;
+ padding: 3rem;
+}
+
+
+
+/* Header
+   ========================================================================== */
+
+
+
+header{
+    width: 100%;
+    background: no-repeat url('image/background1.png') center/cover;
+    height: 60vh;
+}
+
+header a, header{
+    color: black;   
+}
+
+header a{
+    font-weight: bolder;
+    font-size: 3rem;
+}
+
+
+/* section1
+   ========================================================================== */
+
+   #one p{
+    font-size: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+   }
+
+   #one h2{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+   }
+
+   #one{
+    background:rgb(98, 37, 160,.5)
+   }
+
+/* main
+   ========================================================================== */
+
+    main{
+        padding: 4rem;
+        background: linear-gradient(to bottom, rgb(218, 118, 218,.5),rgba(192, 98, 192, 0.5),rgba(169, 75, 169, 0.5), rgba(134, 44, 134, 0.5));
+        position: relative;
+        z-index: 0;
+        width: 50%;
+    }
+     
+    
+
+   section img{
+    width: 100%;
+   }
+
+   main h2{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+   }
+
+   section{
+    padding: 4rem;
+    margin-bottom: 3rem;
+   }
+
+   main section{
+    width: 90%;
+   }
+
+   section, main{
+    border-radius: 5px;
+
+   }
+
+   .section1{
+    background: rgb(218, 118, 218,.5);
+   }
+
+   .section2{
+    background: rgba(192, 98, 192, 0.5);
+   }
+
+   .section3{
+    background: rgba(169, 75, 169, 0.5);
+   }
+
+   .section4{
+    background: rgba(134, 44, 134, 0.5);
+
+   }
+
+
+
+footer{
+    border-radius: 5px;
+    padding: 3rem;
+    justify-content: space-between;
+}
+
+   footer a, footer small, footer li, header li{
+       color: black;
+       list-style-type: none;
+   }
+
+   footer li{
+       margin-right: 3rem;
+   }
+   
+   footer nav{
+       justify-content: space-around;
+   }
+
+footer nav, footer{
+    width: 94%;
+}
+
+.nav{
+    position: fixed;
+    z-index: 1;
+}
+
+.nav li a{
+    color: black;
+
+}
+
+body{
+position: relative;
+z-index: 0;
+}
+

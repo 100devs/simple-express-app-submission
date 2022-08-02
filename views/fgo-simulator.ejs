@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel = 'stylesheet' href = '/css/fate.css'>
+    <title>FGO Simulator</title>
+</head>
+<body>
+<!-- <a href = 'https://fgo-api.herokuapp.com/'>Make your team</a> -->
+<header class = 'flex column'>
+<h1>FGO Simulator</h1>
+<nav>
+    <ul class = 'flex'>
+        <li><a href = '/data'>See Servant Data</a></li>
+        <li><a href = '/data/comments'>Comments</a></li>
+        <li><a href = '/fate'>Simulator</a></li>
+        <li><a href = '/servants'>Add Servant</a></li>
+        <li><a href = '/'>Home</a></li>
+    </ul>
+</nav>
+</header>
+<audio controls ><source src = '/background.mp3' type="audio/mp3"></audio>
+
+<button id ='play'>Play</button>
+<button id = 'mute'>Mute</button>
+<button id = 'unmute'>Unmute</button>
+
+    <main class = 'column flex one'>
+    <section class = 'row flex battleHub'>
+        <div class = 'column flex'>
+        <h2>Saber Alter</h2>
+        <h3>Class: Saber</h3>
+        <h2>Health:</h2>
+        <progress value="14051" max="14051" id="eHealth" ></progress>
+        <h2>Mana:</h2>
+        <div class = 'row flex'>
+        <span class = 'np1'>&#9898;</span>
+        <span class = 'np2'>&#9898;</span>
+        <span class = 'np3'>&#9898;</span>
+        <span class = 'np4'>&#9898;</span>
+        </div>
+        <span class = 'flex row'>Turn:<h2 id = 'turn'>1</h2></span>
+        </div>
+
+
+<img src = '/simulator/saberAlter.png'>
+<% for(let i=0; i < info.length; i++) {%>
+    <% if(info[i].name !== null) {%>
+
+<img src = <%= info[i].image %> id = 'player'>
+
+<div class = 'flex column'>
+    <span><%= info[i].name %></span>
+    <span><%= info[i].class %></span>
+
+<h2>Health:</h2>
+<progress value= <%= info[i].attackMax %> max=<%= info[i].attackMax %> id="pHealth"></progress>
+<h2>Mana:</h2>
+<progress id="pMana" value="00.00" max="100.00"></progress>
+</div>
+    </section>
+  
+</main>
+
+<% } %>
+ 
+
+<% } %>
+
+<div id = 'icon'>
+</div>
+
+<section class = 'two flex row'>
+
+    <div class = 'row flex button'>
+        <div class = 'row flex but-alt'>
+        <button id = 'back' class = 'hidden'>Back</button>
+    
+        <button id = 'deck'>Deck</button>
+        <button id = 'skills'>Skills</button>
+        </div>
+        </div>
+    </section>
+
+ <article class = 'hub'>
+
+<section class = 'row flex deck hidden'>
+<div class = 'spaceAround'>
+    <img src = '' id = 'card0'>
+    <img src = '' id = 'card1'>
+    <img src = '' id = 'card2'>
+    <img src = '' id = 'card3'>
+    <img src = '' id = 'card4'>
+</div>
+</section>
+
+
+    <section class ='row flex skills hidden'>
+        <div class = 'spaceAround'>
+        <img src = '' id = 'skill0'>
+        <img src = '' id = 'skill1'>
+        <img src = '' id = 'skill2'>
+        </div>
+    </section>
+
+</article>
+
+
+    <script src = '/js/fate.js'></script>
+</body>
+</html>

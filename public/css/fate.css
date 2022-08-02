@@ -1,0 +1,176 @@
+/* General
+   ========================================================================== */
+
+   .one{
+    justify-content: center;
+    align-items: center;
+}
+
+.two,section.skills,section.deck{
+    justify-content: flex-end;
+}
+
+/* .skills,.deck{
+    height: 5rem;
+} */
+
+
+.flex{
+    display: flex;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.hidden{
+    display: none;
+}
+
+header, a{
+margin-bottom: 2rem;
+padding-bottom: 1rem;
+color: white;
+font-size: 2rem;
+text-decoration: none;
+align-items: center;
+}
+
+header{
+    background: rgb(60, 60, 60);
+    padding-top: 1rem;
+}
+
+nav{
+    width: 60%;
+    justify-content: space-around;
+}
+
+ul li a:hover{
+    color: black;
+}
+
+li{
+    list-style-type: none;
+}
+
+nav ul{
+    justify-content: space-around;
+    width: 100%;
+}
+
+nav{
+    width: 80%;
+}
+
+a,li{
+border-bottom: none;
+text-decoration: none;
+}
+
+/* Skills
+   ========================================================================== */
+
+.deck img, .skills img{
+    margin-right: 2rem;
+}
+
+
+/* Deck
+   ========================================================================== */
+
+/* Buttons
+   ========================================================================== */
+
+div.button{
+    width: 48%;
+    margin-top: 2rem;
+}
+
+.but-alt{
+    width: 60%;
+    justify-content: space-around;
+}
+
+
+
+/* Battle Hub
+   ========================================================================== */
+
+.battleHub{
+    justify-content: space-around;
+}
+
+.battleHub img{
+    width: 30%;
+}
+
+
+/* Progress
+   ========================================================================== */
+
+progress::-webkit-progress-value{
+ background: rgb(132, 169, 193);
+}
+
+progress#mana::-webkit-progress-value{
+    background: gold;
+}
+
+.progress{
+    border-radius: 50px;
+}
+
+.spaceAround img{
+width: 15%;
+}
+
+ #icon{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2rem;
+ }
+
+ #icon img{
+    margin-right: .5rem;
+ }
+
+.hub{
+    height: 50vh;   
+}
+
+
+.deck, .skills{
+    width: 100%;
+    justify-content: flex-end;
+}
+
+
+.deck img{
+    width: 12%;
+}
+
+.skills img{
+    width: 15%;
+}
+
+.skills .spaceAround{
+    width: 25%;
+}
+
+.deck .spaceAround{
+    width: 47%;
+}
+
+.spaceAround{
+    justify-content: space-around;
+}
+
+div.row.flex.button{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = 'stylesheet' href = '/css/style.css'>
+    <title>Document</title>
+</head>
+<body>
+    <header class = 'flex'>
+    <h1>Fate Grand Order Servants</h1>
+    <code>
+        <pre>https://fgo-api.herokuapp.com/api/servants</pre>
+    </code>
+    <nav>
+        <ul>
+            <li><a href = '/data' class = 'data'>See Servant Data</a></li>
+            <li><a href = '/data/comments' class = 'data'>Comments</a></li>
+            <li><a href = '/fate' class = 'data'>Simulator</a></li>
+            <li><a href = '/servants' class = 'data'>Add Servant</a></li>
+            <li><a href = '/' class = 'data'>Home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<form action = '/servants' method = "POST" class = 'flex servants'>
+     <div class = 'grid'>
+    <h2>Image:</h2> <input required="required" type = 'file' id = 'image' name = 'image'>
+    <h2>Name: </h2><input required="required" type = 'text' id = 'name' name = 'name'>
+    <h2>Cost: </h2> <input class = 'stats' type = 'text' name ='cost'>
+     </div>
+     <div class = 'grid'>
+        <h2>Gender:</h2> <input type = 'text' name = 'gender'>
+        <h2>ID:</h2> <input type = 'text' name = 'servantID'>
+        <h2>Class:</h2> <input required="required" type = 'text' id = 'class' name = 'class'>
+        <h2>Rarity:</h2> <input type = 'text' name = 'rarity'>
+    </div>
+    <div class = 'grid'>
+   <h2>Max Attack:</h2> <input class = 'stats' type = 'text' name = 'attack'>
+   <h2>Max Attack at Lv 100:</h2> <input class = 'stats'  type = 'text' name = 'attackGrail'>
+   <h2>Max Attack at Lv 120:</h2> <input required = 'required'  class = 'stats' type = 'text' name = 'attackMax'>
+    </div>
+
+
+<div class = 'grid'>
+    <h2>Max Health:</h2> <input class = 'stats' type = 'text' name = 'health'>
+   <h2>Max Health at Lv 100:</h2> <input  class = 'stats' type = 'text' name = 'healthGrail'>
+   <h2>Max Health at Lv 120:</h2> <input required = 'required' class = 'stats' type = 'text' name = 'healthMax'>
+</div>
+
+<div class = 'grid'>
+    <h2>Star Absorption:</h2> <input class = 'stats' type = 'text' name = 'starAbsorption'>
+    <h2>Star Generation:</h2> <input class = 'stats' type = 'text' name = 'starGeneration'>
+    <h2>Death Rate:</h2> <input class = 'stats' type = 'text' name = 'deathRate'> 
+    
+</div>
+
+
+<div class = 'grid'>
+    <h2>Alignments:</h2> <input class = 'stats' type = 'text' name = 'alignments'>
+    <h2>NP Charge Def:</h2> <input  class = 'stats' type = 'text' name = 'npCharge'>
+    <h2>NP Charge Atk:</h2> <input  class = 'stats' type = 'text' name = 'npAttack'> 
+    <button type = 'submit' id = 'submit'>Submit</button>
+</div>
+
+
+</form>
+
+
+<footer class = 'flexbox' id = 'footer'>
+    <small class = 'flexbox justifyContent alignItems'>Illya Fansite &copy; choir</small>
+      <nav class= "flexbox">
+          <ul class = 'flexbox'>
+            <li><a href = '/' class = 'data'>Home</a></li>
+            <li><a href = '/servants' class = 'data'>Add Servant</a></li>
+            <li><a href = '/data' class = 'data'>Servant Data</a></li>
+            <li><a href = '/data/comments' class = 'data'>Comments</a></li>
+            <li><a href = '/fate' class = 'data'>Simulator</a></li>
+  </ul>
+  </nav>
+  </footer>
+  
+    <script src = '/js/main.js'></script>
+</body>
+</html>
