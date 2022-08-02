@@ -1,22 +1,11 @@
 #100Devs Simple Express App Submission
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
-
-### How to submit your code for review:
-
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
-
-Example:
-```
 I completed the challenge: 5
 I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+
+I feel I have a strong grasp on the basic CRUD concepts. I went farther with my project so I feel I may not have done things in the most optimal way. Also I have weird errors with my Put requests but it isn't major!
+
+
+App: https://book-manager-crud-app.herokuapp.com
+
+Justin L. 
