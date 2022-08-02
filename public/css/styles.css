@@ -1,0 +1,445 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background: rgba(16,16,18,1);
+    scroll-behavior: smooth;
+    font-family: 'Inconsolata', monospace;
+}
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    background: #a1c3ff;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    color: white;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.6);
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+
+fieldset{
+    border: none;
+}
+
+dialog::backdrop{
+    background: black;
+    opacity: 0.6;
+}
+
+.main{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    /* background: rgba(60,47,47,1); */
+}
+/* ************************************************* */
+/* Menu Styles */
+/* ************************************************* */
+
+
+#mainMenu {
+    margin: 2rem 5rem 0 0;
+    width: 6rem;
+    animation: menuSlide .8s;
+    height: 100vh;
+}
+
+@keyframes menuSlide{
+    0% {
+        width: 0%;
+    }
+   
+    100% {
+        width: 6rem;
+    }
+    
+}
+
+
+
+
+
+
+/* ************************************************* */
+/* Styles for Add Task Button, Nav Bar */
+/* ************************************************* */
+.topNav{
+    width: 100%;
+}
+.topNavUl{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.button-add {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background: #0a51cc;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    /* border-radius: 10%; */
+    padding: 0.2rem 0.4rem;
+    cursor: pointer;
+    transition: box-shadow .15s, transform .15s, text-shadow .15s;
+    will-change: box-shadow, transform;
+    text-transform: uppercase;
+    line-height: 1.2rem;
+    height: 40px;
+    font-weight: bold;
+    
+}
+
+.button-add:hover {
+    transform: translateY(-1px);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 1);
+    text-shadow: 2px 2px 2px black;
+}
+
+.button-add:active {
+    transform: translateY(2px);
+}
+.selectMainMenu{
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 0;
+}
+
+ 
+/* *************************************************************************** */
+/* Add and Edit form styles */
+/* *************************************************************************** */
+
+#addForm,
+#editForm {
+    /* background: #a1c3ff; */
+    max-width: 85%;
+    padding: 0;
+    border: none;
+    margin-top: 15%;
+}
+
+.formContainer {
+    border: 2px solid #a1c3ff;
+    background: #3474e6;
+    padding-top: 0.2rem;
+}
+
+.formTaskDescription {
+    background: #0a51cc;
+    width: 100%;
+    height: 12vh;
+    margin-bottom: 1rem;
+    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+}
+
+.formTaskName {
+    background: #0a51cc;
+    color: white;
+    border: none;
+    margin-bottom: 1rem;
+    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.6);
+}
+
+/* ******************************************** */
+/* Task List Container */
+/* ******************************************** */
+.taskListContainer {
+    padding-top: 2rem;
+    min-height: 100vh;
+    width: 100%;
+    z-index: 0;
+    border-radius: top 1%;
+    /* background: #a1c3ff; */
+    background: #a1c3ff;
+}
+
+/* ************************************************************************* */
+/* Task List box-display styles - Task name, description displays - Task buttons container
+/* ***************************************************************************/
+.taskBoxes {
+    background: rgba(255,255,255, 0.1);
+    border-right: 8px solid #0a51cc;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.6);
+    color: white;
+    transition: transform .5s, box-shadow .2s;
+    overflow: hidden;
+}
+
+
+.taskBoxes:hover {
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 1);
+    z-index: 3;
+    transform: translateY(-0.2rem);
+
+}
+
+.taskNameDisplay {
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.taskDescriptionDisplay {
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.taskButtonsContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0 0.6rem 0.2rem 0;
+}
+
+/* ****************************************************** */
+/* Styles for add/edit form buttons, and task list buttons */
+/* ****************************************************** */
+.taskOptionsBtn {
+    text-transform: uppercase;
+    background-color: #3474e6;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.2rem;
+    border-radius: 10%;
+    padding: 0.2rem;
+    font-size: 0.6rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow .15s, transform .15s;
+    will-change: box-shadow, transform;
+}
+
+.taskOptionsBtn:hover {
+    box-shadow: 0px 3px 5px inset rgba(0, 0, 0, 0.6);
+    text-shadow: 2px 2px 2px black;
+}
+
+.defaultButton {
+    border: none;
+    background: #0a51cc;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* ******************************************************** */
+/* Task box styles applied when task marked complete */
+/* ******************************************************** */
+#taskComplete {
+    background: red;
+    border-right: none;
+    opacity: 0.3;
+    transition: opacity 1s, transform 0.5s, height 0.5s;
+    text-decoration: line-through black 2px;
+}
+
+#taskComplete:hover {
+    text-decoration: none;
+    opacity: 0.7;
+    box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.6);
+    transform: translateY(-0.2rem);
+}
+
+#hideComplete {
+    display: none;
+}
+/* @keyframes boxClose {
+    0% {
+        height: 100%;
+    }
+    50% {
+        height: 50%;
+    }
+
+    100% {
+        height: 2rem;
+    }
+} */
+
+
+
+#mainLeft{
+    display: none;
+}
+#mainRight{
+    display: none;
+}
+    
+
+
+
+/* ******************************************************************** */
+/* Media Queries */
+/* ********************************************************************* */
+
+@media (min-width: 811px) {
+
+    body{
+        /* min-height: 100vh; */
+        background: #6b9ffa;
+    }
+
+    header {
+        position: fixed;
+        max-width: 40vw;
+        display: none;
+    }
+
+    .main {
+        /* Changed display */
+        display: flex; 
+        min-width: 40vw;
+        max-width: 40vw;
+        border-radius: 5%;
+        padding-top: 3rem;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        /* padding: 0 5rem; */
+    }
+
+    .taskListContainer {
+        padding: 0.2rem;
+        min-height: 87vh;
+        max-height: 87vh;
+        overflow-y: scroll;
+        scrollbar-width: thin;
+        scrollbar-color:#3474e6 #a1c3ff;
+        box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.6);
+        border-radius: 2%;
+
+        
+        /* background:black; */
+    }
+
+    .taskOptionsBtn {
+        padding: 0.4rem;
+        font-size: 0.8rem;
+    }
+
+    .taskButtonsContainer {
+        gap: 0.4rem;
+    }
+
+    #mainRight{
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 50vw;
+        /* background: linear-gradient(to left , #041f4f, 35%, #a1c3ff); */
+        /* background: black; */
+        color: white;
+        padding: 2rem;
+        gap: 2rem;
+    }
+    .rightTop, .rightBottom{
+       width: 95%;
+       height: 45%;
+       /* background: linear-gradient(#a1c3ff, 75%, #0a51cc); */
+       box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.6);
+       /* background: rgba(255,255,255, 0.1); */
+       background: #a1c3ff;
+       border-radius: 0 2% 2% 0;
+    }
+    
+    
+    
+
+
+
+    /* Setting TaskList Nav bar for widescreen */
+    .selectMainMenu{
+        display: none;
+    }
+    .topNavUl{
+        justify-content: center;
+    }
+    /* NEW ADD BUTTON POS */
+    .testing {
+        position: fixed;
+        background: red;
+        color: white;
+        top: 1rem;
+    }
+}
+
+
+
+
+
+/* ******************************************************* */
+/* POMO Clock syles */
+/* ******************************************************* */
+.clock {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+}
+.clockDigits {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+
+.digitsBox {
+    font-size: 3rem;
+    font-weight: bold;
+}
+.clockControls, .clockList, .timeList{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-top: 1rem;
+}
+
+.clockButtons {    
+    text-transform: uppercase;
+    padding: 0.2rem;
+    border: 1px solid white;
+    box-shadow: px px 2px 2px white;
+}
+.chooseTime{
+    padding-top: 1rem;
+}
+
+.testing {
+    position: fixed;
+    background: red;
+    color: white;
+    bottom: 0.2rem;
+}
+
+

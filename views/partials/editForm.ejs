@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <title>Edit Form</title>
+</head> -->
+
+<body>
+    <dialog id="editForm">
+        <div class="formContainer">
+            <fieldset>
+                <form action="/editTask" method="PUT" method="dialog">
+                    <input type="text" placeholder="Task" name="taskName" class="formTaskName" id="editTaskInput">
+                    <textarea class="formTaskDescription" id="editTaskDescription" name="taskDescription"
+                        placeholder="Task Description" rows="5" cols="33"></textarea>
+                    <span class="editButton taskOptionsBtn defaultButton">EDIT</span>
+                    <span id="closeEdit" class="taskOptionsBtn defaultButton">Cancel</span>
+                </form>
+            </fieldset>
+        </div>
+    </dialog>
+</body>
+
+</html>
