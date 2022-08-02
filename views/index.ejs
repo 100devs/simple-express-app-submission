@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stretch Break Aid</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <header id="myHeader" >
+    <section class="bannerSection">
+        <div>
+            <img src="media/banner.jpg" class="img-thumbnail" alt="An image of a person on a yoga mat holding down dog position"/>
+        </div>
+        <div>
+            <h1>Stretch Break Aid</h1>
+            <button class="info btn btn-dark" type="button">How It Works</button>
+            <form action="/" method="GET">
+                <input class="newRoutine btn btn-dark" type="submit" value="New Routine"/>
+            </form>
+        </div>    
+
+    </section>
+
+        <section class="timerSection row">
+            <div class="col-1">
+                <figure class="clock">
+                    <div class="mins">0</div>
+                    <div>:</div>
+                    <div class="secs">00</div>
+                    <svg class="progress-ring" height="120" width="120">
+                      <circle
+                        class="progress-ring__circle"
+                        stroke-width="8"
+                        fill="transparent"
+                        r="50"
+                        cx="60"
+                        cy="60"
+                      />
+                    </svg>
+                  </figure>
+            </div>          
+            <div class="btn-group col-1 d-grid gap-2 mx-auto">
+                <button class="start btn btn-dark">start</button>
+                <button class="reset btn btn-dark">reset</button>
+                <button class="pause btn btn-dark">pause</button>
+            </div>
+        </section>
+
+
+    </header>
+
+    <div class="popup" id="popup-1">
+        <div class="overlay">
+            <div class="content">
+                <section>
+                    <div class="close-btn">&times;</div>
+                    <h1>Welcome to your 3-minute stretch break!</h1>
+                </section>
+                <section id="cardSection">
+                    <div class="card">
+                        <img src="media/walking.jpg" class="card-img-top" alt="An image person mid stride on a grassy trail">
+                        <div class="card-body">
+                          <p class="card-text">This simple app gives an introduction to flexibility exercises. You will be provided with three poses.   
+                            </p>
+                            <p class="card-text">
+                                If you have been sedentary for more than 2 hours, it is recommended that you undergo some light activity such as a brisk walk or bike ride to warm up your body before stretching. 
+                                </p>
+                        </div>
+                      </div>
+                    <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Each position can be held up to 30 seconds to 1 minute.</p>
+                        <p class="card-text">Be sure to spend equivalent time stretching both sides of your body. You can use the minute timer provided at the top right of the screen keep track. </p>
+                    </div>
+                    <img src="media/stopwatch.jpg" class="card-img-top" alt="A point of view image of a hand holding a stopwatch">
+                    </div>
+                </section>
+            </div>  
+        </div>
+    </div>
+    
+
+    <div class="exerciseBlock">
+        <% for (let i = 0; i < info.length; i++) { %>
+            <section class="exerciseDisplay">
+                <section>
+                    <div>
+                        <h2 id="title"><%= info[i].type %>: <%= info[i].title %></h2>
+                    </div>
+                    <div>
+                        <p id="instructions">Instructions: <%= info[i].instructions %></p>
+                    </div>
+                </section>    
+                <section class="videoWrapper">
+                    <iframe src="<%= info[i].link %>?playlist=<%= info[i].link.substring(30) %>&loop=1&mute=1" frameborder="0" allowfullscreen></iframe>
+                </section> 
+            </section>
+        <% }  %>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

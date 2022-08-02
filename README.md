@@ -1,22 +1,12 @@
-#100Devs Simple Express App Submission
+# Stretch Break
+This project was created primarily as version 1 of a RESTful api for use as an exercise library. It was built with node and cataloged on MongoDB Atlas. I used this server as a sandbox to make decisions about database organization that I will be implementing as part of an ongoing 100 hours project to create a virtual personal training platform.
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+I added some basic frontend using ejs and bootstrap to interact with the database. It serves as a tool for daily stretching. 
 
-### How to submit your code for review:
+**Link to project:** https://exercise-library-api.herokuapp.com/
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+## Tech Used:
+Node, Express, MongoDB, HTML, CSS, JavaScript, Bootstrap 
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+## Lessons Learned:
+* Most surprising takeaway for me was that the Youtube api was easy to use. It enjoyed learning about the ability to autoplay, loop, and mute videos within iframe.

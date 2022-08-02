@@ -1,0 +1,215 @@
+header {
+    background: grey;
+    color: white;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    padding: 40px 0 25px 0; 
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+body {
+    min-height: 200vh;
+}
+
+img {
+  width: 200px;
+  height: auto;
+}
+
+form {
+    display: inline; 
+}
+
+header.sticky {
+    position: fixed;
+}
+
+.exerciseDisplay {
+    display: inline-block;
+    border: 1vw solid black;
+    margin: 2vh 25%;
+    justify-content: center;
+    align-content: center;
+}
+
+.bannerSection {
+  display: flex;
+  justify-content: end;
+}
+
+.bannerSection div {
+  margin-right: 10px;
+}
+
+.card {
+    margin: 1vw;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.exerciseBlock div {
+    display: flex;
+    margin: 1vw;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#countdown {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    margin: 0;
+    height: 70px;
+    width: 200px;
+}
+
+#title, #type {
+    display: flex;
+    flex-direction: column;
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0px;
+}
+
+.videoWrapper iframe {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.popup .overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+.popup .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 300ms ease-in-out;
+    background: #fff;
+    width: 60%;
+    height: 80%;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1em black solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup .content section {
+    display: flex;
+    margin: 1vw;
+    align-content: center;
+    justify-content: center;
+}
+
+.popup .close-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.popup.active .overlay {
+    display: none;
+}
+
+.popup.active .content {
+    transform: translate(-50%, -50%) scale(0);
+}
+
+  .clock {
+    padding: 3px;
+    margin-top: 40px !important; 
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    height: 30%;
+    font-size: 24px;
+  }
+
+  .progress-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .progress-ring__circle {
+    transition: 0.5s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: rgb(51, 65, 255);
+  }
+
+  .danger {
+    stroke: rgb(243, 17, 28);
+    animation: pulse 0.9s ease-in-out infinite;
+  }
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .exerciseDisplay {
+        margin: 2vh 20%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .exerciseDisplay {
+        margin: 2vh 15%;
+    }
+    #cardSection {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .exerciseDisplay {
+        margin: 2vh 10%;
+    }
+    #cardSection {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card img {
+        display: none;
+    }
+}
