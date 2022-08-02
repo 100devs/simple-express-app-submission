@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="thread, anonymous, messaging">
+    <meta name="description" content="Messages are messages too.">
+
+    <title>Anonymous Messenger</title>
+    <!-- Favicon Image -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+
+    <!-- Google Fonts   -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/d4b2710b34.js" crossorigin="anonymous"></script>
+
+    <!-- external CSS links -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+
+    <div class="hero">
+        <div class="title">
+            <h1 class="title__header">Anonymous Messenger</h1>
+            <p class="title__caption">Write random comments for random people!</p>
+        </div>
+
+        <div class="comment-scroller">
+            <% data.forEach(post => { %>
+                <div class="comment">
+                    <div class="comment__header flex">
+                        <h2>Anonymous Says</h2>
+                        <span class="comment__date"><%= `${post.date.toString().split(" ").slice(0, 3).join(" ")},  ${post.date.toLocaleTimeString().split(" ").map((ele, idx) => idx === 0 ? ele.slice(0, ele.length - 3): ele).join(" ")}` %></span>
+                    </div>
+                    <p class="comment__text" id="<%=post._id%>"><%= post.comment %></p>
+                    <span class="default-hidden"><%= `${post._id}`%></span>
+                    <div class="comment__buttons flex">
+                        <button class="reply-btn"><i class="fa-solid fa-reply"></i>Reply</button>
+                        <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                        <button class="delete-btn"><i class="fa-solid fa-trash-can"></i>Delete</button>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        
+        <div class="new-message">
+            <form action="/message" method="post" class="new-message__form flex flex-wrap">
+                <textarea resize="none" placeholder="Send a message" name="message" class="new-message__textarea"></textarea>
+                <button class="new-message__new-btn form__btn"><i class="fa-solid fa-plus"></i>New</button>
+                <button type="button" class="new-message__cancel-btn form__btn default-hidden"><i class="fa-solid fa-ban"></i></i>Cancel</button>
+                <button type="button" class="new-message__update-btn form__btn default-hidden"><i class="fa-solid fa-pen"></i>Update</button>
+            </form>
+        </div>
+
+    <script src='/js/main.js'></script>
+</body>
+</html>
+
