@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=EB+Garamond:wght@400;500&family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/site.webmanifest">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bevacqua/dragula@3.7.3/dist/dragula.min.css">
+
+</head>
+<!-- onload="init()" -->
+<body onload="dragAndDrop.init()">
+    <div class="header">
+        <h1>Our List</h1>
+    </div>
+    <div class="selection-container">
+        <span id="todo-selection" class="todo selection">Tasks</span>
+        <span id="grocery-selection" class="grocery selection">Grocery</span>
+    </div>
+    <div class="tasks-container">
+        <section id="todo-list" class="tasks-toggle">
+            <h3>
+                <span class="blank"></span>
+                <span class="task center"></span>
+                <span class="center category-title">Deadline</span>
+            </h3>
+            <div class="chore-container">
+                <ul class="tasks chore-ul">
+                    <% for(let i=0; i < info.length; i++) {%>
+                        <% if(info[i].class === 'todo' && info[i].category === 'todo') { %>
+                        <li id=<%= info[i].id %> class="task">
+                            <span class='fa fa-trash'></span>
+                            <span><%= info[i].taskBody %></span>
+                            <span class="deadline"><%= info[i].deadline.split('T').join(' ') %></span>
+                        </li>
+                        <% } %>
+                    <% } %>
+                </ul>
+            </div>
+        </section>
+
+        <section id="grocery-list" class="groceries-toggle">
+            <h3 class="grocery">Grocery List</h3>
+            <div class="groceries-container">
+                <div class="uncategorized-groceries grid-26-1">
+                    <ul class="tasks sticky colorWHITE">
+                        <li class="category-title">Uncategorized</li>
+                    </ul>
+                    <ul id="dragUncategorized" class="tasks tasksContainer container">
+                        <% for(let i=0; i < info.length; i++) {%>
+                            <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'none') { %>
+                            <li id=<%= info[i].id %> class="task">
+                                <span class='fa fa-trash'></span>
+                                <span><%= info[i].taskBody %></span>
+                            </li>
+                            <% } %>
+                        <% } %>
+                    </ul>
+                </div>
+                <section id="grocery-right">
+                    <div id="produce" class="grid-26-1">
+                        <ul class="tasks sticky colorGREEN">
+                            <li class="category-title">Produce</li>
+                        </ul>
+                        <ul id="dragProduce" class="tasks tasksContainer container">
+                            <% for(let i=0; i < info.length; i++) {%>
+                                <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'produce') { %>
+                                <li id=<%= info[i].id %> class="task">
+                                    <span class='fa fa-trash'></span>
+                                    <span><%= info[i].taskBody %></span>
+                                </li>
+                                <% } %>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div id="frozen" class="grid-26-1">
+                        <ul class="tasks sticky colorBLUE">
+                            <li class="category-title">Frozen</li>
+                        </ul>
+                        <ul id="dragFrozen" class="tasks tasksContainer container">
+                            <% for(let i=0; i < info.length; i++) {%>
+                                <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'frozen') { %>
+                                <li id=<%= info[i].id %> class="task">
+                                    <span class='fa fa-trash'></span>
+                                    <span><%= info[i].taskBody %></span>
+                                </li>
+                                <% } %>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div id="bakery" class="grid-26-1">
+                        <ul class="tasks sticky colorORANGE">
+                            <li class="category-title">Bakery</li>
+                        </ul>
+                        <ul id="dragBakery" class="tasks tasksContainer container">
+                            <% for(let i=0; i < info.length; i++) {%>
+                                <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'bakery') { %>
+                                <li id=<%= info[i].id %> class="task">
+                                    <span class='fa fa-trash'></span>
+                                    <span><%= info[i].taskBody %></span>
+                                </li>
+                                <% } %>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div id="other" class="grid-26-1">
+                        <ul class="tasks sticky colorPINK">
+                            <li class="category-title">Other</li>
+                        </ul>
+                        <ul id="dragOther" class="tasks tasksContainer container">
+                            <% for(let i=0; i < info.length; i++) {%>
+                                <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'other') { %>
+                                <li id=<%= info[i].id %> class="task">
+                                    <span class='fa fa-trash'></span>
+                                    <span><%= info[i].taskBody %></span>
+                                </li>
+                                <% } %>
+                            <% } %>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </section>
+        
+    </div>
+    
+    <div class="add-to-do">
+
+        <form class="add-item-form" action="/addToDo" method="POST">
+            <select id="category" name="category">
+                <option value="grocery">Grocery</option>
+                <option value="todo" selected>To Do</option>
+            </select>
+            <select id="gc" name="gc">
+                <option value="none" selected>Select a category</option>
+                <option value="produce">Produce</option>
+                <option value="frozen">Frozen</option>
+                <option value="bakery">Bakery</option>
+                <option value="other">Other</option>
+            </select>
+            <input id="deadline" type="datetime-local" name="deadline">
+            <input type="text" placeholder="Add an item" maxlength="35" name="taskBody">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="messages" class="messages-container">
+
+        <div id="chat-container" class="chat-container">
+            <ul class="messages">
+                <% for(let i=0; i < info.length; i++) {%>
+                    <% if(info[i].class === 'message') { %>
+                        <% let date = info[i].timeSent.toString().split(' ') %>
+                        <% if(i===0) {%>
+                            <li id=<%= info[i].id %> class="messageDate"><%= date.slice(0,4).join('-')%></li>
+                        <% } else if(date[2] !== info[i-1].timeSent.toString().split(' ')[2]) {%>
+                            <li id=<%= info[i].id %> class="messageDate"><%= date.slice(0,4).join('-')%></li>
+                        <% } %>
+                        <li id=<%= info[i].id %> class="message">
+                            <span class="date"><%= date.slice(4,5) %></span>
+                            <span><%= info[i].messageBody %></span>
+                            <!-- <span class='fa fa-trash'></span> -->
+                        </li>
+                    <% } %>
+                <% } %>
+            </ul>    
+        </div>
+        <script>
+            var div = document.getElementById("chat-container")
+            div.scrollTop = div.scrollHeight
+        </script>
+        <form action="/addMessage" method="POST" class="send-message-form">
+            <input type="text" placeholder="Send a message" maxlength="140" name="messageBody">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src='js/main.js'></script>
+    <script src="https://cdn.jsdelivr.net/gh/bevacqua/dragula@3.7.3/dist/dragula.min.js"></script>
+</body>
+</html>
