@@ -1,0 +1,14 @@
+input{
+    display: block;
+    font-size:20px;
+    padding:4px 2px;
+    border:solid 1px #aacfe4;
+    margin:2px 0 20px 10px;
+}
+.row {
+    display: flex;
+  }
+.column {
+    flex: 50%;
+    padding-left: 5%;
+}
