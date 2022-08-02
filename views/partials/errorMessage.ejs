@@ -1,0 +1,11 @@
+<%# Web Dev Simplified's Passport login tutorial - for flash messages%>
+<% if (messages.error) { %>
+  <%= messages.error %>
+<% } %>
+
+
+<%# this error message inclusion is from before I started doing login stuff... %>
+<% if (locals.errorMessage != null) { %>
+  <%= errorMessage %>
+<% } %>
+
