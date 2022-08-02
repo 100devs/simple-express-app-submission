@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+.menu-section {
+  @apply py-1 bg-yellow-300 rounded-full font-bold;
+}
+
+.splash-background {
+  background: url(./images/splash-bg-1.jpg);
+}
