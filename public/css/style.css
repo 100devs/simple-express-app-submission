@@ -1,0 +1,174 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+.title{
+  color: #FF4742;
+  text-align: center;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-style: bold;
+
+ 
+}
+
+.calculatorBox {
+  display: flex;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.metric, .standard{
+  display: flex;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 15px;
+  align-content: space-between;
+  align-items:stretch;
+}
+
+label{
+  font-size: 1.25rem;
+}
+
+.labelInput{
+  width:200px;
+  padding:10px;
+  border: 5px 5px;
+  margin-bottom:10px;
+  font-size: 1rem;
+}
+
+
+
+#calculate-BMI, .reset{
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  width:200px;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.reset{
+  background: #1c6ebf;
+  border: 1px solid #065873;
+  margin-bottom: 20px;
+}
+
+#calculate-BMI:hover, 
+#calculate-BMI:active,
+.reset:hover, 
+.reset:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.reset:hover, 
+.reset:active{
+  color: #2e7367;
+}
+
+#calculate-BMI:active,
+.reset:active
+ {
+  opacity: .5;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  width:200px;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  margin-top: 25px;
+  color:rgb(124, 102, 102);
+}
+
+#BMI-VALUE{
+  margin-bottom: 10px;
+}
+
+.dissappear {
+  display: none; 
+}
+
+.radio-buttons{
+  cursor: pointer;
+}
+
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+
+}
+
+footer {
+
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
