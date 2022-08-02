@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diss' Bookshelf</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="title">
+      <h1>Diss's Rec Room</h1>
+    </div>
+    <% if (manage) { %>
+    <section class="heading">
+      <div>
+        <h2>Add/Update a title</h2>
+        <form action="/book-input-new" method="POST">
+          <button id="newBook" type="submit">Submit new book</button>
+          <button id="update-button">Update</button>
+          <input
+            type="text"
+            placeholder="Title"
+            name="title"
+            id="title-form"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Author"
+            name="author"
+            id="author-form"
+          />
+          <input
+            type="text"
+            placeholder="Rating"
+            name="rating"
+            id="rating-form"
+          />
+          <input
+            type="text"
+            placeholder="Page Count"
+            name="pages"
+            id="pages-form"
+          />
+          <input
+            type="text"
+            placeholder="Description"
+            name="desc"
+            id="desc-form"
+          />
+          <input
+            type="text"
+            placeholder="Tropes"
+            name="tropes"
+            id="tropes-form"
+          />
+        </form>
+      </div>
+    </section>
+    <% } %>
+    <ul class="books cards">
+      <!-- Loop through quote objects -->
+      <% for(let i = 0; i < books.length; i++) {%>
+      <li class="book card">
+        <span class="title"><%= books[i].title %></span>
+        <span class="author"><%= books[i].author %></span>
+        <span class="stats"
+          ><%= books[i].rating %>/10 --- <%= books[i].pages %> pages</span
+        >
+        <span class="desc"><%= books[i].desc %></span>
+        <span class="tropes">Tropes: <%= books[i].tropes %></span>
+        <% if (manage) { %>
+        <div>
+          <button class="delete-button" value="<%= books[i].title %>">
+            Delete this book
+          </button>
+        </div>
+        <% } %>
+      </li>
+      <% } %>
+    </ul>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #998d8d;
+  font-size: 64.5%;
+  font-size: 1rem;
+  line-height: 1.35;
+  max-width: 1250px;
+}
+
+/* HEADING AND NAV */
+
+.heading {
+  text-align: center;
+  display: grid;
+  justify-content: space-around;
+  max-width: 40%;
+  min-width: 460px;
+  padding: 30px 0 30px 0;
+  background-color: #b6d6ff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  margin: 0 auto 5% auto;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 200px 200px;
+}
+
+input {
+  display: block;
+  margin: 1% auto 0 auto;    
+}
+
+button {
+  margin-top: 2%;
+}
+
+#title {
+  text-align: center;
+}
+
+/* CARDS */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  max-width: 400px;
+  min-height: 200px;
+  min-width: 300px;
+  display: grid;
+  /* grid-template-rows: 20px 50px 1fr 50px; */
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s;
+  background-color: #b6d6ff;
+}
+
+.card:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+.card__link::after {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s;
+}
+
+.card__link:hover::after {
+  width: 100%;
+}
+
+.desc {
+  max-width: 330px; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+
+
+/* CARD BACKGROUNDS */
+
+.card-1 {
+  background: radial-gradient(#1fe4f5, #3fbafe);
+  margin: 0 auto;
+}
+
+.card-2 {
+  background: radial-gradient(#fbc1cc, #fa99b2);
+}
+
+.card-3 {
+  background: radial-gradient(#76b2fe, #b69efe);
+}
+
+.card-4 {
+  background: radial-gradient(#60efbc, #58d5c9);
+}
+
+.card-5 {
+  background: radial-gradient(#f588d8, #c0a3e5);
+}
+
+/* RESPONSIVE */
+
+/* @media (max-width: 1600px) {
+  .cards {
+    justify-content: center;
+  }
+}
+  */
