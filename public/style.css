@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.deleteAll {
+    margin: 1vw;
+}
+span{
+    display: block;
+    font-size: 1.5vw;
+    margin-bottom: 0.5vw;
+}
+span:hover {
+    cursor: pointer;
+}
+li {
+    margin: 1vw;
+}
