@@ -1,0 +1,262 @@
+:root {
+    --dark-green: #87A58B;
+    --light-green:#a5c9aa;
+    --hover-light-green: #c4dac8;
+}
+
+* {
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%
+}
+body {
+    font-size: 2rem;
+    margin: 0;
+    /* background: #FFFFFA; */
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+    padding-right: 10px;
+}
+.containerHalf{
+    display: flex;
+    justify-content: center;
+    gap: 2.3rem;
+}
+
+/* navbar */
+nav{
+    margin-bottom: 6rem;
+}
+
+nav a{
+    color: #fff;
+    font-weight: bold;
+    font-size: 2rem;
+
+}
+nav a:hover{
+    color: var(--hover-light-green);
+}
+
+.logo{
+    font-family: 'Truculenta', sans-serif;
+    font-weight: 700;
+    font-size: 5rem;
+    padding-left: 1rem;
+
+
+}
+
+#navbarNav{
+    justify-content: flex-end;
+}
+
+/* homepage */
+.sophiaImg{
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.containerHalf > section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+.containerHalf > section > h2{
+    width: 400px;
+}
+
+.pause{
+    display: block;
+    color: #3891A6;
+    font-family: 'Truculenta', sans-serif;
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+
+.petBtnContainer{
+    font-size: 2rem;
+    display: flex;
+    gap: 40px;
+    text-decoration: none;
+   
+}
+
+.petBtnContainer a, .submitBtn {
+    background: var(--dark-green);
+    color: #fff;
+    border: 1px solid var(--dark-green);
+    padding: 8px;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.petBtnContainer a:hover, .submitBtn:hover{
+background: var(--light-green)
+}
+
+/* login page */
+
+.loginContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.dogImgCont{
+    background: none;
+    background-image: url("../images/dogonlog-small.jpg");
+    width: 853px;
+    height: 480px;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;    
+}
+
+.loginFormCont{
+    background-color: rgba(255, 255, 255, 0.321);  
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    margin: 5rem 3rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loginFormCont h1{
+    margin: 0;
+}
+.loginFormCont form{
+    padding-bottom: 2rem;
+}
+
+.loginFormCont a{
+    color: black;
+}
+.loginFormCont a:hover{
+    color: var(--hover-light-green);
+}
+
+/* add pet page */
+.petSelectionContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 7rem;
+}
+/* 
+add pet metrics */
+
+.dailyFunctionCont{
+    display: flex;
+    gap: 3rem;
+}
+
+.dailyFunctionCont section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.metricsForm{
+    border: 3px solid var(--dark-green);
+    border-radius: 10px;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.metricsForm > form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem;
+}
+.dailyFunctionCont input {
+    width: 120px;
+ }
+.petNameForPage{
+    text-align: center;
+}
+
+.metricsSummaryCont{
+    width: 75%;
+}
+
+.metricsCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.dateList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.loggedDatesCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+/* graphs page */
+
+.canvasContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* registration */
+.registrationCont{
+    display: flex;
+    justify-content: center;
+}
+.registrationCont div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 800px){
+    .containerHalf{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .containerHalf > section{
+        align-items: center;
+        text-align: center;
+    }
+/* metrics */
+    .dailyFunctionCont{
+        flex-direction: column;
+    }
+/* login */
+    .dogImgCont{
+        align-items: center;
+    }
+
+}

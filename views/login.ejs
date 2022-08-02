@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- //google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,200;12..72,700&display=swap"
+    rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #87A58B;">
+    <p class="logo navbar-brand">Paws for Health</p>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="/register"> Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <section class="loginContainer">
+    <div class="dogImgCont">
+      <div class="loginFormCont">
+        <h1>Login</h1>
+        <form>
+          <div class="error" style="background-color: red;"></div><br>
+          <label for="username">Username</label><br>
+          <input type="text" id="username" required /><br>
+          <label for="password">Password</label><br>
+          <input type="password" id="password" required><br>
+          <input class="submitBtn" type="submit" value="Login"><br>
+        </form>
+        <a href="/register">Don't have an accout? <br>Register here</a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <script>
+    const form = document.querySelector('form')
+    const username = document.querySelector('#username')
+    const password = document.querySelector('#password')
+    const display = document.querySelector('.error')
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      display.textContent = ''
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          body: JSON.stringify({
+            username: username.value.toLowerCase(),
+            password: password.value
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        const data = await res.json()
+        if (res.status === 400 || res.status === 401) {
+          console.log(res)
+          return display.textContent = `${data.message}. ${data.error ? data.error : ''}`
+        }
+        location.assign('/petspage')
+      } catch (err) {
+        console.log(err.message)
+      }
+    })
+  </script>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+ </script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+ </script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+ </script>
+</body>
+
+</html>
