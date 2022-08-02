@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>App Name</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <section class="responseObjectContainer">
+      <h2>ObjectList</h2>
+      <section class="appPostFunctionality">
+        <form class="listHeader" action="/" method="POST">
+          <input type="text" name="title" value="title">
+          <textarea  name="content" rows="6" cols="45">content</textarea>
+          <button type="submit">Add item to db collection</button>
+        </form>
+        <ul class="itemList">
+          <% itemsList.forEach(item => { %>
+            <li class="itemsListItem">
+              <div class="itemTitle"><%= item.title %></div>
+              <div class="itemContent"><%= item.content %></div>
+              <a href="/edit/<%= item._id %>" class="edit">edit</a>
+              <a href="/remove/<%= item._id %>" class="remove">remove</a>
+            </li>
+            <% }) %>
+        </ul>
+      </section>
+    </section>
+  </body>
+</html>
