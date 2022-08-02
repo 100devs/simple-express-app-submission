@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    background: rgb(255,197,221);
+    background: linear-gradient(52deg, rgb(255, 240, 197) 22%, rgba(255,123,177,.8) 53%, rgba(250,128,179,.8) 80%, rgb(255, 244, 194) 96%);
+    font-family: 'Ibarra Real Nova', serif;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+header{
+    padding: 2.5em 3em;
+    text-align: center;
+}
+.list{
+    padding: 0 3em;
+}
+.addEntry{
+    padding: 3em;
+    text-align: center;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+li{
+    text-align:center;
+    margin-bottom: 1em;
+    background-color: rgba(237, 227, 255, 0.7);
+    color: rgb(97, 35, 29);
+    padding: .8em 1.2em;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 5px rgba(97, 35, 29, 0.52);
+}
+.fa-minus{
+    display: block;
+    float: right;
+}
+.entry{
+    padding: 0 1em;
+    display: block;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.source,.hearts{
+    display: inline;
+    padding: 0 .5em;
+}
+h1,h2{
+    margin: 0;
+    color: rgb(97, 35, 29);
+    font-weight: 600;
+}
+h1, h2{
+    text-decoration: underline dotted;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5em;
+
+}
+textarea, .userSource{
+    padding: .75em;
+    border-radius: 10px;
+    margin-bottom: .51em;
+    width: 80%;
+}
+.userSource{
+    border: 1px solid rgb(133, 133, 133);
+}
+.btn{
+    margin-top: .65em;
+    padding: .8em 1em;
+    border-radius: 15px;
+    background-color: rgb(134, 34, 79);
+    color: rgba(255, 243, 174, 0.888);
+    border: none;
+    box-shadow: 0px 0px 8px 3px rgba(94, 26, 20, 0.72);
+    font-family: 'Ibarra Real Nova', serif;
+    font-size: .95em;
+    font-weight: 700;
+    text-decoration: underline dotted;
+    letter-spacing: .12em;
+}
+.btn:hover{
+    background-color: rgba(255, 208, 80,.7);
+    color: rgb(120, 37, 84);
+    font-size: 1em;
+    font-style: oblique;
+    border: 3px dotted rgb(120, 37, 84);
+    box-shadow: none;
+    text-decoration: none;
+}
