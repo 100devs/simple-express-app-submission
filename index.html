@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="public/style.css">
+    <title>Library</title>
+</head>
+
+<body>
+    <main>
+        <h1>Reading list</h1>
+
+        <form action="/books" method="POST">
+           <div>
+            <label for="title">Title
+                <input type="text" id="title" placeholder="the great ..." name="title">
+            </label>
+           </div>
+           <div>
+            <label for="autor">Author
+                <input type="text" id="autor" placeholder="jhon doe" name="author">
+            </label>
+           </div>
+
+                <label for="read">Read</label>
+                <input type="radio" id="check" name="read" value="Read">
+                <label for="read">Not read</label>
+                <input type="radio" id="check" name="read" value="Not read">
+
+            <button type="submit">Submit</button>
+        </form>
+
+    </main>
+</body>
+
+</html>

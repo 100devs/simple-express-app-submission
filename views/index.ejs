@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading list</title>
+</head>
+
+<body>
+    <main>
+        <h1>Reading list</h1>
+
+        <form action="/books" method="POST">
+            <div>
+                <label for="title">Title
+                </label>
+                    <input type="text" id="title" placeholder="the great ..." name="title">
+               </div>
+               <div>
+                <label for="autor">Author
+                </label>
+                    <input type="text" id="autor" placeholder="jhon doe" name="author">
+               </div>
+            <section>
+                <label for="read">Read</label>
+                <input type="radio" id="check" name="read" value="Read" checked>
+                <label for="read">Not read</label>
+                <input type="radio" id="check" name="read" value="Not read">
+            </section>
+
+            <button type="submit" class="s-btn">Submit</button>
+        </form>
+    </main>
+
+    <section class="books">
+        <h1>Books</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Status</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i = 0; i < books.length; i++) {%>
+                <tr>
+                    <td class="b-title"><%= books[i].title %></td>
+                    <td><%= books[i].author %></td>
+                    <td><button class="readd"><%= books[i].read %></button></td>
+                    <td><button class="delete-button">X</button></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+    </section>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
