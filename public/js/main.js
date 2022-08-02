@@ -68,7 +68,7 @@ function filterByTag(e){
         /*Whenever a new value is assigned to the location object, 
         a document will be loaded using the URL 
         as if location.assign() had been called with the modified URL. */
-        window.location.assign(`/tags/${tag}`)
+        location.assign(`/tags/${tag}`)
     }catch(err){
         console.log(err)
     }
@@ -81,7 +81,6 @@ search.addEventListener('change', activateSearch)
 async function activateSearch(){
     const searchTerm = search.value;
     try {
-        console.log('Continue here line 35')
         // send word to backend, find by fragment in title on Mongo. Redirect to page of results.
         location.assign(`/search?term=${searchTerm}`)
     }
