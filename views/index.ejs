@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/style.css">
+    <title>Simple Crud</title>
+</head>
+<body>
+    <section>
+
+        <h1>Current names and quotes:</h1>
+
+        <ul class="currentInfos">
+            <% for (let i = 0; i < info.length; i++) {%>
+                <li class="currentInfo">
+                    <span>Name: <%= info[i].name %></span>
+                    <span>Quote: <%= info[i].quote %></span>
+                </li>
+            <% } %>    
+        </ul>
+    </section>
+
+    <section>
+
+        <h2>Please enter a name and quote you'd like to add:</h2>
+    
+        <form action="/addOne" id="addOne" method="post">
+            <label for="names">Name</label>
+            <input type="text" name="charName" placeholder="Name">
+            <input type="text" name="addQuote" placeholder="Quote">
+            <button type="submit">Submit</button>
+        </form>
+
+    </section>
+
+    <section>
+
+        <h2>Please enter an existing name of one you wish to edit and then enter your new quote:</h2>
+    
+        <form action="/updateOne" method="post">
+            <label for="names">Name</label>
+            <input type="text"  name="charName" placeholder="Name">
+            <input type="text" name="updateQuote" placeholder="Update Quote">
+            <button class="editText" type="edit">Edit</button>
+        </form>
+
+    </section>  
+
+    <section>
+        <h2>Would you like to delete one?</h2>
+
+        <form action="/deleteOne" method="post">
+            <label for="names">Name</label>
+            <input type="text"  name="charName" placeholder="Name">
+            <button class="deleteText">Delete</button>
+        </form>
+
+    </section>
+
+<script src="/public/main.js"></script>
+</body>
+</html>
