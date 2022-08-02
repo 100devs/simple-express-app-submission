@@ -262,6 +262,7 @@ footer {
     display: flex;
     /* height: 120px; */
     padding-top: 2em;
+    margin-top: .5em;
     align-self: flex-end;
     align-items: flex-end;
     background-color: lightslategrey;
