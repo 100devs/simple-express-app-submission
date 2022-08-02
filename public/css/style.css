@@ -150,6 +150,7 @@ a {
     }
 
     .aside {
+        display: flex;
         flex-shrink: 2;
         flex-wrap: wrap;
     }
