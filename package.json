@@ -1,0 +1,46 @@
+{
+  "name": "dragonball-api",
+  "version": "1.0.0",
+  "description": "## Table of contents",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "server:start": "npm start --prefix server",
+    "server:dev": "npm run dev --prefix server ",
+    "server:lint": "npm run lint --prefix server ",
+    "server:test": "npm run test --prefix server ",
+    "client:start": "npm start --prefix client",
+    "client:dev": "npm run dev --prefix client",
+    "client:lint": "npm run lint --prefix client",
+    "client:test": "npm run test --prefix client",
+    "start": "concurrently \"npm run server:start\" \"npm run client:start\"",
+    "devAll": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "lintAll": "npm run server:lint && npm run client:lint",
+    "testAll": "npm run server:test && npm run client:test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chadvidovcich/dragonBall-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chadvidovcich/dragonBall-API/issues"
+  },
+  "homepage": "https://github.com/chadvidovcich/dragonBall-API#readme",
+  "dependencies": {
+    "concurrently": "^7.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-n": "^15.2.3",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
+}
