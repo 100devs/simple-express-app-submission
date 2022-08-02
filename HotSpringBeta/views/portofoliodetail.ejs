@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Studio Francesca - Premium Theme by WowThemes.net</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<link rel="stylesheet" href="stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="stylesheets/responsive.css">
+</head>
+<body>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="/">
+			<h4>West Coast Hot Springs</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="/">Home</a>
+			<!-- <ul>
+				<li><a href="index2.html">Without slider</a></li>
+			</ul> -->
+			</li>
+			<li>
+			<a href="#">Blog</a>
+			<ul>
+				<li><a href="/blogpage2">Blog page style 2</a></li>
+				<li><a href="/blogsinglepost">Single post</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="#">Pages</a>
+			<ul>
+				<li><a href="/about">About us</a></li>
+				<li><a href="/services">Services</a></li>
+			</ul>
+			</li>
+			<!-- <li>
+			<a href="#">Features</a>
+			<ul>
+				<li><a href="columns.html">Columns</a></li>
+				<li><a href="elements.html">Elements</a></li>
+				<li><a href="typography.html">Typography</a></li>
+			</ul>
+			</li> -->
+			<li>
+			<a href="/contact">Contact</a>
+			</li>
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<!-- <div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p class="left">
+				 PROJECT DETAIL
+			</p>
+			<p class="right">
+				<a href="portofolio3.html">View more projects</a>
+			</p>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div> -->
+
+<div id="subheader">
+	<div class="row">
+		<div class="eight columns">
+			<p class="bread leftalign">
+				<a href="/map" class="clear actbutton">To Map</a>
+				 <!-- You are here: <a href="/"> Home</a> / <a href="blogpage2.html">Blog second style</a> -->
+			</p>
+		</div>
+		<div class="four columns">
+			<div class="row collapse">
+				<div class="ten mobile-three columns">
+					<input type="text" class="nomargin" placeholder="Search...">
+				</div>
+				<div class="two mobile-one columns">
+					<a href="#" class="postfix button expand">Go</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+	<!-- PROJECT DESCRIPTION-->
+	<div class="six columns">
+		<div class="sectiontitle">
+			<h4> <%= siteObj.name %> </h4>
+		</div>
+		<p>
+			<%= siteObj.description %>
+		</p>
+		<dl class="tabs">
+			<dd class="active"><a href="#simple1">Features</a></dd>
+			<dd><a href="#simple2">Facilities</a></dd>
+			<dd><a href="#simple3">Location Information</a></dd>
+		</dl>
+		<ul class="tabs-content">
+			<li class="active" id="simple1Tab">
+			<!-- <p>
+				 Et non ex maxima parte de tota iudicabis? Item de contrariis, a quibus ad genera formasque generum venerunt. Sit enim idem caecus, debilis. Duo Reges: constructio interrete. Nulla tempus erat accumsan.
+			</p> -->
+			<div class="six columns noleftmargin">
+				<p>
+					<b>Open:</b> <%= siteObj.open %>
+				</p>
+				<p>
+					<b>RoadAccess:</b> <%= siteObj.roadAccess %>
+				</p>
+			</div>
+			<div class="six columns">
+				<p>
+					<b>Day Use Fee:</b> <%= siteObj.dayUseFee %>
+				</p>
+				<p>
+					<b>State:</b> <%= siteObj.state %>
+				</p>
+			</div>
+			</li>
+			<li id="simple2Tab">
+			<p>
+				 <b>Overnight Facilities:</b> <%= siteObj.overnightFacilities %>
+			</p>
+			<p>
+				<b>Resort:</b> <%= siteObj.resort %>
+			</p>
+			<p>
+				<b>Website:</b> <a href="<%= siteObj.website %>"><%= siteObj.website %></a>
+			</p>
+			<!-- <p>
+				 Et non ex maxima parte de tota iudicabis? Item de contrariis, a quibus ad genera formasque generum venerunt. Sit enim idem caecus, debilis. Duo Reges: constructio interrete.
+			</p> -->
+			</li>
+			<li id="simple3Tab">
+			<p>
+				<b>State:</b> <%= siteObj.state %>
+			</p>
+			<p>
+				<b>Area:</b> <%= siteObj.area %>
+			</p>
+			<p>
+				<b>Coordinates:</b> <%= siteObj.loc.coordinates %>
+			</p> 
+			<p >
+				<b>Google Map Link</b> <a href="<%= siteObj.googleLink %>"><%= siteObj.googleLink %></a>
+			</p>
+			<p>
+				<i>"Adipiscing elit. Et non ex maxima parte de tota iudicabis? Item de contrariis, a quibus ad genera formasque generum."</i>
+			</p>
+			</li>
+		</ul>
+	</div>
+	<!-- end main content-->
+	<!-- SLIDER-->
+	<div class="six columns">
+		<div class="slider-wrapper theme-default">
+			<div id="slider" class="nivoSlider detailslider">
+				<img src="http://www.wowthemes.net/demo/studiofrancesca/images/temp/nivo3.jpg" data-thumb="" alt=""/>
+				<img src="http://www.wowthemes.net/demo/studiofrancesca/images/temp/nivo1.jpg" data-thumb="" alt=""/>
+			</div>
+		</div>
+	</div>
+	<!-- end sliderr-->
+</div>
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<div class="four columns">
+		<h1>ABOUT US</h1>
+		 Our goal is to keep clients satisfied!
+	</div>
+	<div class="four columns">
+		<h1>GET SOCIAL</h1>
+		<a class="social facebook" href="#"></a>
+		<a class="social twitter" href="#"></a>
+		<a class="social deviantart" href="#"></a>
+		<a class="social flickr" href="#"></a>
+		<a class="social dribbble" href="#"></a>
+	</div>
+	<div class="four columns">
+		<h1 class="newsmargin">NEWSLETTER</h1>
+		<div class="row collapse newsletter floatright">
+			<div class="ten mobile-three columns">
+				<input type="text" class="nomargin" placeholder="Enter your e-mail address...">
+			</div>
+			<div class="two mobile-one columns">
+				<a href="#" class="postfix button expand">GO</a>
+			</div>
+		</div>
+	</div>
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2015 Your Agency Name</span>
+		</div>
+		<div class="six columns">
+			<span class="small floatright"> "Studio Francesca" - WowThemes.net</span>
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<!-- Javascript files placed here for faster loading -->
+<script src="javascripts/foundation.min.js"></script>
+<!-- <script src="javascripts/jquery.cycle.js"></script> -->
+<script src="javascripts/app.js"></script>
+<!-- <script src="javascripts/modernizr.foundation.js"></script> -->
+<!-- <script src="javascripts/slidepanel.js"></script> -->
+<!-- <script src="javascripts/scrolltotop.js"></script>
+<script src="javascripts/hoverIntent.js"></script>
+<script src="javascripts/superfish.js"></script> -->
+<script src="javascripts/responsivemenu.js"></script>
+<script src="javascripts/elasticslideshow.js"></script>
+</body>
+</html>
