@@ -1,5 +1,27 @@
+const { getEnvironmentData } = require("worker_threads");
+
 const deleteText = document.querySelectorAll('.fa-trash')
 const editText = document.querySelectorAll('.fa-edit')
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector('.nav-menu');
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+})
+
+document.querySelectorAll('.nav-link').forEach(n => n.addEventListener("click", () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+}))
+
+// document.querySelectorAll('cell').addEventListener('click', fillIn)
+
+// function fillIn(){
+//     document.getElementById('cell').onclick;
+    
+// }
+
 
 Array.from(deleteText).forEach((element)=>{
     element.addEventListener('click', deleteMed)
@@ -10,45 +32,49 @@ Array.from(editText).forEach((element)=>{
     console.log('changed')
 })
 
-element.querySelector('#clear').addEventListener('click', clear)
- 
-async function clear(){
-    // const mName = document.getElementById("medName")
-    console.log('clearing, please wait.')
-
-    outputHolder.replaceChildren();
-
-
-}
 
 document.querySelector('button').addEventListener('click',showMed)
 
 async function showMed(){
   const mName = document.getElementById("medName").value;
   console.log('Hi! searching', mName);
-    try {
-        const response = await fetch ('showMed/' + mName, {
-            method: 'get',
-            headers: {'Content-type': 'application/json'}
-        })
-        const data = await response.json()
-      console.log(data)
-    //   onclick('click')
+        try {
+            const response = await fetch ('showMed/' + mName, {
+                method: 'get',
+                headers: {'Content-type': 'application/json'}
+               
+            })
+            const data = await response.json()
+        
+        
+          console.log(data)
+        //   onclick('click')
+    
+    
+          const outputHolder = document.getElementById("medInformation");
+    
+          const name = document.createElement('p');
+          name.innerText = data.medName;
+    
+          const doseAmt = document.createElement('p');
+          doseAmt.innerText = data.doseAmt;
+        
+          const newName = document.createElement('p');
+          name.innerText = data.medName;
+
+          const newDose = document.createElement('p');
+          doseAmt.innerText = data.doseAmt
+
+          outputHolder.appendChild(name);
+          outputHolder.appendChild(doseAmt);
+    
+        outputHolder.replaceChildren(name, newName);
+        outputHolder.lastChild.replaceWith(doseAmt, newDose);
 
 
-      const outputHolder = document.getElementById("medInformation");
-      // TODO: empty outputHolder of existing data
-
-      const name = document.createElement('p');
-      name.innerText = data.medName;
-
-      const doseAmt = document.createElement('p');
-      doseAmt.innerText = data.doseAmt;
-
-      outputHolder.appendChild(name);
-      outputHolder.appendChild(doseAmt);
-
-    }catch(err){
+    
+    }
+    catch(err){
         console.log(err)
     }
 }
