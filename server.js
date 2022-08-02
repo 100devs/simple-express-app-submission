@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const TodoTask = require("./models/todotask")
 
 require("dotenv").config()
-const PORT = process.env.PORT
+const PORT = 8000
 
 // Middleware
 app.set("view engine", "ejs")
@@ -80,4 +80,6 @@ app.route("/remove/:id").get((req, res) => {
 })
 
 // Start Server
-app.listen(PORT || PORT, () => console.log(`Server is running on port ${PORT}`))
+app.listen(process.env.PORT || PORT, () =>
+  console.log(`Server is running on port ${PORT}`)
+)
