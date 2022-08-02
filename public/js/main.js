@@ -2,6 +2,8 @@ const { getEnvironmentData } = require("worker_threads");
 
 const deleteText = document.querySelectorAll('.fa-trash')
 const editText = document.querySelectorAll('.fa-edit')
+
+//Special case for the hamburger menu on smaller screens. 
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector('.nav-menu');
 
@@ -10,11 +12,14 @@ hamburger.addEventListener("click", () => {
     navMenu.classList.toggle('active');
 })
 
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener("click", () => {
+document.querySelectorAll('.nav-link').forEach(x => x.addEventListener("click", () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
 }))
+// end nav menu hamburger
 
+
+// Color the squares of a calender/ the week.
 // document.querySelectorAll('cell').addEventListener('click', fillIn)
 
 // function fillIn(){

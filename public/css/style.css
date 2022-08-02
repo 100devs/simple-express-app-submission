@@ -12,6 +12,12 @@ h3 {
     color: navy;
 }
 
+/* Do I want to color the text of p elems too?? Dunno yet. maybe. */
+/* Also, consider some kind of medicine imagery for.... something? Bullets for lists?? */
+/* Dunno. */
+p{
+    line-height: 1.5em;
+}
 body {
    background-color: lightblue;
     font-size: 1em;
@@ -20,9 +26,9 @@ body {
 }
 
 header{
-    display: flex;
-    height:fit-content;
-    align-self: flex-start;
+    /* display: flex; */
+    /* height:fit-content; */
+    /* align-self: flex-start; */
     background-color: lightslategrey;
     border: 2px solid black;
     width: 100%;
@@ -39,25 +45,37 @@ a{
 
 }
 
+/* I don't know how I'm feeling about the border here. Consider removing it. */
+/* .nav-item:nth-child(2) {
+    border-right: 2px solid navy; 
+    border-left: 2px solid navy;
+    padding: 6px;
+} */
+
 .navbar{
     min-height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:0 24px;
+    padding: 0 24px;
 }
 
 .nav-menu{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 60px;
+    gap: 20px;
 }
 
 .nav-branding{
-    font-size: 2em;
+    font-size: 2rem;
     text-emphasis: bold;
     color: navy;
+}
+
+.nav-branding:hover{
+    color:white;
+    transition: 0.7s
 }
 
 .nav-link{
@@ -78,8 +96,8 @@ a{
     width: 25px;
     height: 3px;
     margin: 5px auto;
-    -webkit-transition:all 0.3s ease-in-out;
-    transition:all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     background-color: white;
 }
 
@@ -95,15 +113,19 @@ a{
         transform: translateY(8px) rotate(45deg);
     }
     .hamburger.active .bar:nth-child(3){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(4){
         transform: translateY(-8px) rotate(-45deg);
     }
+    
     .nav-menu{
         position: fixed;
         left: -100%;
         top: 70px;
         gap:0;
         flex-direction: column;
-        background-color: purple;
+        background-color: lightslategray;
         width: 100%;
         text-align: center;
         transition: 0.3s;
@@ -149,7 +171,6 @@ section{
     flex: left;
     padding: 1em;
     min-height: 400px;
-    border: 2px solid green;
 
 
 }
@@ -159,7 +180,6 @@ section{
     padding: 1em;
     flex-grow: 2;
     min-height: 400px;
-    border: 2px solid green;
 
 
     
@@ -170,7 +190,6 @@ section{
     flex: right;
     flex-grow: 1;
     min-height: 400px;
-    border: 2px solid green;
 
 }
 
