@@ -1,0 +1,23 @@
+
+@import "bootstrap/scss/bootstrap";
+
+// Custom Overrides
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
+ul {
+    padding-left: 0px;
+}
+
