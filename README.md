@@ -21,7 +21,7 @@ I feel good about my code: 4
 I'm not sure if my constructors are setup cleanly...
 ``` -->
 
-**Instructions**
+## **Instructions**
 npm install
 set up your mongoDB database and put the connection string into an .env file set to the variable DB_STR
 
