@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Tracker</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <section class="column">
+      <section class="row">
+        <h2>Input Exercise Data Here</h2>
+        <form action="/api" method="POST">
+          <input type="text" placeholder="Exercise" name="exercise" >
+          <input type="text" placeholder="Sets" name="sets" >
+          <input type="text" placeholder="Reps" name="reps" >
+          <input type="text" placeholder="Weight (lbs)" name="weight" >
+          <div>
+            <button type="submit">SUBMIT NEW</button>
+            <button type="button" id="updateBtn">UPDATE EXISTING</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="row">
+        <h2>Delete an Exercise</h2>
+        <div>
+          <input type="text" placeholder="Exercise to delete" name="deleteInput" id="deleteInput">
+          <button id="deleteBtn">DELETE</button>
+        </div>
+
+        <h2>Current Exercises</h2>
+        <table class="exercises">
+          <tr>
+            <th>Exercise</th>
+            <th>Sets</th>
+            <th>Reps</th>
+            <th>Weight (lbs)</th>
+          </tr>
+          <% for(let i = 0; i < info.length; i++) {%> 
+            <tr class="exercise">
+              <td><%= info[i].exercise %> </td>
+              <td><%= info[i].sets %> </td>
+              <td><%= info[i].reps %> </td>
+              <td><%= info[i].weight %> </td>
+            </tr>
+          <%} %>
+        </table>
+      </section>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>
