@@ -41,7 +41,7 @@ document.querySelector('button').addEventListener('click',showMed)
 
 async function showMed(){
   const mName = document.getElementById("medName").value;
-  console.log('Hi! searching', mName);
+  console.log('Looking in database for:', mName);
         try {
             const response = await fetch ('showMed/' + mName, {
                 method: 'get',

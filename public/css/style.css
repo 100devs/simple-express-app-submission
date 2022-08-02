@@ -31,7 +31,7 @@ header{
     /* align-self: flex-start; */
     background-color: lightslategrey;
     border: 2px solid black;
-    width: 100%;
+    /* width: 100%; */
 
 } 
 
@@ -236,7 +236,8 @@ background: lightgray;
 footer {
     min-width: none;
     display: flex;  
-    height: 120px;
+    /* height: 120px; */
+    padding-top: 2em;
     align-self: flex-end;
     align-items: flex-end;
     background-color: lightslategrey;
