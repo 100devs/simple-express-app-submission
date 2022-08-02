@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" type="image/x-icon" href="icon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movie Rank</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href="css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+    <body class="dark-mode">
+            <div class="container">
+                <header class="center">
+                    <nav>
+                        <ul>
+                            <li><a class="addLink" id="addMovie">Add Your Favorite Movies</a></li>
+                            <li><a class="aboutMenu">About</a></li>
+                            <li id="themeSwitch" class="fa fa-solid fa-sun"></li>
+                            <li id="themeSwitchDark" class= "fa fa-solid fa-moon hide" ></li>
+                        </ul>
+                    </nav>
+                    <h1 class="hide">Movie Rank</h1>
+                    <div class="logos">
+                        <img class="mainLogo hide" src="logo.png" alt="Movie Rank logo" >
+                        <img class="mainLogo lightLogo" src="logo-light.png" alt="Movie Rank logo" >
+                    </div>
+
+                    
+
+                </header>
+                <section class="search dark-mode"> 
+                    <input id="search" type="search" placeholder="Search movie list"> 
+                </section>
+                
+                <section class="cards">
+                    <% for(let i=0; i < movie.length; i++) { %>
+                    <section class="card">
+                        <% if(i==0){ %>
+                        <span class="count first-place"><%=i+1%></span>
+                        <%} else if(i==1){ %>
+                            <span class="count second-place"><%=i+1%></span>
+                        <%} else if(i==2){%>
+                            <span class="count third-place"><%=i+1%></span>
+                            <%} else if(i+1>99){%>
+                                <span class="count longCount"><%=i+1%></span>
+                            <%}else{%>
+                                <span class="count"><%=i+1%></span>
+                            <%}%>
+
+                        <img src="<%=movie[i].image %>" alt="<%=movie[i].name%> movie poster">
+                        <ul>
+                            <% if(movie[i].name.length > 23){ %>
+                                <li> <h2 class="longName"><%=movie[i].name%></h2></li>
+
+
+                            <%} else{ %>
+                                <li> <h2><%=movie[i].name%></h2></li>
+                            <%}%>
+                            <li><%=movie[i].year %></li>
+                            <li>
+                                <span><%= movie[i].likes %></span>
+                                <span class='fa fa-thumbs-up no-like'></span>
+                                <!-- <span class='fa fa-trash'></span> -->
+                            </li>
+                        </ul>
+                    </section>
+                    <%}%>
+                    
+                </section>
+
+            </div>
+            <!-- <section class="addMovie hide">
+                <section class="popUpSection">
+                    <h3>Add A Movie</h3>
+                    <form action="/addMovie" method="POST">
+                        <input type="text" placeholder="Movie Name" name="name" id="name">
+                        <input type="number" placeholder="Release Year (optional)" name="year" id="year">
+                        <input type="submit" id="submitMovie">
+                    </form>
+                    <button class="closeAdd">close</button>
+                </section>
+            </section> -->
+            
+            <div class="modal fade" id="exampleModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 class="modal-title" id="exampleModalLabel">Add a Movie</h2>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <span>**Tip: Including the release year is helpful when dealing with a movie that has sequels or has been remade**</span><br><br><br>
+                                <form action="/addMovie" method="POST">
+                                    <input type="text" placeholder="Movie Name" name="name" id="name">
+                                    <input type="number" placeholder="Release Year (optional)" name="year" id="year">
+                                    <input type="submit" id="submitMovie" value="Submit" class="btn btn-primary">
+                                </form>        </div>
+                    <div class="modal-footer">
+                      <button type="button" id="closeModal" class="btn btn-secondary">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="modal-backdrop fade show" id="backdrop"  style="display: none;"></div>
+            <!-- <section class="aboutPopup hide">
+                <section class="popUpSection">
+                    <p>Welcome to <h1>Movie Rank</h1></p>
+
+               <p> Add a few of your favorite movies to the list and give them a like. The goal of Movie Rank is to gather a collection of everyones favortire movies and see which one comes out on top!<br>---Under Contruction---</p>
+                <button class="closeAbout">close</button>
+                </section>
+            </section> -->
+            <div class="modal fade" id="aboutModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title" id="aboutModalLabel">Welcome to Movie Rank</h1>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Movie Rank is where you can help build a list of great movies and with your 'likes' help the communty to rank them.</p><br>
+                            
+                        <p>Don't see your favorite movies on the site? Click 'Add Your Favorite Movies' in the menu to add them. Be sure to browse the movies and give a like to Movies that are some of your favorites. </p><br>
+                        
+                        <p>The goal of Movie Rank is to gather a collection of everyones favorite movies and see which one comes out on top!</p><br>
+                        
+                        <p>--More updates coming soon---</p>      
+                            </div>
+                    <div class="modal-footer">
+                      <button type="button" id="closeAboutModal" class="btn btn-secondary">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="modal-backdrop fade show" id="aboutBackdrop"  style="display: none;"></div>
+            <footer id="footer">
+                <p class="copyright">&copy; <a href="https://hendersonsargeant.netlify.app" target="_blank" class="profile">Henderson Sargeant</a>All rights reserved.</p>
+            </footer>
+        <script src="js/main.js"></script>
+    </body>
+</html>
