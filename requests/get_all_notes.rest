@@ -1,0 +1,66 @@
+GET http://localhost:8000/api/servants
+
+###
+POST http://localhost:8000/api/servants
+Content-Type: application/json
+
+{
+    "name": "Leonardo Da Vinci",
+    "rarity": "5 Stars",
+    "class": "Rider",
+    "availability": "Limited",
+    "noblePhantasmType": "AOE",
+    "deck": [
+        "Arts",
+        "Arts",
+        "Quick",
+        "Buster",
+        "Buster"
+    ],
+    "gender": "Female",
+    "id": 253,
+    "cost": 16,
+    "japaneseName": "レオナルド・ダ・ヴィンチ"
+}
+
+
+###
+POST http://localhost:8000/api/servants
+Content-Type: application/json
+
+{
+    "name": "Illyasviel von Einzbern",
+    "rarity": "5 Stars",
+    "class": "Caster",
+    "availability": "Limited",
+    "noblePhantasmType": "Single Target",
+    "deck": [
+        "Arts",
+        "Arts",
+        "Arts",
+        "Quick",
+        "Buster"
+    ],
+    "gender": "Female",
+    "id": 136,
+    "cost": 16,
+    "japaneseName": "イリヤスフィール・フォン・アインツベルン"
+}
+
+
+###
+POST http://localhost:8000/api/servants
+Content-Type: application/json
+
+{
+    "name": "Bae",
+    "rarity": "",
+    "class": "",
+    "availability": "",
+    "noblePhantasmType": "",
+    "deck": "",
+    "gender": "",
+    "id": "",
+    "cost": "",
+    "japaneseName": ""
+}

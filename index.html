@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = 'stylesheet' href = '/css/style.css'>
+    <title>Document</title>
+</head>
+<body>
+
+    <section class = 'flex'>
+    <h1>Fate Grand Order Servants</h1>
+    <code><pre>https://fgo-api.herokuapp.com/
+    </pre>
+    </code>
+</section>
+
+<form action = '/servants' method = "POST" class = 'flex'>
+     <div class = 'grid'>
+    <h2>Image:</h2> <input type = 'file' id = 'image' name = 'image'>
+     </div>
+    <div class = 'grid'>
+   <h2>Name: </h2><input type = 'text' id = 'name' name = 'name'>
+   <h2>Class:</h2> <input type = 'text' id = 'class' name = 'class'>
+    </div>
+    <div class = 'grid'>
+   <h2>Rarity:</h2> <input type = 'text' name = 'rarity'>
+   <h2>Max Attack:</h2> <input class = 'stats' type = 'text' name = 'attack'>
+    </div>
+<div class = 'grid'>
+   <h2>Max Attack at Lv 100:</h2> <input class = 'stats'  type = 'text' name = 'attackMax'>
+   <h2>Max Attack at Lv 120:</h2> <input  class = 'stats' type = 'text' name = 'attackGrail'>
+   <h2>Max Health:</h2> <input  class = 'stats' type = 'text' name = 'health'>
+</div>
+<div class = 'grid'>
+   <h2>Max Health at Lv 100:</h2> <input  class = 'stats' type = 'text' name = 'healthMax'>
+   <h2>Max Health at Lv 120:</h2> <input  class = 'stats' type = 'text' name = 'healthGrail'>
+   <button type = 'submit' id = 'submit'>Submit</button>
+
+</div>
+</form>
+
+
+    <% for(let i=0; i < info.length; i++) {%>
+            <div class = 'box servant'>
+            <div class = 'flex info'>
+            <h2>Name: </h2> <span><%= info[i].name %></span>
+            <h2>Class:</h2>  <span><%= info[i].class %></span>
+            <h2>Rarity: </h2> <span><%= info[i].rarity %></span>
+            </div>
+            <img src = <%= info[i].image %> >
+            <div class = 'flex'>
+            <h2>Max Attack: </h2> <span><%= info[i].attack %></span>
+            <h2>Max Attack At Lv 100: </h2> <span><%= info[i].attackMax %></span>
+            <h2>Max Attack At Lv 120: </h2> <span><%= info[i].attackGrail %></span>
+            <h2>Max Health: </h2> <span><%= info[i].health %></span>
+            <h2>Max Health At Lv 100: </h2> <span><%= info[i].healthMax %></span>
+            <h2>Max Health At Lv 120: </h2> <span><%= info[i].healthGrail %></span>
+            </div>
+            <img src = "/trash.png" class = 'delete'>
+
+            </div>
+    <% } %>
+
+    <script src = '/js/main.js'></script>
+</body>
+</html>

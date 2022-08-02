@@ -1,0 +1,63 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel = 'stylesheet' href = '/css/comments.css'>
+    </head>
+    <body>
+
+        <header class = 'grid'>
+        <h1>Fate Grand Order Servants</h1>
+        <nav>
+            <ul>
+                <li><a href = '/data' class = 'data'>See Servant Data</a></li>
+                <li><a href = '/data/comments' class = 'data'>Comments</a></li>
+                <li><a href = '/fate' class = 'data'>Simulator</a></li>
+                <li><a href = '/servants' class = 'data'>Add Servant</a></li>
+                <li><a href = '/' class = 'data'>Home</a></li>
+            </ul>
+        </nav>
+        </header>
+<main>
+
+        <% for(let i=0; i < info.length; i++) {%>
+            
+            <section class = 'comments flex column info'> 
+                <% if(info[i].name!==null && info[i].class !== null) {%>
+                    <div class = 'border flex column'>
+            <h2><%= info[i].name %></h2>
+            <h2><%= info[i].class %></h2>
+        </div>
+
+            <% } %>
+                </section>
+            <% if(info[i].comments!==null) {%> 
+                <section class = 'comments flex column logic'>  
+                <div class = 'row flex'>
+                    <section class = 'row flex'>
+                <img src = "/trash (2).png" class = 'delete'>
+                <img src = "/likes.png" class = 'like'>       
+                 <span><%= info[i].likes %></span>
+                 <span><%= info[i].commentLikes %></span>
+
+                    </section>
+               
+                </div>  
+                <aside  class = 'uComments'>
+                    <h2> <%= info[i].comments %></h2> 
+                </aside>
+          
+    </section>
+
+    <% } %>
+ 
+
+<% } %>
+</main>
+    <script src = '/js/comments.js'></script>
+
+</body>
+</html>
