@@ -1,4 +1,4 @@
-# My Awesome Project
+# Daily Logging App
 
 This is a fullstack app created to quickly log daily commitments. Example taking a daily vitamin.
 
