@@ -1,0 +1,28 @@
+{
+  "name": "artist-ranking",
+  "version": "1.0.0",
+  "description": "Add a music artist and give them a like. Most likes gets put at the top",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "build": "postcss public/styles/tailwind.css -o public/styles/style.css",
+    "watch": "postcss public/styles/tailwind.css -o public/styles/style.css --watch"
+  },
+  "author": "Eric Ryan",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.8",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^4.8.1",
+    "nodemon": "^2.0.19",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^10.0.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.7"
+  }
+}
