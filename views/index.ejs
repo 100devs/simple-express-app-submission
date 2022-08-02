@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>My Blog</title>
+</head>
+<body>
+    <h1>My Blog</h1>
+
+    <section class="newBlogEntry">
+        <form action="/" method="POST" class="newBlogEntryForm">
+            <textarea name="content" id="" cols="30" rows="10"></textarea>
+            <button type="submit">Submit Entry</button>
+        </form>
+    </section>
+    <% entries.forEach(entry => { %>
+        <section class="blogEntry">
+            <p>
+                <%= entry.content %>
+            </p>
+            <span>
+                <%= entry.date %> 
+            </span>
+        </section>
+    <% }) %> 
+
+    <script>
+        let str = 'alksjdflkja ksjhdfkjs js dlf';
+        str = str.replaceAll(' ', '+ ')
+        console.log(str)
+    </script>
+</body>
+</html>
