@@ -1,0 +1,4 @@
+node_modules
+.vscode
+.env
+DB_STRING

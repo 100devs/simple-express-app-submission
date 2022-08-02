@@ -1,0 +1,137 @@
+body{
+  color: white;
+  background: rgb(0,0,4);
+background: linear-gradient(180deg, rgba(0,0,4,1) 0%, rgba(2,45,54,1) 100%);
+  font-family: staatliches, sans-serif;
+  height: 100%;
+   margin: 0;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}
+
+
+
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+h2{
+    color: white;
+    text-align: center;
+}
+
+.inputArea{
+  width: 100%;
+}
+
+.submission{
+  margin: auto;
+  display: inline-block;
+  width: 80%;
+  position: relative;
+  margin-left: 10%;
+  text-align: center;
+}
+
+input{
+  margin: auto;
+  display: inline-block;
+  width: 40%;
+  font-family: staatliches, sans-serif;
+  border: solid #756d7a;
+  border-radius: 30px;
+  background-color: #white;
+  color: #928c96;
+  text-align: center;
+}
+
+select{
+  margin: auto;
+  display: inline-block;
+  width: 40%;
+  font-family: staatliches, sans-serif;
+  border: solid #756d7a;
+  border-radius: 30px;
+  background-color: #white;
+  color: #928c96;
+  text-align: center;
+}
+
+.submit{
+  text-align: center;
+  display: inline-block;
+  margin: auto;
+  width: 50%;
+  color: black;
+}
+
+
+.gameCover{
+  height: 12em;
+  width: 12em;
+  object-fit: contain;
+  background-color: grey;
+  border-radius: 30px;
+  margin:5%;
+}
+
+.gameProfile{
+  width: 23em;
+  height: 23em;
+  display: inline-block;
+  text-align: center;
+  margin: auto;
+  border-radius: 30px;
+  background-color: rgba(0,0,4,1);
+  clear: both;
+}
+
+.submissions{
+  display:inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.community{
+  text-align: center;
+  width: 100%;
+}
+
+footer{
+  margin-top: 15%;
+  text-align: center;
+}
+
+ul{
+  padding: 0;
+}
+
+i{
+  margin: 0% 2%;
+}
+
+.fa-x{
+  display: inline-block;
+  width: 100%;
+  float: right;
+  margin: 2.7% 2.7%;
+  text-align: right;
+}
+
+
+
+@media only screen and (max-width: 896px) {
+  .gameProfile {
+    margin: 1em auto;
+    width: 23em;
+    height: 23em;
+    font-size: 1em;
+  }
+  input,select{
+    width: 90%;
+    margin: auto;
+    display: inline-block;
+  }
+}
