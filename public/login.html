@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>MacShopping List</title>
+</head>
+<body>
+    <header>
+        <img src="/images/vector/default-monochrome.svg" alt="MacShopping Logo">
+    </header>
+    <section id="loginRegister">
+        <button type="button" name="login" class="lgnrgstr iosPoint">Login</button>
+        <button type="button" name="Register" class="lgnrgstr iosPoint">Register</button>
+    </section>
+    
+    <section id="loginForm" class="hidden">
+        <form action="/userLogin" method="post">
+            <div class="loginTextFields">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <section id="registerForm" class="hidden">
+        <form action="/userRegister" method="post">
+            <div class="loginTextFields">
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+                <br>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <br>
+                <label for="password"><b>Confirm Password</b></label>
+                <input type="password" placeholder="Confirm Password" name="password" required>
+            </div>  
+            <button type="submit">Register</button>
+        </form>
+    </section>
+    <footer></footer>
+    <script src="/frontpage.js"></script>
+</body>
+</html>

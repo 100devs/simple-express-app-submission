@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>MacShopping List</title>
+</head>
+<body>
+    <h1>The Shopping List</h1>
+    <p>Could probably do this on paper but that wouldn't be as fun now would it?</p>
+
+
+    <form action="/shoppinglist" method="POST">
+        <input type="text" placeholder="item" name="item">
+        <input type="text" placeholder="category" name="category">
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul>
+        <h3>Item : Category</h3>
+        <!-- Loop through items -->
+        <% for(let i = 0; i < shopping.length; i++) {%>
+          <li class="shoppingListItem">
+            <!-- Output name from the iterated item object -->
+            <span><%= shopping[i].item %></span> :
+            <!-- Output category from the iterated item object -->
+            <span><%= shopping[i].category %></span>
+            <button name="editItem" type="submit" class="iosPoint">Edit</button>
+            <button name="deleteItem" type="submit" class="iosPoint">Delete</button>
+          </li>
+        <% } %>
+    </ul>
+    <br>
+    <section class="hidden editForm" >
+      <input type="text" placeholder="" name="item" class="editItemPlaceholder">
+      <input type="text" placeholder="" name="category" class="editCategoryPlaceholder">
+      <button class="confirmEdit" name="confirmEdit" type="button" class="iosPoint">Confirm Edit</button>
+      <button type="reset" name="cancel" type="button" class="iosPoint">Cancel</button>
+    </section>
+
+  <script src="/main.js"></script>
+</body>
+</html>
