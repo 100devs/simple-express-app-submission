@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetDesigner Woes</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-info navbar-info  py-3">
+        <div class="container">
+            <a href="#" class="navbar-brand">
+                Fiber Ninjas <i class="bi bi-person-check"></i></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="/#top" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/#problem" class="nav-link">What's The Problem?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/#team" class="nav-link">Meet The Team</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- showcase -->
+    <section id="top" class="bg-info text-light p-4
+        text-center text-sm-start">
+        <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <div>
+                    <h1>What Are Your <span class="text-warning">NetDesigner Woes</span>?</h1>
+                    <p class="lead my-4">
+                        NetDesigner sucks! We all have had many problems with this software. Let's come together,
+                        document our issues and get them fixed!
+                    </p>
+                </div>
+                <img class="img-fluid w-50 d-none d-sm-block" src="/img/undraw_text_field_htlv.svg"
+                    alt="Undraw Process Image">
+            </div>
+        </div>
+    </section>
+
+    <section id="problem" class="p-4 text-center text-sm-start">
+        <div class="container">
+            <div class="d-md-flex flex-column justify-content-between align-items-center">
+                <h2>Edit NetDesigner Woes:</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Issue</th>
+                            <th scope="col">Wishes</th>
+                            <th scope="col">Action Taken</th>
+                            <th scope="col">Solution</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% netdesignerTasks.forEach(content=>{%>
+                            <% if (content._id == idTask) { %>
+                                <td>
+                                    <form action="/edit/<%= content.id %>" method="POST">
+                                            <input type="text" value="<%= content.name %>" name="name" required="required">
+                                        <td>
+                                            <input type="text" value="<%= content.issue %>" name="issue">
+                                        </td>
+                                        <td> 
+                                            <input type="text" value="<%= content.wishes %>" name="wishes">
+                                        </td>
+                                        <td>
+                                            <input type="text" value="<%= content.actionTaken %>" name="actionTaken">
+                                        </td>
+                                        <td>
+                                            <input type="text" value="<%= content.solution %>" name="solution">
+                                        </td>
+                                        <td>
+                                            <button type="submit" class="confirm">Confirm</button>
+                                        </td>
+                                        <td>
+                                            <a href="/" class="cancel">Cancel</a>
+                                        </td>
+                                    </form>
+                                </td>
+                                <% } else { %>
+                                    <tr>
+                                        <td>
+                                            <%= content.name %>
+                                        </td>
+                                        <td>
+                                            <%= content.issue %>
+                                        </td>
+                                        <td>
+                                            <%= content.wishes %>
+                                        </td>
+                                        <td>
+                                            <%= content.actionTaken %>
+                                        </td>
+                                        <td>
+                                            <%= content.solution %>
+                                        </td>
+                                        <td><a href="/edit/<%=content._id %>" class="edit"><i
+                                                    class="bi bi-pencil-square"></i></a>
+                                        </td>
+                                        <td>
+                                            <a href="/remove/<%=content._id %>" class="remove"><i
+                                                    class="bi bi-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- To Do: 
+    Start of meet the team section  -->
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
