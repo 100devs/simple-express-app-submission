@@ -1,0 +1,116 @@
+body {
+    background-color: #929383;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+
+    h1 {
+        font-style: italic;
+        display: flex;
+        justify-content: center;
+        font-size: 50px;
+        margin-bottom: 5px;
+
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+
+    .new-session {
+        margin-left: 20px;
+
+    }
+
+    .session-form {
+        background-color: #e4e4e4;
+        box-shadow: 15px 15px 20px black;
+        border-radius: 2px;
+        padding: 3px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: fit-content;
+        flex-grow: 1;
+        padding-bottom: 130%;
+
+
+        div {
+            margin: 2px 10px;
+            display: flex;
+            justify-content: space-between;
+
+            h3 {
+                margin: 5px 0;
+            }
+
+            // label,
+            input {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .data-table {
+        flex-grow: 3;
+    }
+
+    .submit {
+        width: 50%;
+        margin: 5px;
+        align-self: center;
+        justify-content: center;
+    }
+}
+
+
+
+table {
+    // border: 1px solid black;
+    border-radius: 50px;
+    width: 90%;
+    margin: 0 auto;
+
+    .fa {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #2a3933;
+        color: white;
+
+        &:first-child {
+            border-top-left-radius: 2px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 2px;
+        }
+    }
+
+
+
+
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+
+        &:hover {
+            background-color: rgba(94, 89, 89, 0.592);
+        }
+
+    }
+
+    tr:nth-child(odd) {
+        background-color: #b9b9b9;
+
+        &:hover {
+            background-color: rgba(94, 89, 89, 0.592);
+        }
+    }
+}

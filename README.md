@@ -1,22 +1,24 @@
-#100Devs Simple Express App Submission
+# Run Tracker
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+## Description
+Track each run to monitor progress over time. 
 
-### How to submit your code for review:
+### Demo
+https://my-run-tracker.herokuapp.com/
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+## Built With
+<ul>
+     <li>Javascript</li>
+    <li>SCSS</li>
+    <li>EJS</li>
+</ul>
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+  
+## Enhancements
+<ul>
+    <li>[ ] Add edit functionality</li>
+    <li>[ ] Update fonts</li>
+    <li>[ ] Add charts</li>
+</ul>
+
+
