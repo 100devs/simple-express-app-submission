@@ -1,0 +1,13 @@
+body {
+  background: darkslategray;
+  color: lightgray;
+}
+
+.top {
+  display: inline-flex;
+}
+
+#left,
+#right {
+  width: 50%;
+}
