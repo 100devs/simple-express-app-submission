@@ -1,0 +1,15 @@
+{
+  "name": "band-members-client-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "tailwindcss -i ./input.css -o ./css/styles.css",
+    "watch": "tailwindcss -i ./input.css -o ./css/styles.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}
