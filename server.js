@@ -4,7 +4,7 @@ const cors = require("cors")
 const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient
 const PORT = 8000
-const mongoString = "mongodb+srv://emo:neon-pop-punk8@cluster0.ssf0umq.mongodb.net/?retryWrites=true&w=majority"
+const mongoString = redacted
 
 MongoClient.connect(mongoString, {useUnifiedTopology:true})
     .then(client => {
