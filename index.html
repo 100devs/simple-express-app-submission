@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Band Members App</title>
+</head>
+<body class="bg-gradient-to-b from-slate-800 to-slate-500 min-h-screen">
+    <nav class="relative container mx-auto text-4xl p-6">
+        <div class="text-center text-slate-100 font-medium underline decoration-cyan-600">
+            BAND MEMBERS APP
+        </div>
+    </nav>
+
+    <p class="container mx-auto p-6 text-center text-slate-100 max-w-7xl">This is a way to acknowledge and celebrate every musician in a band. Yes, bands are more than the sum of their parts, but when we know what the parts are, we understand
+        the band's music better. Find out who is in your favorite band!
+    </p>    
+    
+    <h2 class="container mx-auto p-4 text-center text-slate-100">Enter the name of the music band below</h2>
+
+    <section class="container mx-auto text-center pb-8">
+        <input type="text" placeholder="i.e. The Beatles" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <button class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+            Who is in the band?
+        </button>
+    </section>
+
+    <section id="infoBox" class="hidden flex flex-col items-center mx-auto max-w-3xl bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 text-slate-100">
+        <img class="mx-auto rounded-t-lg" src="" alt="band image" id="bandImage">
+        <p id="bandName" class="text-xl p-4 font-semibold"></p>
+
+        <ul class="pb-4">
+            <li><span class="underline decoration-amber-600">Band Leader(s): </span> <span id="leader"></span></li>
+            <li><span class="underline decoration-emerald-600">Other Members: </span> <span id="otherMembers"></span></li>
+        </ul>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>
