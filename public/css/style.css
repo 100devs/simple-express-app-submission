@@ -154,6 +154,10 @@ a {
         justify-content: center;
         
     }
+
+    .aside{
+        padding: 1em;
+    }
 }
 
 /* header >h1 {
