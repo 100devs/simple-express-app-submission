@@ -21,7 +21,8 @@ p{
 body {
    background-color: lightblue;
     font-size: 1em;
-    min-height: 420px;
+    /* min-height: 420px; */
+    margin: 0;
 
 }
 
@@ -32,6 +33,7 @@ header{
     background-color: lightslategrey;
     border: 2px solid black;
     /* width: 100%; */
+    padding-bottom: 2em;
 
 } 
 
@@ -102,8 +104,13 @@ a{
 }
 
 @media(max-width: 768px){
+
+    .week {
+        display: none;
+    }
     .hamburger{
         display: block;
+        position: relative;
     }
 
     .hamburger.active .bar:nth-child(2){
