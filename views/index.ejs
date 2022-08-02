@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restorative Spells</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fa339ab44f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Restorative Spells</h1>
+    </header>
+
+    <section class="list">
+        <ul class="affirmations">
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class="affirmation">
+                <span class='fa fa-minus'></span>
+                <span class="entry"><%= info[i].entry %></span>
+                <section class="source">
+                    <span><%= info[i].source %></span>
+                </section>
+                <section class="hearts">
+                    <span><%= info[i].likes %></span>
+                    <span class='fa fa-heart-o'></span>
+                </section>
+            </li>
+        <% } %>
+        </ul>
+    </section>
+
+    <section class="addEntry">
+        <h2>Add a spell</h2>
+
+        <form action="/addAffirmation" method="POST">
+            <textarea placeholder="Text..." name="entry" rows="5" cols="50" minlength="5" maxlength="300"></textarea>
+
+            <input class="userSource" type="text" placeholder="Source..." name="source" maxlength="80" size="30">
+
+            <input class="btn" type="submit">
+        </form>
+    </section>
+
+    <script src='js/main.js'></script>
+</body>
+</html>
