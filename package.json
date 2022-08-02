@@ -1,0 +1,32 @@
+{
+  "name": "logit",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "scss": "node-sass --include-path node_modules --watch scss -o public/css",
+    "prefixer": "npx postcss public/css/*.css --use autoprefixer -d public/css",
+    "css-compile": "node-sass --include-path node_modules --output-style compressed --source-map true --source-map-contents true --precision 6 scss -o public/css/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.7",
+    "bootstrap": "^5.2.0-beta1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.6.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^3.7.3",
+    "node-sass": "^7.0.1",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0",
+    "sass": "^1.52.3"
+  },
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
