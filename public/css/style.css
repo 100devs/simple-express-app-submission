@@ -1,0 +1,26 @@
+h1{
+    color: Black;
+}
+.fa {
+  cursor: pointer;
+  color: darkgray;
+}
+.fa:hover{
+  color: red;
+  font-size: 105%;
+  transition: all .2s ease-in-out;
+  
+}
+.rapper {
+  font-size: 40px;
+  color: black;
+  animation:fade-in 1.5s;
+}
+@keyframes fade-in {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
