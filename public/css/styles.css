@@ -1,0 +1,12 @@
+h1,
+.fa-trash{
+    color: red;
+}
+span{
+    font-weight: bold;
+    text-decoration: underline;
+}
+.linkedIn{
+    color: gray;
+    font-style: italic;
+}
