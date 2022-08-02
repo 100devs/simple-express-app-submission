@@ -1,0 +1,120 @@
+/**
+ * apidoc main css file
+ */
+
+/**
+ * Define colors
+ */
+:root {
+  --primary: #0088cc;
+  --white: #fff;
+  --light-gray: #ccc;
+  --main-gray: #777;
+  --dark-gray: #2d2d2d;
+  --hover-gray: #666;
+  --meth-get: green;
+  --meth-patch: #e5c500;
+  --meth-post: #4070ec;
+  --meth-delete: #ed0039;
+  --red: #dc3545;
+}
+
+p > code {
+  background-color: #fdc8ce;
+  padding: 0.2rem;
+  border-radius: 2px;
+  font-size: 110%;
+}
+
+p {
+  font-size: 110%;
+}
+
+.example {
+  margin: 1rem 0;
+  background-color: var(--light-gray);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+/* ------------------------------------------------------------------------------------------
+ * Content
+ * ------------------------------------------------------------------------------------------ */
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+th {
+  background-color: var(--light-gray);
+  color: black;
+  text-align: left;
+  padding: 5px 8px;
+  border: 1px solid var(--main-gray);
+}
+
+td {
+  padding: 0.5rem;
+  border: 1px solid var(--main-gray);
+}
+
+td.code {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 600;
+}
+
+.default-value,
+.type-size {
+  font-style: italic;
+  font-size: 95%;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.docs section {
+  padding: 1rem 2rem 0 2rem;
+}
+
+section > h2 {
+  border-top: 1px dotted goldenrod;
+  padding-top: 1rem;
+}
+
+
+/* ------------------------------------------------------------------------------------------
+ * Request method (HTTP verb)
+ * ------------------------------------------------------------------------------------------ */
+.method {
+  font-weight: 600;
+  font-size: 110%;
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  background-color: var(--main-gray);
+  color: var(--white);
+}
+
+.meth-get {
+  background-color: var(--meth-get);
+}
+
+.meth-patch {
+  background-color: var(--meth-patch);
+  color: #000;
+}
+
+.meth-post {
+  background-color: var(--meth-post);
+}
+
+.meth-delete {
+  background-color: var(--meth-delete);
+}

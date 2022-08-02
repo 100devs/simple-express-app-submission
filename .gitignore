@@ -1,0 +1,4 @@
+node_modules
+temp
+.env
+__server.js

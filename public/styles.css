@@ -1,0 +1,161 @@
+/* Typography imported from Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:200,400');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Generic styles */
+html {
+  scroll-behavior: smooth;
+}
+
+a:not(.entries a):not(footer a), button {
+  background-color: goldenrod;
+  text-decoration: none;
+  border-radius: .25rem;
+  text-align: center;
+  display: inline-block;
+  transition: all .3s;
+  font-size:medium;
+  color: black;
+  width: fit-content;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: outset;
+  border-color: black;
+}
+
+a:hover, button:hover {
+  background-color:khaki;
+  width: fit-content;
+}
+
+p, .hero > h2 {
+  margin: 0;
+}
+
+/* Styles for the hero image */
+/* .hero {
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  align-items: center;
+} */
+
+.hero > h1 {
+  font-size: 3rem;
+  margin: 1rem 0 0 0;
+}
+
+.form-section, form {
+  display: grid;
+  border-radius: .5rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-gap: 1rem;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+form {
+  border: 1px dotted goldenrod;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding-top: 1rem;
+}
+
+section, header, .form-section {
+  padding: 2rem 2rem 0 2rem;
+}
+
+textarea {
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 0.5rem;
+  font-size: 110%;
+}
+
+form button {
+  grid-area: 3 / 1;
+  margin-bottom: 1rem;
+}
+
+select, input {
+  grid-area: 1/1;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 0.5rem;
+  font-size: 110%;
+  width:auto;
+}
+
+.forms {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.entries > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.entries > ul > li {
+  border: 1px solid #cfcfcf;
+  border-radius: .5rem;
+  padding: 1rem;
+  list-style: none;
+}
+
+.entries p {
+  line-height: 1.5;
+  padding: 1rem .75rem;
+  font-size: 110%;
+}
+
+.entries span, .category-title {
+  display: block;
+  text-decoration: underline dotted 1px goldenrod;
+  text-underline-offset: 0.25rem;
+  padding-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: black;
+}
+
+.category-title {
+  font-variant: small-caps;
+  font-size: 110%;
+  letter-spacing: 0.1rem;
+}
+
+p+p:not(footer p) {
+  border-top: 1px dotted goldenrod;
+}
+
+/* footer */
+footer {
+  background-color: rgb(36, 36, 36);
+  margin-top: 2rem;
+  padding: .75rem;
+  color: white;
+  text-align: center;
+  font-size: .75rem;
+  width: 100%;
+}
+
+footer a {
+  color: #cfcfcf;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+}
+
+footer a:hover {
+  color:black
+}
