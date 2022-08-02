@@ -6,7 +6,7 @@ const path = require('path');
 require('dotenv').config()
 
 const password = process.env.MONGO_PASS
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 
 MongoClient.connect(`mongodb+srv://sashamars:${password}@cluster0.0tvvaxm.mongodb.net/?retryWrites=true&w=majority`, {useUnifiedTopology: true})
     .then(client => {
