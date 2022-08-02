@@ -22,4 +22,4 @@ I'm not sure if my constructors are setup cleanly...
 ```
 
 Changes made by noriloxic: 
-1. Test submission of appCRUD.js to branch.
+1. Test submission of appCRUD.js to branch. Will perform test pull to leonnoel's repository. Successful pull request signals completion of this step.
