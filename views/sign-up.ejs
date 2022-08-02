@@ -1,0 +1,21 @@
+<div class="container-fluid mt-5">
+    <section class="row justify-content-center">
+        <h3 class="text-center">Sign up</h3>
+        <!--Login by sending a POST request to the /auth route-->
+        <form action="/sign-up" method="POST" class="col-md-6">
+
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="emailInput" name="email" required placeholder="name@example.com">
+                <label for="emailInput">Email</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="passwordInput" name="password" placeholder="password">
+                <label for="passwordInput">Password</label>
+              </div>
+
+            <button type="submit" class="btn btn-success">Sign up</button>
+            <a href="/login">Already have an account? Login</a>
+        </form>
+    </section>
+</div>

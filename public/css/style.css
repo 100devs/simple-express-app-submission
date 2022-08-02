@@ -1,0 +1,59 @@
+html {
+    font-size: 125%;
+}
+
+body {
+    font-family: 'Dosis', sans-serif;
+    height: 100%;
+}
+
+main {
+    min-height: 80vh;
+}
+
+#home-wrapper {
+    min-height: 80vh;
+    background-image: url(/img/bg-food.jpg);
+    box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#home-wrapper h1 {
+    text-shadow: 2px 2px 2px #000;
+}
+
+.navbar-brand img {
+    width: 2rem;
+}
+
+h1 img {
+    width: 3rem;
+}
+
+.badge {
+    font-size: .75rem;   
+    display: inline-block; 
+    width: 4rem;
+    margin-right: .5rem;
+}
+
+footer {
+    font-size: .75rem;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: #fff; 
+    padding: 10px;
+}
+
+.btn-link.success {
+    background-color: #198754;
+}
+
+.btn-link.success:hover {
+    background-color: #326a46;
+    color: #fff;
+}

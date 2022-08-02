@@ -1,0 +1,36 @@
+<!-- Header -->
+
+<header class="sticky-top">
+    <nav class="navbar navbar-expand-sm bg-warning p-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/img/skillet-favicon.png" alt="Logo- Skillet with eggs, tomatoes, and spinach" class="d-inline-block align-text-bottom">
+                Skillet List
+                </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"        
+                aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+
+                    <% if (!currentUser) { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Log in</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/sign-up">Sign up</a>
+                            </li>
+                        <% } else { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/users/<%-currentUser._id %>/dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout?_method=DELETE">Log out</a>
+                            </li>
+                        <% } %>
+                </ul>
+            </div>
+        </div>
+        </nav>
+</header>
