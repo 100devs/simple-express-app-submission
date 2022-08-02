@@ -149,9 +149,10 @@ a {
         left: 0;
     }
 
-    .aside {
-        width: 80%;
-        padding-right: 2em;
+    .parent {
+        display: flex;
+        justify-content: space-evenly;
+        
     }
 }
 
