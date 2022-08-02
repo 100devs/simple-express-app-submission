@@ -1,12 +1,12 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family:'Times New Roman', Times, serif;  
-    
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
-h1, 
+h1,
 h2,
 h3 {
     color: navy;
@@ -15,18 +15,19 @@ h3 {
 /* Do I want to color the text of p elems too?? Dunno yet. maybe. */
 /* Also, consider some kind of medicine imagery for.... something? Bullets for lists?? */
 /* Dunno. */
-p{
+p {
     line-height: 1.5em;
 }
+
 body {
-   background-color: lightblue;
+    background-color: lightblue;
     font-size: 1em;
     /* min-height: 420px; */
     margin: 0;
 
 }
 
-header{
+header {
     /* display: flex; */
     /* height:fit-content; */
     /* align-self: flex-start; */
@@ -35,13 +36,13 @@ header{
     /* width: 100%; */
     padding-bottom: 2em;
 
-} 
+}
 
-li{
+li {
     list-style: none;
 }
 
-a{
+a {
     color: white;
     text-decoration: none;
 
@@ -54,7 +55,7 @@ a{
     padding: 6px;
 } */
 
-.navbar{
+.navbar {
     min-height: 70px;
     display: flex;
     justify-content: space-between;
@@ -62,38 +63,38 @@ a{
     padding: 0 24px;
 }
 
-.nav-menu{
+.nav-menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
 }
 
-.nav-branding{
+.nav-branding {
     font-size: 2em;
     text-emphasis: bold;
     color: navy;
 }
 
-.nav-branding:hover{
-    color:white;
+.nav-branding:hover {
+    color: white;
     transition: 0.7s
 }
 
-.nav-link{
+.nav-link {
     transition: 0.7s ease;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: navy;
 }
 
-.hamburger{
+.hamburger {
     display: none;
-    cursor: pointer;  
+    cursor: pointer;
 }
 
-.bar{
+.bar {
     display: block;
     width: 25px;
     height: 3px;
@@ -103,49 +104,53 @@ a{
     background-color: white;
 }
 
-@media(max-width: 768px){
+@media(max-width: 768px) {
 
     .week {
         display: none;
     }
-    .hamburger{
+
+    .hamburger {
         display: block;
         position: relative;
     }
 
-    .hamburger.active .bar:nth-child(2){
+    .hamburger.active .bar:nth-child(2) {
         opacity: 0
     }
-    .hamburger.active .bar:nth-child(1){
+
+    .hamburger.active .bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
-    .hamburger.active .bar:nth-child(3){
+
+    .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-    
-    .nav-menu{
+
+    .nav-menu {
         position: fixed;
         left: -100%;
         top: 70px;
-        gap:0;
+        gap: 0;
         flex-direction: column;
         background-color: lightslategray;
-        border-right:2px solid black;
+        border-right: 2px solid black;
         border-left: 2px solid black;
         width: 100%;
         text-align: center;
         transition: 0.3s;
     }
-    .nav-item{
+
+    .nav-item {
         margin: 16px 0;
     }
 
-    .nav-menu.active{
-        left:0;
+    .nav-menu.active {
+        left: 0;
     }
 
-    .aside{
-        flex-shrink: 1.5;
+    .aside {
+        flex-shrink: 2;
         flex-wrap: wrap;
     }
 }
@@ -168,12 +173,12 @@ nav > ul > li{
 } */
 
 
-section{
+section {
     padding: .5em;
 
 }
 
-.parent{
+.parent {
     display: flex;
     width: auto;
 }
@@ -193,18 +198,18 @@ section{
     min-height: 460px;
 
 
-    
+
 }
 
 
-.aside{
+.aside {
     flex: right;
     flex-grow: 1;
     min-height: 460px;
 
 }
 
-.meds > li {
+.meds>li {
     background-color: navy;
     padding: .5em;
     list-style: none;
@@ -219,35 +224,37 @@ section{
 
 /* (A) CONTAINER */
 #grid-col {
-  /* (A1) GRID LAYOUT */
-  display: grid;
- 
-  /* (A2) SPECIFY COLUMNS */
-  grid-template-columns: auto auto auto;
- 
-  /* we can also specify exact pixels, percentage, repeat
+    /* (A1) GRID LAYOUT */
+    display: grid;
+
+    /* (A2) SPECIFY COLUMNS */
+    grid-template-columns: auto auto auto;
+
+    /* we can also specify exact pixels, percentage, repeat
   grid-template-columns: 50px 100px 150px;
   grid-template-columns: 25% 50% 25%;
   grid-template-columns: 100px 20% auto;
   grid-template-columns: repeat(3, auto); */
 }
- 
+
 /* (B) GRID CELLS */
 div.cell {
-background: lightgray;
-  /* background: LightBlue; */
-  border: 1px solid Blue;
-  padding: 10px;
+    background: lightgray;
+    /* background: LightBlue; */
+    border: 1px solid Blue;
+    padding: 10px;
 }
- 
+
 /* (C) RESPONSIVE - 1 COLUMN ON SMALL SCREENS */
 @media screen and (max-width: 640px) {
-  #grid-col { grid-template-columns: 100%; }
+    #grid-col {
+        grid-template-columns: 100%;
+    }
 }
 
 footer {
     min-width: none;
-    display: flex;  
+    display: flex;
     /* height: 120px; */
     padding-top: 2em;
     align-self: flex-end;
@@ -256,8 +263,3 @@ footer {
     border: 2px solid black;
     position: relative;
 }
-
-
-
-
-
