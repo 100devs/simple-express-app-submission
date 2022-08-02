@@ -1,0 +1,49 @@
+html{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: rgb(117,46,0);
+  background: linear-gradient(0deg, rgba(117,46,0,1) 0%, rgba(255,193,46,1) 100%);
+  min-height: 100vh;
+}
+
+.main{
+  margin: 2%;
+}
+
+li{
+  margin: 3% 0 3% 0;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  width: fit-content;
+  padding: 1.25%;
+}
+
+li *{
+  margin: 2.5% 0 2.5% 0;
+}
+
+h1{
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3{
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.deleteButton{
+  display: block;
+}
+
+.hidden{
+  display: none;
+}
+
+.cancelButton{
+  margin: 1%;
+  display: inline-block;
+}
+
+form{
+  margin: 3% 0 3% 0;
+}
