@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="A simple app that randomly selects an activity from a user-made list to do for the day.">
+  <meta name="keywords" content="Schedule, random, dopamine">
+
+  <title>Simple Random Scheduler</title>
+
+  <!-- external CSS link -->
+</head>
+
+<body>
+  <header>
+    <h1>Activity Scheduler</h1>
+  </header>
+  <section class="main">
+    <h2>Do Stuff</h2>
+    <form action="/" method="get">
+      <input type="text" name="user" placeholder="User Name" id="username">
+      <input type="submit" value="Get Info" id="info-button"></button>
+      <input type="submit" formmethod="POST" value="New Entry">
+    </form>
+    <% if(user && user.user) { %>
+      <h2> <%=user.user%>'s info: </h2>
+      <ul class="user-info">
+      <li> Name: <span class="name"><%=user.user%></span></li>
+      <li> Days: <span class="days"><%= user.remainingDays %></span></li>
+      <li> 
+        <span class="default-items"> Default items: <%= user.defaultOptions.join(', ')%> </span>
+      </li>
+      <li> 
+        <span class="remaining-items"> Remaining items: <%= user.remainingOptions.join(', ')%> </span>
+      </li>
+      <li> lastDraw: <span class="last-draw"><%= user.lastDraw %></span></li>
+    </ul>
+    <div>
+      <button value="drawButton" id="draw-button">Draw One</button>
+      <button value="resetUser" id="reset-button">Reset</button>
+    </div>
+    <div>
+      <label for="new-defaults">New defaults (comma separated):</label>
+      <input type="text" name="new-defaults" class="default-input">
+      <button value="changeDefaults" id="default-button">Commit Default Changes</button>
+    </div>
+    <div>
+      <label for="add-remaining">Add items remaining (comma separated):</label>
+      <input type="text" name="add-remaining-input" class="add-remaining-input">
+      <button value="add-remaining" id="add-remaining">Add items</button>
+    </div>
+    <% } else if(user) { %>
+      <h2> <%=user%></h2>
+      <% } %>
+  </section>
+
+  <footer></footer>
+  <script src="main.js"></script>
+</body>
+
+</html>
