@@ -1,0 +1,343 @@
+/* Box Model Hack */
+* {
+     box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+     background-color: #12171D;
+     color: #CAD0D7;
+     font-family: 'Quicksand', sans-serif;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+#wrapper {
+     display: flex;
+     position: relative;
+     min-height: 100vh;
+     min-width: 100vw;
+     margin: 0;
+     padding: 0;
+     align-items: center;
+     align-content: center;
+     flex-wrap: wrap;
+}
+
+@media screen and (max-width: 425px) {
+     #wrapper {
+          min-height: 80vh;
+          min-width: 90vw;
+     }
+}
+
+header, .moodsForYear {
+     min-width: 100vw;
+}
+
+.moodsForYear, .dayLabelsContainer  {
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     gap: .125rem;
+     height: 180px;
+     /* width: 90%; */
+     justify-content: flex-end;
+     align-items: flex-end;
+     align-content: center;
+     margin: 0 auto;
+}
+
+@media screen and (max-width: 425px) {
+     .moodsForYear {
+          flex-direction: row;
+          height: 100%;
+          width: 100%;
+          margin: 0 auto;
+          padding: 0 1rem;
+     }
+}
+
+.week-divider {
+     flex-basis: 100%;
+}
+
+.dayLabel {
+     height: 15px;
+     margin-right: .55rem;
+}
+
+.monthLabel {
+     max-width: 0px;
+     margin-bottom: .55rem;
+}
+
+.dayLabel, .monthLabel {
+     font-size: .85rem;
+}
+
+.dayBox {
+     background-color: #1E2126;
+     border-radius: 10%;
+     border: 1px solid rgba(128, 128, 128, 0.05);
+     width: 15px;
+     height: 15px;
+     position: relative;
+}
+
+.dayBox:hover {
+     background-color: rgba(223, 223, 223, .2);
+     transition: all .5s ease-in-out;
+     cursor: g;
+}
+
+/* Pop up box */
+.pop-up-container {
+     background-color: rgba(0, 0, 0, .4);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: fixed;
+     opacity: 0;
+     pointer-events: none;
+     top: 0;
+     left: 0;
+     height: 100vh;
+     width: 100vw;
+     z-index: 1;
+}
+
+.pop-up-container.show,
+.dayBoxBubble.show,
+.dayBoxPointer.show,
+.dateError.show {
+     pointer-events: auto;
+     opacity: 1;
+     transition: opacity 0.2s ease;
+}
+
+.pop-up-container.show {
+     transition: opacity 0.3s ease;
+}
+
+.pop-up {
+     background-color: rgba(0, 0, 0, .8);
+     border-radius: 5px;
+     box-shadow: 0 3px 20px rgba(255, 255, 255, .05);
+     padding: 2rem 3rem 3.5rem 3rem;
+     width: 35vw;
+     max-width: 100%;
+     text-align: center;
+}
+
+/* Bubble */
+.dayBoxBubble {
+     background-color: ivory;
+     color: black;
+     position: absolute;
+     top: -2.1rem;
+     left: -3rem;
+     opacity: 0;
+     pointer-events: none;
+     height: 1.6rem;
+     width: 7rem;
+     padding: .35rem;
+     border-radius: 5px;
+     z-index: 3;
+     text-align: center;
+     font-size: .95rem;
+}
+
+.dayBoxPointer {
+	height: 10px;
+	width: 10px;
+	background: ivory;
+	margin: 0 auto;
+	transform: rotate(45deg);
+	border-radius: 0 0 2px 0;
+	margin-top: -15px;
+	position: relative;
+     opacity: 0;
+     pointer-events: none;
+	/* left: calc(0.5vw - 0px); */
+}
+
+.dateError {
+     background-color: orange;
+     color: rgb(45, 29, 0);
+     border: 2px solid rgb(255, 183, 49);
+     position: absolute;
+     top: -4.25rem;
+     /* left: -5rem; */
+     opacity: 0;
+     pointer-events: none;
+     height: 1.6rem;
+     width: 10rem;
+     padding: .15rem;
+     z-index: 3;
+     text-align: center;
+     font-size: .85rem;
+     left: calc(0.5vw - 5rem);
+}
+
+.block {
+     margin: 1rem auto;
+}
+
+.selectContainer label {
+     margin-left: .25rem;
+     margin-right: 1rem;
+}
+
+.notes-container {
+     margin: 2rem auto 0 auto;
+}
+
+.notes-container label {
+     display: block;
+     margin: .25rem 0;
+}
+
+textarea {
+     width: 100%;
+}
+
+.notes-container * {
+     text-align: left;
+}
+
+.buttons.block {
+     margin-top: 2rem;
+}
+
+.buttons * {
+     margin: .25rem;
+}
+
+#note-entry {
+     text-align: left;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+h1 {
+     text-align: center;
+     margin: 0;
+     padding: .25rem;
+     color: #75A5FC;
+}
+
+h2 {
+     text-align: center;
+     margin: 0 0 1rem 0;
+     padding: .25rem;
+     font-size: 1.25rem;
+}
+
+.positive {
+     background-color: rgba(117, 165, 252, .85);
+     border: 1px solid rgba(128, 128, 128, 0.05);
+}
+
+.neutral {
+     background-color: rgba(117, 165, 252, .45);
+     border: 1px solid rgba(128, 128, 128, 0.05);
+}
+
+.negative {
+     background-color: rgba(117, 165, 252, .25);
+     border: 1px solid rgba(128, 128, 128, 0.05);
+}
+
+.notes-indicator.show {
+     width: 5px;
+     height: 5px;
+     background-color: rgba(212, 227, 255, 0.6);
+     filter: drop-shadow(0 0 0.075rem rgb(65, 99, 162));
+     border-radius: 50%;
+     position: absolute;
+     bottom: .045rem;
+     right: .045rem;
+}
+
+.close-container {
+     text-align: right;
+     margin: 0;
+     padding: 0;
+}
+
+#close {
+     background-color: rgba(255, 255, 255, .1);
+     border-radius: 1px;
+     color: rgba(255, 255, 255, .6);
+     border: 0px solid red;
+     margin: 0;
+}
+
+#close:hover {
+     background-color: rgba(255, 255, 255, .2);
+     transition: all 0.3s ease-in-out;
+}
+
+#pop-up-day, #pop-up-date {
+     margin: 0;
+}
+
+#pop-up-date {
+     font-size: 2rem;
+     color: #75A5FC;
+}
+
+#date {
+     background-color: rgba(255, 255, 255, .1);
+     border: 1px solid rgba(255, 255, 255, .11);
+     color: ivory;
+     margin-left: .5rem;
+     padding: .25rem;
+}
+
+#date:hover, .buttons *:hover {
+     background-color: rgba(255, 255, 255, .12);
+     border: 1px solid rgba(255, 255, 255, .13);
+     transition: all 0.3s ease-in-out;
+}
+
+textarea {
+     resize: none;
+     background-color: rgba(255, 255, 255, .1);
+     border: 1px solid rgba(255, 255, 255, .11);
+     color: rgba(255, 255, 255, .6);
+     padding: .35rem .55rem;
+}
+
+.buttons * {
+     background-color: rgba(255, 255, 255, .1);
+     border: 1px solid rgba(255, 255, 255, .11);
+     color: rgba(255, 255, 255, .6);
+     padding: .35rem .55rem;
+}
+
+#delete-error {
+     color: orange;
+}
