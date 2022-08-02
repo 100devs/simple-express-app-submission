@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Edit List</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+	<section class="responseObjectContainer">
+	   <h2>Edit List Item</h2>
+	   <section class="appPostFunctionality">
+	      <ul class="itemList">
+		 <% itemsList.forEach(item => {%>
+		    <% if (item._id == itemId) { %>
+			<li class='itemsListItem'>
+			   <form action="/edit/<%= item._id%>" method="POST">
+				<input type="text" name="title" value="<%=item.title %>">
+				<textarea rows="6" cols="45" name="content"><%=item.content%></textarea>
+				<button type="submit" class="confirm">Confirm</button>
+				<a href="/" class="cancel">Cancel</a>
+			      </form>
+			   </li>
+			   <% } else { %>
+				    <li class="itemsListItem">
+					<div class="itemTitle">
+						<%= item.title %>
+					   </div>
+					<div class="itemContent">
+						<%= item.content %>
+					   </div>
+					<a href="/edit/<%= item._id %>" class="edit">edit</a>
+					<a href="/remove/<%= item._id %>" class="remove">remove</a>
+				      </li>
+				<% } %>
+				<% }) %>
+		   </ul>
+		</section>
+	   </section>
+  </body>
+</html>
