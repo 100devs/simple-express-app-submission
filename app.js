@@ -3,7 +3,7 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient;
 const { ObjectId } = require('mongodb');
 const PORT = 3002;
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 let db,
   dbConnectionStr = process.env.DB_STRING,
