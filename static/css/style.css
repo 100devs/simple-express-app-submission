@@ -1,0 +1,60 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 3em;
+  line-height: normal;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 2em;
+  line-height: normal;
+}
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+  text-align: center;
+  padding: 20px;
+}
+
+section {
+  text-align: center;
+  padding: 20px;
+}
+
+/* footer {
+
+} */
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
