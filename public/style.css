@@ -1,0 +1,37 @@
+*{
+  box-sizing: border-box;
+}
+
+body, form, .column, .row{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body{
+  background-color: black ;
+  color: white;
+}
+
+/* input areas*/
+input {
+  margin: .5rem;
+  padding: .5rem;
+}
+
+button{
+  padding: .5rem;
+  margin: 0.5rem 0;
+}
+
+/* Info Table */
+table, th, tr, td {
+  border: 1px solid white;
+  text-align: center;
+}
+
+th, tr, td{
+  padding: .5rem 1rem;
+}
+
