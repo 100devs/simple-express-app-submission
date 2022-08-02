@@ -1,0 +1,36 @@
+.post {
+    margin: 25px 35px 25px 35px;
+
+}
+
+.post__title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    font-style: italic;
+    color: var(--fifth-color)
+}
+.post__subtitle {
+    font-weight: 400;
+    font-size:  1.4375rem;
+    font-style: italic;
+}
+.post__conclusion {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.editpost_link,
+.editpost_link:visited,
+.editpost_link:hover,
+.deletepost_link,
+.deletepost_link:visited,
+.deletepost_link:hover{
+    text-decoration: none;
+    color: #212121;
+    font-weight: 700;
+    font-size: 24px;
+    border: 1px solid #212121;
+    border-radius: 7px;
+    padding: 5px;
+    background-color: var(--third-color);
+}

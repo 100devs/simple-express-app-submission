@@ -1,0 +1,117 @@
+.comment__grid {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+.comment {
+    border: 1px solid red;
+}
+
+.likes__and__dislikes {
+    display: flex;
+    flex-direction: row;
+}
+.likebutton, .dislikebutton {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+
+/* comment form styling */
+form {
+    display:flex;
+    flex-flow: row wrap;
+    width: 1000px;
+}
+
+form input[type=submit] {
+    background-color: var(--fourth-color);
+    color: #565656;
+    border: none;
+    font-size: 32px;
+    border-radius: 10px;
+    padding: 5px 20px;
+    width: 250px;
+
+}
+.comment_box h1 {
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 32px;
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1);
+
+}
+
+.newcomment_label,
+.newcomment_name,
+.newcomment_email,
+.newcomment_website
+{
+    color: var(--secondary-color);
+    font-weight: 400;
+    font-size: 23px;
+}
+
+.form-control-1,
+.form-control-2,
+.form-control-3,
+.form-control-4,
+.form-control-5 {
+    display: flex;
+    flex-direction: column;
+}
+.form-control-1.newcomment {
+    width: 100%;
+}
+
+.editpost_header {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--secondary-color);
+    padding: 10px;
+}
+
+form.editpost_form {
+    padding: 10px;
+    display: flex;
+    width: calc(100% - 2 * 10px);
+}
+form.editpost_form .form-control-1,
+form.editpost_form .form-control-2 {
+    width: 50%;
+}
+form.editpost_form .form-control-3 {
+    width: 100%;
+}
+form.editpost_form .form-control-4 {
+    width: 75%;
+    margin: 0 auto;
+}
+form.editpost_form .form-control-5 {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.editpost_title,
+.editpost_subtitle{
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--fifth-color);
+}
+.editpost_mainbody {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--third-color);
+    padding-top: 10px;
+}
+.editpost_conclusion {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--third-color);
+    padding-top: 10px;
+}
+form.editpost_form .editpost_submit {
+    align-self: center;
+    margin-top: 10px;
+}

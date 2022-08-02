@@ -1,0 +1,12 @@
+<div class="comment" data-commentid=<%= CommentID %>>
+    <p class="comment__innertext">
+        <%= InnerText %>
+    </p>
+    <p class="comment__author">Left by <span id="author_id<%= CommentID %>"> <%= Username %></span></p>
+    
+    <div class="likes__and__dislikes">
+        <div class="likebutton">&#128077;<p class="comment__likes" data-commentid=<%= CommentID %>><span id="likes_id<%= CommentID %>" ><%= Likes %></span></p></div>
+        <div class="dislikebutton">	&#128078;<p class="comment__dislikes" data-commentid=<%= CommentID %>><span id="dislikes_id<%= CommentID %>"><%= Dislikes %></span></p></div>
+    </div>
+    
+</div>

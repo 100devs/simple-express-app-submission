@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Post title</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tapestry&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/public/reset.css">
+    <link rel="stylesheet" href="/public/general.css">
+    <link rel="stylesheet" href="/public/nav.css">
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="/public/comment.css">
+    <link rel="stylesheet" href="/public/post.css">
+</head>
+<body>
+    <%- include('partials/header.ejs') %> 
+    <h1 class="latest_header">Latest </h1>
+    <% for(let i = 0; i < posts.length; i+=1) { %>
+    
+    <div class="post__container">
+        <a class="post_hyperlink" href="/posts/<%= posts[i].PostID %>">
+            <div class="post">
+                <h1 class="post__title"><%= posts[i].PostTitle %></h1>
+                <h2 class="post__subtitle"><%= posts[i].PostSubtitle %></h2>
+                <main class="post__mainbody">
+                    
+                    <%=   posts[i].PostMainBody.substring(0, 1000) // limit main body to 1000 characters. %>
+                    ... <br><br><span class="readmore">read more</span>
+                </main>
+                <aside class="post__conclusion">
+                    <%= posts[i].PostConclusion %>
+                </aside>
+            </div>
+        </a>
+    </div>
+    
+    <% } %>
+</body>
+</html>
