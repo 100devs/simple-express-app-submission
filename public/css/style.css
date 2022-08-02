@@ -1,0 +1,98 @@
+/* Box Model Hack */
+* {
+	box-sizing: border-box;
+  }
+  
+  /* Clear fix hack */
+  .clearfix:after {
+	   content: ".";
+	   display: block;
+	   clear: both;
+	   visibility: hidden;
+	   line-height: 0;
+	   height: 0;
+  }
+  
+  .clear {
+	  clear: both;
+  }
+  
+  /******************************************
+  /* LAYOUT
+  /*******************************************/
+ 
+  body{
+	  background-color: rgb(26, 31, 34);
+	  display: flex;
+	  justify-content: center;
+  }
+
+  #firstSection {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	width:max-content;
+	height: fit-content;
+	margin-top: 20%;
+	padding: 5%;
+	color: white;
+	border-top: 3px  solid white;
+	border-bottom: 3px  solid white;
+  }
+  #firstSection > h1 {
+	font-size: 80px;
+	margin: 0 0 50px 0;
+  }
+  
+  #firstSection input{
+	width: 300px;
+	height: 50px;
+	border-radius: 5px;
+	background-color: rgb(26, 31, 34);
+	border-color: white;
+	border-style: solid;
+	text-align: center;
+	margin: 50px 0;
+	color: white;
+  }
+  .button {
+	background-color: white;
+	padding: 15px 30px;
+	color: black;
+	border-radius: 5px;
+  }
+  #secondSection {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	width:max-content;
+	height: fit-content;
+	margin-top: 30px;
+	padding: 5%;
+	color: white;
+	
+  }
+
+  
+  
+  
+  
+  
+  
+  /******************************************
+  /* ADDITIONAL STYLES
+  /*******************************************/
+  @media screen and (max-width: 600px) {
+	nav > ul {
+	  display: none;
+	}
+	#firstSectionLeft > h1 {
+	  font-size: 50px;
+	  margin: 0;
+	}
+	#firstSectionLeft{
+	  width: 100%;
+	}
+  }

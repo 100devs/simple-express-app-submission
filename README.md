@@ -1,22 +1,12 @@
-#100Devs Simple Express App Submission
+# Stock Info Retriever
+This web application allows users to enter a stock and view some live information about that stock
+![image](https://user-images.githubusercontent.com/35342305/171076183-539458be-9041-4d8b-8ba2-6df765da48ea.png)
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
-
-### How to submit your code for review:
-
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
-
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+## How It's Made
+**Tech used:** HTML, CSS, JavaScript, Node.js, MongoDB
+I focused on getting and recing data from the backend, and using API's to make an interesting project.
+## Optimizations
+I should use Express.js for the bacend to make it more readable and axios to retrieve data from APIs. Currently the code doesn't handle many errors from the YFAPI, this would be confusinf to a user.
+## Lesson Learned
+External APIs are really interesting to play with. You can easily retreive and manipulate data you otherwise would not have access to.
+## Examples
