@@ -1,0 +1,31 @@
+{
+  "name": "stock-retriever",
+  "version": "1.0.0",
+  "description": "App that retreives and analyses stock information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon  server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeansenecal/Stock-Retriever.git"
+  },
+  "author": "Jean Senecal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeansenecal/Stock-Retriever/issues"
+  },
+  "homepage": "https://github.com/jeansenecal/Stock-Retriever#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^4.7.0",
+    "node-schedule": "^2.1.0",
+    "nodemon": "^2.0.18",
+    "puppeteer": "^15.1.1"
+  }
+}

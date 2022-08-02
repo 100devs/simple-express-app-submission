@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  	<meta charset="utf-8">
+  	<meta name="description" content="Your description goes here">
+  	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Stonks</title>
+
+		<!-- external CSS link -->
+		<script src="https://kit.fontawesome.com/2baf6fe4cb.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="/css/style.css">
+	</head>
+	<body>
+		<main>
+			<section id="firstSection">
+				<h1>STOCK RETRIEVER</h1>
+				<span>WRITE THE STOCK TICKER AND CLICK RETRIEVE TO SEE THE STOCK'S INFORMATION</span>
+				<input type="text" id="stockName" placeholder="Search">
+				<a id="retrieveBtn" class="button">RETRIEVE</a>	
+				<h2 id="name"></h2>
+				<h2 id="price"></h2>
+				<h2 id="exchange"></h2>
+			</section>
+
+			<section id="boughtStocksSection">
+				<ul class="todoItems">
+					<% for(let i=0; i < boughtStocks.length; i++) {%>
+						<li class="item">
+							<span><%= boughtStocks[i].sticker %></span>
+							<span><%= boughtStocks[i].price %></span>
+							<span class='fa fa-trash'></span>
+						</li>
+					<% } %>
+				</ul>
+
+				<h2>Add a stock you bought:</h2>
+				<form action="/addboughtStock" method="POST">
+					<input type="text" placeholder="AAPL" name="sticker">
+					<input type="text" placeholder="19.99" name="price">
+					<input type="submit">
+				</form>
+			</section>
+			
+		</main>
+	</body>
+	<script type="text/javascript" src="/js/main.js"></script>
+</html>
