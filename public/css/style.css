@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+h1{
+    color: red;
+}
+
+.container{
+    border: 2px solid black;
+    padding: 2% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2%;
+}
+
+.item{
+    flex-direction: column;
+    width: 23%;
+    align-items: center;
+    cursor: pointer;
+}
+
+.item img{
+    width: 200px;
+    height: 200px;
+}
+
+.delete {
+    margin: 5% 20%;
+    
+}
+
+#total{
+    text-align: right;
+}
+
+.right{
+    text-align: right;
+    margin-right: 10%
+}
+
+.itemList li {
+    list-style-type: none;
+    display: flex;
+}
+
+.itemList{
+    list-style-type: none;
+}
+
+.saleItem{
+    list-style: none;
+}

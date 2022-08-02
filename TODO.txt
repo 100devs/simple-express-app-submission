@@ -1,0 +1,18 @@
+Make Order System
+
+Reference Previous Reciepts
+
+Add sales tax
+
+add more items
+
+make interface much better, find a design.
+
+add accepting payment stuff? idk
+
+add subtotal and item breakdown list with price and amount
+
+add functionality where it asks if you want to confirm if you want to delete an item, and again if you want to abandon the current order and delete the item
+
+maybe same with price updates?
+

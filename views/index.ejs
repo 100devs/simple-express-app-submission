@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Items</h1>
+    <section class="container">
+        <!-- <section class="container item">
+            <h4 class="name">test</h4>
+            <span class="price">$5.00</span>
+            <img src="https://www.thespruceeats.com/thmb/lk3agQCKUUWFHs0Uf8BQdjelHPs=/2800x2800/smart/filters:no_upscale()/gyros-a-greek-classic-912899-hero-01-6aabc80d1fb9440d85c51dd0b2fb9d50.jpg" alt="">
+        </section> -->
+        <% for(let i=0; i < info.length; i++) {%>
+            <section class="item container">
+                <h4 class="name"><%= info[i].itemName %></h4>
+                <span class="price">$<%= info[i].itemPrice %></span>
+                <img src="<%=info[i].itemPic%>"  alt="">
+                <button class='fa fa-trash delete'>Delete</button>
+                <button class="update">Update</button>
+
+            </section>
+            <% } %>
+    </section>
+    <!-- <ul class="rappers">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="rapper">
+            <span><%= info[i].stageName %></span>
+            <span><%= info[i].birthName %></span>
+            <span><%= info[i].likes %></span>
+            <span class='fa fa-thumbs-up'></span>
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul> -->
+    <ul id="itemList" class="right">
+
+    </ul>
+
+    <h4 id="tax" class="right">Tax: </h4>
+    <h3 id="subtotal" class="right">Subtotal: </h3>
+
+
+    <h2 id="total" class="right">Total: </h2>
+
+    <h2>Add An Item:</h2>
+
+    <form action="/addItem" method="POST">
+        <input type="text" placeholder="Item Name" name="itemName">
+        <input type="number" step="0.01" placeholder="Item Price" name="itemPrice">
+        <input type="text" placeholder="Image Link" name="itemPic">
+        <input type="submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
