@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Your description goes here">
+    <meta name="keywords" content="one, two, three">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Table Top Trait Database</title>
+
+    <!-- external CSS link -->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- <link rel="script" href="/js/main.js"> -->
+</head>
+
+<body>
+
+    <%- include('partials/navbar') %>
+
+        <form action="/traits/add" method="post" id="newAbility">
+            <fieldset>
+                <legend>Enter New Trait</legend>
+                <fieldset>
+                    <legend>Basic Information</legend>
+                    <input type="text" placeholder="name" name="abilityName"> <!-- required> -->
+                    <input type="text" placeholder="description" name="abilityDescription"> <!-- required> -->
+                    <input type="text" placeholder="PHB (151)" name="sourceBook" pattern="[a-zA-Z]+ \([0-9]+\)">
+                    <!-- required> -->
+
+                    <label for="damage-types">Choose a damage type:</label>
+                    <select form="newAbility" name="damageType" id="damage-types" required>
+                        <option value="None">None</option>
+                        <option value="Bludgeoning">Bludgeoning</option>
+                        <option value="Piercing">Piercing</option>
+                        <option value="Slashing">Slashing</option>
+                        <option value="Psychic">Psychic</option>
+                        <option value="Fire">Fire</option>
+                    </select>
+                </fieldset>
+                <fieldset id="flex-vert-list">
+                    <legend>Options</legend>
+                    <input type="checkbox" id="doesDamage" name="doesDamage" value="true">
+                    <label for="doesDamage">This ability does damage</label>
+                    <input type="checkbox" id="buffs" name="buffs" value="true">
+                    <label for="buff">This ability provides a buff</label>
+                    <input type="checkbox" id="debuffs" name="bebuffs" value="true">
+                    <label for="bebuffs">This ability inflicts a debuff</label>
+                </fieldset>
+
+                <button type="submit">Submit</button>
+
+
+            </fieldset>
+        </form>
+
+
+
+        <section>
+            <h2>Randomize trait!</h2>
+            <p>
+                Replace a trait with another random trait.
+            </p>
+            <button id="update-button">Replace Trait</button>
+        </section>
+
+        <section>
+            <h2>Remove a trait!</h2>
+            <p>
+                Deletes a trait. Probably spellcasting. Unless one doesn't exist?
+            </p>
+            <!-- <button class="delete-button">Delete Spellcasting</button> -->
+
+
+
+        </section>
+
+        <section class="savedAbilities">
+            <h3>Traits</h3>
+            <!-- <%= traits %> -->
+            <ul class="traits">
+                <% for(var i=0; i < traits.length; i++) {%>
+                    <li class="trait <%= traits[i].abilityName %>">
+                        <button class="delete-button <%= traits[i].abilityName %>">&#128465;</button>
+
+                        <button type="button" class="edit-button">&#128393;</button>
+
+                        <h4>
+                            <%= traits[i].abilityName %>
+                        </h4>
+                        <p>
+                            <%= traits[i].abilityDescription %>
+                        </p>
+                        <p>
+                            <%= traits[i].damageType %>
+                        </p>
+                        <span id="source">
+                            <%= traits[i].sourceBook %>
+                        </span>
+                    </li>
+                    <% } %>
+            </ul>
+        </section>
+
+        <script src="js/abilities.js"></script>
+</body>
+
+</html>

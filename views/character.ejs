@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characters</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <%- include('partials/navbar') %>
+
+        <button class="display-button">Display Data</button>
+        <section class="messageContainer">
+            <span id="errorMessage"></span>
+        </section>
+        <section id="old">
+
+            <% for(var i=0; i < character.length; i++) {%>
+                <h4 class="character <%= character[i]._id %>">
+                    <%= character[i].name %>
+                </h4>
+
+                <% for (const key of Object.keys(character[i].data.abilities)) { %>
+
+                    <li class=<%=key %>>
+                        <%= key %>
+                            <%= character[i].data.abilities[key].value %>
+                    </li>
+                    <% } %>
+                        <% } %>
+
+        </section>
+
+        <button class="getData">Get data</button>
+        <button class="logStorage">Console Log Storage</button>
+        <button class="displayData">Display Data</button>
+
+        <input type="file" id="file" multiple>
+
+        <h1 class="name"></h1>
+
+        <section class="charImgContainer">
+            <img class="charImg" src="" alt="">
+        </section>
+
+        <section class="abilityContainer">
+
+            <% for(var i=0; i < character.length; i++) {%>
+                <h4 class="character <%= character[i]._id %>">
+                    <%= character[i].name %>
+                </h4>
+                <ul class="abilities">
+                    <% for (const key of Object.keys(character[i].data.abilities)) { %>
+
+                        <li class=<%=key %>>
+                            <%= key %>
+                                <%= character[i].data.abilities[key].value %>
+                        </li>
+                        <% } %>
+                            <% } %>
+
+                </ul>
+        </section>
+        </section>
+        <script src="js/character.js"></script>
+</body>
+
+</html>
