@@ -17,6 +17,6 @@
 Example:
 ```
 I completed the challenge: 5
-I feel good about my code: 4
+I feel good about my code: 3.1415926536
 I'm not sure if my constructors are setup cleanly...
 ```
