@@ -1,3 +1,12 @@
+MY ANSWER:
+I completed the challenge: 5
+I feel good about my code: 4
+In the future I'd like to add the ability to downvote facts you don't like.
+
+
+
+
+QUESTION:
 #100Devs Simple Express App Submission
 
 ### Goal: Make Your Own CRUD APP and Push To Heroku
