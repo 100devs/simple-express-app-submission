@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Disc Golf Discs!</title>
+</head>
+<body>
+    <section class="row">
+        <section class="column">
+            <h2>Input Disc Data Here</h2>
+            <form action="/api" method="POST">
+                <input type="text" placeholder="name" name="discName">
+                <input type="text" placeholder="speed" name="speedInfo">
+                <input type="text" placeholder="glide" name="glideInfo">
+                <input type="text" placeholder="turn" name="turnInfo">
+                <input type="text" placeholder="fade" name="fadeInfo">
+                <button type="submit">SUBMIT NEW</button>
+                <button type="button" id="updateButton">UPDATE EXISTING</button>
+            </form>
+        </section>
+        <section class="column">
+            <h2>Delete Discs Here</h2>
+            <input type="text" placeholder="name to delete" name="deleteInput" id="deleteInput">
+            <button id="deleteButton">Delete</button>
+        </section>
+        <section class="column">
+            <h2>Current Discs</h2>
+            <ul class="discs">
+                <% for(let i=0; i< info.length; i++) {%>
+                    <li class="disc">
+                        <span><%=info[i]%></span>
+                    </li>
+                <% } %>
+            </ul>
+        </section>
+    </section>
+    
+
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
