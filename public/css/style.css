@@ -1,0 +1,15 @@
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.bi-pencil-square, .bi-trash{
+    text-decoration: none;
+}
+
+.bi-trash, .cancel {
+    color: red;
+    text-decoration: none;
+}
+
+.bi-arrow-up-square{
+    color: white;
+}
