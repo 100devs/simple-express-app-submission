@@ -234,7 +234,7 @@ background: lightgray;
 }
 
 footer {
-    width: fit-content;
+    min-width: none;
     display: flex;  
     height: 120px;
     align-self: flex-end;
