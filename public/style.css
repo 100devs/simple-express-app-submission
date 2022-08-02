@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    background: blanchedalmond;
+}
+
+label {
+    font-weight: bold;
+    display: block
+}
+
+input {
+    background-color: rgba(255, 182, 156, .8);
+    padding: 5px;
+    border-radius: 8px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form > section{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.s-btn {
+    margin: 10px;
+    background-color: rgba(255, 42, 0, 0.8);
+    border-radius: 8px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 10%;
+}
+
+.books {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+td {
+    background-color: rgba(255, 182, 156, .6);
+    border-radius: 8px;
+
+    padding: 5px;
+}
+
+.readd {
+    background-color: rgba(255, 182, 156, .8);
+    border-radius: 8px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete-button {
+    background-color: rgba(255, 42, 0, 0.8);
+    border-radius: 8px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+th {
+    background-color: rgba(255, 182, 156, .8);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+table {
+    border: 1px solid salmon;
+    width: 70%;
+    border-radius: 8px;
+}
+
+@media all and (max-width: 800px) {
+    .s-btn{
+        width: 40%;
+    }
+}
