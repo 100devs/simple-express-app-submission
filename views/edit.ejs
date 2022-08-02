@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing "<%= itemsList.find(item => item._id == itemId).title %>" Entry</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <section class="responseObjectContainer">
+        <h2>Editing <em>"<%= itemsList.find(item => item._id == itemId).title %>"</em> Entry</h2>
+        <section class="appPostFunctionality">
+            <ul class="itemList">
+                <% itemsList.forEach(item => {%>
+                    <% if (item._id == itemId) { %>
+                        <li class="itemsListItem">
+                            <form action="/edit/<%=item._id%>" method="post">
+                                <input type="text" name="title" value="<%=item.title%>">
+                                <br>
+                                <textarea name="content" cols="45" rows="6"><%=item.content%></textarea>
+                                <br>
+                                <button type="submit" class="confirm">Confirm</button>
+                                <a href="/" class="cancel">Cancel</a>
+                            </form>    
+                        </li>
+                    <% } else { %>
+                        <li class="itemsListItem">
+                        <div class="itemTitle">
+                            <%= item.title %>
+                        </div>
+                        <div class="itemContent">
+                            <%= item.content %>
+                        </div>
+                        <a href="/edit/<%= item._id%>" class="edit"></li>Edit</a>
+                        <a href="/remove/<%= item._id%>" class="remove">Remove</a>
+                    </li>
+                    <%} %>
+                    <% }) %>       
+            </ul>
+        </section>
+    </section>
+</body>
+</html>
