@@ -24,5 +24,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efs0-cod3/simple-express-app-submission.git"
+  },
+  "bugs": {
+    "url": "https://github.com/efs0-cod3/simple-express-app-submission/issues"
+  },
+  "homepage": "https://github.com/efs0-cod3/simple-express-app-submission#readme"
 }
