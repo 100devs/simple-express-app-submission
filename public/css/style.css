@@ -150,9 +150,8 @@ a {
     }
 
     .aside {
-        display: flex;
-        flex-shrink: 2;
-        flex-wrap: wrap;
+        width: 80%;
+        padding-right: 2em;
     }
 }
 
