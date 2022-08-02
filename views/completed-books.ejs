@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookly</title>
+
+    <link rel="icon" href="/images/book-solid.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a2f02755e4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" />
+  </head>
+  <body>
+    <!-- Left Side Bar Section Display Area -->
+    <section class="sideBar">
+      <section class="hamburgerBtn">
+        <i class="fa-solid fa-bars"></i>
+      </section>
+      <!-- Profile Info (Picture, Name, Email) -->
+      <section class="profileArea">
+        <img
+          src="images/headshot copy.jpeg"
+          alt="profile picture"
+          class="profilePicture"
+        />
+        <section>
+          <p class="profileName">Daniel</p>
+          <p class="profileAddress">dan.jkim21@gmail.com</p>
+        </section>
+      </section>
+      <!-- Navigation Display Area -->
+      <nav class="navContent">
+        <ul class="navList">
+          <li class="navListItems"><a href="/discover">Discover</a></li>
+          <li class="navListItems"><a href="/">Books</a></li>
+          <li class="navListItems active"><a href="/completed">Completed</a></li>
+          <li class="navListItems"><a href="/favorites">Favorited</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- App Main Display Area -->
+    <main class="appDisplayArea">
+      <!-- Playlist Display Area -->
+      <section class="playlistInfoArea flexBox">
+        <!-- App Feature Title - Playlist Area -->
+        <h1 class="appTitle">Completed Books</h1>
+      </section>
+
+      <!-- Completed Books Description Paragraph -->
+      <!-- <p class="playlistDescription">
+        Completed books! description ... Lorem ipsum dolor sit, amet consectetur
+        adipisicing elit. Hic, consequatur! Fugiat dicta asperiores quis suscipit iste
+        numquam atque optio mollitia odio modi!
+      </p> -->
+
+      <section class="statsSection">
+        <section class="stats">
+          <h2 class="sectionTitle">Completed</h2>
+          <i class="fa-solid fa-circle-check statsIcon"></i> 
+          <span class="statsItem"><%= countCompleted %></span>
+        </section>
+        <section class="stats">
+          <h2 class="sectionTitle">Pages Read</h2>
+          <i class="fa-solid fa-scroll statsIcon"></i>
+          <span class="statsItem"><%= booksData.map(elem => elem.bookPageCount).reduce((acc,c) => acc + c, 0) %></span>
+        </section>
+      </section>
+
+      <!-- ********** TEST AREA ********** -->
+      <section class="bookPlaylistArea">
+        <!-- Loop through book entries-->
+        <% booksData.map(elem => { %>
+        <section
+          class="bookItem flexBox"
+          data-id="<%= elem.bookId %>"
+          data-isFavorited="<%= elem.isFavorited %>"
+          data-isCompleted="<%= elem.isCompleted %>"
+        >
+          <!-- Add books image -->
+          <img
+            src="<%= 'https://' + elem.bookImage.split('//')[1] %>"
+            alt="book cover image"
+            class="bookCoverImage"
+          />
+          <!-- Add books title & authors -->
+          <section class="bookInfo">
+            <p class="bookTitle condenseText"><%= elem.bookTitle %></p>
+            <p class="bookAuthor condenseText"><%= elem.bookAuthors %></p>
+          </section>
+          <i
+            class="fa-solid fa-heart likeBookItemBtns invisible"
+            title="Favorite this book"
+            data-id="<%= elem.bookId %>"
+            data-isFavorited="<%= elem.isFavorited %>"
+          ></i>
+          <a class="editBookItemBtn" href="#<%= elem.bookId %>">Info</a>
+
+          <!-- Add books modal details -->
+          <section id="<%= elem.bookId %>" class="modal">
+            <section class="modal__content">
+              <section class="editBookSummaryMain flexBox">
+                <img
+                  src="<%= 'https://' + elem.bookImage.split('//')[1] %>"
+                  alt="book cover image"
+                  class="bookCoverImage"
+                />
+                <section class="editBookInfo">
+                  <p class="bookTitle"><%= elem.bookTitle %></p>
+                  <p class="bookAuthor"><%= elem.bookAuthors %></p>
+                  <span class="modalFavoriteBtn"
+                    ><i
+                      class="fa-solid fa-heart modalLikeBookItemBtns"
+                      title="Favorite this book"
+                      data-id="<%= elem.bookId %>"
+                      data-isFavorited="<%= elem.isFavorited %>"
+                    ></i
+                    >Favorite</span
+                  >
+                </section>
+              </section>
+              <section class="modalMoreBtns">
+                <span class="modalCompleteBtn"
+                  ><i
+                    class="fa-solid fa-circle-check completeBookItem"
+                    title="Mark book as completed"
+                    data-id="<%= elem.bookId %>"
+                    data-isCompleted="<%= elem.isCompleted %>"
+                  ></i
+                  >Completed on: <%= `
+                  ${elem.completionDate.getMonth()}.${elem.completionDate.getDate()}.${elem.completionDate.getFullYear()}`
+                  %></span
+                >
+                <span class="modalDeleteBtn">
+                  <i
+                    class="fa-solid fa-trash removeBookItemBtns"
+                    title="Remove book from playlist"
+                    data-id="<%= elem.bookId %>"
+                  ></i
+                  >Delete
+                </span>
+              </section>
+              <h4 class="modal--subheader">Description</h4>
+              <p class="bookDescription"><%= elem.bookDescription %></p>
+              <a href="#" class="modal__close">&times;</a>
+            </section>
+          </section>
+        </section>
+        <% }); %>
+      </section>
+    </main>
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>
