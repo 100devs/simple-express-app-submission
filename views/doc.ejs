@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talk in Corporate - API documentation</title>
+    <meta name="description" content="Translate regular speech into corporate talk!" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/prism.css" />
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+    <main class="docs">
+        <header class="hero">
+            <a href="/">View entries</a>
+            <a href="/crud">Edit entries</a>
+            <h1>Talk in Corporate</h1>
+            <h2>API documentation</h2>
+            <br>
+            <nav class="entries"><ul>
+                <li><a href="#api-Category" class="category-title">Get a category</a></li>
+                <li><a href="#api-Edit_entry" class="category-title">Edit entry</a></li>
+                <li><a href="#api-Random" class="category-title">Retrieve a random result</a></li>
+                <li><a href="#api-Search" class="category-title">Search entry</a></li>
+            </ul></nav>
+          </header>
+    <section id="api-Category">
+        <h2>Get a category</h2>
+        <p>Displays entries for a selected category.</p>
+        <span class="method meth-get">get</span>
+        <pre data-type="get" class="language-http" tabindex="0"><code class="language-http">https://talkincorporate-api.herokuapp.com/api/:category</code></pre>
+        <p> Permission necessary: none</p>
+        <table>
+            <thead>
+            <tr>
+                <th style="width: 30%">Field</th>
+                <th style="width: 10%">Type</th>
+                <th style="width: 60%">Description</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="code">category</td>
+                    <td class="code">String</td>
+                    <td>
+                        <p>Category name.</p>
+                        <span>Allowed values:
+                            <code>general</code>,
+                            <code>lazy</code>, 
+                            <code>demand</code>,
+                            <code>boundary</code>,
+                            <code>interview</code>
+                        </span>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="example">Success response for "general" category:</p>
+
+            <pre data-type="json" class="language-json" tabindex="0"><code class="language-json"><span class="token punctuation">{</span>
+                <span class="token property">"entries"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token property">"original"</span><span class="token operator">:</span> <span class="token string">"That idea will never work."</span><span class="token punctuation">,</span>
+                        <span class="token property">"corporate"</span><span class="token operator">:</span> <span class="token string">"I am happy to explore this option but I do have some hesitations on the viability."</span><span class="token punctuation">,</span>
+                        <span class="token property">"category"</span><span class="token operator">:</span> <span class="token string">"general"</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span></code></pre>
+
+      
+          
+            <p class="example">Error response</p>
+            <pre data-type="json" class="language-json" tabindex="0"><code class="language-json"><span class="token punctuation">{</span>
+                <span class="token property">"warning"</span><span class="token operator">:</span> <span class="token string">"Nothing found in this search"</span>
+            <span class="token punctuation">}</span></code></pre>
+        </section>
+      
+        <section id="api-Edit_entry">
+        <h2>Edit entry</h2>       
+        <p>Edits text and category of an entry.</p>
+        <span class="method meth-patch">patch</span>
+        <pre data-type="patch" class="language-http" tabindex="0"><code class="language-http">https://talkincorporate-api.herokuapp.com/api/:id</code></pre>
+        <p>Permission necessary: none</p>
+        <table>
+            <thead>
+                <tr>
+                <th style="width: 30%">Field</th>
+                  <th style="width: 10%">Type</th>
+                  <th style="width: 60%">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="code">id</td>
+                    <td class="code">String</td>
+                    <td><p>Entry id.</p></td>
+                </tr>
+              </tbody>
+            </table>
+
+          <h3>Request Body</h3>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 30%">Field</th>
+                  <th style="width: 10%">Type</th>
+                <th style="width: 70%">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td class="code">original&nbsp;&nbsp;
+                  </td>
+                    <td class="code">String</td>
+                  <td>
+                    <p>What you mean</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">corporate&nbsp;&nbsp;
+                  </td>
+                    <td class="code">String</td>
+                  <td>
+                    <p>Corporate version of what you mean</p>
+                      <p class="type-size">Size range: <code>5</code></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">category&nbsp;&nbsp;
+                  </td>
+                    <td class="code">String</td>
+                  <td>
+                    <p>Category name</p>
+                      <p class="type-size">Allowed values:
+                          <code>general</code>, 
+                          <code>lazy</code>, 
+                          <code>demand</code>, 
+                          <code>boundary</code>, 
+                          <code>interview</code>
+                      </p>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+      
+          
+            <p class="example">Success response:</p>
+            <pre data-type="json" class="language-json" tabindex="0"><code class="language-json"><span class="token punctuation">{</span>
+                <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"Success"</span><span class="token punctuation">,</span>
+                <span class="token property">"data"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token property">"editedEntry"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"_id"</span><span class="token operator">:</span> <span class="token string">"1234abcd0000aaaa00001234"</span><span class="token punctuation">,</span>
+                        <span class="token property">"original"</span><span class="token operator">:</span> <span class="token string">"That idea will never work!"</span><span class="token punctuation">,</span>
+                        <span class="token property">"corporate"</span><span class="token operator">:</span> <span class="token string">"I am happy to explore this option but I do have some hesitations on the viability."</span><span class="token punctuation">,</span>
+                        <span class="token property">"category"</span><span class="token operator">:</span> <span class="token string">"general"</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span></code></pre>
+
+      <p class="example">Invalid ID</p>
+      <pre data-type="json" class="language-json" tabindex="0"><code class="language-json">Status<span class="token operator">:</span> <span class="token number">404</span> Not Found
+        <span class="token punctuation">{</span>
+        <span class="token property">"error"</span><span class="token operator">:</span> <span class="token string">"Invalid ID"</span>
+        <span class="token punctuation">}</span></code></pre>
+              
+      <p class="example">Invalid value</p>
+      <pre data-type="json" class="language-json" tabindex="0"><code class="language-json">Example<span class="token operator">:</span> submitting <span class="token string">"FUNNY"</span> category
+        Status<span class="token operator">:</span> <span class="token number">400</span> Bad Request
+            <span class="token punctuation">{</span>
+                <span class="token property">"errors"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span>
+                    <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"FUNNY"</span><span class="token punctuation">,</span>
+                    <span class="token property">"msg"</span><span class="token operator">:</span> <span class="token string">"Invalid value"</span><span class="token punctuation">,</span>
+                    <span class="token property">"param"</span><span class="token operator">:</span> <span class="token string">"category"</span><span class="token punctuation">,</span>
+                    <span class="token property">"location"</span><span class="token operator">:</span> <span class="token string">"body"</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span></code></pre>
+
+        </section>
+      
+        <section id="api-Random">
+            <h2>Retrieve a random result</h2>
+        <p>Displays a single random entry.</p>
+          <span class="method meth-get">get</span>
+          <pre data-type="get" class="language-http" tabindex="0"><code class="language-http">https://talkincorporate-api.herokuapp.com/api/random</code></pre>
+            <p>Permission necessary: none</p>
+            <p class="example">Success response example:</p>
+
+            <pre data-type="json" class="language-json" tabindex="0"><code class="language-json"><span class="token punctuation">{</span>
+                <span class="token property">"entries"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token property">"original"</span><span class="token operator">:</span> <span class="token string">"Does taking on all this extra work come with extra pay?"</span><span class="token punctuation">,</span>
+                        <span class="token property">"corporate"</span><span class="token operator">:</span> <span class="token string">"With my role expanding is there a plan to review my title and compensation to better reflect these additional responsibilities?"</span><span class="token punctuation">,</span>
+                        <span class="token property">"category"</span><span class="token operator">:</span> <span class="token string">"demand"</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span></code></pre>
+        </section>
+      
+        <section id="api-Search">
+          <h2>Search</h2>
+          <p>Retrieve entries that match the query.</p>
+          <span class="method meth-get">get</span>
+          <pre data-type="get" class="language-http" tabindex="0"><code class="language-http">https://talkincorporate-api.herokuapp.com/api/search/:query</code></pre>
+            <p> Permission necessary: none </p>
+
+            <h3>Parameter</h3>
+            <table>
+              <thead>
+                <tr>
+                <th style="width: 30%">Field</th>
+                  <th style="width: 10%">Type</th>
+                  <th style="width: 60%">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td class="code">query </td>
+                    <td class="code">String</td>
+                    <td>
+                        <p>Query parameters. <br> May include more than one word joined by a <code>+</code>.</p>
+                        <p>Example:</p> <pre><code>https://talkincorporate-api.herokuapp.com/api/search/gas+prices</code></pre>
+                     </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="example">Success response for "gas+prices" search:</p>
+            <pre data-type="json" class="language-json" tabindex="0"><code class="language-json"><span class="token punctuation">{</span>
+                <span class="token property">"entries"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token property">"original"</span><span class="token operator">:</span> <span class="token string">"With these gas prices I am not driving to the office every day."</span><span class="token punctuation">,</span>
+                        <span class="token property">"corporate"</span><span class="token operator">:</span> <span class="token string">"Is there a cost of adjustment for gas price reinbursement?"</span><span class="token punctuation">,</span>
+                        <span class="token property">"category"</span><span class="token operator">:</span> <span class="token string">"general"</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token property">"original"</span><span class="token operator">:</span> <span class="token string">"With these gas prices I am not driving to the office every day."</span><span class="token punctuation">,</span>
+                        <span class="token property">"corporate"</span><span class="token operator">:</span> <span class="token string">"Moving forward will there be an expectation to be in the office more regularly?"</span><span class="token punctuation">,</span>
+                        <span class="token property">"category"</span><span class="token operator">:</span> <span class="token string">"general"</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span></code></pre>
+     
+          
+            <p class="example">Error-response</p>
+            <pre data-type="json" class="language-json" tabindex="0"><code class="language-json"><span class="token punctuation">{</span>
+                <span class="token property">"warning"</span><span class="token operator">:</span> <span class="token string">"Nothing found in this search"</span>
+            <span class="token punctuation">}</span></code></pre>
+        </section>
+    </main>
+    <footer>
+        RESTful web API by Raissa K.
+        <p>Content by <a href="https://www.instagram.com/loewhaley/">@loewhaley</a>. Documentation generated by <a href="https://apidocjs.com/">apiDOC</a></p>
+        <br>
+        <a href="https://github.com/raissa-k/talkincorporate">GitHub</a> || <a href="https://raissak.com/">Website</a>
+      </footer>
+</body>
+</html>
