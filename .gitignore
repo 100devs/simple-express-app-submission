@@ -1,0 +1,6 @@
+node_modules/
+shakespeare/
+verse/
+.env
+.README.md.swp
+
