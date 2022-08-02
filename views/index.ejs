@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Mood Tracker</title>
+</head>
+<body>
+    <%# variables for today %>
+    <% let today = new Date() %>
+    <% let year = today.getFullYear() %>
+    <% let month = today.getMonth() + 1 %>
+    <% let monthName = today.toLocaleString('default', { month: 'long' }) %>
+    <% let day = today.getDate() %>
+
+    <% let weekdays = new Array(7);
+        weekdays[0] = "Sunday";
+        weekdays[1] = "Monday";
+        weekdays[2] = "Tuesday";
+        weekdays[3] = "Wednesday";
+        weekdays[4] = "Thursday";
+        weekdays[5] = "Friday";
+        weekdays[6] = "Saturday"; %>
+    <% let dayOfWeek = weekdays[today.getDay()] %>
+
+    <%# variables for start and end of year %>
+    <% let dayOfYear = new Date(year, 0, 1) %>
+    <% let lastDayOfYear = new Date(year, 11, 31) %>
+
+    <%# Loop for all days in the year for diplay on boxes, format short month name and date %>
+    <%# Loop for all days in the year for id name, formatted YYYY-MM-DD %>
+    <% let idsDaysOfYear = []; %>
+    <% let yearObj = new Array() %>
+
+    <%# format days and months to match calendar values %>
+    <% for (dayOfYear; dayOfYear <= lastDayOfYear; dayOfYear.setDate(dayOfYear.getDate() + 1)) {%>
+        <% let idMonth = new Date(dayOfYear).getMonth() + 1 %>
+        <% let idDay = new Date(dayOfYear).getDate() %>
+        <% let dayCounter = 1 %>
+        <% let i = 0 %>
+        <% dayOfWeek = weekdays[dayOfYear.getDay()] %>
+            <% if (idDay < 10) { %>
+                <% idDay = '0' + idDay; %>
+            <% } %>
+            
+            <% if (idMonth < 10) { %>
+                <% idMonth = '0' + idMonth; %>
+            <% }  %>
+
+        <%# push into arrays %>
+        <% idsDaysOfYear.push(`${year}-${idMonth}-${idDay}`); %>
+        <% yearObj.push({
+                full_date: `${year}-${idMonth}-${idDay}`,
+                month_long: `${new Date(dayOfYear).toLocaleString('default', { month: 'long' })}`,
+                month_short: `${new Date(dayOfYear).toLocaleString('default', { month: 'short' })}`,
+                date: `${new Date(dayOfYear).getDate()}`,
+                year: year,
+                day: dayOfWeek,
+                day_of_year: dayCounter,
+                })
+        %>
+        <% dayCounter++ %>
+        <% i++ %>
+    <% } %>
+
+    <div id="wrapper">
+        <header>
+            <h1>
+                Mood Tracker
+            </h1>
+            <h2><%= year %></h2>
+        </header>
+        <%# Mood Picker Pop-up %>
+        <div class="pop-up-container">
+            <section class="pop-up">
+                <div class="close-container">
+                    <button id="close" aria-label="Dismiss alert" type="button" data-close>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <p id="pop-up-day"></p>
+                <h2 id="pop-up-date"></h2>
+                
+                <form id="mood-otd" action="/motd" method="POST">
+                    <%# Date %>
+                    <label for="date">Choose date:</label>
+                    <input type="date" id="date" name="date" class="block"  value="" min="2022-01-01" max="" required>
+                    <div class="selectContainer block">
+                        <%# Positive %>
+                        <input type="radio" name="overallMood" id="overallPositive" value="positive" required>
+                        <label for="overallPositive" >Positive</label>
+                        <%# Neutral %>
+                        <input type="radio" name="overallMood" id="overallNeutral" value="neutral" required>
+                        <label for="overallNeutral" >Neutral</label>
+                        <%# Negative %>
+                        <input type="radio" name="overallMood" id="overallNegative" value="negative" required>
+                        <label for="overallNegative" >Negative</label>
+                    </div>
+                    <div class="notes-container">
+                        <label for="notes">Optional notes:</label>
+                        <textarea id="notes" name="notes" rows="5" cols="33" placeholder="What happened today?"></textarea>
+                    </div>
+                </form>
+                <%# Button %>
+                <div class="buttons block">
+                    <button form="mood-otd" type="submit">Submit</button>
+                    <button id="delete">Delete entry</button>
+                </div>
+                <p id="delete-error"></p>
+                <div id="note-entry"></div>
+            </section>
+        </div>
+        <%# Mood display of year %>
+        <section class="moodsForYear">
+            <div class="dayLabelsContainer">
+                <div class="dayLabel"></div>
+                <div class="dayLabel">Mon</div>
+                <div class="dayLabel"></div>
+                <div class="dayLabel">Wed</div>
+                <div class="dayLabel"></div>
+                <div class="dayLabel">Fri</div>
+                <div class="dayLabel"></div>
+            </div>
+            <div class="week-divider"></div>
+            <%# loop to display a box for each day of the year %>
+            <% for (let i = 0; i < idsDaysOfYear.length; i++) {%>
+                <div class="<%= `${i} dayBox` %>" id="<%= 'date_' + idsDaysOfYear[i] %>">
+                    <div class="dayBoxBubble <%= 'bubble_' + idsDaysOfYear[i] %>">
+                        <%= `${yearObj[i].month_long.toLowerCase()} ${yearObj[i].date}` %>
+                    </div>
+                    <div class="dayBoxPointer <%= 'bubble_' + idsDaysOfYear[i] %>">
+                    </div>
+                    <div class="dateError <%= 'error_' + idsDaysOfYear[i] %>">
+                        Date is in the future!
+                    </div>
+                    <div class="notes-indicator"></div>
+                </div>
+                <% if(yearObj[i].day == 'Saturday') {%>
+                    <div class="week-divider"></div>
+                    <% if(yearObj[i].date <= 7) { %>
+                        <div class="monthLabel"><%= yearObj[i].month_short %></div>
+                    <% } %>
+                <% } %>
+            <% } %>
+        </section>
+    </div>
+
+    <script src="/main.js"></script>
+</body>
+</html>
