@@ -1,0 +1,22 @@
+.navbar > .container {
+  /* display: flex; */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: right;
+}
+
+.navbar-brand {
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 991px) {
+  .navbar-brand {
+    max-width: 85%;
+  }
+}
+
+@media only screen and (max-width: 503px) {
+  .navbar-brand {
+    max-width: 50%;
+  }
+}
