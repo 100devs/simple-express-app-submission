@@ -1,0 +1,46 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* body, html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+} */
+
+
+h1, h2, ul, li {
+   margin: 15px;
+}
+
+h1{
+    color: red;  
+}
+
+h1 + h2 {
+    color: black;
+}
+
+
+span {
+    color: black;
+    margin-top: 10px;
+}
+
+ul, li, span {
+    list-style-type: none;
+}
+
+input {
+    color: purple;
+}
+
+body {
+    height: 100%;
+    text-align: center;
+    background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/https:%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F3%2F3%2F2%2F5%2F19725233-8-eng-GB%2FCropped-1551932700People%20work%20at%20a%20mountain%20of%20garbage%20at%20Payatas%20dumpsite%20in%20Manila(Feb.3%2C2017)%3DPhoto%20by%20Akira%20Kodaka%20(2).jpg?source=nar-cms');
+    background-repeat: repeat;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>(Hideous) To Do List!</h1>
+    <h2>What do you gotta do?</h2>
+
+    <h2>Add A To-Do:</h2>
+
+    <form action="/addToDo" method="POST">
+        <input type="text" placeholder="Date/Time" name="dateTime">
+        <input type="text" placeholder="To Do" name="toDo">
+        <input type="submit">
+    </form>
+
+    <ul class="rappers">
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class="rapper">
+                <span><%= info[i].dateTime %></span>
+                <span><%= info[i].toDo %></span>
+                <!-- <span><%= info[i].likes %></span> -->
+                <!-- <span class='fa fa-thumbs-up'></span> -->
+                <span class='fa fa-trash'></span>
+            </li>
+        <% } %>
+    </ul>
+
+    <script src='js/main.js'></script>
+</body>
+</html>
