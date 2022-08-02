@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warm Notes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <section class="main">
+    <h1>Warm Notes</h1>
+    <ol>
+        <% 
+          for( let i = 0 ; i<data.length ; i++ ){%>
+            <li id="<%=data[i].id%>">
+              <h3><%= data[i].title %></h3  >
+              <p><%= data[i].content %></p>
+              <span class="updateButton fa fa-pencil-alt"></span>
+              <span class="deleteButton fa fa-trash"></span>
+            </li>
+        <%}%>
+    </ol>
+    <form action="/notes" method="POST">
+      <input name="title" type="text" placeholder="Title">
+      <input name="content" type="text" placeholder="Content">
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+
+  <script>
+    const notes = <%- JSON.stringify(data) %>
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
