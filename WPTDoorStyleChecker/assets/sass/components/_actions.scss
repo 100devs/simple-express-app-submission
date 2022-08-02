@@ -1,0 +1,119 @@
+/* Actions */
+
+	ul.actions {
+		cursor: default;
+		list-style: none;
+		margin-left: (_size(element-margin) * -0.5);
+		margin-top: (_size(element-margin) * -0.5);
+		padding-left: 0;
+
+		li {
+			display: inline-block;
+			margin: (_size(element-margin) * 0.5) 0 0 (_size(element-margin) * 0.5);
+			padding-left: 0;
+			vertical-align: middle;
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+
+		&.stacked {
+			margin-top: 0;
+			margin-left: 0;
+
+			li {
+				display: block;
+				margin: 0;
+				padding: (_size(element-margin) * 0.75) 0 0 0;
+				position: relative;
+
+				&:first-child {
+					padding-top: 0;
+				}
+
+				> * {
+					margin-bottom: 0;
+				}
+
+				> .button {
+					min-width: 15em;
+				}
+			}
+
+			&.special {
+				li {
+					&:after {
+						background-color: _palette(border);
+						content: '';
+						display: block;
+						height: (_size(element-margin) * 0.75);
+						left: 50%;
+						position: absolute;
+						top: 100%;
+						width: 1px;
+					}
+
+					&:last-child {
+						&:after {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			&.stacked {
+				&.special {
+					li {
+						padding: (_size(element-margin) * 0.5) 0 0 0;
+
+						&:after {
+							height: (_size(element-margin) * 0.5);
+						}
+					}
+				}
+			}
+		}
+
+		&.animated {
+			&.spinY {
+				li {
+					@include vendor('perspective', '1000px');
+
+					a {
+						@include vendor('transition', (
+							'background-color #{_duration(transition)} ease',
+							'box-shadow #{_duration(transition)} ease',
+							'color #{_duration(transition)} ease',
+							'transform 0.5s ease-in'
+						));
+
+						&.active {
+							@include vendor('transform', 'rotateY(480deg)');
+						}
+					}
+				}
+			}
+
+			&.spinX {
+				li {
+					@include vendor('perspective', '1000px');
+
+					a {
+						@include vendor('transition', (
+							'background-color #{_duration(transition)} ease',
+							'box-shadow #{_duration(transition)} ease',
+							'color #{_duration(transition)} ease',
+							'transform 0.5s ease-in'
+						));
+
+						&.active {
+							@include vendor('transform', 'rotateX(480deg)');
+						}
+					}
+				}
+			}
+		}
+	}

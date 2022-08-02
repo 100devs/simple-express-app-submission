@@ -1,0 +1,24 @@
+/* Wrapper */
+
+	#wrapper {
+		@include vendor('display', 'flex');
+		@include vendor('align-items', 'center');
+		@include vendor('flex-direction', 'column');
+		@include vendor('justify-content', 'center');
+		@include vendor('perspective', '1000px');
+		min-height: 100vh;
+		padding: (_size(element-margin) * 1.5);
+		width: 100%;
+
+		@include breakpoint('<=large') {
+			padding: (_size(element-margin) * 0.75);
+		}
+
+		@include breakpoint('<=medium') {
+			padding: _size(element-margin);
+		}
+
+		@include breakpoint('<=small') {
+			padding: (_size(element-margin) * 0.5);
+		}
+	}
