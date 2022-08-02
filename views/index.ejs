@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>shredstick</title>
+</head>
+
+<body>
+    <h1>shredstick</h1>
+    <a href="/login">Login</a>
+    <section class="forms">
+        <form action="/surfboards" method="POST" class="surfboards">
+            <input type="text" placeholder="model/name*" name="model" required>
+            <input type="text" placeholder="brand" name="brand">
+            <input type="text" placeholder="type" name="type">
+            <input type="number" step='0.01' placeholder="price" name="price">
+            <input type="text" placeholder="size" name="size">
+            <input type="number" step='0.01' max ='500' placeholder="volume" name="volume">
+            <select name="finType">
+                <option value="" disabled selected>Select fin type</option>
+                <option value="futures">Futures</option>
+                <option value="fcs">FCS</option>
+                <option value="fcs2">FCS2</option>
+                <option value="other">Other</option>
+            </select>
+            <select name="finBox">
+                <option value="" disabled selected>Select fin setup</option>
+                <option value="thruster">Thruster</option>
+                <option value="5-fin">5-Fin</option>
+                <option value="twin">Twin</option>
+                <option value="quad">Quad</option>
+                <option value="single">Single</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="text" placeholder="condition" name="condition">
+            <input type="text" placeholder="description" name="desc">
+            <button type="submit">submit</button>
+        </form>
+    </section>
+    <ul class="surfboards">
+        <!-- Loop through surfboards -->
+        <% for(var i=0; i < surfboards.length; i++) {%>
+            <li class="surfboard">
+                <span>
+                    <%= surfboards[i].brand %>
+                </span>
+                <span>
+                    <%= surfboards[i].model %>
+                </span>
+                <ul class="dims">
+                    <% if (surfboards[i].size) { %>
+                        <li>
+                            <%= surfboards[i].size%>
+                        </li>
+                    <% } %>
+
+                    <% if (surfboards[i].volume) { %>
+                        <li>
+                            <%= surfboards[i].volume + 'L'%>
+                        </li>
+                    <% } %>
+                    
+                    <% if (surfboards[i].type) { %>
+                    <li>
+                        <%= surfboards[i].type%>
+                    </li>
+                    <% } %>
+
+                    <% if (surfboards[i].price) { %>
+                    <li>
+                        <%= '$' + surfboards[i].price %>
+                    </li>
+                    <% } %>
+
+                    <% if (surfboards[i].finType || surfboards[i].finBox) { %>
+                    <li>
+                        <%= surfboards[i].finBox %> /
+                        <%= surfboards[i].finType %>
+                    </li>
+                    <% } %>
+
+                    <% if (surfboards[i].condition) { %>
+                    <li>
+                        <%= surfboards[i].condition%>
+                    </li>
+                    <% } %>
+                
+                    <% if (surfboards[i].desc) { %>
+                    <li>
+                        <%= surfboards[i].desc%>
+                    </li>
+                    <% } %>
+                </ul>
+                <button class="delete">
+                    Delete
+                </button>
+            </li>
+            <% } %>
+    </ul>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
