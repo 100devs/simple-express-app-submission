@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 
-MongoClient.connect('mongodb+srv://Mecharossman:Colphia!1@instbase.tmrqqa9.mongodb.net/?retryWrites=true&w=majority', { useUnifiedTopology: true })
+MongoClient.connect('mongodb+srv://{username}:{password}@instbase.tmrqqa9.mongodb.net/?retryWrites=true&w=majority', { useUnifiedTopology: true })
     .then(client => {
         console.log('Connected to Database')
         const db = client.db('instBase')
