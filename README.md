@@ -1,22 +1,19 @@
-#100Devs Simple Express App Submission
+# BMI-EXPRESS-APP
+Reworked the Simple BMI Calculator using Express
+<div style="text-align:center">
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+[![BMI Express APP](./images/BMI-Calculator.png)](https://bmi-express-app.herokuapp.com/)
 
-### How to submit your code for review:
+ </div>
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+## How It's Made:
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+**Tech used:** HTML, CSS, JavaScript, Node.js and Express
+
+This project was reworked using the express framework and hosted on Heroku
+
+
+## Use the Webapp
+
+You can access this webapp by clicking here: [BMI Calculator using Node.js and Express](https://bmi-express-app.herokuapp.com/) 
+

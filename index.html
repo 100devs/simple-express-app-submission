@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BMI Calculator - API Project</title>
+  <!-- external CSS link -->
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/reset.css">
+</head>
+
+<body>
+  <h1 class="title">BMI Calculator</h1>
+
+  <div class="calculatorBox">
+    <div class="radioButtons">
+      <label for="metric"><input type="radio" id="metric-button" name="bmi" value="metric" class="radio-buttons"
+          checked>METRIC</label>
+      <label for="standard"><input type="radio" id="standard-button" name="bmi" value="standard"
+          class="radio-buttons">STANDARD</label>
+    </div>
+
+
+    <div class="metric">
+      <label for="height">Height</label>
+      <input id="height-cms" type="number" class="labelInput" placeholder="Height in cms" onfocus="this.value=''" required>
+      <label for="Weight">Weight</label>
+      <input id="weight-kgs" type="number"  class="labelInput" placeholder="Weight in kgs" onfocus="this.value=''" required>
+    </div>
+
+    <div class="standard">
+      <label for="height">Height - Feet</label>
+      <input id="height-feet" type="number" class="labelInput" placeholder="Height in feet" onfocus="this.value=''" required>
+      <label for="height">Height - Inches</label>
+      <input id="height-inches" type="number" class="labelInput" placeholder="Height in inches" onfocus="this.value=''" required>
+      <label for="Weight">Weight</label>
+      <input id="weight-lbs" type="number" class="labelInput" placeholder="Weight in lbs" onfocus="this.value=''" required>
+    </div>
+
+
+    <div class="calculateButton">
+      <button class="reset">RESET</button> 
+    </div>
+
+    <div class="calculateButton">
+      <button id="calculate-BMI" type="button" name="button">CALCULATE MY BMI</button>
+    </div>
+
+    <div class="results">
+      <h3 id="BMI-VALUE"></h3>
+      <h3 id="BMI-CATEGORY"></h3>
+    </div>
+
+
+  </div>
+
+  <script type="text/javascript" src="/js/main.js"></script>
+</body>
+
+</html>
