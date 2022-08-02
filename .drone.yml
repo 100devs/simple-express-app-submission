@@ -1,0 +1,25 @@
+kind: pipeline
+type: kubernetes
+name: testing
+
+steps:
+- name: tests
+  image: node:latest
+  commands:
+  - npm install
+  - npm test
+
+- name: publish
+  image: plugins/kaniko
+  settings:
+    registry: trow-svc.trow.svc.cluster.local:8000
+    repo: trow-svc.trow.svc.cluster.local:8000/fso-node-express-3
+    tags: ${DRONE_COMMIT_SHA}
+    cache: true
+    skip_tls_verify: true
+    build_args:
+    - COMMIT_SHA=${DRONE_COMMIT_SHA}
+    username:
+      from_secret: docker-username
+    password:
+      from_secret: docker-password
