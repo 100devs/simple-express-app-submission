@@ -14,9 +14,9 @@
   - (1 to 5 no 3) I feel good about my code
   - Anything specific on which you want feedback!
 
-Example:
+discord: mikelearnstoprogram:
 ```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
+I completed the challenge: 3
+I feel good about my code: 3
+I've had several failed heroku builds and I'm having issues with event listeners talking to the databases, but I'm working on it
 ```
