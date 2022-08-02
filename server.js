@@ -13,7 +13,7 @@ let sanitizeHTML = require("sanitize-html")
 app.use(express.static('public'))
 
 async function go() {
-  let client = new MongoClient("mongodb+srv://todoAppUser:Taco9000@cluster0.gxxn3.mongodb.net/TodoApp?retryWrites=true&w=majority")
+  let client = new MongoClient("insert db connection string")
   await client.connect()
   db = client.db()
   app.listen(port)
