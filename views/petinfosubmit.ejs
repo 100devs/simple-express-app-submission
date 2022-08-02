@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activities Page</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- //google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,200;12..72,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #87A58B;">
+    <p class="logo navbar-brand">Paws for Health</p>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="addPetPage" href="/petspage">Pet Selection</a>
+        </li>
+        <li class="nav-item">
+          <a class="getmetrics" href="/getmetrics">View Graphs</a>
+        </li>
+        <li class="nav-item">
+          <a class="logout" href="/logout">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <header class="metricsCont">
+    <h2 class="petNameForPage">"Go back to pet selection and choose a pet</h2>
+    <section class="metricsSummaryCont">
+      <p>Use the form below to log your pet's daily activities. For activities without a concrete value (mood/appetite),
+        use a number from 0-10 to quantify your pet's activity, with 5 being your pet's baseline activity.</p>
+      <p>For stool consistency, please refer to the <a href="https://en.wikipedia.org/wiki/Bristol_stool_scale">Bristol
+          stool scale</a></p>
+      <p>The date is the only required field, all other activities are optional. You don't need to enter every activity.
+      </p>
+      <p>Relogging a duplicate day will overwrite the prior submission for that date</p>
+    </section>
+  </header>
+
+  <section class="metricsForm">
+    <form method="" type="text" action="">
+      <label>Date(required):</label>
+      <input type="date" required="true" id="date">
+      <section class="dailyFunctionCont">
+        <section>
+          <label>Weight(lbs): </label>
+          <input name="weight" type="number" id="weight">
+          <label>Mood(0-10): </label>
+          <input name="mood" type="number" id="mood">
+          <label>Appetite(0-10): </label>
+          <input name="appetite" type="number" max="10" id="appetite">
+          <label>Times vomited: </label>
+          <input name="vomit" type="number" id="vomit">
+        </section>
+        <section>
+          <label>Water intake(ml): </label>
+          <input name="water" type="number" id="water">
+          <label>Times pet passed urine: </label>
+          <input name="urine" type="number" id="urine">
+          <label>Times pet passed stool: </label>
+          <input name="stool" type="number" id="stool">
+          <label>Stool consistency(0-7): </label>
+          <input name="stoolConsistency" type="number" id="stoolConsistency">
+        </section>
+      </section>
+      <button class="submitBtn" type="submit">Submit</button>
+    </form>
+  </section>
+  <div class="loggedDatesCont">
+    <h2>Logged dates</h2>
+
+    <ul class="dateList">
+
+    </ul>
+  </div>
+  <script>
+    const form = document.querySelector('form')
+    const name = localStorage.getItem('currentPetName')
+    document.querySelector('.petNameForPage').innerText = `You're currently logging ${name}'s activities`
+    const date = document.querySelector('#date')
+    const weight = document.querySelector('#weight')
+    const appetite = document.querySelector('#appetite')
+    const mood = document.querySelector('#mood')
+    const water = document.querySelector('#water')
+    const urine = document.querySelector('#urine')
+    const stool = document.querySelector('#stool')
+    const stoolConsistency = document.querySelector('#stoolConsistency')
+    const vomit = document.querySelector('#vomit')
+    const display = document.querySelector('.error')
+    form.addEventListener('submit', async (e) => {
+      try {
+        const res = await fetch('/api/pets/petMetrics', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: name,
+            date: date.value,
+            weight: weight.value,
+            appetite: appetite.value,
+            mood: mood.value,
+            water: water.value,
+            urine: urine.value,
+            stool: stool.value,
+            stoolConsistency: stoolConsistency.value,
+            vomit: vomit.value
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        const data = await res.json()
+
+        if (res.status === 400 || res.status === 401) {
+          return display.textContent = `${data.message}. ${data.error ? data.error : ''}`
+        }
+      } catch (err) {
+        console.log(err.message)
+      }
+    })
+
+
+    const getLoggedDates = async () => {
+      const dateList = document.querySelector(".dateList")
+
+      try {
+        const res = await fetch(`/api/pets/getLoggedMetrics/${name}`)
+        const data = await res.json()
+        console.log(data)
+        if (!data) return
+        else {
+          const loggedDates = data.healthMetrics.map(pet => pet.date)
+          loggedDates.forEach((date) => {
+            let li = document.createElement("li")
+            let btn = document.createElement("button")
+            btn.classList.add("submitBtn")
+            li.appendChild(document.createTextNode(date))
+            btn.appendChild(document.createTextNode('Delete'))
+            btn.addEventListener('click', (e) => {
+              const date = e.target.parentNode.innerText.slice(0, -6);
+              deleteMetric(date)
+            })
+            li.appendChild(btn)
+            dateList.appendChild(li)
+          })
+        }
+      } catch (err) {
+        console.log(err.message)
+      }
+    }
+
+    async function deleteMetric(date) {
+      const name = localStorage.getItem('currentPetName')
+      try {
+        const res = await fetch('/api/pets/deleteMetric', {
+          method: 'POST',
+          body: JSON.stringify({
+            date: date,
+            name: name
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+      } catch (err) {
+        console.log(err.message)
+      }
+
+    }
+    getLoggedDates()
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+</body>
+
+</html>

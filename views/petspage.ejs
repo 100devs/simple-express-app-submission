@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Pet</title>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- //google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,200;12..72,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #87A58B;">
+    <p class="logo navbar-brand">Paws for Health</p>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="getmetrics" href="/getmetrics"> View Graphs</a>
+        </li>
+        <li class="nav-item">
+          <a class="logout" href="/logout">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="petSelectionContainer">
+    <h2>Choose one of your pets to log daily activities for: </h2>
+    <div class="petBtnContainer"></div>
+  </section>
+
+  <section class="containerHalf">
+    <section>
+      <h2>Add a new pet below!</h1>
+        <form>
+          <div class="error" style="background-color: red;"></div><br>
+          <label for="petName">Pet name</label><br>
+          <input type="text" id="petName" required /><br>
+          <label for="petSpecies">Pet species</label><br>
+          <input type="text" id="petSpecies" required /><br>
+          <label for="petAge">Pet age</label><br>
+          <input type="number" id="petAge" required /><br>
+          <input class="submitBtn" type="submit" value="Submit"><br>
+        </form>
+    </section>
+    <section>
+      <img class="sophiaImg" src="./images/Sophiaspiderplant.jpg" alt="cat posing with plants">
+    </section>
+  </section>
+
+  <script>
+    const form = document.querySelector('form')
+    const petName = document.querySelector('#petName')
+    const petSpecies = document.querySelector('#petSpecies')
+    const petAge = document.querySelector('#petAge')
+    const display = document.querySelector('.error')
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      display.textContent = ''
+      try {
+        const res = await fetch('/api/pets/addPet', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: petName.value,
+            age: petAge.value,
+            species: petSpecies.value.toLowerCase(),
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        const data = await res.json()
+        console.log(data)
+        if (res.status === 400 || res.status === 401) {
+          return display.textContent = `${data.message}. ${data.error ? data.error : ''}`
+        }
+        location.assign('/petspage')
+      } catch (err) {
+        console.log(err.message)
+      }
+    })
+
+
+
+    const getPets = async () => {
+      const btnContainer = document.querySelector(".petBtnContainer")
+      try {
+        const res = await fetch('/api/pets/getPets')
+        const data = await res.json()
+        console.log(data)
+        if (data.petNames.length == 0) {
+          btnContainer.innerText = "You currently don't have any pets logged! Please add a pet below."
+          return
+        } else {
+          data.petNames.map((mappedPet) => {
+            let btn = document.createElement("a")
+            btn.href = '/petinfosubmit'
+            btn.appendChild(document.createTextNode(mappedPet))
+            btn.addEventListener('click', (e) =>
+              localStorage.setItem('currentPetName', e.target.innerText))
+            btnContainer.appendChild(btn)
+          })
+        }
+      } catch (err) {
+        console.log(err.message)
+      }
+
+      Array.from(document.querySelectorAll(".petNameBtns")).forEach(button => {
+        console.log(button)
+        button.addEventListener('click', () => {
+          console.log('hi')
+          localStorage.setItem('currentPetName', this.innerText)
+          location.assign('/petinfosubmit')
+        })
+      })
+    }
+    getPets()
+  </script>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+ </script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+ </script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+ </script>
+</body>
+
+</html>
