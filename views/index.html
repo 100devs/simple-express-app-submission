@@ -28,26 +28,40 @@
     </nav>
     <div id="cssmenu">
         <ul>
-            <li><a href="https://www.ninjanordbo.dev/">Portfolio</a></li>
-      <!--       <li><a href="#">App</a></li>
-            <li><a href="#">App</a></li> -->
-            <li><a href="mailto:n.nordbo@gmail.com">Kontakt</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">App</a></li>
+            <li><a href="#">App</a></li>
+            <li><a href="#">Kontakt</a></li>
         </ul>
     </div>
-  
+    <script>
+        function toggleCssMenu(icon) {
+            var cssmenu = document.getElementById('cssmenu');
+            if (icon.className.indexOf('active') == -1) {
+                icon.className = 'menu-icon active';
+                cssmenu.style.display = "block";
+                setTimeout(function(){cssmenu.className = 'active';},0);            
+            }
+            else {
+                icon.className = 'menu-icon';
+                cssmenu.className = '';
+                setTimeout(function(){cssmenu.style.display = "none";},411); 
+            }
+        }
+    </script>
     <!--end CssMenu-->
     <header>
         <h1>ORDTAK</h1> 
-       
     </header>
     <main>
         <section class="hero">
             <div class="glass-container" id="glass"">
                 <div class="hero-items">
-               <% let random = ordtak[Math.floor(Math.random()* ordtak.length)]%>
-                <p><%= JSON.stringify(random.ordtak) %></p>                     
+                    <p>"Mot dumskap kjemper selv gudene forgjeves."</p>
                 </div>
-               <button id="nesteOrdtak" onClick="refreshPage()">NESTE</button>
+                <div class="hero-items">
+                    <button id="update-button" class="buttenStyle">NESTE</button>
+                </div>
             </div>
             
     </section>  
@@ -55,6 +69,7 @@
     <div class="addNewHeader">
         <div>
             <h2>Har du et ordtak?</h2>
+            
         </div>
         
     </div>
@@ -62,13 +77,15 @@
             <form action="/ordtak" method="POST">
                 <input id="textArea" type="text" placeholder="Skriv ordtaket her" name="ordtak">
                 <div class="submitNew">
-                    <button class="buttenStyle" type="submit">LEGG TIL</button>
+                    <button  class="buttenStyle type="submit>LEGG TIL</button>
+                    
                 </div>
             </form>
         </section>
     </main>   
     <div class="madeBy">
         <span>© Nina Nordbø 2022</span>
+    </div>
     <footer>
               <div class="socialLinks">
                 <li><a href="https://www.linkedin.com/in/ninanordbo/" alt="linkedin"><i class="fa-brands fa-linkedin"></i></a></li>
@@ -76,8 +93,6 @@
                 <li><a href="https://github.com/ninjanordbo" alt="linkedin"><i class="fa-brands fa-github-square"></i></a></li>
                 <li><a href="mailto:n.nordbo@gmail.com" alt="mail"><i class="fa-solid fa-envelope-open"></i></a></li>
     </footer> 
-    <script src="/js/main.js"></script>
-
-  
+      <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
