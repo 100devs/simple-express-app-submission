@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Villager Quotes API</title>
+     <link rel="stylesheet" href="/style.css"/>
+</head>
+
+<body>
+     <h1 data-position="header">Animal Crossing: Villager Quotes</h1>
+     
+     <section data-position="add-quote">
+          <h2>Add Quote</h2>
+          <img src="https://vignette.wikia.nocookie.net/animalcrossing/images/7/72/Fauna.png/revision/latest?cb=20161008150856" width="100" height="100" alt="">
+          <form action="/quotes" method="POST">
+               <input type="text" placeholder="name" name="name">
+               <input type="text" placeholder="quote" name="quote">
+               <button type="submit">Submit</button>
+        </form>
+     </section>
+
+     <section data-position="update-quote">
+     <div>
+          <h2>Tom Nook invades!</h2>
+          <p>Replace the first Isabelle quote with a quote written by Tom Nook.</p>
+          <button id="update-button">Replace Isabelle's quote</button>
+     </div>
+     </section>
+
+     <section data-position="delete-quote">
+          <div>
+               <h2>Remove Tom Nook!</h2>
+               <p>Delete one Tom Nook quote. Does nothing if there are no more Tom Nook quote.</p>
+               <button id="delete-button">Delete Tom Nook's quote</button>
+               <div id="message"></div>
+          </div>
+     </section>
+
+     <section data-position="quotes">
+          <h2>Quotes</h2>
+          <ul class="quotes">
+            <!-- Loop through quotes -->
+            <% for(var i = 0; i < quotes.length; i++) {%>
+              <li class="quote">
+                <!-- Output name from the iterated quote object -->
+                <span><%= quotes[i].name %></span>:
+                <!-- Output quote from the iterated quote object -->
+                <span><%= quotes[i].quote %></span>
+              </li>
+            <% } %>
+          </ul>
+     </section>
+
+     <script src="/main.js"></script>   
+</body>
+</html>
