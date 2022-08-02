@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Artist Rankings</title>
+</head>
+<body class="bg-gradient-to-r from-green-400 to-blue-500 font-serif">
+    <div class="intro-container p-2 m-4 text-3xl rounded bg-orange-100 min-w-max">
+        <h1 class="text-6xl">Artist Rankings</h1>
+    </div>
+    <div class="input-container text-slate-50 flex-auto bg-opacity-25 rounded-lg bg-lime-900 w-1/4 ml-4 p-2 min-w-max">
+        <h2>Have a new artist?</h2>
+        <form action="/addArtist" method="POST">
+            <input class="border-2 text-black rounded-lg border-green-700/50" type="text" name="stageName" placeholder="Stage Name">
+            <input class="border-2 text-black rounded-lg border-green-700/50" type="text" name="genre" placeholder="Genre">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="res-box ">
+        <ul class="artists rounded-lg  m-4">
+            <% for(let i = 0; i < info.length; i++) {%>
+                <li class="artist rounded-lg bg-slate-600 mt-2 px-3 min-w-max max-w-max text-slate-100">
+                    <span><%= info[i].stageName %></span> -
+                    <span><%= info[i].genre %></span>
+                    <span><%= info[i].likes %></span>
+                    <span class="fa fa-thumbs-up cursor-pointer">👍</span>
+                    <span class="fa fa-trash cursor-pointer">🗑️</span>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
