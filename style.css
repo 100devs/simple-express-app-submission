@@ -1,0 +1,68 @@
+body {
+    background: #ccc;
+}
+  
+[data-tab-info] {
+    display: none;
+}
+  
+.active[data-tab-info] {
+    display: block;
+}
+  
+.tab-content {
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: black;
+}
+  
+.tabs {
+    font-size: 40px;
+    color: lightgrey;
+    display: flex;
+    margin: 0;
+}
+  
+.tabs span {
+    background: grey;
+    padding: 10px;
+    border: 1px solid rgb(255, 255, 255);
+}
+  
+.tabs span:hover {
+    background: green;
+    cursor: pointer;
+    color: black;
+}
+
+input {
+    padding: 10px 0;
+}
+
+input[type=radio] {
+    border: 6px black solid;
+    height: 40px;
+}
+
+.subButton {
+    width: 80px;
+}
+
+label {
+    font-size: 20px;
+}
+
+table {
+    border: 4px black solid;
+}
+
+th {
+    border: 1px black solid;
+    font-size: 25px;
+}
+
+img {
+    height: 35px;
+    float: left;
+}

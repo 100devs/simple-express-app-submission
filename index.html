@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hybrid Instrumentation Inventory</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+  
+<body>
+    <h1> Hybrid Instrumentation Database</h1>
+    <div class="tabs">
+        <span data-tab-value="#tab_1">Search</span>
+        <span data-tab-value="#tab_2">Check-In</span>
+        <span data-tab-value="#tab_3">Check-Out</span>
+        <span data-tab-value="#tab_4">New Entry</span>
+    </div>
+  
+    <div class="tab-content">
+        <div class="tabs__tab active" id="tab_1" data-tab-info>
+            <h3>Search</h3>
+            <form action='/search' method='GET' id="searchType">
+                <input type="radio" value="devType" name="search" class="searchType">
+                <label for="devType">Device Type</label>
+                <input type="radio" value="calStick" name="search" class="searchType">
+                <label for="calStick">Calibration Sticker</label>
+                <input type="radio" value="location" name="search" class="searchType">
+                <label for="location">Current Location</label>
+            </form>
+            <form action="">
+                <input type="text" placeholder="Search"><br />
+                <input id='searchButton' type="button" value="Search" class="subButton">
+            </form>
+  
+        </div>
+        <div class="tabs__tab" id="tab_2" data-tab-info>
+            <h3>Check-In</h3>
+            <form action="">
+                <input type="text" placeholder="Cal Sticker Number"><br />
+                <input type="text" placeholder="Date"><br />
+                <input type="submit" value="Enter" class="subButton">
+            </form>
+  
+        </div>
+        <div class="tabs__tab" id="tab_3" data-tab-info>
+            <h3>Check-Out</h3>
+            <input type="text" placeholder="Cal Sticker Number"><br />
+            <input type="text" placeholder="Destination"><br />
+            <input type="text" placeholder="Sign-Out Date"><br />
+            <input type="submit" value="Enter" class="subButton">
+  
+        </div>
+        <div class="tabs__tab" id="tab_4" data-tab-info>
+            <h3>New Entry</h3>
+           <form action="/create" method="POST">
+                <label for="devType">Device Type</label><br />
+                <select name="DevType" id="devTypeInput">
+                    <option>Oscilloscope</option>
+                    <option>Differential Probe</option>
+                    <option>Current Transducer</option>
+                    <option>Current Probe</option>
+                    <option>MultiMeter</option>
+                    <option>Power Supply</option>
+                    <option>Waveform Generator</option>
+                    <option>Ohmmeter</option>
+                    <option>Power Analyzer</option>
+                    <option>Spectrum Analyzer</option>
+                    <option>Function Generator</option>
+                    <option>EMI Receiver</option>
+                    <option>Accelerometer Simulator</option>
+                    <option>Attenuator</option>
+                    <option>Pressure Gauge</option>
+                    <option>Refractometer</option>
+                    <option>HiPot</option>
+                    <option>Fiber Optic Monitor</option>
+                    <option>Probe Transmitter</option>
+                    <option>Compass</option>
+                    <option>Attenuator</option>
+                    <option>EMI Antenna</option>
+                    <option>Pressure Scanner</option>
+                    <option>LISN</option>
+                </select><br />
+                <input type="text" name="CalSticker" placeholder="Cal Sticker Number" id="calStickInput"><br />
+                <input type="text" name="Loc" placeholder="Destination" id="destinationInput"><br />
+                <input type="text" name="Date" placeholder="Date" id="dateInput"><br /> 
+                <input type="text" name="ModelNum" placeholder="Model #" id="modelInput"><br />
+                <input type="text" name="SerialNum" placeholder="Serial #" id="serialInput"><br />
+                <input type="submit" value="Enter" class="subButton" id="newEntrySubmit">
+                </form>
+        </div>
+    <script src="actions.js"></script>
+</body>
+  
+</html>
+
