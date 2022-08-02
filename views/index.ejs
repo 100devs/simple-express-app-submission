@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/38c1268363.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Book List</title>
+</head>
+<body>
+    <div class="content-wrapper">
+        <h1>Book Review</h1>
+        <h2>Book List</h2>
+        <ul>
+            <% for(let i=0; i < info.length; i++) { %>
+                <li class="books">
+                    <span class="book-content"><%= info[i].bookTitle %></span>
+                    <span class="book-content"><%= info[i].bookAuthor %></span>
+                    <span class="book-content"><%= info[i].bookRating %></span>
+                    <span class="book-likes"><%= info[i].likes %></span>
+                    <i class="fa-regular fa-thumbs-up"></i>
+                    <i class="fa-solid fa-trash-can"></i>
+                </li>
+            <% } %>
+        </ul>
+
+        <div class="book-entry">
+            <form action="/addBook" method="POST">
+                <input type="text" name="bookTitle" placeholder="Enter Book Title">
+                <input type="text" name="bookAuthor" placeholder="Enter Book Author">
+                <label for="rating-select"></label>
+                <select name="bookRating" id="rating-select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+                <input type="submit" value="Add to List">
+            </form>
+        </div>
+        <p>***use in landscape if on mobile***</p>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+</html>
