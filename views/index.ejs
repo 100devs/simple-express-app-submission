@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Run Tracker</title>
+    </head>
+
+    <body>
+        <h1>RUN TRACKER</h1>
+
+        <div class="container">
+            <div class="new-session">
+                <form action="/addSession" method="POST">
+
+                    <div class="session-form">
+                        <div>
+                            <h2>Add A Session:</h2>
+                        </div>
+                        <div>
+                            <label>Date:</label>
+                            <input name="date" type="date" required>
+                        </div>
+                        <div>
+                            <label>Start Time:</label>
+                            <input type="time" placeholder="07:00:00" name="startTime" required>
+                        </div>
+                        <div>
+                            <label>Run Time:</label>
+                            <input type="number" placeholder="Run Time" name="runTime" required>
+                        </div>
+                        <div>
+                            <label>Distance (kms):</label>
+                            <input type="number" step=".01" placeholder="Distance" name="distance" required>
+                        </div>
+                        <div>
+                            <label>Avg Heart Rate:</label>
+                            <input type="number" placeholder="Avg Heart Rate" name="heartRate" required>
+                        </div>
+                        <div>
+                            <label>Active Calories:</label>
+                            <input type="number" placeholder="Calories" name="calories" required>
+                        </div>
+                        <div>
+                            <label>Notes:</label>
+                            <input type="text" placeholder="Notes" name="notes">
+                        </div>
+                        <div>
+                            <label>Pains:</label>
+                            <input type="text" placeholder="Pains (ex. left knee)" name="pains">
+                        </div>
+
+                        <input class="submit" type="submit">
+                    </div>
+                </form>
+            </div>
+
+            <div class="data-table">
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>Run Time</th>
+                        <th>Distance</th>
+                        <th>Avg Heart Rate</th>
+                        <th>Calories</th>
+                        <th>Notes</th>
+                        <th>Pains</th>
+                        <th>Show</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
+                    </tr>
+                    <% for(let i=0; i < info.length; i++) {%>
+                        <tr class="session">
+                            <td>
+                                <%= info[i].date %>
+                            </td>
+                            <td>
+                                <%= info[i].startTime %>
+                            </td>
+                            <td>
+                                <%= info[i].runTime %>
+                            </td>
+                            <td>
+                                <%= info[i].distance %>
+                            </td>
+                            <td>
+                                <%= info[i].heartRate %>
+                            </td>
+                            <td>
+                                <%= info[i].calories %>
+                            </td>
+                            <td>
+                                <%= info[i].notes %>
+                            </td>
+                            <td>
+                                <%= info[i].pains %>
+                            </td>
+                            <td><input type="checkbox" checked></td>
+                            <td><span class="fa fa-trash"></span></td>
+                            <td><span class=" fa fa-pencil-alt"></span></td>
+                        </tr>
+                        <% } %>
+                </table>
+            </div>
+
+        </div>
+
+
+        <script src='js/main.js'></script>
+    </body>
+
+    </html>
