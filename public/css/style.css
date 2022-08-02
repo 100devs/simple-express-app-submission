@@ -1,0 +1,106 @@
+/* * {
+    border: 1px solid blue;
+} */
+body, input, button {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+h1{
+    color: rgb(255, 3, 200);
+}
+
+.deepFreezerSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 1.5rem auto;
+}
+
+.title {
+    width: 20vw;
+}
+
+.expiration {
+    width: 7vw;
+}
+
+.quantity {
+    margin: 0 .5rem;
+}
+
+.title, .expiration, .quantity {
+    font-weight: 500;
+}
+
+.fa-trash {
+    margin-left: 2rem;
+}
+
+input {
+    border: 1px solid rgb(255, 3, 200);
+    padding: .5rem;
+    border-radius: 9px;
+    margin-left: .5rem;
+    background-color: rgb(50, 50, 50);
+}
+
+input::placeholder {
+    color: rgb(196, 196, 196);
+}
+
+.submit {
+    background-color: rgb(255, 3, 200);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 3px 5px rgb(0 0 0 / 0.2);
+    margin-left: 1rem;
+}
+
+/* .wrapper {
+    display: grid;
+    grid-template-columns: 15em 5em 5em 5em;
+    gap: 10px;
+    grid-auto-rows: minmax(30px, auto);
+    width: 50%;
+    margin: 1rem auto;
+}
+
+.title {
+    grid-column: 1 / 4;
+    grid-row: 1;
+}
+
+.expiration {
+    grid-column: 2 / 4;
+    grid-row: 1;
+}
+
+.quantity {
+    grid-column: 3 / 4;
+    grid-row: 1;
+}
+
+.fa-trash {
+    grid-column: 4 / 4;
+    grid-row: 1;
+} */
+
+.fa-minus-circle, .fa-plus-circle, .fa-trash, .submit {
+    cursor: pointer;
+}
+
+.fa-minus-circle, .fa-plus-circle {
+    color: rgb(255, 3, 200);
+}
