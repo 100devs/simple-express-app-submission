@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foster App</title>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header>
+        <h1> Pets </h1>
+    </header>
+    <form action="/pets" method="POST">
+
+        <select name="petSelect" id="speciesSelect">
+            <option value="">--What species?--</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+        </select>
+        <input type="text" placeholder="Name" name="name">
+        <select name="petSex" id="sexSelect">
+            <option value="">--What sex?--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="unknown">Unknown</option>
+        </select>
+        <input type="text" placeholder="Age" name="age">
+        <label>
+            Pet's birthdate (if known):
+            <input type="date" placeholder="birthday" name="bday">
+          </label>
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul class="pets">
+        <!-- Loop through quotes -->
+        <% for(var i = 0; i < pets.length; i++) {%>
+            <li class="pet">
+            <!-- Output name from the iterated quote object -->
+            <span><%= pets[i].name %></span>:
+            <!-- Output quote from the iterated quote object -->
+            <span><%= pets[i].sex %></span>
+            <!-- Output quote from the iterated quote object -->
+            <span><%= pets[i].age %></span>
+            </li>
+        <% } %>
+    </ul>
+
+    <script type="text/javascript" src="/public/main.js"></script>
+</body>
+</html>
