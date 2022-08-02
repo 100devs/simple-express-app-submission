@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ND Hacks</title>
+</head>
+<body>
+    <h1>Neurodivergent Hacks</h1>
+    <p>Ideas and tricks that have helped other neurodivergent people. Add yours and vote for which ones help you!</p>
+    
+    <main>
+        <ul class="hacks">
+            <% for (let i = 0; i < hacks.length; i++) { %>
+                <li class="hack">
+                    <% hacks.text %>
+                    <!-- TODO how to add diagnoses here -->
+                    <!-- do i want to use a table? -->
+                    <button>This helped me!</button>
+                    <button>This is spam</button>
+                </li>
+            <% } %>
+        </ul>
+    </main>
+
+    <section>
+        <h2>Add a hack</h2>
+        <form action="/add-hack" method="POST">
+            <label> Your hack:
+                <input type="text" name="text">
+            </label>
+            <label> Your diagnosis(es):
+                <input type="text" name="diagnoses">
+            </label>
+            <input type="submit">
+        </form>
+    </section>
+
+</body>
+</html>
