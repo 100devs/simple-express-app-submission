@@ -145,6 +145,7 @@ a{
     }
 
     .aside{
+        flex-shrink: .5;
         flex-wrap: wrap;
     }
 }
