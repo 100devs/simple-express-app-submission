@@ -1,0 +1,8 @@
+heroku login -i
+heroku create simple-rap-api
+echo "web: node server.js" > Procfile
+git add . 
+git commit -m "changes"
+git push heroku main
+
+then go to heroku and add env variables

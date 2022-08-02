@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Recipe Generator</title>
+</head>
+<body>
+    <div class="titleContent">
+        <h1>Find Recipe by Cuisine</h1>
+        <p>Use this simple tool to find a random recipe using cusines you want and those that you don't wish to include in the search.</p>
+    </div>
+    <div class="container">
+        <form id="mainForm">
+            <h2 id="formTitle" class="formTitleInclude">Please select cuisine(s) that you would like to <span>include</span> in your search.</h2>
+            <section class="formContent"></section>
+            <input type="button" value="next" class="buttonOne" disabled />
+            <a id="resetButton" class="resetButtonDisabled">reset</a>
+        </form>
+    </div>
+
+    <div class="recipeContainer">
+        <div class="recipeTextContent">
+            <a href="" class="recipeTitle" target="_blank"></a>
+            <p class="recipeSummary"></p>
+        </div>
+        <div class="recipeImageContent">
+            <img class="recipeImage" src="" alt="" srcset="">
+        </div>
+    </div>
+
+
+    <script src="/main.js" type="text/javascript"></script>
+</body>
+</html>
