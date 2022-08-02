@@ -1,0 +1,22 @@
+.itemTitle{
+    font-weight: bolder;
+}
+
+.edit, .remove{
+    font-style: oblique;
+    background-color: white;
+    border: #966F33;
+    border-radius: 2%;
+    padding: 0.5em
+}
+
+.bricks {
+  background-color: white;
+  background-image: linear-gradient(335deg, #fae7c8 23px, transparent 23px),
+  linear-gradient(155deg, #fcefd9 23px, transparent 23px),
+  linear-gradient(335deg, #fae7c8 23px, transparent 23px),
+  linear-gradient(155deg, #fcefd9 23px, transparent 23px);
+  background-size: 58px 58px;
+  background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+  }
+  

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Bulletin Board</title>
+        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body class="bricks">
+        <h1>Write...</h1>
+        <section class="appPostFunctionality">
+            <form action="/" method="POST" class="listHeader">
+            <input type="text" name="title" value="Title">
+            <br>
+            <textarea rows="6" cols="45" name="content">Content</textarea>
+            <br>
+            <button type="submit">Submit</button>
+            </form>      
+        </section>
+        <section class="responseObjectContainer">
+            <h2>Message Board</h2>
+            <ul class="itemList">
+                <% itemsList.forEach( item => {%>
+                    <li class="itemsListItem">
+                        <div class="itemTitle">
+                            <%= item.title %>
+                        </div>
+                        <div class="itemContent">
+                            <%= item.content %>
+                        </div>
+                        <a href="/edit/<%= item._id%>" class="edit">Edit</a>
+                        <a href="/remove/<%= item._id%>" class="remove">Remove</a>
+                    </li> 
+                    <%} ) %> 
+            </ul>
+        </section>
+        
+        
+    </body>
+</html>
