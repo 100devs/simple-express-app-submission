@@ -1,0 +1,17 @@
+Practice and Repeat Speech by EmReedCodes
+
+https://github.com/EmReedCodes/TTS-3-app
+
+
+I completed the challenge: 5
+It was a lot but it was a great learning experience. 
+I feel good about my code: 4 
+It might not look impressive but seeing as it was my first ever full stack app it was quite difficult. Especially learning how to fetch through javascript client to send data to the server.
+
+-I had issues with flex box and for my demo had to hardcode it. When I add or delete from my list my repeat words section also moves.
+-I'd have liked to add ticks to my slider.
+-I would like to have added some kind of counter for example if they repeat a word 10 times already I'd have that word not so up as frequently.
+-Find a way for users to be able to test it out without having to sign up or use my db. Maybe I could put it all on local host and have it refresh every time its closed out. 
+
+
+Overall I mostly just wanted to teach/show myself I was on the right track with my 100 hours project and that I can make this work in a grander scale. 
