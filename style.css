@@ -1,0 +1,76 @@
+body {
+    background-color: black;
+    /* background: url('https://media.contentapi.ea.com/content/dam/apex-legends/images/2019/01/apex-screenshot-world-skulltown.jpg.adapt.crop16x9.818p.jpg') no-repeat; */
+    object-fit: contain;
+    color: white;
+    text-align: center;
+}
+
+.name {
+    margin-top: 50px;
+    font-size: 2.5rem;
+}
+
+main {
+    width: 900px;
+    margin: auto;
+}
+
+img {
+    display: block;
+    width: 80%;
+    height: 400px;
+    object-fit: contain;
+    margin: auto;
+}
+
+span.type {
+    display: block;
+    margin: 30px 0;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+main.hidden {
+    display: none;
+}
+.skills {
+    width: 90%;
+    margin: auto;
+}
+
+.skills h3 {
+    width: 100%;
+    margin-top: 40px;
+    font-size: 2rem;
+}
+
+.skills h4 {
+    font-size: 1.5rem;
+}
+
+.skillsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skillsContainer section {
+    width: 33%;
+    height: 250px;
+    border: 1px solid red;
+    border-radius: 20px;
+}
+
+.skillsContainer section {
+    margin-right: 10px;
+}
+
+.skillsContainer section:last-of-type {
+    margin-right: 0;
+}
+
+.skillsContainer p {
+    width: 90%;
+    margin: auto;
+    line-height: 20px;
+}
