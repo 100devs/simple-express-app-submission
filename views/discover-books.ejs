@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookly</title>
+
+    <link rel="icon" href="/images/book-solid.svg">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a2f02755e4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" />
+  </head>
+  <body>
+    <!-- Left Side Bar Section Display Area -->
+    <section class="sideBar">
+      <section class="hamburgerBtn">
+        <i class="fa-solid fa-bars"></i>
+      </section>
+      <!-- Profile Info (Picture, Name, Email) -->
+      <section class="profileArea">
+        <img
+          src="images/headshot copy.jpeg"
+          alt="profile picture"
+          class="profilePicture"
+        />
+        <section>
+          <p class="profileName">Daniel</p>
+          <p class="profileAddress">dan.jkim21@gmail.com</p>
+        </section>
+      </section>
+      <!-- Navigation Display Area -->
+      <nav class="navContent">
+        <ul class="navList">
+          <li class="navListItems active"><a href="/discover">Discover</a></li>
+          <li class="navListItems"><a href="/">Books</a></li>
+          <li class="navListItems"><a href="/completed">Completed</a></li>
+          <li class="navListItems"><a href="/favorites">Favorited</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- App Main Display Area -->
+    <main class="appDisplayArea">
+      <!-- Playlist Display Area -->
+      <section class="playlistInfoArea flexBox">
+        <!-- App Feature Title - Playlist Area -->
+        <h1 class="appTitle">Discover</h1>
+      </section>
+
+      <section class="bookRecommendationsArea">
+        <h2 class="sectionTitle">Most Popular in Fiction</h2>
+        <section class="bookResultsFiction"></section>
+      </section>
+
+      <section class="bookRecommendationsArea">
+        <h2 class="sectionTitle">Most Popular in Nonfiction</h2>
+        <section class="bookResultsNonfiction"></section>
+      </section>
+
+      <section class="bookRecommendationsArea">
+        <h2 class="sectionTitle">Most Popular in Advice, How-To, Miscellaneous</h2>
+        <section class="bookResultsAdvice"></section>
+      </section>
+    </main>
+
+    <script src="/js/discover.js"></script>
+  </body>
+</html>

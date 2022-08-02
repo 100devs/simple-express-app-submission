@@ -1,0 +1,570 @@
+/******************************************
+/* CSS
+/*******************************************/
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+/* General FlexBox Class Setup */
+.flexBox {
+  display: flex;
+}
+html {
+  font-family: 'open sans', Arial, Helvetica, sans-serif;
+}
+.sectionTitle {
+  color: #d4dbd5;
+  font-size: 1.25rem;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+/* ===== general layout styling ===== */
+body {
+  background-color: #668a6e;
+  color: white;
+}
+/* ===== sideBar Area styling ===== */
+.sideBar {
+  width: 25vw;
+  margin: 0;
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  /* border: 1px solid red; */
+}
+.profilePicture {
+  height: 95px;
+  width: 95px;
+  border-radius: 6px;
+}
+.profileName {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.profileAddress {
+  color: #bbc1bb;
+  margin-top: 0.5rem;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 97.5%;
+}
+.navList {
+  margin: 0;
+  padding: 3rem 0 0 0;
+}
+.navListItems {
+  display: block;
+  padding-bottom: 0.75rem;
+}
+.navListItems > a {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #bbc1bb;
+  text-decoration: none;
+  transition: all ease-in-out 100ms;
+}
+.navListItems.active > a {
+  color: white;
+}
+
+/* ===== appDisplayArea styling ===== */
+.appDisplayArea {
+  width: 75vw;
+  margin-left: 25vw;
+  padding: 3.5rem 6.5rem 2.5rem 5.5rem;
+  height: 100%;
+  /* border: 1px solid red; */
+}
+.playlistInfoArea {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.playlistDescription {
+  color: #d4dbd5;
+  width: 80%;
+}
+/* ===== stats section styling =====  */
+.statsSection {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 1rem;
+}
+.stats {
+  height: auto;
+  width: 185px;
+  padding: 1.35rem;
+  background-color: #7a9983ab;
+  border: 1px solid #7a9983ab;
+  border-radius: 4px;
+}
+.stats > .sectionTitle {
+  font-size: 1.05rem;
+  margin-top: 0;
+}
+.statsItem {
+  font-size: 1.85rem;
+  font-weight: 700;
+}
+.stats > .statsIcon {
+  font-size: 1.35rem;
+  padding-right: 5px;
+}
+
+.ActiveBookArea {
+  padding-top: 1rem;
+}
+.bookPlaylistArea {
+  padding-top: 2rem;
+}
+.bookItem {
+  width: 100%;
+  padding: 0 1rem;
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: 1px solid #bbc1bb; */
+  transition: all ease-in-out 85ms;
+}
+.bookCoverImage {
+  height: 50px;
+  min-width: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.bookInfo {
+  flex-grow: 2;
+  padding-left: 1rem;
+}
+.bookTitle {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+
+  width: 30vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bookAuthor {
+  color: #bbc1bb;
+  margin-top: 0.25rem;
+
+  width: 30vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/******************************************
+/* DISCOVER PAGE LAYOUT
+/*******************************************/
+/* ===== Discovery recommendations sections styling ===== */
+.bookRecommendationsArea {
+  height: 255px;
+  padding: 1.15rem;
+  margin-bottom: 5vh;
+  background-color: #7a9983ab;
+  border: 1px solid #7a9983ab;
+  border-radius: 4px;
+}
+.bookRecommendationsArea > .sectionTitle {
+  margin-top: 0;
+}
+.bookResultsFiction,
+.bookResultsNonfiction,
+.bookResultsAdvice {
+  height: 175px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.bookResultsFiction .bookCoverImage > img,
+.bookResultsNonfiction .bookCoverImage > img,
+.bookResultsAdvice .bookCoverImage > img {
+  height: 165px;
+  margin-right: 1rem;
+  border-radius: 2px;
+}
+.saveToPlaylistBtn,
+.addToPlaylistBtn {
+  padding-right: 1rem;
+  transition: all ease-in-out 75ms;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+/* Transitions & Animations */
+.navListItems > a:hover {
+  color: white;
+}
+.addBookBtn:hover,
+.editBookItemBtn:hover,
+.saveToPlaylistBtn:hover {
+  cursor: pointer;
+}
+.removeBookItemBtns:hover,
+.completeBookItem:hover,
+.modal__close:hover,
+.likeBookItemBtns:hover,
+.modalLikeBookItemBtns:hover,
+.hamburgerBtn:hover,
+.saveToPlaylistBtn:hover .addToPlaylistBtn,
+.purchaseLink:hover {
+  cursor: pointer;
+  color: #63da63dc;
+}
+.autocomplete-item:hover {
+  cursor: pointer;
+  background-color: #7a9983ab;
+}
+.editBookItemBtn:hover {
+  background-color: #ffffff;
+  color: #254129;
+}
+.bookItem:hover {
+  background-color: #7a9983ab;
+  border-radius: 2px;
+}
+.bookItem:hover .likeBookItemBtns {
+  visibility: visible;
+}
+
+/* Scroll bars */
+.bookResultsFiction::-webkit-scrollbar,
+.bookResultsNonfiction::-webkit-scrollbar,
+.bookResultsAdvice::-webkit-scrollbar,
+.bookDescription::-webkit-scrollbar {
+  height: 10px;
+  width: 8px;
+}
+.bookResultsFiction::-webkit-scrollbar-track,
+.bookResultsNonfiction::-webkit-scrollbar-track,
+.bookResultsAdvice::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.bookResultsFiction::-webkit-scrollbar-thumb,
+.bookResultsNonfiction::-webkit-scrollbar-thumb,
+.bookResultsAdvice::-webkit-scrollbar-thumb,
+.bookDescription::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #52585796;
+}
+
+/* Buttons */
+.addBookBtn {
+  background-color: #ffffff;
+  color: #254129;
+  font-weight: 600;
+  padding: 0.65rem 1.05rem;
+  border: none;
+  border-radius: 20px;
+}
+.editBookItemBtn {
+  background-color: #668a6e;
+  color: #ffffff;
+  font-size: 0.85rem;
+  padding: 0.35rem 1.55rem;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all ease-in-out 65ms;
+}
+.removeBookItemBtns,
+.completeBookItem,
+.saveToPlaylistBtn {
+  padding-left: 1rem;
+  transition: all ease-in-out 75ms;
+}
+.likeBookItemBtns,
+.modalLikeBookItemBtns {
+  padding-right: 1rem;
+  transition: all ease-in-out 75ms;
+
+  /* visibility: hidden; */
+}
+.hamburgerBtn {
+  font-size: 1.25rem;
+  display: none;
+  transition: all ease-in-out 75ms;
+}
+
+/* Popup Modals */
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper a {
+  display: inline-block;
+  text-decoration: none;
+}
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4d4d4d80;
+  transition: all 0.4s;
+}
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+.modal__content {
+  border-radius: 4px;
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+  height: 475px;
+  background: #6b8771;
+  /* padding: 1em 1em; */
+  z-index: 0;
+}
+.modal__close {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all ease-in-out 75ms;
+}
+/* Book info specific Modal */
+.editBookSummaryMain {
+  height: 125px;
+  padding: 1rem 1rem 0 1rem;
+  align-items: flex-start;
+  border-bottom: 1px solid #bbc1bbb6;
+}
+.editBookInfo {
+  padding-left: 1rem;
+}
+.editBookSummaryMain > .bookCoverImage {
+  height: 90px;
+  width: auto;
+  object-fit: initial;
+}
+.editBookSummaryMain .bookTitle {
+  margin-top: 0.55rem;
+  margin-bottom: 0.35rem;
+}
+.editBookSummaryMain .bookAuthor {
+  margin-bottom: 0.35rem;
+}
+.modalFavoriteBtn .likeBookItemBtns {
+  visibility: visible;
+  padding-right: 0.85rem;
+}
+.modalMoreBtns {
+  margin-top: 1.25rem;
+}
+.modalCompleteBtn {
+  padding-right: 0.55rem;
+}
+.modalCompleteBtn > i,
+.modalDeleteBtn > i,
+.saveToPlaylistBtn > i {
+  padding-right: 0.75rem;
+}
+.modal--subheader {
+  padding: 0 1rem;
+  margin-bottom: 0.35rem;
+}
+.bookPurchaseLinks {
+  padding: 0 1rem;
+}
+.purchaseLink {
+  display: block;
+  text-decoration: none;
+  margin: 7.5px 0;
+  padding-left: 5px;
+  color:#ffffff;
+  transition: all ease-in-out 75ms;
+}
+.bookDescription {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-height: 235px;
+  margin: 0 1rem;
+  overflow-y: auto;
+  border-radius: 4px;
+  /* background-color: #78967dc2; */
+}
+
+/* Autocomplete Suggestions Dropdown Modal */
+.modalTitle {
+  padding: 0 1rem;
+}
+.bookSearchInput {
+  width: 90%;
+  padding: 0.75rem 25px;
+  margin: 0 5%;
+  border: none;
+  border-radius: 4px;
+  z-index: 5;
+}
+.suggestionsContainer {
+  height: 265px;
+  width: 90%;
+  margin: 0 5%;
+  position: relative;
+  top: -25px;
+  overflow-y: auto;
+  border-radius: 0 0 4px 4px;
+  z-index: -1;
+}
+.suggestions {
+  margin: 0;
+  padding: 0.25rem 0;
+}
+.autocomplete-item {
+  color: white;
+  padding: 0.45rem 0;
+  display: block;
+  border-top: 1px solid #bbc1bb;
+}
+.itemTitle {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+  padding: 0 0.35rem;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 420px;
+}
+.itemAuthors {
+  color: #d4dbd5;
+  font-size: 0.85rem;
+  margin: 0 0;
+  padding: 0 0.35rem;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 420px;
+}
+
+/* Media Queries - Mobile Responsiveness */
+/* Med-Large size screens */
+@media screen and (max-width: 1000px) {
+  .appDisplayArea {
+    padding: 3.5rem 3.5rem 2.5rem 3.5rem;
+  }
+}
+/* Smaller screens - turn side bar into hamburger btn */
+@media screen and (max-width: 855px) {
+  .appDisplayArea {
+    width: 92.5vw;
+    margin-left: 7.5vw;
+  }
+  .sideBar {
+    width: 7.5vw;
+    padding: 0;
+  }
+  .hamburgerBtn {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 0.5rem 0.5rem;
+  }
+  .profileArea,
+  .navContent {
+    visibility: hidden;
+  }
+  .bookTitle,
+  .bookAuthor {
+    width: 50vw;
+  }
+}
+/* Smaller screens - turn side bar into hamburger btn */
+@media screen and (max-width: 665px) {
+  .appDisplayArea {
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  .sideBar {
+    width: 35px;
+    padding: 0;
+  }
+  .hamburgerBtn {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    padding: 0.25rem 0.25rem;
+  }
+  .appDisplayArea {
+    width: 100vw;
+    margin-left: 0;
+    padding: 2.5rem 1.25rem 1.5rem 1.25rem;
+  }
+  .playlistDescription {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 475px) {
+  .bookTitle.condenseText,
+  .bookAuthor.condenseText {
+    width: 47.5vw;
+  }
+  .bookCoverImage {
+    height: 37.5px;
+    min-width: 37.5px;
+  }
+  .bookItem {
+    padding: 0 0;
+  }
+}
+/* Fixes addbookBTN overflow */
+@media screen and (max-width: 395px) {
+  .bookTitle.condenseText,
+  .bookAuthor.condenseText {
+    width: 45.5vw;
+  }
+  .playlistInfoArea {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+  .addBookBtn {
+    width: 75%;
+  }
+}
+
+/* General Hidden Class Setup */
+.hidden {
+  display: none;
+}
+/* General Visibile Class Setup */
+.visible {
+  visibility: visible;
+}
+.invisible {
+  visibility: hidden;
+}
+/* General HamburgerBtn Toggle Class Open Setup */
+.open {
+  width: 100vw;
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  background-color: #668a6e;
+}
