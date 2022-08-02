@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="A simple app that randomly selects an activity from a user-made list to do for the day.">
+    	<meta name="keywords" content="Schedule, random, dopamine">
+
+		<title>Simple Random Scheduler</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<header>
+      <h1>Activity Scheduler</h1>
+    </header>
+    <section class="main">
+      <form action="/listItems" method="POST">
+        <input type="text" name="user" placeholder="User Name"> 
+        <input type="submit">
+      </form>
+      <h2>Remaining:</h2>
+      <ul class="user-info">
+        <li> Name: <%= user.user%></li>
+        <li> Days: <%= user.remainingDays %></li>
+        <li> Remaining items: <% for(let i = 0; i < user.remainingOptions.length; i++ ) {%>
+            <span><% user.remainingOptions[i] %></span>
+          <%} %></li>
+      </ul>
+    </section>
+
+		<footer></footer>
+
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

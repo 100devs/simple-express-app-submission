@@ -1,0 +1,21 @@
+{
+  "name": "scheduleapp",
+  "version": "1.0.0",
+  "description": "Determines what category of day you will have.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "Ryan Lowe",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^4.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.3.3"
+  }
+}
