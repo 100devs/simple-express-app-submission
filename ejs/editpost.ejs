@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Edit Post</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tapestry&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/public/reset.css">
+    <link rel="stylesheet" href="/public/general.css">
+    <link rel="stylesheet" href="/public/nav.css">
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="/public/comment.css">
+    <link rel="stylesheet" href="/public/post.css">
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    <h1 class="editpost_header">Edit post</h1> 
+    <form id="editpost_form01" class="editpost_form" data-postid=<%= PostID %>>
+        <div class="form-control-1">
+            <label for="title_edit" class="editpost_title">Title:</label>
+            <input type="text" name="title_edit" value = "<%= title %>">
+        </div>
+        <div class="form-control-2">
+            <label for="subtitle_edit" class="editpost_subtitle">Subtitle:</label>
+            <input type="text" name="subtitle_edit" value= "<%= subtitle %>">
+        </div>
+        <div class="form-control-3">
+            <label for="mainbody_edit" class="editpost_mainbody">Main Body</label>
+            <textarea name="mainbody_edit"><%= mainbody %></textarea>
+        </div>
+        <div class="form-control-4">
+            <label for="conclusion_edit" class="editpost_conclusion">Conclusion</label>
+            <input type="text" name="conclusion_edit" value="<%= conclusion %>">
+        </div>
+        <div class="form-control-5">
+            <input class="editpost_submit" type="submit">
+        </div>
+    </form>
+
+
+    <div class="post">
+        <h1 class="post__title"><%= title %></h1>
+        <h2 class="post__subtitle"><%= subtitle %></h2>
+        <main class="post__mainbody">
+            <%= mainbody %>
+        </main>
+        <aside class="post__conclusion">
+            <%= conclusion %>
+        </aside>
+    </div>
+    <script src="/public/ejs.min.js"></script>
+    <script src="/public/editpostscript.js"></script>
+</body>
+</html>

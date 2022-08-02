@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Post title</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tapestry&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/public/reset.css">
+    <link rel="stylesheet" href="/public/general.css">
+    <link rel="stylesheet" href="/public/nav.css">
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="/public/comment.css">
+    <link rel="stylesheet" href="/public/post.css">
+</head>
+<body>
+    <%- include('partials/header.ejs') %> 
+    
+        <div class="post">
+            <h1 class="post__title"><%= title %></h1>
+            <h2 class="post__subtitle"><%= subtitle %></h2>
+            <main class="post__mainbody">
+                <%= mainbody %>
+            </main>
+            <aside class="post__conclusion">
+                <%= conclusion %>
+            </aside>
+            <a class="editpost_link" href="/editpost/<%= PostID %>"><span class="edit_emoji">&#9997;</span>Edit Post</a>
+            <a class="deletepost_link" href="/deletepost/<%= PostID %>"><span class="delete_emoji">&#128465;</span>Delete Post</a>
+        </div>
+
+    <aside class="comment_box">
+        <h1>Leave a Reply</h1>
+        <p class="mewo">
+            Limit 2500 characters per comment.
+            Your email address will not be published. Required fields are marked *</p>
+        <form id="newcomment_form" autocomplete="off" data-postid=<%= PostID %>>
+            <div class="form-control-1 newcomment">
+                <label for="newcomment" class="newcomment_label">Comment*</label>
+                <textarea rows="10" cols="200" name="newcomment" class="newcomment" maxlength="2500" required></textarea>
+            </div>
+            <div class="form-control-2 newcomment">
+                <label for="newcomment_name" class="newcomment_name">Name*</label>
+                <input type="text" name="newcomment_name" class="newcomment_nameinput" required>
+            </div>
+            <div class="form-control-3 newcomment">
+                <label for="newcomment_email" class="newcomment_email">Email*</label>
+                <input type="text" name="newcomment_email" class="newcomment_emailinput" required>
+            </div>
+            <div class="form-control-4 newcomment">
+                <label for="newcomment_website" class="newcomment_website">Website</label>
+                <input type="text" name="newcomment_website" class="newcomment_websiteinput">
+            </div>
+            <div class="form-control-5 newcomment">
+                <input type="submit">
+            </div>
+            
+        </form>
+    </aside>
+    <h1>Comments:</h1>
+    <div class="comment__grid">
+        <% comments.forEach( function(comment)  { %>
+            <%- include ('./partials/comment.ejs', comment) %>
+        <% }) %>
+        <!--
+        <div class="comment">
+            <p class="comment__innertext">
+                This is a sample comment
+            </p>
+            <p class="comment__author">Left by <span id="author_id0001">192.168.1.254</span></p>
+            <p class="comment__likes">Likes: <span id="likes_id0001">1</span></p>
+            <p class="comment__dislikes">Dislikes: <span id="dislikes_id0001">0</span></p>
+        </div>
+        -->
+    </div>
+    <script src="/public/ejs.min.js"></script>
+    <script src="/public/postscript.js"></script>
+</body>
+</html>

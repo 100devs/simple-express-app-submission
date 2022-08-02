@@ -1,0 +1,11 @@
+
+:root {
+    --primary-color: #DD614A; /* Fire opal */
+    --secondary-color: #F48668; /* middle red */
+    --third-color: #F4A698; /* Vivid tangerine */
+    --fourth-color: #C5C392; /* Sage */
+    --fifth-color: #73A580; /* Shiny Shamrock */
+}
+html {
+    font-family: 'Roboto', 'comic sans', sans-serif;
+}

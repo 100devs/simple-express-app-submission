@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Scheme used </title><link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/general.css">
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/comment.css">
+    <link rel="stylesheet" href="/post.css">
+    <style>
+        .boxgrid {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .box1,.box2,.box3,.box4,.box5 {
+            width: 100px;
+            height: 100px;
+            flex: 1 200px;
+        }
+        @media screen and (min-width: 800px) {
+            .box2 {
+                flex: 3 0px;
+            }
+        }
+        .box1 {background-color: var(--primary-color);}
+        .box2 {background-color: var(--secondary-color);}
+        .box3 {background-color: var(--third-color);}
+        .box4 {background-color: var(--fourth-color);}
+        .box5 {background-color: var(--fifth-color);}
+    </style>
+</head>
+<body>
+    <div class="boxgrid">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+USE MyPosts;
+ALTER TABLE Posts
+    ADD DateAdded DATETIME DEFAULT CURRENT_TIMESTAMP, # Available as of MySQL 5.6.5
+	ADD DateModified DATETIME ON UPDATE CURRENT_TIMESTAMP # Available as of MySQL 5.6.5
