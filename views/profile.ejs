@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  	<meta charset="utf-8">
+  	<meta name="description" content="Your description goes here">
+  	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://kit.fontawesome.com/a0dee5f62e.js" crossorigin="anonymous"></script>
+		<title>The Plant Spot: Profile</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/reset.css">
+	</head>
+	<body>
+		<header>
+			<ul class="flex headerNav">
+				<li><a href="index.html"><i class = "fa-solid fa-house"></i></a></li>
+				<li><a href="popular_following_posts.ejs"><i class="fa-brands fa-pagelines"></i></a></li>
+				<li><a href="index.html#about"><i class="fa-solid fa-circle-question"></i></a></li>
+				<li><a href="/profile.ejs"><i class="fa-solid fa-user"></i></a></li>
+			</ul> 
+		</header>
+		<main class = 'grid profileHeader'>
+			<img id = "profileImg" src="/css/images/cloverWhite.JPEG" alt="Profile Image"> 
+			<h3>@<%= users[0].username %></h3>
+			<span><%= users[0].name %></span>
+			<p><%= users[0].bio %></p>
+			<section class="flex profileButtons">
+				<button>Create Post</button>
+				<button class = logout>Log Out</button>
+			</section>
+		</main>
+		<section class="userProfilePosts grid">
+			<img src ="#">
+		</section>
+		<section class="makePost">
+			<form>
+
+			</form>
+		</section>
+		<!-- <form action = "/plants" method = "POST">
+			<input type = "text" placeholder = "name" name = "name">
+			<input type = "text" placeholder="plant" name="plant">
+			<button type="submit">Submit</button>
+		</form>
+        <h2>Plants</h2>
+        <ul class = "plantList">
+            <% for(var i = 0; i < users.length; i++) {%>
+            <li class = "users">
+				<span><%= users[i].username %></span>
+                <span><%= users[i].name %></span>
+                <span><%= users[i].bio %></span>
+            </li>
+            <% } %>
+        </ul>
+        <section> -->
+            <!-- <h3>Update Plants</h3>
+            <p>Replace most recent plant</p>
+            <button id = "update-button">Replace Plant</button>
+        </section>
+		<section>
+			<h3>Remove Plant</h3>
+			<p>Delete Vader plants</p>
+			<button id = "delete-button">Delete</button>
+			<p id = "message"></p>
+		</section> -->
+		<script type="text/javascript" src="/main.js"></script>
+	</body>
+</html>

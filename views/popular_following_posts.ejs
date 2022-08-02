@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  	<meta charset="utf-8">
+  	<meta name="description" content="Your description goes here">
+  	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://kit.fontawesome.com/a0dee5f62e.js" crossorigin="anonymous"></script>
+		<title>Blank Template</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/reset.css">
+	</head>
+	<body>
+		<h1>This is my first app using express</h1>
+		<form action = "/plants" method = "POST">
+			<input type = "text" placeholder = "name" name = "name">
+			<input type = "text" placeholder="plant" name="plant">
+			<button type="submit">Submit</button>
+		</form>
+        <h2>Plants</h2>
+        <ul class = "plantList">
+            <% for(var i = 0; i < plants.length; i++) {%>
+            <li class = "plants">
+                <span><%= plants[i].name %></span>
+                <span><%= plants[i].plant %></span>
+            </li>
+            <% } %>
+        </ul>
+        <section>
+            <h3>Update Plants</h3>
+            <p>Replace most recent plant</p>
+            <button id = "update-button">Replace Plant</button>
+        </section>
+		<section>
+			<h3>Remove Plant</h3>
+			<p>Delete Vader plants</p>
+			<button id = "delete-button">Delete</button>
+			<p id = "message"></p>
+		</section>
+		<script type="text/javascript" src="/main.js"></script>
+	</body>
+</html>

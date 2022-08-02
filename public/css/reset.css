@@ -1,0 +1,387 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	Post Reset CSS
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*/
+
+/* Box Model Hack */
+* {
+	box-sizing: border-box;
+}
+  
+  /* Clear fix hack */
+  .clearfix:after {
+	   content: ".";
+	   display: block;
+	   clear: both;
+	   visibility: hidden;
+	   line-height: 0;
+	   height: 0;
+}
+  
+  .clear {
+	  clear: both;
+}
+body {
+	background: #fdeeecff;
+	margin: 2% 10%;
+}
+html {
+	font-size: 62.5%;
+	font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	color: #254134ff;
+	font-weight: 300;
+	letter-spacing: 2px;
+}
+.flex{
+	display: flex;
+}
+.grid{
+	display: grid;
+}
+img {
+	width: 100%;
+}
+a:link,
+a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+
+
+/* CSS HEX 
+--dark-sienna: #220901ff;
+--red-ryb: #ed3f1dff;
+--lavender-blush: #fdeeecff;
+--laurel-green: #c9d1b3ff;
+--msu-green: #254134ff;
+*/
+
+
+/* ---------- Main CSS -------- */ 
+
+h1, h2, h3,
+h4, h5, h6 {
+	text-transform: uppercase;
+	color: #220901ff;
+	border-bottom: 2px solid;
+	font-size: 4.5rem;
+}
+p {
+	padding: 2%;
+	font-size: 2rem;
+	border: 2px solid;
+	margin: 2% 0;
+	background: #c9d1b3ff;
+}
+
+button {
+	color: #ed3f1dff;
+	font-size: 2rem;
+	text-align: center;
+	padding: 1%;
+	border: solid 2px;
+	border-radius: 5%;
+	background: #ed3f1d20;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+button:hover {
+	background: #ed3f1d50;
+}
+
+form {
+	border: solid 2px;
+	margin: 2% 0;
+	padding: 2%;
+	background: #c9d1b3ff;
+}
+input,
+textarea {
+	font-family: inherit;
+	font-size: 1.5rem;
+	color: #254134ff;
+	background: #25413420;
+	width: 100%;
+	border: 1px solid;
+	padding: 1%;
+	margin: 1% 0;
+}
+label {
+	font-size: 2rem;
+}
+
+.hidden {
+	display: none;
+}
+/* ---------- Header -------- */
+header ul {
+	width: 100%;
+	justify-content: space-between;
+	font-size: 2.25rem;
+	padding: 0 0 2% 70%;
+	border-bottom: 2px solid;
+}
+
+/* ---------- Main Section -------- */
+main{
+	flex-flow: row wrap;
+	justify-content: space-between;
+	justify-items: center;
+}
+main h1{
+	font-size: 7rem;
+	padding: 5% 0 2% 0;
+	width: 70%;
+}
+main span {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	padding: 2% 0;
+	width: 70%;
+	color: #ed3f1dff;
+}
+
+
+/* ---------- Sample Profile Section -------- */
+.profilePreview{
+	flex-flow: row wrap;
+	align-items: flex-start;
+	justify-items: stretch;
+	justify-content: space-between;
+}
+.sampleProfile {
+	width: 59%;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	background: #c9d1b3ff;
+	border: 2px solid;
+	padding: 2%;
+}
+.sampleProfileHeader{
+	justify-content: center;
+	grid-template-columns: 40% 60%;
+	grid-template-rows: minmax(50spx, auto);
+	padding: 0 0 2% 0;
+}
+.profileImg{
+	border-radius: 50%;
+	width: 70%;
+	margin: 5% 20%;
+	border: 3px solid;
+	filter: saturate(75%);
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+.sampleProfileHeader span {
+	font-size: 2rem;
+	font-weight: 400;
+	align-self: flex-end;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	padding: 2% 0;
+}
+.sampleProfileHeader p {
+	font-size: 1.8rem;
+	letter-spacing: 2px;
+	border: none;
+	align-self: flex-start;
+	grid-column-start: 2;
+	grid-column-end: 3;
+}
+.sampleProfile > img {
+	width: 33.33%;
+	filter: saturate(90%);
+}
+.signUpButtons {
+	flex-flow: column;
+	width: 39%;
+	align-items: center;
+	justify-items: center;
+	justify-content: stretch;
+}
+.signUpButtons > p {
+	width: 100%;
+	margin: 0 0 2% 0;
+	padding: 2% 2% 20% 2%;
+}
+.signUpButtons a {
+	width: 100%;
+	color: #ed3f1d;
+	background: #ed3f1d20;
+	border: 2px solid;
+	font-size: 2rem;
+	margin: 2% 0;
+	padding: 10% 0;
+	text-transform: uppercase;
+	text-align: center;
+}
+.signUpButtons img {
+	padding: 5%;
+	line-height: 150%;
+}
+.signUpButtons a:hover {
+	background: #ed3f1d30;
+}
+
+
+/* ---------- About Section -------- */
+article {
+	padding: 2% 0;
+}
+article h4 {
+	width: 100%;
+	text-align: right;
+	padding: 2% 0;
+	margin: 0 0 5% 0;
+}
+article p {
+	padding: 2%;
+	font-size: 2rem;
+	border: 2px solid;
+	margin: 2% 0;
+	background: #c9d1b3ff;
+}
+article h4:nth-of-type(2){
+	text-align: left;
+	width: 70%;
+	margin: 0 30% 0 0; 
+}
+
+
+
+.trendingPosts {
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+.trendingPosts h5 {
+	padding: 2%;
+	text-align: center;
+	width: 100%;
+	margin: 3% 0;
+	font-size: 6rem;
+}
+.trendingPosts p {
+	width: 29%;
+	margin: 0;
+	
+}
+.trendingPosts section {
+	width: 100%;
+	justify-content: space-between;
+
+}
+.trendingPosts img {
+	width: 69%;
+	filter: saturate(150%);
+}
+
+
+/* ------ Profile CSS -----*/
+
+#profileImg {
+	width: 70%;
+	border-radius: 50%;
+	border: solid 5px #254134ff;
+	margin: 5%;
+}
+.profileHeader {
+	grid-template-columns: 30% 70%;
+	grid-template-rows: minmax(50px, auto);
+}
+.profileHeader img {
+	grid-column-start: 1;
+	grid-column-end: 1;
+	grid-row-start: 1;
+	grid-row-end: 5;
+}
+
+/* ------ Sign-In Page CSS -----*/
+.login,
+.createAccount {
+	padding: 2% 0;
+	margin: 5% 0;
+	flex-flow: row wrap;
+}
+.login h1, 
+.createAccount h1 {
+	width: 100%;
+	font-size: 3rem;
+	text-align: center;
+	padding: 1%;
+	border: none;
+}
+.login form,
+.createAccount form {
+	width: 70%;
+	margin: 5% 15%;
+}
+.login form button,
+.createAccount form button {
+	width: 30%;
+	margin: 2% 35%;
+	color: #254134ff;
+	border: solid 2px;
+	background-color: #25413420; 
+}
+.login p,
+.createAccount p {
+	background: none;
+	border: none;
+	width: 100%;
+	text-align: center;
+}
+.createAccount textarea {
+	width: 100%;
+}
