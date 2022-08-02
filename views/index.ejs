@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Too Dope Todo </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <section class="todo-container">
+        <h2>To Do List</h2>
+        <section class="todo">
+            <form action="/" method="POST" class="todo-header">
+                <input type="text" name="title" value="title">
+                <textarea name="content" id="" cols="30" rows="10">content</textarea>
+                <button type="submit"><span class="fas fa-plus"></span> Add Item</button>
+            </form>
+            <ul class="todo-list">
+                <% todoTasks.forEach(data => {%>
+                    <li class="todo-list-item">
+                        <div class="todo-list-item-title">
+                            <%= data.title %>
+                        </div>
+                        <div class="todo-list-item-content">
+                            <%= data.content %>
+                        </div>
+                        <a href="/edit/<%=data._id %>" class="edit"><span class="fas fa-edit"></span></a>
+                        <a href="/remove/<%=data._id %>" class="remove"><span class="fas fa-times"></span></a>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+    </section>
+</body>
+</html>
