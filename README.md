@@ -15,5 +15,5 @@ This project was reworked using the express framework and hosted on Heroku
 
 ## Use the Webapp
 
-You can access this webapp by clicking here: [BMI Calculator using Node.js and Express](http://localhost:8000/) 
+You can access this webapp by clicking here: [BMI Calculator using Node.js and Express](https://bmi-express-app.herokuapp.com/) 
 
