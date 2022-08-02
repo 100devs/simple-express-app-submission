@@ -1,13 +1,24 @@
-# thePlantSpot
-This is social media site where people can share tips for caring for plants. Along with sharing tips, people will be able to share photos of their plants and comment for help with their own garden.
 
+#100Devs Simple Express App Submission
 
-Link to project: coming soon.
+### Goal: Make Your Own CRUD APP and Push To Heroku
 
-Tech used: HTML, CSS, JavaScript, Node.js, Express
+### How to submit your code for review:
 
-In the early stages of design and structure. Currently building out the sever and data base for functional storage and access.
+- Fork and clone this repo
+- Create a new branch called answer
+- Checkout answer branch
+- Push to your fork
+- Issue a pull request
+- Your pull request description should contain the following:
+  - (1 to 5 no 3) I completed the challenge
+  - (1 to 5 no 3) I feel good about my code
+  - Anything specific on which you want feedback!
 
-Optimizations: coming soon
-
-Lessons Learned: At this point much of the learning has come from the relationship of server side code in relation to client side code and how to implement it properly. I have also experimented heavily with using HTML templates(EJS). More to come as I continue working on the project. 
+Example:
+```
+I completed the challenge: 5
+I feel good about my code: 4
+I'm not sure if my constructors are setup cleanly...
+```
+>>>>>>> 71f6d8d215c6c1c2ecb8170b4222aa7fc81e347d
