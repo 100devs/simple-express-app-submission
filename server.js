@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 
 
-MongoClient.connect('mongodb+srv://admin:dd012012@cluster0.puxp4.mongodb.net/?retryWrites=true&w=majority', { useUnifiedTopology: true })
+MongoClient.connect('mongodb+srv://###/?retryWrites=true&w=majority', { useUnifiedTopology: true })
 
 .then(client => {
   console.log('Connected to Database')
