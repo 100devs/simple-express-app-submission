@@ -1,22 +1,10 @@
-#100Devs Simple Express App Submission
+# POMO-TODO-RO
+A todo app that will include a pomodoro timer :tomato: :alarm_clock:
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+**Link to project:** Coming Soon!
 
-### How to submit your code for review:
+![alt tag](https://miro.medium.com/max/1400/1*2oICISICeaAsRsbw1B1c_Q.png)
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+## How It's Made:
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+**Tech used:** HTML, CSS, JavaScript, NodeJS, MongoDB (Mongoose), Express, CRUD, Rest
