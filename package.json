@@ -1,0 +1,25 @@
+{
+  "name": "counting-cows",
+  "version": "1.0.0",
+  "description": "An app to keep score for a road trip game.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "npx tailwindcss -i ./src/input.css -o ./public/output.css --watch",
+    "dev": "nodemon server.js"
+  },
+  "author": "Blake Larson",
+  "license": "ISC",
+  "dependencies": {
+    "daisyui": "^2.15.2",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^4.7.0",
+    "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.2",
+    "tailwindcss": "^3.0.24"
+  }
+}
