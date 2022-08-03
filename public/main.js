@@ -1,19 +1,14 @@
-const { response } = require("express");
-
 const deleteSpam = document.querySelectorAll(".spam");
 
-
-
-
-deleteSpam.forEach(btn => {
+Array.from(deleteSpam).forEach(btn => {
     btn.addEventListener("click", deleteHack);
 });
 
 async function deleteHack() {
     console.log("deleting spam...");
     //1. get item text to find the hack
-    const hText = this;
-    console.log(hText);
+    const hText = this.parentNode.childNodes[1].innerText;
+    // console.log(hText);
 
     //2.fetch for deleting the item
     try {
@@ -28,12 +23,13 @@ async function deleteHack() {
         console.log(data);
  
         // 3. reload the page
+        //TODO this isn't working, why....
         window.location.reload;
     } catch(err) {
         console.error(err);
-    }
-
+    } 
 }
 
 
 // TODO check for blank on updates
+// TODO check for duplicates

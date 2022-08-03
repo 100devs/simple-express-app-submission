@@ -14,7 +14,7 @@
         <ul class="hacks">
             <% for (let i = 0; i < hacks.length; i++) { %>
                 <li class="hack">
-                    <%= hacks[i].text %>
+                    <span><%= hacks[i].text %></span>
                     <!-- <%= hacks[i].conditions %> -->
                     <!-- TODO how to add diagnoses here -->
                     <!-- do i want to use a table? -->
@@ -29,14 +29,15 @@
         <h2>Add a hack</h2>
         <form action="/add-hack" method="POST">
             <label> Your hack:
-                <input type="text" name="text">
+                <input type="text" name="text" required>
             </label>
-            <label> Your condition(s):
+            <label> Your condition(s) (optional):
                 <input type="text" name="conditions">
             </label>
             <input type="submit">
         </form>
     </section>
 
+    <script src="/main.js"></script>
 </body>
 </html>

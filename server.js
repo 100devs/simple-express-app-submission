@@ -4,14 +4,13 @@ const express = require("express");
 const app = express();
 const MongoClient = require("mongodb").MongoClient;
 
-const PORT = 4545;
-
 require("dotenv").config();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.json());
 
+const PORT = 4545;
 const connectionString = process.env.DB_STRING;
 
 let db, hacksCollection;
@@ -33,8 +32,8 @@ app.get("/", async (req, res) => {
 
 //add a new hack
 app.post("/add-hack", async (req, res) => {
-    console.log(req.body.text);
-    console.log(req.body.conditions);
+    // console.log(req.body.text);
+    // console.log(req.body.conditions);
     try {
         const add = await hacksCollection.insertOne({text: req.body.text, conditions: [req.body.conditions.split(",")]});
         // console.log(add);
@@ -56,10 +55,12 @@ app.put("/helped-me", async (req, res) => {
 
 //delete (spam)
 app.delete("/delete-hack", async (req, res) => {
+    console.log(req.body.text);
     try {
-        const del = await hacksCollection.deleteOne( {id: req.body.text})
-        console.log(`Hack ${req.body.text} deleted`);
-        res.json(`Hack ${req.body.text} deleted`);
+        const del = await hacksCollection.deleteOne( {text: req.body.text})
+        console.log(`Hack '${req.body.text}' deleted`);
+        // res.json(`Hack '${req.body.text}' deleted`);
+        res.json("Spam deleted");
     } catch(err) {
         console.error(err);
     }
