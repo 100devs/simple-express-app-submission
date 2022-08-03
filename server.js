@@ -17,7 +17,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(
     // creates the collection that will hold the weights for the user
     const pictureCollection = db.collection("APOD");
 
-    // lets the server know to expect ejs
+    // lets the server know to expect ejs format
     app.set("view engine", "ejs");
 
     // lets server know that we are using bodyparser to get values from the form
