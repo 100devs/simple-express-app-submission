@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(27, 54, 112);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.workout-container {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40rem;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background: rgba(64, 163, 255, 0.225);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.workout {
+    width: 30rem;
+}
+
+h2 {
+    padding: 10px;
+    font-size: 2rem;
+}
+
+h3 {
+    padding-bottom: 10px;
+}
+
+input {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 2px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    height: 20px;
+    width: auto;
+}
+
+select {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 2px;
+    padding: .5px;
+    border-radius: 5px;
+}
+
+.workout-header button {
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px;
+    background: rgba(70, 147, 103, 1);
+}
+
+ul {
+    list-style: none;
+}
+
+.cardio-list-item {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.449);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardio-list-item-date {
+    font-size: .8rem;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cardio-list-item-location {
+    font-size: .8rem;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cardio-list-item-sport {
+    font-size: .8rem;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cardio-list-item-time {
+    font-size: .8rem;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cardio-list-item-distance {
+    font-size: .8rem;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cardio-list a {
+    font-size: 1rem;
+    margin-left: 10px;
+    color: rgba(70, 147, 103, 1);
+    text-decoration: none;
+    align-items: center;
+}
+
+.cardio-list a:hover {
+    color: white;
+}
+
+.cardio-list-item .confirm {
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 4.5px;
+    margin-top: 5px;
+    background: rgba(70, 147, 103, 1);
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+}
+
+.cardio-list-item .cancel {
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 4.5px;
+    margin-top: 5px;
+    margin-left: 4px;
+    background: rgba(70, 147, 103, 1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .9rem;
+}
+
+.cardio-list-item .edit-btns {
+    display: flex;
+    flex-direction: row;
+}
