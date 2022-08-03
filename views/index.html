@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/24b4c2fd6d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700&family=Gothic+A1:wght@400;600&family=Hind+Siliguri:wght@700&family=Rancho&display=swap" rel="stylesheet">
+
+
+    <title>ORDTAK</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+
+ 
+</head>
+<body>
+    <nav class="menu-icon-wrapper">
+        <div class="menu-icon" onclick="toggleCssMenu(this)">
+            <div class="three-line">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <div id="cssmenu">
+        <ul>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">App</a></li>
+            <li><a href="#">App</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleCssMenu(icon) {
+            var cssmenu = document.getElementById('cssmenu');
+            if (icon.className.indexOf('active') == -1) {
+                icon.className = 'menu-icon active';
+                cssmenu.style.display = "block";
+                setTimeout(function(){cssmenu.className = 'active';},0);            
+            }
+            else {
+                icon.className = 'menu-icon';
+                cssmenu.className = '';
+                setTimeout(function(){cssmenu.style.display = "none";},411); 
+            }
+        }
+    </script>
+    <!--end CssMenu-->
+    <header>
+        <h1>ORDTAK</h1> 
+    </header>
+    <main>
+        <section class="hero">
+            <div class="glass-container" id="glass"">
+                <div class="hero-items">
+                    <p>"Mot dumskap kjemper selv gudene forgjeves."</p>
+                </div>
+                <div class="hero-items">
+                    <button id="update-button" class="buttenStyle">NESTE</button>
+                </div>
+            </div>
+            
+    </section>  
+    </main>
+    <div class="addNewHeader">
+        <div>
+            <h2>Har du et ordtak?</h2>
+            
+        </div>
+        
+    </div>
+        <section class="addNewForm">
+            <form action="/ordtak" method="POST">
+                <input id="textArea" type="text" placeholder="Skriv ordtaket her" name="ordtak">
+                <div class="submitNew">
+                    <button  class="buttenStyle type="submit>LEGG TIL</button>
+                    
+                </div>
+            </form>
+        </section>
+    </main>   
+    <div class="madeBy">
+        <span>© Nina Nordbø 2022</span>
+    </div>
+    <footer>
+              <div class="socialLinks">
+                <li><a href="https://www.linkedin.com/in/ninanordbo/" alt="linkedin"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://twitter.com/ninjanordbo" alt="linkedin"><i class="fa-brands fa-twitter-square"></i></a></li>
+                <li><a href="https://github.com/ninjanordbo" alt="linkedin"><i class="fa-brands fa-github-square"></i></a></li>
+                <li><a href="mailto:n.nordbo@gmail.com" alt="mail"><i class="fa-solid fa-envelope-open"></i></a></li>
+    </footer> 
+      <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

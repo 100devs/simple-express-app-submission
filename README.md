@@ -1,22 +1,27 @@
-#100Devs Simple Express App Submission
+ORDTAK (which means Proverb in Norwegian)
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+My mum loves proverbs, and she often answers with proverbs whenever she is asked something. 
+I decided to make an app to store her most used ones and also give her as a birthday present. 
 
-### How to submit your code for review:
+[![hQTYp1.md.jpg](https://iili.io/hQTYp1.md.jpg)](https://freeimage.host/i/hQTYp1)
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+**Check out live project:** https://ordtak.herokuapp.com/
+
+
+
+## How It's Made:
+
+**Tech used:** HTML, CSS, JavaScript, Node.js, Express, EJS, MongoDB.
+
+Building the app in Node and Express was a good choice for this app, since it was a quite small project which did not need too much. 
+
+## Optimizations
+
+I would have loved to add proverb categories and also a search function. I was also thinking of adding upvoting to the proverbs. I would maybe also consider remaking it in React if I was going to remake it. 
+
+## Lessons Learned:
+
+Although this was not a huge app to build, I learned quite a few lessons along the way. This was my first time using EJS and it took me a while to work out how to get it to render the document files properly. It was also a very good learning experience working with MongoDB. Quite a lot of debugging went into getting this app to work with Heroku. I was getting error codes and had to work out why the app was crashing everytime I tried to launch it. 
+
+
