@@ -1,0 +1,19 @@
+html{
+    text-align: center;
+}
+h1{
+    color: black;
+    text-decoration: underline;
+}
+li{
+    list-style: none;
+}
+.fa-trash{
+    cursor: pointer;
+}
+.fa-thumbs-up{
+    cursor: pointer;
+}
+.post{
+    cursor: pointer;
+}
