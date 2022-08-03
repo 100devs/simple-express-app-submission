@@ -5,6 +5,7 @@ const PORT = 8500;
 const mongoose = require('mongoose');
 const todotask = require('./models/todotask');
 const TodoTask = require('./models/todotask')
+const uri = process.env.MONGODB_URI;
 require('dotenv').config()
 
 //Set middleware
@@ -96,5 +97,5 @@ app
 
 
 //Set up listener
-app.listen(process.env.PORT || PORT, () => console.log(`Server is running on port ${PORT}`))
+app.listen(uri || PORT, () => console.log(`Server is running on port ${PORT}`))
 
