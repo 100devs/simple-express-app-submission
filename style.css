@@ -1,0 +1,12 @@
+body {
+    margin-left: 3%;
+    margin-top: 2%;
+}
+
+img {
+    max-height: 500px;
+}
+
+input {
+    width: 400px;
+}
