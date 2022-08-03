@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,400;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>My CRUD APP</title>
+</head>
+
+<body>
+    <h1 data-position="header"> May Node and Express be with you!</h1>
+
+    <section data-position="add-quote"> 
+        <h2> Add quote</h2>
+         <form action="/quotes" method="POST"> 
+            <input type="text" placeholder="name" name="name">
+             <input type="text" placeholder="quote" name="quote">
+            <button type="submit">Submit </button>
+        </form>
+    </section>
+
+    <section data-position="update-quote"> 
+        <div> 
+            <h2>Replace quotes </h2>
+                <p>
+             Wanna try to replace bell hooks' quote with a quote written by audre lorde?
+                </p>
+          <button id="update-button">Yeahhh!</button>
+        </div>   
+    </section>
+
+    <section data-position="delete-quote"> 
+        <div>
+            <h2>Remove bell hooks' quote</h2>
+            <p>
+              Delete one bell hooks' quote. Does nothing if there are no more bell hooks' quotes.
+            </p>
+            <button id="delete-button">Delete the quote</button>
+          </div>
+          <div id="message"></div>
+    </section>
+
+<section data-position="quotes"> 
+    <h2> Queer Feminist Quote</h2>
+    
+    <ul class="quotes">
+        <!-- Loop through quotes -->
+        <% for(var i = 0; i < quotes.length; i++) {%>
+          <li class="quote">
+            <!-- Output name from the iterated quote object -->
+            <span><%= quotes[i].name %></span>:
+            <!-- Output quote from the iterated quote object -->
+            <span><%= quotes[i].quote %></span>
+          </li>
+        <% } %>
+      </ul>
+    </section>
+
+<script src="/main.js"></script>
+
+</body>
+</html>
