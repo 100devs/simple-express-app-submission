@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(75, 13, 82);
+    color: white;
+    font-family: 'Playfair Display', serif;
+}
+
+header, div {
+    text-align: center;
+    margin: 10px;
+}
+
+form {
+    text-align: left;
+}
+
+.col-container {
+    display: flex;
+}
+
+.col {
+    flex: 3;
+}
+
+div, h1 {
+    border: 2px solid rgba(0,0,0,0.4);
+    border-radius: 10px;
+    background: rgba(0,0,0,0.4);
+}
+
+ul, li {
+    margin: 0;
+    list-style-type: none;
+    text-align: left;
+}
+
+#message {
+    border: none;
+}
+
+h1, .col, .quoteDisplay, ul {
+    padding: 10px;
+}
+
+.col, .quoteDisplay, ul {
+    padding-bottom: 20px;
+}
+
+input {
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+}
+
+button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Playfair Display', serif;
+}
+
+button:hover {
+    background: rgba(255,255,255,0.2);
+}

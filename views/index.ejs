@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <title>WoW Boss Quotes</title>
+</head>
+<body>
+
+<header>
+    <h1>WoW Boss Quotes</h1>
+</header>
+
+<section class="col-container">
+<div class="col">
+    <h2>Enter a Quote</h2>
+    <p>Enter quotes from your favorite World of Warcraft bosses.  Yogg-Saron is lurking here, and he has it out for Edwin Van Cleef.</p>
+
+
+    <form action="/quotes" method="POST">
+        <input type="text" placeholder="Boss Name" name="name">
+        <input type="text" placeholder="Boss Quote" name="quote">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+    <div class="col">
+        <h2>Insanity Strikes</h2>
+        <p>Yogg-Saron has controlled the mind of Edwin Van Cleef, replacing Van Cleef's quotes with his own!</p>
+        <button id="update-button">Insanity!</button>
+    </div>
+
+    <div class="col">
+        <h2>Defeat Yogg-Saron!</h2>
+        <p>Remove Yogg-Saron's quotes to defeat him!</p>
+        <button id="delete-button">Boss Fight!</button>
+
+        <div id="message"></div>
+    </div>
+
+
+
+</section>
+
+    <div id="quoteDisplay">
+        <h2>Quotes</h2>
+
+        <ul class="quotes">
+            <!-- loop through the quotes -->
+            <% for(let i = 0; i < quotes.length; i++) {%>
+                <li class="quote">
+                    <span><%= quotes[i].name %></span>:
+                    <span><%= quotes[i].quote %></span>
+                </li>
+            <% } %>
+        </ul>
+
+    </div>
+
+    <script src="/main.js"></script>
+</body>
+</html>
