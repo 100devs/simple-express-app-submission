@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/baseStyle.css"> -->
+</head>
+<body>
+    <section class="header">
+        <h1>Current Ideas</h1>
+        <h2 class="addIdea" id="openModalBtn">New Idea!</h2>
+    </section>
+    <section class="middle">
+        <ul class="basic-grid">
+        <% for(let i=0; i < info.length; i++) {%>
+            <li id= <%= info[i]._id%> class="idea card">
+                <span class="card-wide ideaName"><%= info[i].ideaName %></span>
+                <span class="card-wide card-tall ideaDesc"><%= info[i].description %></span>
+                <footer class="loveHate card-wide">
+                    <span class="delete">claim</span>
+                    <span class="like"><%= info[i].likes %> likes</span>
+                    <span class="hate"><%= info[i].hates %> hates</span>
+                </footer>
+                <!-- <section class="loveHate card-wide">
+                    <button class="like">Like! <%= info[i].likes %></button>
+                    <button class="hate">Hate! <%= info[i].hates %></button>
+                </section> -->
+                <!-- <button class="delete">Delete</button> -->
+            </li>
+        <% } %>
+        </ul>
+
+        <!-- <section class=" card meThings">
+            <h2>What is this?</h2>
+            <span>some people had some difficulties coming up with some ideas, some of us have too many so I made a place where you could find inspiration and not feel like you are taking something not yours.</span>
+        </section> -->
+    </section>
+
+
+    <div id="simpleModal" class="modal modal1">
+        <div class="modalContent">
+            <div class="modalBody">
+                <h2 class="modalHeader">Add your Ideas<span class="closeBtn" id="closeBtn">&times;</span></h2>
+                
+                <form action="/addIdea" method="POST">      
+                    <input name="ideaName" type="text" class="feedback-input" placeholder="Idea Name" />   
+                    <textarea name="description" class="feedback-input" placeholder="Idea Description"></textarea>
+                    <input type="submit" value="SUBMIT"/>
+                </form>
+            </div>
+            <div class="modalFooter">
+            </div>
+        </div>
+       </div>
+
+
+
+
+    <script src='js/main.js'></script>
+</body>
+</html>
