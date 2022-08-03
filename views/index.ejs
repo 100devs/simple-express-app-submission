@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting Calories</title>
+</head>
+<body>
+    <h1>Calorie Counter</h1>
+    <form action="/quotes" method="POST">
+        <input type="text" placeholder="dish" name="name">
+        <input type="text" placeholder="calories" name="calories">
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul class="quotes">
+    <!-- Loop through quotes -->
+    <% for(var i = 0; i < quotes.length; i++) {%>
+        <li class="quote">
+        <!-- Output name from the iterated quote object -->
+        <span><%= quotes[i].name %></span>:
+        <!-- Output quote from the iterated quote object -->
+        <span><%= quotes[i].calories %></span>
+        </li>
+    <% } %>
+    </ul>
+    <span>Total Calories = <%= total %> </span>
+
+    <div>
+        <h2>Reset</h2>
+        <p>
+          Removes all inputs.
+        </p>
+        <button id="delete-button">Reset</button>
+    </div>
+    <div id="message"></div>
+    <script src="/main.js"></script>
+</body>
+</html>
