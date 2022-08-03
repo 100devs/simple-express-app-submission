@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Recipe List</title>
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+    	<link rel="stylesheet" href="css/style.css">
+		<!-- icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	</head>
+	<body>
+        
+	
+		<!-- container to hold all recipe names/types-->
+		<section class="recipe-container">
+
+			<!-- dessert container-->
+			<section class="dessert-container">
+				<h2>Desserts</h2>
+				<ul>
+					<% for(let i=0 ; i < recipe.length ; i++) { %>
+						<% if(recipe[i].type === 'dessert') { %>
+							<li><%= recipe[i].name %>
+								<a href="/viewRecipe/<%= recipe[i]._id %>">
+									<i class="fas fa-eye"></i>
+								<a href="/edit/<%= recipe[i]._id %>">
+									<i class="fas fa-edit"></i></a>
+								<a href="/delete/<%= recipe[i]._id %>">
+									<i class="fas fa-trash"></i></a>
+							</li>
+						<% } %>
+					<% } %>
+				</ul>
+			</section>
+	
+			<!-- breakfast container -->
+			<section class="breakfast-container">
+				<h2>Breakfasts</h2>
+				<ul>
+					<% for(let i=0 ; i < recipe.length ; i++) { %>
+						<% if(recipe[i].type === 'breakfast') { %>
+							<li><%= recipe[i].name %>
+								<a href="/viewRecipe/<%= recipe[i]._id %>">
+									<i class="fas fa-eye"></i>
+								<a href="/edit/<%= recipe[i]._id %>">
+									<i class="fas fa-edit"></i></a>
+								<a href="/delete/<%= recipe[i]._id %>">
+									<i class="fas fa-trash"></i></a>
+							</li>
+						<% } %>
+					<% } %>
+				</ul>
+			</section>
+			
+			<!-- entrees container -->
+			<section class="entre-container">
+				<h2>Entrees</h2>
+				<ul>
+					<% for(let i=0 ; i < recipe.length ; i++) { %>
+						<% if(recipe[i].type === 'entree') { %>
+							<li><%= recipe[i].name %>
+								<a href="/viewRecipe/<%= recipe[i]._id %>">
+									<i class="fas fa-eye"></i>
+								<a href="/edit/<%= recipe[i]._id %>">
+									<i class="fas fa-edit"></i></a>
+								<a href="/delete/<%= recipe[i]._id %>">
+									<i class="fas fa-trash"></i></a>
+							</li>
+						<% } %>
+					<% } %>
+				</ul>
+			</section>
+
+		</section>
+		
+		<!-- new recipe container -->
+		<section class="new-reciple-container">
+
+			<h2>Add your own recipes!</h2>
+			<section class="add-new-recipe-container">
+				<form action="/addRecipe" method="POST">
+					<input type="text" placeholder="breakfast, entree, dessert..." name="type">
+					<input type="text" placeholder="recipe name..." name="name">
+					<input type="text" placeholder="prep time" name="prepTime">
+					<input type="text" placeholder="cook or bake time..." name="cookTime">
+					<input type="text" placeholder="total time..." name="totalTime">
+					<input type="text" placeholder="servings" name="servings">
+					<textarea type="text" placeholder="ingredients" name="ingredients"></textarea>
+					<textarea type="text" placeholder="directions" name="directions"></textarea>
+					<textarea type="text" placeholder="special notes" name="specialNotes"></textarea>
+					<button type="submit"><span class="fas fa-plus">Add Recipe</span></button>
+				</form>
+			</section>
+
+		</section>
+	
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

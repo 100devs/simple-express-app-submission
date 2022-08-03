@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Edit Recipe</title>
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="/css/normalize.css">
+    	<link rel="stylesheet" href="/css/style.css">
+		<!-- icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	</head>
+	<body>
+        
+        <!-- name, image, and info -->
+        <section class="info-container">
+            <div>
+                <h1><%= recipe.name %></h1>
+                <img src="<%= recipe.image %>" alt="<%= recipe.name %>">
+            </div>
+            <div>
+                <ul>
+                    <li>Prep Time: <%= recipe.prepTime %>
+						<form action="/edit/<%= recipe._id %>" method="POST">
+							<input type="text" name="prepTime" value="<%= recipe.prepTime %>">
+							<button type="submit">Confirm</button>
+						</form>
+					</li>
+                    <li>Bake/Cook: <%= recipe.cookTime %>
+						<form action="/edit/<%= recipe._id %>" method="POST">
+							<input type="text" name="cookTime" value="<%= recipe.cookTime %>">
+							<button type="submit">Confirm</button>
+						</form>
+					</li>
+                    <li>Total Time: <%= recipe.totalTime %>
+						<form action="/edit/<%= recipe._id %>" method="POST">
+							<input type="text" name="totalTime" value="<%= recipe.totalTime %>">
+							<button type="submit">Confirm</button>
+						</form>
+					</li>
+                </ul>
+            </div>
+        </section>
+
+		<!-- ingredients container -->
+        <section class="instructions-container">
+            <span>Ingredients</span>
+            <ol>
+                <% for (let i = 0; i < recipe.ingredients.length; i++) { %>
+                    <li><%= recipe.ingredients[i] %>
+						<span class="fas fa-trash"></span>
+						<form action="/edit/<%= recipe._id %>" method="POST">
+							<input type="hidden" value="<%= i %>" name="ingredientsIndex">
+							<textarea type="text" name="ingredients" value="<%= recipe.ingredients[i] %>"></textarea>
+							<button type="submit">Confirm</button>
+						</form>
+						
+					</li>
+                <% } %>
+            </ol>
+			<div>
+				<form action="/addIngredient/<%= recipe._id %>" method="POST">
+					<input type="text" name="ingredients" placeholder="Add Ingredient">
+					<button type="submit">Add</button>
+				</form>
+			</div>
+		</section>
+
+		<!-- directions container-->
+		<section>
+            <span>Directions</span>
+            <ol>
+                <% for (let i = 0; i < recipe.directions.length; i++) { %>
+                    <li><%= recipe.directions[i] %>
+					<form action="/edit/<%= recipe.directions[i] %>" method="POST">
+						<input type="text" name="directions" value="<%= recipe.directions[i] %>">
+						<button type="submit">Confirm</button>
+					</li>
+                <% } %>
+            </ol>
+		</section>
+            
+        <!-- special notes container -->
+		<section>
+			<span>Special Notes</span>
+            <p><%= recipe.specialNotes %></p>
+		</section>
+            
+		<script type="text/javascript" src="/js/main.js"></script>
+	</body>
+</html>
