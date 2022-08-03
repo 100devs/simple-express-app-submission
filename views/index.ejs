@@ -1,0 +1,43 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Best Dessert</title>
+</head>
+<body>
+    <main>
+    <section class="dessertBox font">
+         <section class="innerbox">   
+            <h1>What is the best dessert?</h1>
+            <ul class="dessertList">
+            <% for(let i=0; i < info.length; i++) {%>
+                <li class="desserts">
+                    <span><%= info[i].dessertName %></span>
+                    <span class="likesDisplay"><%= info[i].likes %></span>
+                    <span class='fa fa-heart'></span>
+                    <span class='fa fa-trash-alt'></span>
+                </li>
+            <% } %>
+            </ul>
+
+                <section class="formSection">
+                    <h3>Don't see your favorite dessert on the list? Add it!</h3>
+                    <form action="/addDessert" method="POST">
+                        <input type="text" placeholder="What's the best dessert" name="dessertName">
+                        <input type="submit">
+                    </form>
+                </section>
+            </section>
+    </section>
+    </main>
+    <script src='js/main.js'></script>
+</body>
+</html>
