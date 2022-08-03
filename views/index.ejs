@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  	<meta charset="utf-8">
+  	<meta name="description" content="Neptunia characters">
+  	<meta name="keywords" content="Hyperdimenion Neptunia">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Neptunia Characters</title>
+
+		<!-- external CSS link -->
+        <script src="https://kit.fontawesome.com/ad93f40568.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+
+        <h1>Characters:</h1>
+
+        <ul class = "NeptuniaCRUD">
+            <% for(let i = 0; i < info.length; i++) {%>
+                <li class="character">
+                    <span><%= info[i].charName %></span>
+                    <span><%= info[i].Likes %></span>
+                    <span class="fa-solid fa-heart"></span>
+                    <span class="fa-solid fa-trash"></span>
+                </li>
+            <% } %>
+        </ul>
+
+        <h2>Add A Character:</h2>
+
+        <form action="/addChar" method="POST">
+            <input type="text" placeholder="charName" name="charName">
+            <input type="submit">
+        </form>
+
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
