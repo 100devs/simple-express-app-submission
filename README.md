@@ -1,22 +1,37 @@
-#100Devs Simple Express App Submission
+# Simple Pizza CRUD App Prototype
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+![Ultimate Pizza Toppings](./public/images/readme.png)
 
-### How to submit your code for review:
+<h3 align="center">
+    &#x2B21;
+    <a href="https://github.com/NeffCodes/pizza-crud/issues">Report Bug</a> &nbsp; &nbsp;
+    &#x2B21;
+    <a href="https://github.com/NeffCodes/pizza-crud/issues">Request Feature</a>
+</h3>
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+____
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+This is a simple CRUD app to see what toppings truly belong on a pizza. Users are able to vote on, change their vote, and add what toppings they like.
+
+**Link to project:** [https://ultimate-pizza-toppings.herokuapp.com/](https://ultimate-pizza-toppings.herokuapp.com/)
+
+## 💻 Tech Used
+
+- Web browser, ie HTML, CSS, JS
+- Node.js: Environment for running Javascript serverside
+- Express: Web framework for Node
+- MongoDB Atlas: Cloud database
+- EJS: Templating language
+
+## 📚 Lessons Learned
+
+I got to dive more into learning how to use CRUD (Create, Read, Update, Delete) operations to handling of information from a database.
+
+## 💡 Contributing
+
+Found an issue or want to add a cool feature to this site? Awesome! Leave a comment in the issues tab and I will assign it to you.
+
+1. Comment in the issues [tab](https://github.com/NeffCodes/pizza-crud/issues)
+2. Fork or clone this repo
+3. Build the code you wish to add
+4. Create a pull request

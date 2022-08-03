@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Toppings</title>
+
+    <!-- Font-Awesome Icons -->
+    <script src="https://kit.fontawesome.com/ab085a1591.js" crossorigin="anonymous"></script>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+  <body>
+    <header>
+      <div class="title">
+        <a href="https://andrianas-pizza.netlify.app/" id="logo" target="_blank"><img src="images/default-monochrome-white.svg" alt="" /></a>
+        <h1>Best Pizza Toppings</h1>
+      </div>
+    </header>
+    <section class="about">
+      <p>We pride ourselves with making the best topping options available for our customers. Help us by letting us know which toppings you think should be on a pizza.</p>
+    </section>
+    <section class="toppings">
+      <!-- <h1>Pizza Topping Poll</h1> -->
+      <ul class="tile_container">
+      <% for(let i=0; i < info.length; i++) {%>
+          <li id="<%= info[i].id%>" class="tile">
+              <span class='fa fa-trash'></span>
+              <h3><%= info[i].topping %></h3>
+              <div class="voting">
+                <span class='fa-solid fa-pizza-slice up'></span>
+                <h4 class="likes"><%= info[i].likes %></h4>
+                <span class='fa-solid fa-pizza-slice down'></span>
+              </div>
+          </li>
+      <% } %>
+      </ul>
+    </section>
+
+    <section class="addToppings">
+      <h2>Don't see your favorite toppings? Add it in:</h2>
+
+      <form action="/addTopping" method="POST">
+          <input type="text" placeholder="pizza topping" name="topping">
+          <button type="submit">Submit Topping</button>
+      </form>
+    </section>
+
+    <footer>
+      <div class="copy">
+        <p>&copy; <a href="https://jamesneff.com" target="_blank" class="underline">James Neff</a>. All rights reserved.</p>
+      </div>
+      <a href="https://github.com/NeffCodes/pizza-crud" target="_blank">
+        <span class='fa-brands fa-github'></span>
+      </a>
+    </footer>
+
+    <script type="module" src='js/main.js'></script>
+  </body>
+</html>

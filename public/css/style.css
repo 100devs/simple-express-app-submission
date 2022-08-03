@@ -1,0 +1,275 @@
+/******************************************
+/* Variables
+/*******************************************/
+ :root {
+
+  --dred:#7B0202;
+  --red: #940202;
+  --pink:#D9946C;
+  --orange: #D98236;
+  --green: #6F7302;
+  --lgreen: #A3A656;
+  --black: #0D0D0D;
+  --lblack: #222;
+  --beige: #F2EBDC;
+  --white: #FFF;
+
+  --borderRadius: 4px;
+ }
+
+/******************************************
+/* Global
+/*******************************************/
+/* Box Model */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+clear: both;
+}
+
+html {
+  font-family: sans-serif;
+  color: var(--black)
+}
+
+ul,ol {
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0
+}
+
+a { 
+  color: var(--pink)
+}
+a:visited {
+  color: var(--orange)
+}
+
+h1 {
+  color: var(--white);
+  text-align: center;
+}
+
+h4 {
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+button:hover{
+  cursor: pointer;
+}
+/******************************************
+/* Header
+/*******************************************/
+header {
+  padding: 0.25rem 2rem 0.75rem;
+  background-color: var(--red);
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+#logo {
+  width: 50%;
+  max-height: 2.25rem;
+  max-width: 18.75rem ;
+}
+#logo > img {
+  max-height: 2.25rem;
+  padding: 0.25rem 0;
+  height: inherit;
+}
+.title > h1 {
+  font-weight: 600;
+  font-size: 1.6rem;
+
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+}
+
+@media screen and (max-width: 534px) {
+  .title{
+    flex-direction: column;
+  }
+  #logo {
+    width: 100%;
+    border-bottom: 1px solid var(--white)
+  }
+  #logo > img {
+    width: 100%;
+  }
+}
+
+/******************************************
+/* About
+/*******************************************/
+.about {
+  padding: 1rem 2rem;
+  background: var(--dred);
+  color: var(--white);
+}
+.about > p {
+  max-width: 38rem;
+  margin: 0 auto;
+  text-align: center;
+}
+/******************************************
+/* Tiles
+/*******************************************/
+.toppings {
+  padding: 2rem;
+  min-height: calc(100vh - 9rem);
+  background-color: var(--black);
+  background-image: url(../images/pizza.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.tile_container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch ;
+  gap: 1rem;
+}
+.tile {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: stretch;
+ padding: 1rem;
+ min-width: 20rem;
+ max-width: 25rem;
+ background: var(--beige);
+ flex: 1 1 0;
+ text-align: center;
+ border-radius: var(--borderRadius);
+ box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+.voting {
+  position: relative;
+  left: -1rem;
+  bottom: -1rem;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.8rem 1rem;
+  width: calc(100% + 2rem);
+  background: var(--lgreen);
+  border-top: 2px solid var(--green);
+  border-radius: 0 0 var(--borderRadius) var(--borderRadius);
+}
+.likes {
+  margin: 0 1rem;
+}
+
+.fa-trash{
+  align-self: flex-end;
+  color: rgba(33,33,33,0.7);
+  cursor: pointer;
+}
+
+.up, .down {
+  position: relative;
+  color: var(--white);
+  filter: drop-shadow( 0 0 2px rgba(0,0,0,0.8));
+  cursor: pointer;
+}
+
+.up {
+  top: 3px;
+  transform: rotate(135deg);
+}
+
+.down {
+  bottom: 2px;
+  transform: rotate(-45deg);
+}
+
+.up:hover, .down:hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.up:hover {
+  top: 0;
+  color: var(--red);
+  transform: rotate(135deg) scale(1.2);
+  filter: drop-shadow( 2px 0 1px rgba(0,0,0,0.8));
+}
+
+.down:hover {
+  bottom: 0;
+  color: var(--red);
+  filter: drop-shadow( -2px 0 1px rgba(0,0,0,0.8));
+  transform: rotate(-45deg) scale(1.2);
+}
+
+.active {
+  color: var(--red);
+}
+/******************************************
+/* Add Toppings
+/*******************************************/
+
+.addToppings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1rem 6rem;
+  background: var(--red); 
+  border-top: 2px solid #760101;
+}
+.addToppings h2, header h2 {
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+/******************************************
+/* Footer
+/*******************************************/
+
+footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: var(--lblack);
+  color: var(--white);
+  font-size: 0.8rem;
+}
+footer .underline, footer .underline:visited {
+  color: var(--white);
+  border-bottom: solid 1px var(--white);
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+footer .underline:hover {
+  border-bottom-color: transparent;
+}
+footer .fa-github{
+  font-size: 1.6rem;
+  color: var(--white);
+  opacity: 0.8;
+  transition: 0.2s ease-in-out;
+}
+.fa-github:hover {
+  opacity: 1;
+}
