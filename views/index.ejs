@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="https://kit.fontawesome.com/101ed50fce.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EJS It's in the Game</title>
+    </head>
+
+    <header>
+        <h1>Tom and Stephen Backlog</h1>
+    </header>
+
+    <body>
+        <main>
+            <section id="Tom">
+                <section id="tomContainer">
+                    <h2>Tom</h2>
+                    <ul class="tomMasterList">
+                        <% for (let i=0; i < tomBacklog.length; i++ ) {%>
+                            <li class ='tomList'>
+                                <span><%= tomBacklog[i].name %></span>
+                                <span><%= tomBacklog[i].platform %></span>
+                                <span><%= tomBacklog[i].likes %></span>
+                                <span id='tom-thumbs-up' class='fa fa-thumbs-up'></span>
+                                <span id='tom-trash' class='fa fa-trash'></span>
+                            </li>
+                        <% } %>
+                    </ul>
+                </section>
+
+                <section id="tomSubmit">
+                    <h3>Tom: Add a new game</h3>
+                    <form action="addTomGame" method="POST">
+                        <input type="text" placeholder="Name" name="name">
+                        <input type="text" placeholder="Platform" name="platform">
+                        <button type="submit">Submit</button>
+                    </form>
+                </section>
+            </section>
+
+            <section id="Stephen">
+                <h2>Stephen</h2>
+                <section id="stephenContainer">
+                    <ul class="stephenMasterList">
+                        <% for (let i=0; i < stephenBacklog.length; i++ ) {%>
+                            <li class= stephenList'>
+                                <span><%= stephenBacklog[i].name %></span>
+                                <span><%= stephenBacklog[i].platform %></span>
+                                <span><%= stephenBacklog[i].likes %></span>
+                                <span id='stephen-thumbs-up' class='fa fa-thumbs-up'></span>
+                                <span id='stephen-trash' class='fa fa-trash'></span>
+                            </li>
+                        <% } %>
+                    </ul>
+                </section>
+
+                <section id="stephenSubmit">
+                    <h3>Stephen: Add a new game</h3>
+                    <form action="addStephenGame" method="POST">
+                        <input type="text" placeholder="Name" name="name">
+                        <input type="text" placeholder="Platform" name="platform">
+                        <button type="submit">Submit</button>
+                    </form>
+                </section>
+            </section>
+        </main>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

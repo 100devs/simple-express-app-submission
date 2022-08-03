@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+}
+header{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border: 5px black solid;
+}
+main{
+    display: flex;
+}
+#Tom{
+    display: flex;
+    flex-wrap: wrap;
+    border: 5px red solid;
+    width: 50%;
+}
+#tomSubmit{
+    width: 100%;
+}
+#tomContainer{
+    width: 100%;
+}
+#Stephen{
+    display: flex;
+    flex-wrap: wrap;
+    border: 5px blue solid;
+    width: 50%;
+}
+#stephenSubmit{
+    width: 100%;
+}
+#stephenContainer{
+    width: 100%;
+}

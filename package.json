@@ -1,0 +1,19 @@
+{
+  "name": "game-backlog",
+  "version": "1.0.0",
+  "description": "A server to host a backlog of games for Tom and Stephen",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Darkshadows Web Design",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^4.8.1"
+  }
+}

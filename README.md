@@ -14,9 +14,9 @@
   - (1 to 5 no 3) I feel good about my code
   - Anything specific on which you want feedback!
 
-Example:
+Tom Bisom Answer:
 ```
 I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
+I feel good about my code: 5
+This took me a while to understand, but I get CRUD now. I even learned how to have two collections on a single EJS that works independently of eachother. The live app can be seen at https://tom-stephen-game-backlog.herokuapp.com/
 ```
