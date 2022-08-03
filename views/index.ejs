@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60 Minute Topics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60 Minute Topics</title>
+</head>
+<body>
+    <h1>Current Topics</h1>
+    <span>Write a topic to discuss. It will be deleted in 60 minutes</span>
+    <ul class="rappers">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="rapper">
+            <span><%= info[i].stageName %></span>
+            <span><%= info[i].birthName %></span>
+            <span class="timer"><%= info[i].time %></span>
+            <span><%= info[i].likes %></span>
+            <span class='fa fa-thumbs-up'></span>
+            <span class='fa fa-trash'></span>
+            <input class='commentsInput'type="text" placeholder="Write your comment" name="comments">
+            <button class="post">post</button>
+            <% for(let j=info[i].comments.length-1; j >= 0; j--) {%>
+                <li><%= info[i].comments[j] %></li>
+            <% } %>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Add A Topic:</h2>
+
+    <form action="/addTopic" method="POST">
+        <input type="text" placeholder="Category" name="stageName">
+        <input type="text" placeholder="Subject" name="birthName">
+        <input type="submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
