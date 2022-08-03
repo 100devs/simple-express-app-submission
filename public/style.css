@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("./img/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Indie Flower', cursive;
+    
+
+}
+
+.todo-container {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo {
+    width: 400px;
+}
+
+h2 {
+    padding: 10px;
+    font-size: 4rem;
+}
+
+input {
+    margin-bottom: 5px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1rem;
+    border: 0;
+}
+
+input:focus {
+    outline-style: none;
+}
+
+textarea {
+    display:block;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1rem;
+    border: 0;
+}
+
+textarea:focus {
+    outline-style: none;
+}
+
+.todo-header button {
+    display:block;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color:#AB80AD;
+    font-family: 'Indie Flower', cursive;
+}
+
+ul {
+    list-style: none;
+}
+
+
+.todo-list-item {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: row;
+}
+
+.todo-list-item-content {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.todo-list-item form {
+    width: 100%;
+    display: flex;
+}
+
+.todo-list-item input {
+    flex-grow: 2;
+    margin-right: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+
+.todo-list-item .confirm {
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: #D5B8D8;
+    max-height: 30px;
+    font-family: 'Indie Flower', cursive;
+    display: block;
+    font-size: 16px;
+}
+
+.todo-list-item .cancel {
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: #B6C7DD;
+    max-height: 30px;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+}
+
+.todo-list-item div {
+    flex-grow: 2;
+}
+
+.todo-list-item .edit {
+    color:#F9F6E4;
+    margin-right: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: auto;
+}
+
+.todo-list-item .remove {
+    color: #B6C7DD;
+    margin-right: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
