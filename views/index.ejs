@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Parks and Rec Quote App</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <h1 data-position="header">Parks and Rec Quote App</h1>
+
+    <section data-position="add-quote">
+        <h2>Add quote</h2>
+
+        <form action="/quotes" method="POST">
+            <input type="text" placeholder="name" name="name" />
+            <input type="text" placeholder="quote" name="quote" />
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section data-position="update-quote">
+        <div>
+            <h2>Ruin Everything</h2>
+            <p>
+                The update functionality of this CRUD App is just to ruin everyone's good time.
+            </p>
+            <button id="update-button">Go for it, I guess</button>
+        </div>
+    </section>
+
+    <section data-position="delete-quote">
+        <div>
+            <h2>DELETE ALL PICTURES OF RON</h2>
+            <p>
+                Delete one of Ron Swanson's quotes to help remove his online presence. (Note: This function does nothing if there are no more Ron Swanson quotes to delete)
+            </p>
+            <button id="delete-button">Delete Ron Swanson's quote</button>
+        </div>
+        <div id="message"></div>
+    </section>
+
+    <section data-position="quotes">
+        <h2>Quotes</h2>
+
+        <ul class="quotes">
+            <% for(var i=0; i < quotes.length; i++) {%>
+                <li class="quote">
+                    <span>
+                        <%= quotes[i].name %>
+                    </span>:
+                    <span>
+                        <%= quotes[i].quote %>
+                    </span>
+                </li>
+                <% } %>
+        </ul>
+    </section>
+
+    <script src="/main.js"></script>
+</body>
+
+</html>
