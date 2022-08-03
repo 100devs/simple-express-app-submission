@@ -1,0 +1,220 @@
+/* Panel */
+
+	.panel {
+		@include vendor('display', 'flex');
+		@include vendor('align-items', 'stretch');
+		@include vendor('justify-content', 'center');
+		@include vendor('transition', (
+			'opacity 0.5s ease',
+			'transform 0.5s ease'
+		));
+		max-width: calc(100vw - #{_size(element-margin) * 1.5 * 2});
+		width: 86em;
+
+		> .image {
+			@include vendor('transition', 'transform 0.5s ease');
+			background-color: #777;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			border-radius: 0;
+			min-height: 50em;
+			width: 50%;
+			z-index: 1;
+
+			img {
+				border-radius: 0;
+				display: block;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				width: 100%;
+			}
+		}
+
+		> .content {
+			@include vendor('display', 'flex');
+			@include vendor('flex-direction', 'column');
+			@include vendor('justify-content', 'center');
+			@include vendor('transition', 'transform 0.5s ease');
+			background-color: _palette(bg-alt);
+			padding: 3em;
+			width: 50%;
+		}
+
+		&.inactive {
+			opacity: 0;
+
+			> .image {
+				@include vendor('transform', 'translateY(1em)');
+			}
+
+			> .content {
+				@include vendor('transform', 'translateY(-1em)');
+			}
+		}
+
+		&.special {
+			text-align: center;
+
+			> .content {
+				> .inner {
+					> :nth-child(n+2):nth-last-child(n+2) {
+						margin: (_size(element-margin) * 1.5) 0;
+					}
+				}
+			}
+
+			&.inactive {
+				@include vendor('transform', 'translateZ(-2em)');
+
+				> .image {
+					@include vendor('transform', 'none');
+				}
+
+				> .content {
+					@include vendor('transform', 'none');
+				}
+			}
+		}
+
+		&.secondary {
+			> .content {
+				@include vendor('justify-content', 'space-between');
+
+				> .actions {
+					margin-bottom: 0;
+				}
+
+				&:after {
+					content: '';
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+
+		@include breakpoint('<=xlarge') {
+			width: 75em;
+
+			> .image {
+				min-height: 45em;
+			}
+		}
+
+		@include breakpoint('<=large') {
+			max-width: calc(100vw - #{_size(element-margin) * 0.75 * 2});
+
+			> .image {
+				min-height: 35em;
+			}
+
+			> .content {
+				padding: 3em 2.5em;
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			@include vendor('flex-direction', 'column');
+
+			> .image {
+				min-height: 60vh;
+				width: 100%;
+			}
+
+			> .content {
+				display: block;
+				padding: 3em;
+				width: 100%;
+
+				&:after {
+					display: none;
+				}
+			}
+
+			&.inactive {
+				> .image {
+					@include vendor('transform', 'translateX(1em)');
+				}
+
+				> .content {
+					@include vendor('transform', 'translateX(-1em)');
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			max-width: calc(100vw - #{_size(element-margin) * 0.5 * 2});
+			width: 30em;
+
+			> .image {
+				min-height: 18em;
+				max-height: 30vh;
+			}
+
+			> .content {
+				padding: 2em;
+			}
+
+			&.special {
+				> .content {
+					> .inner {
+						> :nth-child(n+2):nth-last-child(n+2) {
+							margin: _size(element-margin) 0;
+						}
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=xsmall') {
+			> .content {
+				padding: 2em 1.5em;
+			}
+		}
+
+		@include breakpoint('<=xxsmall') {
+			> .image {
+				min-height: 15em;
+			}
+		}
+
+		body.is-preload-0 & {
+			opacity: 0;
+
+			> .image {
+				@include vendor('transform', 'translateX(4em)');
+			}
+
+			> .content {
+				@include vendor('transform', 'translateX(-4em)');
+			}
+
+			@include breakpoint('<=medium') {
+				@include vendor('transform', 'translateZ(-2em)');
+
+				> .image {
+					@include vendor('transform', 'none');
+				}
+
+				> .content {
+					@include vendor('transform', 'none');
+				}
+			}
+		}
+
+		body.is-preload-1 & {
+			@include vendor('transition', (
+				'opacity 2s ease',
+				'transform 0.5s ease'
+			));
+
+			> .image {
+				@include vendor('transition', 'transform 1s ease');
+			}
+
+			> .content {
+				@include vendor('transition', 'transform 1s ease');
+			}
+		}
+	}

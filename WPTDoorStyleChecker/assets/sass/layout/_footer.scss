@@ -1,0 +1,32 @@
+/* Footer */
+
+	#footer {
+		@include vendor('transition', 'opacity 0.5s ease');
+		margin: (_size(element-margin) * 1.5) 0 0 0;
+		opacity: 1.0;
+		text-align: center;
+
+		.copyright {
+			color: _palette(fg-light);
+			font-size: 0.8em;
+			letter-spacing: _font(letter-spacing-alt);
+			margin-bottom: 0;
+			text-transform: uppercase;
+		}
+
+		&.inactive {
+			opacity: 0;
+		}
+
+		@include breakpoint('<=xlarge') {
+			margin: _size(element-margin) 0 0 0;
+		}
+
+		@include breakpoint('<=large') {
+			margin: (_size(element-margin) * 0.75) 0 0 0;
+		}
+
+		body.is-preload-0 & {
+			opacity: 0;
+		}
+	}

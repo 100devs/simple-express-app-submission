@@ -1,0 +1,33 @@
+/* Panel */
+
+	.panel {
+		margin: 0 0 3em 0;
+	}
+
+		body.is-preload-0 .panel {
+			opacity: 1;
+		}
+
+			body.is-preload-0 .panel > .image {
+				-moz-transform: none !important;
+				-webkit-transform: none !important;
+				-ms-transform: none !important;
+				transform: none !important;
+			}
+
+			body.is-preload-0 .panel > .content {
+				-moz-transform: none !important;
+				-webkit-transform: none !important;
+				-ms-transform: none !important;
+				transform: none !important;
+			}
+
+/* Footer */
+
+	#footer {
+		margin-top: 0;
+	}
+
+		body.is-preload-0 #footer {
+			opacity: 1;
+		}
