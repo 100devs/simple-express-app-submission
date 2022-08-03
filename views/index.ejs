@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Favorite Colors</title>
+</head>
+
+<body>
+  <h1>Favorite Colors</h1>
+  <div class="colors-gallery">
+    <% locals.colors.forEach(color=> { %>
+      <div class="color__single">
+        <div class="swatch" style="background-color:<%= color.colorHex %>"></div>
+        <li>
+          <%= color.colorName %>
+        </li>
+        <li>
+          <%= color.colorHex %>
+        </li>
+        <li>Hearts: <%= color.hearts %>
+        </li>
+        <form method="post" action="/heart?color=<%= color._id %>"><button>Heart Color</button></form>
+        <form method="post" action="/delete?color=<%= color._id %>"><button>Delete Color</button></form>
+      </div>
+      <% }) %>
+  </div>
+  <h2>Add Color</h2>
+  <form action="/" method="post">
+    <div>
+      <label for="colorName">Color Name</label>
+      <input type="text" name="colorName" id="colorName">
+    </div>
+    <div>
+      <label for="colorName">Color HEX</label>
+      <input type="text" name="colorHex" id="colorHex">
+    </div>
+    <button type="submit">Add Color</button>
+  </form>
+</body>
+
+</html>
