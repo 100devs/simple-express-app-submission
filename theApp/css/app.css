@@ -1,0 +1,262 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* RESET ABOVE  -  STYLE BELOW */
+
+/* -------------------------- */
+html,
+body {
+    box-sizing: border-box;
+}
+
+.flexParent {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.mainBG {
+    background-image: url('/css/assets/decks.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.theBoard {
+    background: rgb(19, 19, 19);
+    width: 250px;
+    height: 98%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    border-radius: 500px;
+    box-shadow: 0 0 10px 0 black;
+
+    text-align: center;
+    color: white;
+    font-family: 'chalk';
+    font-size: 16px;
+}
+
+.appTitle {
+    margin-top: 170px;
+    display: flex;
+    width: 100%;
+}
+
+.appTitle h1 {
+    width: 250px;
+    height: 45px;
+    line-height: 45px;
+    background: #be9941;
+    color: black;
+    font-size: 36px;
+}
+
+.mainContent {
+    margin-top: 30px;
+}
+
+input {
+    width: 90%;
+    padding: 3px 10px;
+    height: 24px;
+    text-align: center;
+}
+
+button {
+    width: 80%;
+    padding: 3px 10px;
+    height: 24px;
+    text-align: center;
+}
+
+ul {
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+ul li {
+    margin: 15px 0;
+}
+
+.trickImage {
+    width: 90%;
+    height: 200px;
+    background: white;
+    margin: 40px 0 16px 0;
+}
+
+.trickName {
+    font-size: 48px;
+    margin-bottom: 10px;
+    margin-top: 36px;
+}
+
+.skillLevel {
+    font-size: 16px;
+}
+
+.inventor {
+    margin-top: 40px;
+    font-size: 24px;
+}
+
+.yearCreated {
+    font-size: 36px;
+}
+
+.description {
+
+    width: 80%;
+    margin: 40px auto 0 auto;
+    font-size: 18px;
+}
+
+.gifBox {
+    width: 100%;
+}
+
+@font-face {
+    font-family: chalk;
+    src: url(/css/assets/Chalk-y\ Sans.otf);
+}
+
+@media all and (min-width: 1200px) {
+    .mainBG {
+        background-size: 50%;
+    }
+}
