@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FL Legal Docs Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tiny.cloud/1/nf56djxmrt5h0sf7j8vkhscwakqvwdeyi7ftriugdec5tc05/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#editTemplateArea',
+            plugins:'fullscreen pagebreak searchreplace table print',
+            height: '50vh',
+            toolbar_sticky: true,
+            autosave_restore_when_empty:true
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">API</a></li>
+            <li><a href="/addTemplate" id="toggleAdd">Add Template</a></li>
+            <li><a href="/editTemplate" id="toggleEdit">Edit Template</a></li>
+            <li><a href="/createDoc" id="toggleCreate">Create Summons</a></li>
+            <li><a href="/createTXLet" id="toggleCreate">Create TX Letter</a></li>
+        </ul>
+    </nav>
+    <h1>FL Legal Docs Generator: Edit A Template</h1>
+    
+    <div id="available-templates">
+        <h2>Available FL Summons Templates</h2>
+        <ul class="templates">
+        <% for(let i=0; i<info.length; i++) { %>
+            <li class="available-templates">
+                <span><%= info[i].countyName[0].toUpperCase() + info[i].countyName.slice(1) %></span>
+                <% if (info[i].tier === 'sc') { %>
+                    <span>Small Claims</span>
+                <% } else if (info[i].tier === 'cc') { %>
+                    <span>County Civil</span>
+                <% } else if (info[i].tier === 'ca') { %>
+                    <span>Circuit Civil</span>
+                <% } %>
+                <span id="mongoId" class="hidden"><%= info[i]._id %></span>
+                <span class='fa-solid fa-pen-to-square'></span>
+                <span class='fa fa-trash'></span>
+            </li>
+        <% } %>
+        </ul>
+    </div>
+
+
+    <form action="" method="POST" id="editTemplate">
+        <h2>Edit A Template</h2>
+        <p>Click the <span class='fa-solid fa-pen-to-square'></span> icon for the county you would like to edit from the above list, then use the form below to edit an existing summons template. Click the <span class='fa fa-trash'></span> icon if you would lie to delete a template entirely from the databse.</p>
+        <!-- <input type="hidden" name="_method" value="PUT"/> -->
+        <h3 id="currentlyEditing">Currently Editing:</h3>
+        <input type="hidden" value="" id="mongoIdEditForm" name="editFormMongoId">
+        <p>
+            <label for="editState"><span>State: </span></label>
+            <input type="text" placeholder="State Abbreviation" name="stateName" maxLength="2" id="editState">
+        </p>
+        <p>
+            <label for="editCounty"><span>County: </span></label>
+            <input type="text" placeholder="County" name="countyName" id="editCounty">
+        </p>
+        <p>
+            <label for="editTier"><span>Filing Tier: </span></label>
+            <select name="filingTier" id="editTierSelect">
+                <option value="sc">Small Claims</option>
+                <option value="cc">County Civil</option>
+                <option value="ca">Circuit Civil</option>
+            </select>
+        </p>
+        <p>
+            <label for="editTemplateArea"><span>Document Text: </span></label>
+            <textarea id="editTemplateArea" placeholder="Paste document text here." name="docText"></textarea>
+        </p>
+        <input type="submit">
+        <!-- <button id="editTemplateButton">Edit Template</button> -->
+    </form>
+    
+    <script src='js/main.js'></script>
+    
+</body>
+</html>

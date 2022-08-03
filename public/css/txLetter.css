@@ -1,0 +1,49 @@
+body {
+    line-height: 1.5em;
+    padding: 0 20px 0 20px;
+}
+
+h1 {
+    text-align: center;
+    line-height: 1.1em;
+    font-size: 1.5em;
+}
+
+.heading {
+    display: flex;
+    width: 100%;
+    line-height: 1em;
+}
+
+.courtInfo {
+    align-self: center;
+    width: 50%;
+}
+
+.abcContactInfo {
+    text-align: right;
+    width: 50%;
+}
+
+.abcContactInfo p {
+    font-size: 0.75em;
+}
+
+.txLetterFooter {
+    font-size: 0.75em;
+    text-align: right;
+    line-height: 1em;
+}
+
+.abcHeader {
+    font-size: 1.5em;
+}
+
+.serveeAddresses {
+    display: flex;
+}
+
+.serveeAddress1, .serveeAddress2 {
+    width: 50%;
+    line-height: 1em;
+}

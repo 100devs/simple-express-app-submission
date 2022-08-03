@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/txLetter.css">
+</head>
+<body>
+    <div class="heading">
+        <div class="courtInfo">
+            <p>
+                <span>Clerk of the Court</span><br>
+                <span>{$county}, Texas</span><br>
+                <span>{$court_address}</span>
+            </p>
+        </div>
+        <div class="abcContactInfo">
+            <p>
+                <span class="abcHeader">ABC Legal Services LLC</span><br>
+                <span>Address: 700 Highlander Blvd #200, Arlington, TX 76015</span><br>
+                <span>Phone: 214-920-9688</span><br><br>
+                <span>PARTNER</span><br>
+                <span>ABC E-file Texas</span><br>
+                <span>E-FILE ONLY, Dallas, TX 75220</span><br>
+            </p>
+            
+        </div>
+    </div>
+    <h1><b>AMENDED PETITION - CIVIL CASE COUNTY COURT</b></h1>
+    <div class="letterBody">
+        <p>RE: {$plaintiff_name} vs. {$defendant_name}; {$court}<br>
+            Case Number: {$case_num}<br><br>
+            Dear Sir or Madam:<br>
+            Enclosed please find the following documents:
+            <ul>
+                <li>Cover Letter</li>
+                <li>Amended Petition</li>
+            </ul>
+            Instructions:
+            <ul>
+                <li>Please file the Amended Petition.</li>
+                <li>Please issue a separate Citation for each defendant for service by a {$service_type}.<br>
+                    The citation(s) should be issued to:<br>
+                    <div class="serveeAddresses">
+                        <div class="serveeAddress1">
+                            <span>{$servee_name1}</span><br>
+                            <span>{$servee_address1}</span><br><br>
+                        </div>
+                        <div class="serveeAddress2">
+                            <span>{$servee_name2}</span><br>
+                            <span>{$servee_address2}</span><br><br>
+                        </div>
+                    </div>
+                </li>
+                <li>Please return this coversheet, the amended Citation, and a file-stamped copy of the Amended Petition to ABC Legal by:<br>
+                    {$return_type}
+                </li>
+            </ul>
+            Thank you in advance for your assistance!<br>
+            <b>ABC Legal Services</b><br>
+            <p class="txLetterFooter">Generated: <span class="created_date"></span><br>
+                <span class="matterNumber">Matter number: {$matter_num}</span>
+            </p>
+        </p>
+    </div>
+</body>
+</html>
