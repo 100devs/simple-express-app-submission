@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Template</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1>edit note</h1>
+
+<ul>
+    <% notes.forEach( note => {%>
+<!--RENDER THE FORM IF THE SELECTED NOTE MATCHES THE ID-->
+    <%if (note._id == idNote){%>
+        <form action="/edit/<%= note._id %>" method='POST'>
+            <input type="text" name="title" placeholder="Note title:">
+            <textarea name = 'note' placeholder="Change your mind?"></textarea>
+            <button type='submit'>Confirm change</button>
+            <a href='cancel'>Cancel</a>
+        </form>
+    <%}else{%>
+        <li>
+            <h2><%= note.title %></h2>
+            <p><%= note.note%></p>
+        <a href="/edit/<%= note._id %>"><button>Edit note</button></a>
+        <a href="/remove/<%= note._id %>"><button>Delete Note</button></a>
+    
+        </li>
+<!--AND DO NOT RENDER THE FORM IF THE ID DOES NOT MATCH-->
+    <% }%>
+<% })%>
+</ul>
+
+
+
+<script src='/main.js'></script>
+</body>
+</html>
