@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrinkflation</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <section class="row">
+        <section class="column">
+            <h2>Input Item Info Here</h2>
+            <form action="/api" method="POST">
+                <input type="text" placeholder="item name" name="itemName">
+                <input type="text" placeholder="price" name="price">
+                <button type="submit">Submit New Item</button>
+                <button type="button" id="updateButton">Update Item</button>
+            </form>
+        </section>
+        <section class="col">
+            <h2>Delete Item Here</h2>
+            <input type="text" placeholder="Item to delete" name="deleteInput" id="deleteInput">
+            <button id="deleteButton">Delete Item</button>
+
+            <h2>Item List</h2>
+            <ul class="items">
+                <% for(let i = 0; i < info.length; i++) {%>
+                    <li class="item">
+                        <span><%= info[i].itemName %></span>
+                        <span><%= info[i].price %></span>
+                    </li>
+                <% } %>
+            </ul>
+        </section>
+    </section>
+
+
+    <script type="text/javascript" src="main.js" ></script>
+</body>
+</html>
