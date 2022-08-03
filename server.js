@@ -19,6 +19,6 @@ app.post('/log', (req, res) => {
 });
 
 const PORT = 3000;
-app.listen(PORT, (err) => {
-  console.log(`Server is listening on ${PORT}`);
+app.listen(process.env.PORT || PORT, (err) => {
+  console.log(`Server is listening on ${process.env.PORT || PORT}`);
 });
