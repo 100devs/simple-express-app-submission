@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Share You Career Change Story</title>
+</head>
+
+<!--Nav-->
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark py-3 justify-content-center">
+    <div class="container">
+        <a href="/" class="navbar-brand">Career Change Motivation</a>
+    </div>
+</nav>
+
+<!--Banner-->
+<section class="bg-dark text-light p-5 text-center text-sm-start">
+    <div class="container">
+        <div class="d-flex align-items-center">
+                <h1>Career Change Stories</h1>
+                <p class="lead my-4">Learn more about what it takes to make a career change into tech. Here are stories from folx sharing about their transition into tech. </p>
+        </div>
+    </div>
+</section>
+
+<!--Story Tiles-->
+<section class="p-5">
+    <h1 class="text-center">Career Change Stories Shared by Real People</h1>
+
+    <div class="container mx-2 d-flex flex-direction-row flex-wrap gap-3">
+        <% for (let i=0; i < info.length; i++) {%>
+        <div class="card" style="width: 18rem;">
+            <div class="successStats card-body">
+                <h5 class="card-title"><%= info[i].lastTitle %> to <%=info[i].currentTitle %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= info[i].industry %></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%= info[i].transTime %></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%= info[i].yearsExp %></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%= info[i].intNumber %></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%= info[i].techEducation %></h6>
+                <p class="card-text"><%= info[i].newStory %></p>
+                <!-- <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a> -->
+            </div>
+        </div>
+        <%}%>
+    </div>
+</section>
+
+<!--Entry Form-->
+<!--how many years of experience
+where they are located
+how long did it take to make the transition
+how many interviews/what were your interviews like
+why did they choose tech/dev/data vs other careers
+-->
+<section class="p-5">
+    <div class="container">
+        <div>
+            <h2 class="text-center">Add your story!</h2>
+            <p>Share a paragraph or two about how you made the transition to tech. Consider the following questions while writing your story.</p>
+            <ul>
+                <li>What inspired the change and how did you know it was the right time?</li>
+                <li>What was your interview process like for your first tech role?</li>
+                <li>How did networking play a role in your transition, if at all?</li>
+                <li>What part of the world are you located in and how did that impact your career chage (if at all)?</li>
+                <li>Did you choose to relocate as part of your career transition and how did that impact your income?</li>
+                <li>Finally, why did you choose tech and how are you feeling about it now?</li>
+            </ul>
+            <form class="p-3" action="/addStory" method="POST">
+                <input type="text" placeholder="Previous Title" name="lastTitle" required="true">
+                <input type="text" placeholder="Current Title" name="currentTitle" required="true">
+                <select class="form-select w-50 m-2 p-3" aria-label="Former industry" name="industry" required="true">
+                    <option selected>Choose your former industry</option>
+                    <option value="Education">Education</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Hospitality">Hospitality</option>
+                    <option value="Engineering/Oil & Energy">Engineering/Oil & Energy</option>
+                    <option value="Finance/Accounting">Finance/Accounting</option>
+                    <option value="Construction/Automotive/Manufacturing">Construction/Automotive/Manufacturing</option>
+                    <option value="Sales/Retail/Real Estate">Retail/Sales/Real Estate</option>
+                    <option value="Government/Military">Government/Military</option>
+                    <option value="Communcations/Marketing">Communications/Marketing</option>
+                    <option value="Logistics/Supply Chain/Shipping">Logistics/Supply Chain/Shipping</option>
+                    <option value="Human Services/NonProfits">Human Services/NonProfits</option>
+                    <option value="Other">Other</option>
+                </select>
+                <select class="form-select w-50 m-2 p-3" aria-label="Years Experience" name="yearsExp" required="true">
+                    <option selected>Years of Experience before Tech</option>
+                    <option value="1-4 years experience">1-4 years experience</option>
+                    <option value="5-10 years experience">5-10 years experience</option>
+                    <option value="11-15 years experience">11-15 years experience</option>
+                    <option value="16+ years experience">16+ years experience</option>
+                </select>
+                <select class="form-select w-50 m-2 p-3" aria-label="Time to Transition" name="transTime" required="true">
+                    <option selected>Time it Took You to Transition</option>
+                    <option value="&#60;6 months to transition">&#60;6 months to transition</option>
+                    <option value="6-12 months to transition">6-12 months to transition</option>
+                    <option value="1-2 years to transition">1-2 years to transition</option>
+                    <option value="2+ years to transition">2+ years to transition</option>
+                </select>
+                <select class="form-select w-50 m-2 p-3" aria-label="Number of Interviews" name="intNumber" required="true">
+                    <option selected>Number of Interviews</option>
+                    <option value="&#60;10 interviews">&#60;10 interviews</option>
+                    <option value="10-50 interviews">10-50 interviews</option>
+                    <option value="51-100 interviews">51-100 interviews</option>
+                    <option value="100+ interviews">100+ interviews</option>
+                </select>
+                <select class="form-select w-50 m-2 p-3" aria-label="Tech Education" name="techEducation" required="true">
+                    <option selection>Tech Education Path</option>
+                    <option value="Higher Education/CS Courses">Higher Education (CS courses)</option>
+                    <option value="Bootcamp">Bootcamp</option> 
+                    <option value="Self Taught/Tutorials">Self Taught/Tutorials</option>
+                    <option value="On-the-job Training">On-the-Job Training</option>
+                    <option value="Other">Other(Describe below)</option>
+                </select>
+                <div class="mb-2 p-3">
+                    <textarea class="form-control" placeholder="Tell your story" name="newStory" required="true" maxlength="3000" rows="3"></textarea>
+                </div>
+                <input class="btn btn-primary m-2" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="p-3 bg-primary text-light text-center">
+    <div class="container">
+        <h2>Want to see the Career Change to Tech Stats?</h2>
+        <a class="btn btn-secondary" href="/" role="button">Visit Stats</a>
+    </div>
+</section>
+
+<footer class="p-3 bg-dark text-light flex-direction-row">
+    <p>&copy 2022 SchipThatCode</p>
+    <a class="text-bs-purple" href="https://github.com/rachelschipull/career-motivation" alt="GitHub Repo">GitHub</a>
+</footer>
+
+</body>
+</html>
