@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+* {
+    font-family: "Ubuntu", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(141, 55, 55);
+}
+
+main {
+    width: 60%;
+    min-width: 900px;
+    margin: auto;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    position: relative;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.search input {
+    width: 40%;
+    height: 23px;
+    caret-color: rgb(16, 88, 38);
+    font-family: 'Ubuntu', 'Roboto', 'Helvetica', sans-serif;
+    font-size: 16px;
+    color: rgb(16, 88, 38);
+    position: relative;
+}
+
+fieldset {
+    margin-bottom: 100px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+    font-family: "Bungee";
+    padding: 30px 0px;
+}
+
+.h1img {
+    width: 40px;
+    position: absolute;
+    max-width: 60%;
+}
+
+.imgone {
+    margin: auto auto 0;
+}
+
+.imgtwo {
+    bottom: 0;
+}
+
+.imgthree {
+    right: 0;
+}
+
+.imgfour {
+    bottom: 0;
+    right: 0;
+}
+
+h2 {
+    font-size: 25px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.top_field {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.gridcontainer {
+    display: grid;
+    width: 400px;
+    /* grid-template-columns: 10% 25% 25% 9% 20% 11%; */
+    grid-auto-columns: auto;
+    grid-auto-rows: auto;
+    grid-template-areas: 
+    "sprite name nickname level ability submit"
+    "moves move1 move2 move3 move4";
+}
+
+.gridcontainer input, .gridcontainer button, .gridcontainer select {
+    height: 25px;
+    margin-bottom: 10px
+}
+
+#previewSprite {
+    width: 120px;
+    padding: 0 0 10px 8px;
+    margin: 0 auto;
+}
+
+.top_field span {
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.movetitle {
+    font-weight: 700;
+}
+
+.shinytitle {
+    font-weight: 400;
+}
+
+.top_field li select {
+    width: 335px;
+    margin-right: 20px;
+}
+
+.top_field li i {
+    font-size: 27px;
+    vertical-align: middle;
+}
+
+.top_field li i:active{
+    color: rgb(255, 0, 0);
+    text-shadow: 1px 1px 1px black;
+}
+
+#shinyCheck {
+    vertical-align: bottom;
+    display: inline-block;
+}
+
+#submit {
+    padding: 0 20px;
+    font-size: 16px;
+    margin-left: 230px;
+}
+
+/* Current Team */
+
+.currentfield {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+#teamQuantity {
+    color: green;
+}
+
+.team_member {
+    list-style-type: none;
+    border: 3px double rgb(0, 0, 0);
+    border-radius: 5px;
+    margin: 0 0 5px 5px;
+    width: 250px;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.listgrid {
+    display: grid;
+    grid-template-columns: 250px; 
+    grid-template-rows: 140px 90px 40px 160px; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "sprite"
+      "names"
+      "ability"
+      "moves"
+  }
+  .sprite { grid-area: sprite; }
+  .moves { grid-area: moves; }
+  .names { grid-area: names; }
+  .ability { grid-area: ability; }
+
+.sprite {
+    place-items: center;
+} 
+
+.sparkle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px 10px 0 0;
+    width: 40px;
+}
+
+.team_sprite {
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+.team_nickname {
+    font-size: 20px;
+    font-weight: 700px;
+}
+
+.team_name {
+    font-style: italic;
+    font-size: 14px;
+}
+
+.team_level {
+    padding-top: 10px;
+}
+
+.listgrid i {
+    padding: 15px 20px 0 20px;
+}
+
+.listgrid img {
+    padding-top: 10px;
+}
+
+.team_title {
+    font-weight: 700;
+}
+
+.move_title {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.ability_title {
+    display: block;
+    padding: 15px 0 5px 0;
+}
+
+.moves {
+    margin-top: 18px;
+}
+
+.faveoff {
+    color: black;
+    font-weight: 400;
+}
+
+.faveon {
+    color: gold;
+    text-shadow: 0px 1px 0px black;
+}
+
+.fa-star:hover {
+    color: gold;
+    font-weight: 700;
+}
+
+.fa-trash-can:hover {
+    color: red;
+    font-weight: 700;
+}
+
+.fa-trash-can::selection {
+    color: rgb(170, 31, 31);
+    font-weight: 800;
+}
+
+.movelist {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 20px;
+    grid-template-areas: 
+    "title move move move move";
+    padding: 0 0 5px 108px;
+}
+
+.movepool {
+    font-size: 16px;
+    color: rgb(114, 114, 114);
+    font-weight: 700;
+    border: 1px solid black;
+    padding-bottom: 5px;
+    margin: 0 15px 5px 10px;
+}
+
+#isFavourite {
+    display: none;
+}
+
+.tippy-tooltip{
+    font-family: "Ubuntu", sans-serif;
+}
