@@ -1,22 +1,17 @@
-#100Devs Simple Express App Submission
-
-### Goal: Make Your Own CRUD APP and Push To Heroku
-
-### How to submit your code for review:
-
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
-
-Example:
-```
 I completed the challenge: 5
 I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+Would like to have integrated the input and given some better instructions
+
+# Trader Joe's Product API
+
+Basic API that will return JSON with information on that product.
+
+## How It's Made:
+
+**Tech used:** HTML, CSS, JavaScript, Node.js, Express.js
+
+Written in express with fairly basic functionality. Proof of concept for writing bigger API's that are product based for use in food, nutritional, and recipe websites.
+
+## Lessons Learned:
+
+Learned a good deal about deploying APIs. Opened my eyes to the many different endpoint options that can be created on the backend. Spending more time going forward thinking about building more robust paths for getting product data.
