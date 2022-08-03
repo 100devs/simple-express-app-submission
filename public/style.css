@@ -1,0 +1,337 @@
+
+:root{
+    --warning:rgb(251, 173, 5);
+    --add-partbg:#62cf83;
+    --deletebg:rgb(222, 79, 79);
+
+    --goodbg:rgb(119, 223, 119);
+    --medbg:rgb(190, 190, 9);
+    --lowbg:rgb(252, 137, 137);
+    
+    --entrybg:#007991;
+    --bodybg:#508AA8;
+    --info:#508AA8;
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    
+}
+
+
+
+/* typography */
+
+
+body{
+    font-size: 2rem;
+   
+}
+
+h1{
+    text-align: center;
+    font-size: 1.5rem;
+}
+input{
+    font-size: 3rem;
+}
+
+button{
+    font-size: 1.5rem;
+}
+
+li{
+    
+    list-style: none;
+    
+}
+    summary{
+        font-size: 1.2rem;
+    }
+  
+    details > *{
+        font-size: 1rem;
+    }
+
+        details span{
+            font-size: 1rem;
+        }
+    .part_id{
+        font-size: 2.5rem;
+    }
+    .model_id{
+        font-size: 1.5rem;
+       
+    }   
+    .quantity{
+        font-size: 1.4rem;
+    }
+    .instock{
+        font-size: 2rem;
+    }
+    .delete-sect{
+        font-size: 1.5rem;
+    }
+
+
+
+
+
+
+/*============================================
+ LAYOUT
+============================================ */
+
+
+.hidden{
+    visibility: hidden;
+    min-height: 0px;
+    height: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+body{
+   width: 100%;
+   padding: 5%;
+   background-color: var(--bodybg);
+
+}
+
+ol{
+    margin: 0;
+    padding:0;
+    width: 100%;
+}
+
+input{
+    width: 100%;
+   
+}
+
+li{  
+    width: 100%;
+    padding: 5px;
+    margin: 5% 0;
+    min-height: 300px;
+    
+}   
+    details li{
+        padding: 0;
+        margin: 0;
+        min-height: 2%;
+        /* font-size: 1rem; */
+    }
+   
+
+        .part-info{
+            height: 60%;
+          
+            /* border: solid rgb(3, 30, 39) 1px */
+        }
+
+           /* .part-info h5{
+                border: black 1px solid;
+                height: 5%;
+            } */
+            .part-info div{
+                border-radius: 10px;
+                margin: 3px auto;
+            }
+
+            .part_id,
+            .model_id,
+            .quantity{
+                width: 100%;
+                background-color: rgb(164, 208, 208);
+                box-shadow:3px 3px black ;
+            
+            }
+
+        .controls{
+            height: 40%;
+            /* border:rgb(109, 7, 7) solid 1px; */
+        }
+               
+            .delete-sect{
+                display: inline-block;
+                width: 100%;
+                height: 20%;
+                
+                vertical-align: top;
+            }
+
+
+            .update-area{
+                height:100%;
+                /* border: 10px solid blue; */
+                
+            }
+
+            .inventory-change{
+             
+               
+               display: flex;
+               justify-content: space-around;
+               align-items: center;
+               height: 50%;
+               /* border: 3px black solid; */
+                
+            }
+                .inventory-change button{
+                    width: 40%;
+                    display: inline-block;
+                    height: 100px;
+                    vertical-align: top;
+
+                    margin:0 5px;
+                }
+
+
+            .inventory-update{
+                height: 30%;
+                /* border: 3px black solid; */
+
+            }
+                .inventory-update button{
+                    height: 100%;
+                    
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section, form{
+    /* border: 3px green dashed; */
+}
+
+button{
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(183, 195, 205);
+}
+button:active{
+   background-color: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*============================================= 
+STYLES
+============================================ */
+
+
+
+.changed{
+    background-color: var(--warning);
+}
+.add-part{
+    background-color: aquamarine;
+}
+.good-stock{
+    background-color: var(--goodbg);
+}
+.medium-stock{
+    background-color: var(--medbg);
+}
+.low-stock{
+    background-color:var(--lowbg);
+}
+
+
+
+details{
+    background-color: #62cf83;
+    border-radius: 40px;
+}
+
+
+.partnumber{
+    border-radius: 10px;
+    box-shadow: 2px 2px black;
+    background-color: var(--entrybg);
+
+}
+
+    .quantity input{
+        border-radius: 10px;
+        text-align: center;
+    }
+
+
+
+    /* all buttons in update section */
+    .update-area button{
+        border-radius: 30px;
+        margin: 0 auto;
+       
+    }
+
+    /* update inventory button section */
+    .inventory-update{
+       text-align: center;
+      
+    }
+        .inventory-update button{
+            width: 80%;
+            
+        }
+
+    .inventory-change button::selection{
+        background-color: aqua;
+    }
+
+.delete-sect{
+    border: red 1px solid;
+    display: inline-block;
+    width: 40%;
+}
+
+
+   
+   
+    
+   
+
+   
+   
+
+
+
+
+   
+      
+    
+
+
+
+
+
