@@ -1,0 +1,45 @@
+form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: column wrap;
+
+    border-bottom: thin solid black;
+    width: fit-content;
+    padding-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input{
+    margin-bottom: 10px;
+}
+
+button{
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.1s ease-in-out;
+    margin-top: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #fadaff;
+}
+
+ul{
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+}
+
+li{
+    width: 100%;
+    border-bottom: thin solid green;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header.ejs") %>
+<body>
+    <nav>
+    </nav>
+
+    <h1>Home Page</h1>
+    <div id="errorMessage"></div>
+    <form action="" METHOD="POST">
+        <h2>Add New Hero</h2>
+        <label>Name</label>
+        <input type="text" name="name" id="post-name"/>
+        <label>Nickname</label>
+        <input type="text" name="nickname" id="post-nickname" />
+        <button type="submit" id="post-btn">Add Hero</button>
+    </form>
+
+    <form action="" METHOD="PUT">
+        <h2>Update New Hero</h2>
+        <label>Name</label>
+        <input type="text" name="name" id="put-name"/>
+        <label>Nickname</label>
+        <input type="text" name="nickname" id="put-nickname" />
+        <button type="submit" id="put-btn">Update Hero</button>
+    </form>
+
+    <form action="" METHOD="DELETE">
+        <h2>Delete Hero</h2>
+        <label>Name</label>
+        <input type="text" name="name" id="delete-name"/>
+        <button type="submit" id="delete-btn">Delete Hero</button>
+    </form>
+
+    <button id="get-btn">Get Heroes</button>
+    <ul id="heroes-list">
+
+    </ul>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
