@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Boardgames</title>
+</head>
+
+<body>
+  <table>
+    <caption>
+      <h1>My Boardgames</h1>
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Publisher</th>
+        <th scope="col">Times Played</th>
+        <th scope="col">Add Play</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- "info" is referring to the array of boardgame objects that will be received from the database.  
+        The "for" loop will step through the array, create an HTML element for each object it finds there, and fill the element with values taken from the object. -->
+      <% for (let i=0; i < info.length; i++) {%>
+      <tr>
+        <td><%= info[i].title %></td>
+        <td><%= info[i].publisher %></td>
+        <td><%= info[i].likes %></td>
+        <td><button class="like" type="button">Played</button></td>
+        <td><button class="delete" type="button">Delete</button></td>
+      </tr>
+      <% } %>
+
+    </tbody>
+  </table>
+
+  <h2>Add a game to the collection:</h2>
+
+  <!-- HTML forms serve as a vehicle for packaging up and sending information to a server.  
+      In the opening tag we specify where this information is going to be sent (the route, or endpoint, in this case "/addGame"), and the method (in this case, POST) -->
+  <form action="/addGame" method="POST">
+    <input type="text" placeholder="Game" name="gameTitle" />
+    <!-- Information taken from the inputs will be stored as key: value pairs in request.body  
+        Specifically, the value of the input's "name" attribute will be the key, and the input's value (what the user enters into the text box) will be the value -->
+    <input type="text" placeholder="Publisher" name="publisherName" />
+    <button>Submit</button>
+    <!-- Clicking the button will automatically make the request, according to the "action" and "method" specified in the opening tag of the form -->
+  </form>
+  <script src="main.js"></script>
+</body>
+
+</html>
