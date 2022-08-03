@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Zone of Wars Forum</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Geostar+Fill&family=Sarpanch&family=Syncopate&display=swap" rel="stylesheet">
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+    </head>    
+    <body>
+        <h1>Zone of Wars Forum</h1>
+
+        <section class="container clearfix">
+            <section id="inputContainer">
+                <form action='/blogPost' method="POST">
+                    <input type="text" placeholder="Name" name="name">
+                    <textarea type="text" placeholder="Message" rows='3' name="message"></textarea>
+                    <input type="url" placeholder="Link" name="link">
+                    <button class="button-85" id='postButton' type="submit">Post</button>
+                </form>
+                <div id="message"></div>
+            </section>
+
+            <ul id="postContainer">
+                <li id='eachPost' class="singlePost">
+                    <iframe src="https://www.youtube.com/embed/uaOKv1XtWqA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </li>
+                <% for(var i = 0; i < rebirthPosts.length; i++) {%>
+                    <li id='eachPost' class="singlePost">
+                        <h1><%= rebirthPosts[i]._id %></h1>
+                        <h2><%= rebirthPosts[i].name %></h2>
+                        <span id="message"><%= rebirthPosts[i].message %></span>
+                        <a href="<%= rebirthPosts[i].link %>"><%= rebirthPosts[i].link %></a>
+                        <button id="deletePost" class="deleteButton"><i class="icon-trash"></i></button>
+                        <span id='likeNumber'><%= rebirthPosts[i].likes %></span>
+                        <span id='likeButton'>LIKE</span>
+                    </li>
+                <% } %>
+            </ul>
+        </section>
+        
+        <script src='/main.js'></script>
+
+    </body>
+</html>
