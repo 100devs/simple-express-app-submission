@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Current Goals</h1>
+    <ul class="goals">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="goal">
+            <span><%= info[i].categoryName %> : </span>
+            <span><%= info[i].goalName %></span>
+            <!-- <span><%= info[i].likes %></span> -->
+            <!-- <span class='fa fa-thumbs-up'></span> -->
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Add A Goal:</h2>
+
+    <form action="/addGoal" method="POST">
+        <input type="text" placeholder="Category Name" name="categoryName">
+        <input type="text" placeholder="Goal Name" name="goalName">
+        <input type="submit" name="submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
