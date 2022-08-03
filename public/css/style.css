@@ -1,0 +1,132 @@
+body{
+ --color-primary: #3A86FF;
+ --footer-color: #d6d7f3;
+ --font-color: #240046;
+ --border-radius: 7px;
+
+
+
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ margin: 0;
+ height: 100vh;
+ padding: 10px;
+
+ box-sizing: border-box;
+ background-color: var(--color-primary);
+ color: var(--font-color);
+
+ font-family: 'Josefin Sans', sans-serif;
+	font-size: 1rem;
+	
+
+}
+
+input[type=text] {
+ width: 100%;
+ padding: 12px 20px;
+ margin: 8px 0;
+ box-sizing: border-box;
+ border: none;
+ outline: none;
+}
+
+input:hover{
+ cursor: pointer;
+}
+
+
+.blob {
+ position: absolute;
+ top: 0;
+ left: 0;
+ fill: #FFBE0B;
+ width: 50vmax;
+ z-index: -1;
+ animation: move 10s ease-in-out infinite;
+ transform-origin: 50% 50%;
+}
+
+@keyframes move {
+ 0%   { transform: scale(1)   translate(10px, -30px); }
+ 38%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
+ 40%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
+ 78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+ 80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+ 100% { transform: scale(1)   translate(10px, -30px); }
+}
+
+.btn {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	padding: 25px 30px;
+	display: flex;
+ 
+	/* margin: 15px 30px; */
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+ 
+}
+
+.btn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.btn-2 {
+	background: #f7559b;
+	color: #fff;
+	box-shadow: 0 6px #FF006E;
+	-webkit-transition: none;
+	-moz-transition: none;
+	transition: none;
+}
+
+.btn-2b {
+	border-radius: 25px;
+}
+
+.btn-2b:hover {
+	box-shadow: 0 8px #b10550;
+	top: -2px;
+}
+
+.btn-2b:active {
+	box-shadow: 0 0 #b10550;
+	top: 6px;
+}
+
+.fa{
+	padding: 10px;
+	font-size: 1.5rem;
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+	body *{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 15px;
+		font-size: 1rem;
+		letter-spacing: 1px;
+		
+	}
+
+}
