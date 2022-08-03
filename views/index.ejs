@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Template</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+
+
+<h1>Netflix Watchlist</h1>
+
+<section data-position="add-title">
+    <h2>Add title</h2>
+
+    <form action="/title" method="POST">
+      <input type="text" placeholder="genre" name="genre" />
+      <input type="text" placeholder="title" name="title" />
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section data-position="titles">
+    <h2>Titles</h2>
+
+    <ul>
+      <% for(var i = 0; i < netflixTitles.length; i++) {%>
+      <li>
+        <span><%= netflixTitles[i].genre %></span>:
+        <span><%= netflixTitles[i].title %></span>
+      </li>
+      <% } %>
+    </ul>
+  </section>
+
+  <section data-position="update-title">
+    <div>
+      <h2>Update Title</h2>
+      <p>
+        Click the Button Below to Update a title
+      </p>
+      <button id="update-button">Update Title</button>
+    </div>
+  </section>
+
+  <section data-position="delete-quote">
+    <div>
+      <h2>Delete Rickroll From Watchlist</h2>
+      <p>
+       Click the Button Below to Delete a Rickroll from Watchlist
+      </p>
+      <button id="delete-button">Delete Rickroll</button>
+    </div>
+    <div id="message"></div>
+  </section>
+
+
+
+<script src='/main.js'></script>
+</body>
+</html>
