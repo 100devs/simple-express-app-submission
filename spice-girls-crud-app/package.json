@@ -1,0 +1,23 @@
+{
+  "name": "spice-girls-api",
+  "version": "1.0.0",
+  "description": "simple working api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AllieGie/spice-girls-api.git"
+  },
+  "author": "alliegie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AllieGie/spice-girls-api/issues"
+  },
+  "homepage": "https://github.com/AllieGie/spice-girls-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  }
+}
