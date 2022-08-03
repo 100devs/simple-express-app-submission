@@ -39,6 +39,8 @@ app.get("/", (request, response) => {
     response.sendFile("index.html", { root: "public" });
   });
 
+
+  
 // //give data while serching
 app.get("/search", async(request, response) => {
     try{
