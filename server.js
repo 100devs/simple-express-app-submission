@@ -21,51 +21,62 @@ MongoClient.connect(connectionString, (err, client) => {
 
     db = client.db("nd-hacks");
     hacksCollection = db.collection("hacks")
-});
-
-
-//see the list of hacks
-app.get("/", async (req, res) => {
-    const hacks = await hacksCollection.find().toArray();
-    res.render("index.ejs", {hacks: hacks});
-});
-
-//add a new hack
-app.post("/add-hack", async (req, res) => {
-    // console.log(req.body.text);
-    // console.log(req.body.conditions);
-    try {
-        const add = await hacksCollection.insertOne({text: req.body.text, conditions: [req.body.conditions.split(",")]});
+    
+    
+    //see the list of hacks
+    app.get("/", async (req, res) => {
+        const hacks = await hacksCollection.find().toArray();
+        res.render("index.ejs", {hacks: hacks});
+    });
+    
+    //add a new hack
+    app.post("/add-hack", async (req, res) => {
+        // console.log(req.body.text);
+        // console.log(req.body.conditions);
+        try {
+        const add = await hacksCollection.insertOne({text: req.body.text, helpCount: 0, conditions: [req.body.conditions.split(",")]});
         // console.log(add);
         res.redirect("/")
-    } catch(err) {
-        console.error(err);
-    }
-});
+        } catch(err) {
+            console.error(err);
+        }
+    });
 
-//"this helped me!"
-//with specific diagnosis?
-//TODO unfinished
-app.put("/helped-me", async (req, res) => {
-    hacksCollection.findOneAndUpdate(
-        //TODO add to like count
-        //TODO update list w/ diagnoses
-    )
-});
+    //"this helped me!"
+    // TODO: could add specific diagnosis
+    app.put("/helped-me", async (req, res) => {
+        try {
+            const inc = await hacksCollection.findOneAndUpdate( 
+                {text: req.body.text}, 
+                {
+                    $inc: {
+                        helpCount: 1
+                    }
+                }, 
+                {
+                    upsert: false
+                });
+            res.json("Help count updated");
+        } catch(err) {
+            console.error(err);
+        }
+    });
 
-//delete (spam)
-app.delete("/delete-hack", async (req, res) => {
-    console.log(req.body.text);
-    try {
-        const del = await hacksCollection.deleteOne( {text: req.body.text})
-        console.log(`Hack '${req.body.text}' deleted`);
-        res.json(`Hack '${req.body.text}' deleted`);
-    } catch(err) {
-        console.error(err);
-    }
-});
+    //delete (spam)
+    app.delete("/delete-hack", async (req, res) => {
+        console.log(req.body.text);
+        try {
+            const del = await hacksCollection.deleteOne( {text: req.body.text})
+            console.log(`Hack '${req.body.text}' deleted`);
+            res.json(`Hack '${req.body.text}' deleted`);
+        } catch(err) {
+            console.error(err);
+        }
+    });
 
-//run the server
-app.listen(process.env.port || PORT, () => {
-    console.log(`Server is running on port ${process.env.port || PORT}`);
+    //run the server
+    app.listen(process.env.port || PORT, () => {
+        console.log(`Server is running on port ${process.env.port || PORT}`);
+    });
+
 });
