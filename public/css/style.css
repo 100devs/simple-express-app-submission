@@ -1,0 +1,64 @@
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin-left: 5%;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: url(https://images6.fanpop.com/image/photos/38500000/Rainbow-Brite-and-the-Colorkids-rainbow-brite-38551712-385-365.jpg);
+  background-repeat: no-repeat;
+  background-size: 49%;
+  background-position: top right;
+}
+
+li {
+  list-style-type: none;
+}
+
+.addRBChar {
+  display: grid;
+  grid-template-columns: repeat(5, 15%);
+  grid-row-gap: 30px;
+  grid-column-gap: 30px;
+  justify-content: center;
+}
+
+.characterList, .characterForm {
+  border-radius: 15px;
+  width: 750px;
+}
+
+.characterList {
+    background: linear-gradient(
+    45deg,
+    Red,
+    Orange,
+    Yellow,
+    Green,
+    Blue,
+    Indigo,
+    violet
+  );
+}
+
+.characterForm {
+    background: linear-gradient(
+    45deg,
+    Red,
+    Orange,
+    Yellow,
+    Green,
+    Blue,
+    Indigo,
+    violet
+  );
+  text-align: center;
+}
