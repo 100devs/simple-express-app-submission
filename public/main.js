@@ -1,4 +1,8 @@
-//Temporarily changed all event listeners to new function called disable to disable functionality.I wanted to share it on my portfolio without having to add authentication. I currently have the database whitelisted for all IP addresses. It was the only way I could figure out how to let heroku access my database.
+//Temporarily changed all event listeners to new function called disable
+//to disable functionality.I wanted to share it on my portfolio without
+//having to add authentication. I currently have the database whitelisted
+//for all IP addresses. It was the only way I could figure out how to let
+//heroku access my database.
 
 // ========================
 // Delete Player
