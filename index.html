@@ -18,15 +18,68 @@
     <link rel="stylesheet" href="/normalize.css" />
     <link rel="stylesheet" href="/style.css" />
 
-    <title>📝 Logging</title>
+    <script defer src="/script.js"></script>
+
+    <title>📝 Daily Log</title>
   </head>
   <body>
-    <h1>Daily Log</h1>
-    <form action="log" method="POST">
-      <label id="logLabel">Creatine</label>
-      <input type="checkbox" name="logLabel" />
-      <button class="button-23" role="button">Confirm</button>
-    </form>
+    <section class="controls-Section">
+      <h1>Daily log</h1>
+      <button class="button-23 add">
+        <img src="/assets/plus.svg" alt="Add" />
+      </button>
+      <button class="button-23 delete">
+        <img src="/assets/trash.svg" alt="delete" />
+      </button>
+    </section>
+
+    <section class="logList-Section">
+      <form action="log" method="POST">
+        <!-- example label -->
+        <div class="item-container" id="item--js">
+          <label>
+            Creatine Taken?
+            <input type="checkbox" name="taken" />
+            <!-- <span tabindex="0" class="checkbox"></span> -->
+          </label>
+          <p class="timestamp">Time Last Taken:</p>
+        </div>
+
+        <div class="item-container" id="item--js">
+          <label>
+            weight log?
+            <input type="checkbox" name="taken" />
+            <!-- <span tabindex="0" class="checkbox"></span> -->
+          </label>
+          <p class="timestamp">Time Last Taken:</p>
+        </div>
+        <div class="item-container" id="item--js">
+          <label>
+            weight log?
+            <input type="checkbox" name="taken" />
+            <!-- <span tabindex="0" class="checkbox"></span> -->
+          </label>
+          <p class="timestamp">Time Last Taken:</p>
+        </div>
+        <div class="item-container" id="item--js">
+          <label>
+            weight log?
+            <input type="checkbox" name="taken" />
+            <!-- <span tabindex="0" class="checkbox"></span> -->
+          </label>
+          <p class="timestamp">Time Last Taken:</p>
+        </div>
+        <div class="item-container" id="item--js">
+          <label>
+            weight log?
+            <input type="checkbox" name="taken" />
+            <!-- <span tabindex="0" class="checkbox"></span> -->
+          </label>
+          <p class="timestamp">Time Last Taken:</p>
+        </div>
+        <button class="button-23" role="button">Confirm</button>
+      </form>
+    </section>
   </body>
 </html>
 

@@ -4,32 +4,173 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* outline: 1px solid red; */
 }
 
 *:root {
+  /* https://coolors.co/a63446-fbfef9-2d2b55-f9a03f-5f7367 */
+  /* https://coolors.co/f9a03f */
   --clr-bg: #2d2b55;
   --clr-text: #9effff;
 
+  --clr-text-fade: hsl(180, 100%, 41%);
+
   --clr-action: #f9a03f;
+  --clr-btn-accent: #3c1518;
+  /* --clr-error: #ff0033; */
+  --clr-error: #7d451b;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  gap: 150px;
   min-height: 100vh;
   background-color: var(--clr-bg);
   font-family: 'Poppins', sans-serif;
 }
 
+.controls-Section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(10px, 1.6vw, 20px);
+  width: 100%;
+  margin-top: 30px;
+  padding: 0px clamp(20px, 3.2vw, 40px);
+}
+
+.controls-Section button {
+  padding: 5px 20px;
+}
+
+.controls-Section .add {
+  margin-left: auto;
+}
+
+.controls-Section img {
+  width: clamp(25px, 4vw, 50px);
+  height: auto;
+}
+
 h1 {
   color: var(--clr-text);
+  /* font-size: 64px; */
+  /* margin-top: 20%; */
+  font-size: clamp(16px, 5vw, 32px);
+}
+
+.logList-Section {
+  width: 100%;
 }
 
 form {
+  margin: 0 auto;
+  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  width: 90%;
+  max-width: 800px;
+  min-height: 30vh;
+}
+
+form button {
+  align-self: flex-end;
+}
+
+.item-container {
+  width: 100%;
+}
+
+.item-container label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--clr-text);
+  width: 80%;
+  font-size: 20px;
+  line-height: 100%;
+}
+
+.item-container .hiddenLabel {
+  position: absolute;
+  font-size: 0px;
+  width: 1px;
+  height: 1px;
+}
+
+.item-container input[type='checkbox'] {
+  position: relative;
+  /* display: none; */
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  background-color: #a63446;
+  cursor: pointer;
+}
+
+.item-container input[type='checkbox']:hover {
+  outline: 4px solid #fbfef9;
+}
+
+.item-container input[type='checkbox']::before {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  left: 5px;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  transform: scale(0);
+  /* background-color: #fbfef9; */
+  background-color: var(--clr-action);
+  z-index: 3;
+}
+
+.item-container input[type='checkbox']:checked::before {
+  transform: scale(1);
+}
+
+/* .checkbox {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  background-color: #a63446;
+  cursor: pointer;
+}
+
+.checkbox:hover {
+  outline: 4px solid #fbfef9;
+} */
+
+/* form input[type='checkbox']:checked ~ .checkbox::after {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  left: 5px;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  background-color: #fbfef9;
+  background-color: var(--clr-action);
+  z-index: 3;
+} */
+
+/* .checkbox:active::after {
+} */
+
+.timestamp {
+  color: var(--clr-text-fade);
+  font-size: 14px;
+  font-style: italic;
 }
 
 /* Airbnb 23 - https://getcssscan.com/css-buttons-examples */
@@ -38,7 +179,8 @@ form {
   border: 1px solid var(--clr-action);
   border-radius: 8px;
   box-sizing: border-box;
-  color: #222222;
+  /* color: #222222; */
+  color: var(--clr-btn-accent); /*looks better*/
   cursor: pointer;
   display: inline-block;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
@@ -63,6 +205,11 @@ form {
 .button-23:focus-visible {
   box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
   transition: box-shadow 0.2s;
+}
+
+.button-23:hover {
+  background-color: hsl(31, 94%, 51%);
+  border-color: hsl(31, 94%, 51%);
 }
 
 .button-23:active {
