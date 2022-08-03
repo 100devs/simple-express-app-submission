@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Docs Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tiny.cloud/1/nf56djxmrt5h0sf7j8vkhscwakqvwdeyi7ftriugdec5tc05/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src='js/txLetTinyMCE.js'></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">API</a></li>
+            <li><a href="/addTemplate" id="toggleAdd">Add Template</a></li>
+            <li><a href="/editTemplate" id="toggleEdit">Edit Template</a></li>
+            <li><a href="/createDoc" id="toggleCreate">Create FL Summons</a></li>
+            <li><a href="/createTXLet" id="toggleCreate">Create TX Letter</a></li>
+        </ul>
+    </nav>
+    <h1>Create TX Cover Letter</h1>
+    <div id="createTXLet">
+        <h2>Instructions <i class="fa-solid fa-angle-down"></i></h2>
+        <ol class="instructions hidden">
+            <li>Fill out the fields below. Note the following:
+                <ul>
+                    <li>For the best results, use the Enter/Return key to format the address fields as follows:<br>
+                    12345 Main St<br>
+                    City, State 12345</li>
+                    <li>Separate multiple plaintiff and defendant parties with a comma.</li>
+                    <li>Customer email does not need to be selected unless the doc return method is by email.</li>
+                    <li>No more than two servees can be added to the templates.</li>
+                </ul>
+            </li>
+            <li>Select the Insert Template button in the text editor, choose which template you would like to use, and click Save.
+                <ul>
+                    <li>If you would like to create a batch of letters click the Page Break button in the text editor. Then fill out the court and case info fields again, select the template you'd like to use, and click Save.</li>
+                </ul>
+            </li>
+            <li>Click the Print button to save the completed letter. Under More Settings, check that Headers and footers is not selected in the Options section.</li>
+            <li>To start over, click the Reset button or clear all text in the text editor.</li>
+        </ol>
+        
+        <div class="inputPreview" id="inputPreview1">
+            <div class="inputFields">
+                <p>
+                    <fieldset class="txCourtCaseInfo">
+                        <legend>Court & Case Information</legend>
+                        <fieldset class="txCourtInformation">
+                            <legend>Court Information</legend>
+                            <label for="txCourt">Court: </label>
+                            <textarea name="txCourt" id="txCourt"></textarea>
+                        </fieldset>
+                        <fieldset class="txCaseInformation">
+                            <legend>Case Information</legend>
+                            <label for="txMatterNum">Matter Number: </label>
+                            <input name="txMatterNum" id="txMatterNum">
+                            
+                            <label for="txCaseNum">Case Number: </label>
+                            <input name="txCaseNum" id="txCaseNum">
+                            
+                            <label for="plaintiffName">Plaintiff Name(s): </label>
+                            <input name="plaintiffName" id="txPlaintiffName">
+                            
+                            <label for="defendantName">Defendant Name(s): </label>
+                            <input name="defendantName" id="txDefendantName">
+                            
+                            <label for="servee1Name">Servee 1 Name: </label>
+                            <input name="servee1Name" id="servee1Name">
+                            
+                            <label for="servee1Address">Servee 1 Address: </label>
+                            <textarea name="servee1Address" id="servee1Address"></textarea>
+                            
+                            <label for="servee2Name">Servee 2 Name: </label>
+                            <input name="servee2Name" id="servee2Name">
+                            
+                            <label for="servee2Address">Servee 2 Address: </label>
+                            <textarea name="servee2Address" id="servee2Address"></textarea>
+                        </fieldset>
+                        <fieldset class="txServiceDocReturn">
+                            <legend>Service Type & Doc Return Method</legend>
+                            <label for="serviceType">Service Type</label>
+                            <select name="serviceTypes" id="txServiceType">
+                                <option value="">Choose an option</option>
+                                <option value="private process server">Private Process Server</option>
+                                <option value="sheriff">Sheriff</option>
+                                <option value="constable">Constable</option>
+                            </select>
+        
+                            <label for="docReturnMethod">Doc Return Method</label>
+                            <select name="docReturnMethods" id="txDocReturnMethod">
+                                <option value="">Choose an option</option>
+                                <option value="Mail to ABC Legal at 700 Highlander Blvd #200, Arlington, TX 76015">Mail to ABC</option>
+                                <option value="Hold for pickup by local ABC courier">Hold for pickup</option>
+                                <option value="Email to ">Email to </option>
+                            </select>
+                           
+                            <label for="customerEmail">Customer Email</label>
+                            <select name="customerEmail" id="customerEmail">
+                                <option value="">Choose a customer</option>
+                                <option value="Couch">Couch Lambert</option>
+                                <option value="Hosto">Hosto & Buchan</option>
+                                <option value="Javitch">Javitch</option>
+                                <option value="Jenkins">Jenkins & Young</option>
+                                <option value="Johnson">Johnson Mark</option>
+                                <option value="Michael">Michael J. Adams</option>
+                                <option value="Midland">Midland Funding LLC</option>
+                                <option value="Morgan">Morgan & Associates</option>
+                                <option value="Noack">Noack Law Firm</option>
+                                <option value="Oportun">Oportun</option>
+                                <option value="Persolve">Persolve Legal</option>
+                                <option value="PRA">PRA</option>
+                                <option value="Rausch">Rausch</option>
+                                <option value="Scott">Scott & Associates</option>
+                                <option value="Suttell">Suttell & Hammer</option>
+                                <option value="Waddell">Waddell Serafino</option>                                
+                                <option value="Zwicker">Zwicker</option>
+                            </select>
+                        </fieldset>
+                        <span class="newTemplateButton"><a href="/createTXLet">Reset</a></span>
+                    </fieldset>
+                </p>
+            </div>
+            <div class="docPreview">
+                <p>Document Text:
+                    <textarea id="createTXLetArea" placeholder="Document text" name="docText"></textarea>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src='js/main.js'></script>
+    
+</body>
+</html>

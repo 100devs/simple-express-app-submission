@@ -1,0 +1,75 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.hidden {
+    display: none;
+}
+
+nav ul li {
+    display: inline-block;
+    
+}
+
+.inputFields {
+    width: 20%;
+    padding: 1em;
+}
+
+.inputFields label, .inputFields input, .inputFields textArea {
+    display: block;
+    width: 100%;
+}
+
+.inputPreview {
+    display: flex;
+}
+
+.docPreview {
+    width: 80%;
+    padding: 1em;
+}
+
+legend {
+    font-weight: bold;
+}
+
+.newTemplateButton {
+    padding: 0.5em;
+    border: 1px solid #24a0ed;
+    border-radius: 5px;
+    background: #24a0ed;
+}
+
+.newTemplateButton a {
+    color: white;
+    text-decoration: none;
+}
+
+.newTemplateButton:hover {
+    border: 1px solid #4DC6E2;
+    background: #4DC6E2;
+}
+
+.txServiceDocReturn {
+    margin-bottom: 1em;
+}
+
+#txCourt {
+    min-height: 6em;
+}
+
+#servee1Address, #servee2Address {
+    min-height: 4em;
+}
+
+@media screen and (max-width: 1050px) {
+    .inputFields {
+        width: 100%;
+    }
+}
+
+@media (min-width: 540px) and (max-width: 1050px) {
+    .inputFields {
+        width: 50%;
+    }
+}

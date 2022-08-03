@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FL Legal Docs Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tiny.cloud/1/nf56djxmrt5h0sf7j8vkhscwakqvwdeyi7ftriugdec5tc05/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#editTemplateArea',
+            plugins:'fullscreen pagebreak searchreplace table print',
+            height: '50vh',
+            toolbar_sticky: true,
+            autosave_restore_when_empty:true
+        });
+        tinymce.init({
+            selector: '#addTemplateArea',
+            plugins:'fullscreen pagebreak searchreplace table print',
+            height: '50vh',
+            toolbar_sticky: true,
+            autosave_restore_when_empty:true
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">API</a></li>
+            <li><a href="/addTemplate" id="toggleAdd">Add Template</a></li>
+            <li><a href="/editTemplate" id="toggleEdit">Edit Template</a></li>
+            <li><a href="/createDoc" id="toggleCreate">Create Summons</a></li>
+            <li><a href="/createTXLet" id="toggleCreate">Create TX Letter</a></li>
+        </ul>
+    </nav>
+    <h1>FL Legal Docs Generator</h1>
+    <div id="api-instructions">
+        <h2>API Instructions</h2>
+        <p>Use https://legal-docs-generator.herokuapp.com/summons/countyName&tier to view a json file containing data for a summons template.</p>
+        <p>Route parameters are:
+            <ul>
+                <li>County Name: replace countyName with the county's name</li>
+                <li>Filing Tier: replace tier with the filing tier-- sc for small claims, cc for county civil, ca for circuit</li>
+            </ul>
+            Example: <a href="https://legal-docs-generator.herokuapp.com/summons/alachua&cc">https://legal-docs-generator.herokuapp.com/summons/alachua&cc</a>
+        </p>
+    </div>
+    
+    <div id="available-templates">
+        <h2>Available FL Summons Templates</h2>
+        <ul class="templates">
+        <% for(let i=0; i<info.length; i++) { %>
+            <li class="available-templates">
+                <span><%= info[i].countyName[0].toUpperCase() + info[i].countyName.slice(1) %></span>
+                <% if (info[i].tier === 'sc') { %>
+                    <span>Small Claims</span>
+                <% } else if (info[i].tier === 'cc') { %>
+                    <span>County Civil</span>
+                <% } else if (info[i].tier === 'ca') { %>
+                    <span>Circuit Civil</span>
+                <% } %>
+                <span id="mongoId" class="hidden"><%= info[i]._id %></span>
+            </li>
+        <% } %>
+        </ul>
+    </div>
+    
+    <script src='js/main.js'></script>
+    
+</body>
+</html>

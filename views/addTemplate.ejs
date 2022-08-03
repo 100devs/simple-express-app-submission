@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FL Legal Docs Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tiny.cloud/1/nf56djxmrt5h0sf7j8vkhscwakqvwdeyi7ftriugdec5tc05/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#addTemplateArea',
+            plugins:'fullscreen pagebreak searchreplace table print',
+            height: '50vh',
+            toolbar_sticky: true,
+            autosave_restore_when_empty:true
+        });
+    </script>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">API</a></li>
+            <li><a href="/addTemplate" id="toggleAdd">Add Template</a></li>
+            <li><a href="/editTemplate" id="toggleEdit">Edit Template</a></li>
+            <li><a href="/createDoc" id="toggleCreate">Create Summons</a></li>
+            <li><a href="/createTXLet" id="toggleCreate">Create TX Letter</a></li>
+        </ul>
+    </nav>
+    <h1>FL Legal Docs Generator: Add A Template</h1>
+     
+    <div id="available-templates">
+        <h2>Available FL Summons Templates</h2>
+        <ul class="templates">
+        <% for(let i=0; i<info.length; i++) { %>
+            <li class="available-templates">
+                <span><%= info[i].countyName[0].toUpperCase() + info[i].countyName.slice(1) %></span>
+                <% if (info[i].tier === 'sc') { %>
+                    <span>Small Claims</span>
+                <% } else if (info[i].tier === 'cc') { %>
+                    <span>County Civil</span>
+                <% } else if (info[i].tier === 'ca') { %>
+                    <span>Circuit Civil</span>
+                <% } %>
+                <span id="mongoId" class="hidden"><%= info[i]._id %></span>
+            </li>
+        <% } %>
+        </ul>
+    </div>
+
+    <form action="/addTemplate" method="POST" id="addTemplate">
+        <h2>Add A Template:</h2>
+        <p>Use the form below to add a new summons template. Fill out the state abbreviation, county name, filing tier, and document text.</p>
+        <p>
+            <label for="addState"><span>State: </span></label>
+            <input type="text" placeholder="State Abbreviation" name="stateName" maxLength="2" id="addState">
+        </p>
+        <p>
+            <label for="addCounty"><span>County: </span></label>
+            <input type="text" placeholder="County" name="countyName" id="addCounty">
+        </p>
+        <p>
+            <label for="addTier"><span>Filing Tier: </span></label>
+            <select name="filingTier" id="addTierSelect">
+                <option value="sc">Small Claims</option>
+                <option value="cc">County Civil</option>
+                <option value="ca">Circuit Civil</option>
+            </select>
+        </p>
+        <p>
+            <label for="addTemplateArea"><span>Document Text: </span></label>
+            <textarea id="addTemplateArea" placeholder="Paste document text here." name="docText"></textarea>
+        </p>
+        <input type="submit">
+    </form>
+    
+    <script src='js/main.js'></script>
+    
+</body>
+</html>

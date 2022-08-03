@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Docs Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tiny.cloud/1/nf56djxmrt5h0sf7j8vkhscwakqvwdeyi7ftriugdec5tc05/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src='js/tinyMCECreate.js'></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">API</a></li>
+            <li><a href="/addTemplate" id="toggleAdd">Add Template</a></li>
+            <li><a href="/editTemplate" id="toggleEdit">Edit Template</a></li>
+            <li><a href="/createDoc" id="toggleCreate">Create Summons</a></li>
+            <li><a href="/createTXLet" id="toggleCreate">Create TX Letter</a></li>
+        </ul>
+    </nav>
+    <h1>Legal Docs Generator: Create FL Summons</h1>
+    <!-- fields needed: plaintiff, defendant, title (e.g. alias/pluries/none), servee, servee address, case number.
+    fields maybe needed: customer name, customer address, customer phone number, job ref-->
+    <div id="available-templates">
+        <h2>Available FL Summons Templates</h2>
+        <ul class="templates">
+        <% for(let i=0; i<info.length; i++) { %>
+            <li class="available-templates">
+                <span><%= info[i].countyName[0].toUpperCase() + info[i].countyName.slice(1) %></span>
+                <% if (info[i].tier === 'sc') { %>
+                    <span>Small Claims</span>
+                <% } else if (info[i].tier === 'cc') { %>
+                    <span>County Civil</span>
+                <% } else if (info[i].tier === 'ca') { %>
+                    <span>Circuit Civil</span>
+                <% } %>
+                <span id="mongoId" class="hidden"><%= info[i]._id %></span>
+                <span class='fa-solid fa-file-pen'></span>
+            </li>
+        <% } %>
+        </ul>
+    </div>
+
+    <div>
+        <h2>PDF Lib Test</h2>
+        <p>Click the button to create a PDF document. Your browser will download the resulting file.</p>
+        <iframe id="pdftest" style="width: 100%; height: 100%;"></iframe>
+        <p id="pdfLibTestCreate">Create Summons</p>
+    </div>
+
+    <div id="createDoc">
+        <h2>Create A Summons: <i class="fa-solid fa-angle-down"></i></h2>
+        <p>Click the <span class='fa-solid fa-file-pen'></span> icon for the county you would like to create a summons for. Fill out the fields below, then select where in the template you would like to insert the case style information. Next, click the Insert Template button in the text editor and select which template you would like to use. Use File > Print to save the completed document.</p>
+        <p>Fill out the fields below, then select the Insert Template button in the text editor and choose which template you would like to use. Use File > Print to save the completed document.</p>
+        <p id="selectedTemplate">Selected Template:</p>
+        <p>
+            <fieldset>
+                <legend>Case and party information</legend>
+                <label for="summonsPrefix">Summons Prefix (Alias, 2nd Pluries, etc.): </label>
+                <input name="summonsPrefix" id="summonsPrefix">
+                <label for="caseNum">Case Number: </label>
+                <input name="caseNum" id="caseNum">
+                <label for="plaintiffName">Plaintiff Name: </label>
+                <input name="plaintiffName" id="plaintiffName">
+                <label for="defendantName">Defendant Name: </label>
+                <input name="defendantName" id="defendantName">
+                <label for="serveeName">Servee Name: </label>
+                <input name="serveeName" id="serveeName">
+                <label for="serveeStreet">Servee Street: </label>
+                <input name="serveeStreet" id="serveeStreet">
+                <label for="serveeCity">Servee City: </label>
+                <input name="serveeCity" id="serveeCity">
+                <label for="serveeState">Servee State: </label>
+                <input name="serveeState" id="serveeState" maxlength="2">
+                <label for="serveeZip">Servee City: </label>
+                <input name="serveeZip" id="serveeZip">
+
+            </fieldset>
+        </p>
+        <p>Document Text:
+            <textarea id="createDocArea" placeholder="Document text" name="docText"></textarea>
+        </p>
+        <p><a href="/createDoc">Create New Template</a></p>
+    </div>
+    
+    
+    <!-- <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.js"></script>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script> -->
+    <script src='js/main.js'></script>
+    
+</body>
+</html>
