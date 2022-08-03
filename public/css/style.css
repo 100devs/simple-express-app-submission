@@ -1,0 +1,11 @@
+h1, h2{
+    color: gold;
+    border: 5px solid black;
+    background: black;
+}
+body {
+ background: teal;
+}
+ul {
+    color: white;
+}
