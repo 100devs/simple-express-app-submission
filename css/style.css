@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  background-color: skyblue;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+input,label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+ul {
+  list-style: circle;
+  display: inline;
+}
+
+li {
+  display: inline;
+}
