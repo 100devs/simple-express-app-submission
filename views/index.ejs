@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to FlickFreak!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Movies to Watch</h1>
+    <ul class="movies">
+    <% for(let i=0; i < info.length; i++) {%>
+        <% if(info[i].watched === false){ %>
+        <li class="movie">
+            <span><%= info[i].movieName %></span>
+            <span class='far fa-eye'></span>
+            <span class='fa fa-trash'></span>
+        </li>
+        <% } %>
+    <% } %>
+    </ul>
+
+    <h2>Add A Movie</h2>
+
+    <form action="/addMovie" method="POST">
+        <input type="text" placeholder="Movie Name" name="movieName">
+        <!-- <input type="text" placeholder="Date Watched" name="date"> -->
+        <input type="submit" name="Submit">
+    </form>
+
+    <h2>Watched Movies</h2>
+    <ul class="movies">
+        <% for(let i=0; i < info.length; i++) {%>
+            <% if(info[i].watched === true){ %>
+            <li class="movie">
+                <span><%= info[i].movieName %></span>
+                <span>Date Watched:</span>
+                <span><%= info[i].watchedDate %></span>
+            </li>
+            <% } %>
+        <% } %>
+        </ul>
+    <script src='js/main.js'></script>
+</body>
+</html>
