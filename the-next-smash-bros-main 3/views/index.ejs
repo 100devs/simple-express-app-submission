@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Next Smash Bros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Future Of Smash Bros</title>
+</head>
+<body>
+    <!-- <article>
+    <a href="images/waluigi.png" class="image fit"><img src="images/waluigi.png" title="Nibh ut" alt="" /></a>
+    </article> -->
+    <!-- <article>
+        <img src="images/waluigi.png" id="intro" alt="" data-position="center" class=>
+        </article> -->
+    
+    <h1>Future Smash Characters<br>**Featuring Waluigi**</h1>
+    <ul class="rappers">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="rapper">
+            <span id='black'><%= info[i].stageName %></span>
+            <span><%= info[i].birthName %></span>
+            <span><%= info[i].likes %></span>
+            <span class='fa fa-thumbs-up'></span>
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Add A Character:</h2>
+
+    <form action="/addRapper" method="POST">
+        <input type="text" placeholder="Name" name="stageName">
+        <input type="text" placeholder="Game or Series" name="birthName">
+        <input type="submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
