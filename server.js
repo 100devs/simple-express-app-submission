@@ -6,20 +6,16 @@ const MongoClient = require("mongodb").MongoClient;
 
 const PORT = 4545;
 
-require("dotenv").config({path: "/.env"})
+require("dotenv").config();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.json());
 
-
-// const connectionString = process.env.DB_STRING;
-//TODO set up env variable so this doesn't get pushed!
-const connectionString = "mongodb+srv://no"
+const connectionString = process.env.DB_STRING;
 
 let db, hacksCollection;
 
-console.log(connectionString)
 MongoClient.connect(connectionString, (err, client) => {
     if (err) return console.error(err);
     console.log("Connected to the database");
@@ -37,9 +33,11 @@ app.get("/", async (req, res) => {
 
 //add a new hack
 app.post("/add-hack", async (req, res) => {
+    console.log(req.body.text);
+    console.log(req.body.conditions);
     try {
-        const add = await hacksCollection.insertOne(req.body);
-        console.log(add);
+        const add = await hacksCollection.insertOne({text: req.body.text, conditions: [req.body.conditions.split(",")]});
+        // console.log(add);
         res.redirect("/")
     } catch(err) {
         console.error(err);
