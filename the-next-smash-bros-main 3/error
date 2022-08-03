@@ -1,0 +1,2 @@
+2022-06-29T19:40:53.918147+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=the-next-smash-bros.herokuapp.com request_id=4b212645-ab48-4dad-83da-f05237d540df fwd="87.215.5.50" dyno= connect= service= status=503 bytes= protocol=https
+2022-06-29T19:40:54.133506+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=the-next-smash-bros.herokuapp.com request_id=fc4ae7f9-7420-432c-87d6-b8a60809ca08 fwd="87.215.5.50" dyno= connect= service= status=503 bytes= protocol=https
