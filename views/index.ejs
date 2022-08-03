@@ -1,0 +1,48 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+    <link rel="stylesheet" href="stylesheet/style.css">
+</head>
+    <body>
+        <button id="loginButton">Login</button>
+        <span id="loginText">You are not logged in</span>
+        <h1>Make a blog post</h1>
+        <form id="blogPostForm" action="/blog" method="POST">
+            <input type="text" placeholder="Blog Title" name="title">
+            <textarea name="body" placeholder="Blog Body..." form="blogPostForm" cols="30" rows="10"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <!-- <div>
+            <h2>Darth Vader invades!</h2>
+            <p>Replace Yoda's first quote with a quote written by Darth Vader</p>
+            <button id="update-button">Replace Quote</button>
+        </div>
+        <div>
+            <h2>Remove Darth Vader!</h2>
+            <p>Delete one of Darth Vader's quotes. Does nothing if there are no Darth Vader quotes</p>
+            <button id="delete-button">Delete Quote</button>
+        </div> -->
+        <ul class="blogTitles">
+            <% for(let i = 0; i < blogs.length; i++) {%> 
+                <li class="blogTitle">
+                    <span id="<%= blogs[i]._id %>" onclick="openBlogPost(this.id)"><%= blogs[i].title %></span>
+                </li>
+            <% } %> 
+        </ul>
+
+        <script src="/main.js"></script>
+        <script>
+            async function openBlogPost(id){
+                const res = await fetch(`/blogbyid/${id}`)
+                const data = await res.json()
+                console.log(data)
+                window.location.href = `/blog-posts/${data._id}.html`
+            }
+        </script>
+    </body>
+</html>
