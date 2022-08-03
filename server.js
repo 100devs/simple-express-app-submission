@@ -6,7 +6,7 @@ const colors = require('colors')
 const connectDB = require('./config')
 
 const PORT = process.env.PORT
-
+// Hero Model
 const HeroSchema = mongoose.Schema({
     name: String,
     nickname: String
