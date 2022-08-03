@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/pokemon-icon.png">
+    <title>Sean's Pokémon Team Builder</title>
+</head>
+<body>
+    <main>
+        <img class="h1img imgone" src="/pokemon.png">
+        <img class="h1img imgtwo" src="/pokemon.png">
+        <img class="h1img imgthree" src="/pokemon.png">
+        <img class="h1img imgfour" src="/pokemon.png">
+        <h1>Sean's Pokémon Team Builder</h1>
+        <h2>Add a new Pokémon to your team:</h2>
+        <div class="search">
+			<input type="text" placeholder="Search for a Pokémon by name or National Dex number"><button id="search">Search</button>
+		</div>
+        <div class="top_field">
+            <fieldset>
+                <legend><button id="hideField">Hide</button> Pokémon Info </legend>
+                    <form action="/stats" method="POST" class="gridcontainer">
+                        <img id="previewSprite" alt="" src="">
+                        <input type="text" placeholder="Pokémon" name="name" id="pokeNameField" readonly required>
+                        <input type="text" placeholder="(optional) Nickname: max 12 characters" name="nickname" maxlength="12">
+                        <input id="spriteData" type="hidden" name="sprite">
+                        <input id="favouriteData" type="hidden" name="favourite" value="false">
+                        <input placeholder="Level" type="number" name="level" min="1" max="100" required>
+                        <select name="ability" id="abilityField" required>
+                        </select>
+                       
+                        <span class="movetitle">Moves:</span>
+                        <ul>
+                            <li>
+                                <select name="firstmove" id="moveFieldA" class="movefield" required>
+                                </select>
+                                <i class="fa-solid fa-dice randombutton"></i>
+                            </li>
+                            <li>
+                                <select name="secondmove" id="moveFieldB" class="movefield">
+                                </select>
+                                <i class="fa-solid fa-dice randombutton"></i>
+                            </li>
+                            <li>
+                                <select name="thirdmove" id="moveFieldC" class="movefield">
+                                </select>
+                                <i class="fa-solid fa-dice randombutton"></i>
+                            </li>
+                            <li>
+                                <select name="fourthmove" id="moveFieldD" class="movefield">
+                                </select>
+                                <i class="fa-solid fa-dice randombutton"></i>
+                        </li>
+                        <span class="shinytitle">Shiny: <input type="checkbox" name="shiny" id="shinyCheck"></span>  
+                        <button id="submit" type="submit">Submit</button>
+                    </form>
+            </fieldset>
+        </div>
+
+        <div class="currentfield">
+            <fieldset>
+                <legend>Your Current Team <span id="teamQuantity">( of 6)</span></legend>
+                <ul class="current_team">
+                    <% for(let i = 0; i < poke.length; i++) {%>
+                        <li class="team_member">
+                            <div class="listgrid">
+                                <div class="sprite">
+                                    <img class="team_sprite" alt=" <%= poke[i].name %> " src=" <%= poke[i].sprite%> ">
+                                </div>
+                                <div class="names">
+                                    <img class="sparkle" src=" <%= poke[i].shiny === 'on' ? 'sparkle.png' : 'regular.png' %> "
+                                    <span class="team_nickname"><%= poke[i].nickname === "" ? poke[i].name : poke[i].nickname %></span>
+                                    <span id="name" class="team_name"><%= "(" + poke[i].name + ")" %></span>
+                                    <h3 class="team_title inner_title team_level">Level: <span><%= poke[i].level %></span></h3>
+                                    <i class="fa-regular fa-star <%= poke[i].favourite == 'true' ? 'faveon' : 'faveoff' %>" data-tippy-content="Toggle Favourite"></i>
+                                    <i class="fa-regular fa-trash-can" data-tippy-content="Remove from team"></i>
+                                    <span id="isFavourite"><%= poke[i].favourite %></span>
+                                    <span class="team_title inner_title ability_title">Ability: </span><span><%= poke[i].ability %></span>
+                                </div>
+                                <div class="moves">
+                                    <span class="team_title move_title">Moves: </span>
+                                    <p class="movepool"><%= poke[i].firstmove %></p>
+                                    <p class="movepool"><%= poke[i].secondmove %></p>
+                                    <p class="movepool"><%= poke[i].thirdmove %></p>
+                                    <p class="movepool"><%= poke[i].fourthmove %></p>
+                                </div>
+                            </div>
+                        </li>
+                    <% } %>
+                </ul>
+            </fieldset> 
+        </div>
+        <script src="/js/main.js"></script>
+        <script src="https://kit.fontawesome.com/a10b503942.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/popper.js@1"></script>
+        <script src="https://unpkg.com/tippy.js@5"></script>
+        <script>
+            tippy('[data-tippy-content]', {placement: 'bottom'})
+            tippy('.fa-dice', {content: 'Select a random move from the movepool', placement: 'right'})
+        </script>
+    </main>
+</body>
+</html>
