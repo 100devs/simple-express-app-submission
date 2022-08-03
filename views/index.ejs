@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rainbow Brite Character APP</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <section class="characterList">
+            <h1>Who's Your Favorite Rainbow Brite Character?</h1>
+
+            <h2>Characters:</h2>
+            <ul class="friends">
+                <% for(let i=0; i < info.length; i++) {%>
+                    <li class="friend">
+                        <span>
+                            <%= info[i].name %>
+                        </span>
+                        <span>
+                            <%= info[i].favoriteColor %>
+                        </span>
+                        <span>
+                            <%= info[i].spriteName %>
+                        </span>
+                        <span>
+                            <%= info[i].otherAnimals %>
+                        </span>
+                        <span>
+                            <%= info[i].likes %>
+                        </span>
+                        <span class='fa fa-thumbs-up'></span>
+                        <span class='fa fa-trash'></span>
+                    </li>
+                    <% } %>
+            </ul>
+        </section>
+        <section class="characterForm">
+            <h2>Add a Rainbow Brite Character to the Database:</h2>
+            <form class="addRBChar" action='/addRBCharacter' method="POST">
+                <input type="text" placeholder="Name" name="name" />
+                <input type="text" placeholder="Favorite Color" name="favoriteColor" />
+                <input type="text" placeholder="Sprite's Name" name="spriteName" />
+                <input type="text" placeholder="Other Animals" name="otherAnimals" />
+                <button type="submit" id="newChar">Add New Character</button>
+            </form>
+            <br />
+            <span>*Image Source:
+                https://images6.fanpop.com/image/photos/38500000/Rainbow-Brite-<br />and-the-Colorkids-rainbow-brite-38551712-385-365.jpg
+                (provided by Amy Wofford)</span>
+        </section>
+        <script src='js/main.js'></script>
+    </body>
+
+</html>
