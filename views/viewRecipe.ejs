@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>View Recipe</title>
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="/css/normalize.css">
+    	<link rel="stylesheet" href="/css/style.css">
+		<!-- icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	</head>
+	<body>
+        
+        <!-- name, image, and info -->
+        <section class="info-container">
+            <div>
+                <h1><%= recipe.name %></h1>
+                <img src="<%= recipe.image %>" alt="<%= recipe.name %>">
+            </div>
+            <div>
+                <ul>
+                    <li>Prep Time: <%= recipe.prepTime %></li>
+                    <li>Bake/Cook: <%= recipe.cookTime %></li>
+                    <li>Total Time: <%= recipe.totalTime %></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="instructions-container">
+            <!-- ingredients loop-->
+            <span>Ingredients</span>
+            <ol>
+                <% for (let i = 0; i < recipe.ingredients.length; i++) { %>
+                    <li><%= recipe.ingredients[i] %></li>
+                <% } %>
+            </ol>
+
+            <!-- directions loop -->
+            <span>Directions</span>
+            <ol>
+                <% for (let i = 0; i < recipe.directions.length; i++) { %>
+                    <li><%= recipe.directions[i] %></li>
+                <% } %>
+            </ol>
+            
+            <!-- special notes paragraph -->
+            <span>Special Notes</span>
+            <p><%= recipe.specialNotes %></p>
+        </section>
+	
+		<script type="text/javascript" src="/js/main.js"></script>
+	</body>
+</html>
