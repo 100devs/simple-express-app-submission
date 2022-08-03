@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" entry="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>911 Auction</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+    <header>
+            <nav class="nav">
+                <ul class="nav__elems">
+                    <li class="nav__elem"><a href="#gallery">Buy</a></li>
+                    <li class="nav__elem"><a href="create-listing">Sell</a></li>
+                </ul>
+            </nav>
+    </header>
+    <section class="welcome">
+        <div class="container welcome__text">
+            <h1 class="welcome__title">911er Sales</h1>
+            <h3 class="welcome__intro">Buy and sell premium 911 models</h3>
+        </div>
+    </section>
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="gallery__heading">Current Listings</h2>
+            <p class="gallery__for-sale">There are currently <span><%= listings.length%> </span> vehicles for sale</p>
+            <ul class="gallery__list">
+                <% listings.forEach(entry => {%>
+                <li class="gallery__item">
+                    <div class="gallery__container">
+                        <div class="gallery__img">
+                            <img src="/images/<%=entry.model%>.jpg" alt="Porsche 911">
+                        </div>
+                        <div class="gallery__text">
+                            <h2 class="gallery__model"><%= entry.model %></h2>
+                            <div class="gallery__bidding gallery__list-details"><span>Price:</span><span><%= entry.price %></span></div>
+                            <div class="gallery__mileage gallery__list-details"><span>Miles:</span><span><%= entry.mileage %></span></div>
+                            <div class="gallery__color gallery__list-details"><span>Color:</span><span><%= entry.color %></span></div>
+                            <p class="gallery__description"><%= entry.description %></p>
+                        </div>
+                        <div class="gallery__btns">
+                            <a href="/edit/<%=entry._id%>" class="gallery__edit btn__interaction">Edit</span></a>
+                            <a href="/remove/<%=entry._id%>" class="gallery__remove btn__interaction">Delete</span></a>
+                        </div>
+                    </div>
+                </li>
+                <% }) %> 
+            </ul>
+        </div>
+    </section>
+</body>
+</html>
