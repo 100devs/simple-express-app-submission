@@ -24,7 +24,7 @@ async function deleteHack() {
  
         // 3. reload the page
         //TODO this isn't working, why....
-        window.location.reload;
+        window.location.reload();
     } catch(err) {
         console.error(err);
     } 

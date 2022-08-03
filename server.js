@@ -59,8 +59,7 @@ app.delete("/delete-hack", async (req, res) => {
     try {
         const del = await hacksCollection.deleteOne( {text: req.body.text})
         console.log(`Hack '${req.body.text}' deleted`);
-        // res.json(`Hack '${req.body.text}' deleted`);
-        res.json("Spam deleted");
+        res.json(`Hack '${req.body.text}' deleted`);
     } catch(err) {
         console.error(err);
     }
