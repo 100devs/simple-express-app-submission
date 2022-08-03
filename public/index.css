@@ -1,0 +1,16 @@
+body, form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.forms-container{
+    background-color: rgba(29, 61, 89, 0.263);
+}

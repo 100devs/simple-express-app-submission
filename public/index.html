@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 class="title">Simple NBA REST API Showcase</h1>
+    <h2>go to /players for your added players</h2>
+    <div class="forms-container">
+
+        <form class="player-form" method="POST" action="/players">
+            <input type="text" name="playerName" placeholder="Player Name">
+            <input type="text" name="playerImage" placeholder="Player Image">
+            <button type="submit">Add Player</button>
+        </form>
+    </div>
+</body>
+</html>
