@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Who Wrote That Song?</h1>
+    <h3>A collection of well-known songs with surprising songwriters!</h3>
+    <section class="main">
+    
+    <section class="form">
+        <form action="/addSong" method="POST">
+            <h5>Add The Song</h5>
+            <input type="text" placeholder="Song Name" name="songName">
+            <h5>Add The Performer</h5>
+            <input type="text" placeholder="Performer Name" name="performerName">
+            <h5>Add The Songwriter</h5>
+            <input type="text" placeholder="Songwriter Name" name="songwriterName">
+            <h5 class="small"></h5>
+            <input class="submit" type="submit">
+        </form>
+    </section>
+
+    <!--<section class="table">
+        <section class="titles">
+            <h5>Song</h5>
+            <h5>Performer</h5>
+            <h5>Songwriter</h5>
+        </section>
+    <ul class="songs">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="song">
+            <span class="space"><%= info[i].songName %></span>
+            <span class="space"><%= info[i].performerName %></span>
+            <span class="space"><%= info[i].songwriterName %></span>
+            <span><%= info[i].likes %></span>
+            <span class='fa fa-thumbs-up'></span>
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul>
+    </section>-->
+
+    <table class="table">
+        <thead class="">
+            <th>Song</th>
+            <th>Performer</th>
+            <th>Songwriter</th>
+            <th>Likes</th>
+            <th class="hide">Like</th>
+            <th class="hide">Delete</th>
+            
+        </thead>
+    <tbody>
+    
+    <% for(let i=0; i < info.length; i++) {%>
+        <tr class="">
+            <td data-label="Song" class="space"><%= info[i].songName %></td>
+            <td data-label="Performer" class="space"><%= info[i].performerName %></td>
+            <td data-label="Songwriter" class="space"><%= info[i].songwriterName %></td>
+            <td data-label="Likes" class="space"><%= info[i].likes %></td>
+            <td data-label="Like" class='fa fa-thumbs-up'> </td>
+            <td data-label="Delete" class='fa fa-trash'> </td>
+        </tr>
+    <% } %>
+    
+    </tbody>
+    </table>
+
+    </section>
+
+   
+
+    <script src='js/main.js'></script>
+</body>
+</html>
