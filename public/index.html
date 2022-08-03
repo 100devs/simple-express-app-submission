@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Some google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+
+    <title>MedMinder</title>
+</head>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="nav-branding">Med Minder</a>
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/medMinder" class="nav-link">Your Current Medications</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                </ul>
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+
+
+                </div>
+
+
+        </nav>
+    </header>
+    
+    <!-- My original header. Trying out a hamburg now. Will see which I like more.... -->
+    <!-- <header class="parent">
+
+
+        <h1>MedMinder v1</h1>
+
+
+
+     <nav>
+            <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="/medMinder">Current Medications</a></li>
+            </ul>
+        </nav>
+
+</header> -->
+
+
+<body>
+    <section class="parent">
+
+    <section class="container">
+    <h1>Here's a landing page to give the app some direction.</h1>
+    <br>
+    <h2>Search for a medication in your Current Medications:</h2>
+    <br>
+
+    <input type="text"
+           placeholder="Medication Name"
+           id="medName">
+    <button >Search List</button>
+    <button class="clear" >Clear</button>
+    <br>
+    <br>
+
+    <h3> Med Information:</h3>
+    <br>
+    <h4 id="medInformation"></h4>
+    </section>
+
+<section class="aside">
+
+<h2>What is This?</h2>
+<br>
+<h3>A simple tool to keep track of your Medications.</h3>
+<br>
+
+<p>Considering this the MVP for a much larger project I'm working on.</p>
+
+<p>Use the form here to search your current medications! </p>
+<br>
+<p>The idea for this app is to be able to create a list of your medications, and add them to that list, delete them from that list, and even edit them in that list. Later, I will add login/account functionality, so that multiple users can use the app. Also, a calendar that will show the days that meds have been taken effectively, and change color(green/red) depending on user activation.</p> <br>  <p>These elemnts will segue into a larger project, which is intended to be a sort of personal assistant type thing. Still working out the kinks, really. </p>
+
+<br>
+<h3>Click <a href="/medMinder" name="link" target="_top">here</a> to view your current list. </h3>
+</section>
+
+</section>
+</body>
+
+<footer>
+    <h3>Med Minder v.1 by Brandon White</h3>
+</footer>
+
+<script src="js/main.js"></script>
+</html>
