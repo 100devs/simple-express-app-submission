@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Enter the Guest Information</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <% if(infoSubmitObj != '') {%>
+        <div class="col-8 alert alert-success" role="alert">
+            <%= infoSubmitObj %>
+        </div>  
+    <% } %>
+
+<% if(infoErrorsObj != '') {%>
+        <div class="col-8 alert alert-danger" role="alert">
+        <%= infoErrorsObj[0].message %>
+        </div>
+    <% } %>
+    <div class="col-8">
+        <form action="/submit-guest" enctype="multipart/form-data" method="POST">
+
+            <div class="col-12">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" id="name" class="form-control" required>
+            </div>
+
+            <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+
+            <div class="col-12">
+                <label for="phone" class="form-label">Enter the phone number</label>
+                <input type="tel" name="phone" id="phone" class="form-control"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            </div>
+
+            <div class="col-12">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" value = "2020-05-19" name="date" id="date" class="form-control" required>
+            </div>
+            <div class="col-12">
+                <label for="room" class="form-label">Room Number</label>
+                <input type="room" name="room" id="room" class="form-control" required>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-success btn-lg"type="submit">Submit Guest</button>
+            </div>
+        </form> 
+    </div>
+</div>
+
+
+
