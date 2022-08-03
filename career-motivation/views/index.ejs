@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Change Your Career to Tech</title>
+</head>
+
+<body>
+<!--Title Nav-->
+    <nav class="navbar navbar-expand-lg bg-success navbar-dark py-3 justify-content-center">
+        <div class="container">
+            <a href="#" class="navbar-brand">Career Change Motivation</a>
+        </div>
+    </nav>
+
+<!--Intro Section-->    
+    <section class="bg-dark text-light p-5 text-center text-sm-start">
+        <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                    <h1>Career Change Motivation</h1>
+                    <p class="lead my-4">Have you been trying to transition to tech, but are feeling defeated? Here's some motivation to keep you on track. This is a list of self-reported stats from a wide range of roles to encourage you. </p>
+            </div>
+        </div>
+    </section>
+
+<!-- Stats Table-->
+<section class="p-5">
+    <h2 class="text-center">Success Stats</h2>
+    <div class="table-responsive-sm">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Previous Title</th>
+            <th scope="col">Previous Income in USD</th>
+            <th scope="col">Tech Title</th>
+            <th scope="col">Tech Income in USD</th>
+            <th scope="col">% Change</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% for (let i=0; i < info.length; i++) {%>
+            <tr class="successStats">
+                    <th scope="row"></th>
+                    <td><%= info[i].prevTitle %></td>
+                    <td>$<%= info[i].prevIncome %></td>
+                    <td><%= info[i].techTitle %></td>
+                    <td>$<%= info[i].techIncome %></td>
+                    <% let prev = parseInt(info[i].prevIncome, 10)%>
+                    <% let tech = parseInt(info[i].techIncome, 10)%>
+                    <% let change = ((tech - prev)/prev * 100).toFixed(2) %>
+                    <td class="<%= change > 0 ? 'text-success':'text-danger' %>"><%= change %>%</td>
+            </tr>
+            <%}%>
+        </tbody>
+    </table>
+    </div>
+</section>
+
+<section class="p-5 text-light bg-dark text-center">
+    <div class="container">
+        <h2>Average % Increase</h2>
+        <% let sumChange = 0 %>
+        <% for (let i=0; i < info.length; i++) {%>
+            <% let prev = parseInt(info[i].prevIncome, 10)%>
+            <% let tech = parseInt(info[i].techIncome, 10)%>
+            <% sumChange += ((tech - prev)/prev * 100) %>
+            <%}%>
+            <h3 class="text-success"><%= (sumChange/(info.length)).toFixed(2) %>%</h3>
+    </div>
+    </section>
+
+<section class="p-5 text-center text-light bg-success">
+    <h2>Looking for more information on our career changers?</h2>
+    <p>Check out our Stories page.</p>
+    <a class="btn btn-secondary" href="/stories" role="button">Visit Stories</a>
+</section>
+
+<section class="p-5 text-center">
+    <h2>Add a Success Stat</h2>
+    <p>If you successfully transitioned from another career to tech, add your last role outside of tech and your first full-time role in tech. Please include income to the nearest 1000 or as close as you can remember. (If your previous work was part time please add "PT" after the role.)</p> 
+    <p>These submissions are completely anonymous. All fields are required. Thank you for the encouragement!</p>
+    <form action="/addStat" method="POST">
+        <input type="text" placeholder="Previous Title" name="prevTitle" required="true">
+        <input type="text" placeholder="Previous Income USD" name="prevIncome" required="true">
+        <input type="text" placeholder="Tech Title" name="techTitle" required="true">
+        <input type="text" placeholder="Tech Income USD" name="techIncome" required="true">
+        <input type="submit" placeholder="Submit" value="Submit">
+    </form>
+</section>
+<footer class="p-3 bg-dark text-light flex-direction-row">
+    <p>&copy 2022 SchipThatCode</p>
+    <a class="text-success" href="https://github.com/rachelschipull/career-motivation" alt="GitHub Repo">GitHub</a>
+</footer>
+</body>
+</html>
