@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Capitals API</title>
+
+    <!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--<h1>State Capitals API</h1>
+    <p>Please use https://state-capitals-api.herokuapp.com/api/state-capitals</p>
+-->
+    <h1>State Capitals Finder</h1>
+    <p>Enter a state below:</p>
+   <!-- <input type="text">-->
+    <!-- <form name="dropdown" id="dropdown" action="">
+        <select name="states" id="states">
+            <option value="" selected="selected">Choose a State
+            </option>
+        </select>
+    </form>
+    <button>Find My Capital</button>
+    <h2>Capital: </h2> -->
+
+   <form action="/api/states" method="GET">
+        <!-- <label for="state">Enter a state:</label> -->
+        <input type="text" name="state" id="state" list="state_list">
+        <datalist id="state_list"></datalist>
+        <button type="submit">Find My Capital</button>
+        </form>
+        <h2>Capital: <br>
+            <span id="capital"></span>
+        </h2> 
+
+    <script src='js/main.js'></script>
+</body>
+<footer>
+    <p>Please use https://state-capitals-api.herokuapp.com/api/states to access API</p>
+</footer>
+</html>
