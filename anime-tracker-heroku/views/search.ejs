@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/assets/style.css">
+    <script src="https://kit.fontawesome.com/22dd73ce13.js" crossorigin="anonymous"></script>
+    <title>Anime List</title>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="header-ctrls">
+                <h2 class="logo"><a href="/">AL</a></h2>
+                <form class="search" method="GET" action="/search">
+                    <input type="text" placeholder="Search" name="title" Content-Type="application/json">
+                    <button type="submit" id="submit"><i class="fa-solid fa-play"></i></button>
+                </form>
+            </div>
+
+            <ul>
+                <li class="nav"><a href="/">Home</a></li>
+                <li class="nav"><a href="/mylist">My list</a></li>
+                <div class="line"></div>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Sign up</a></li>
+            </ul>
+        </div>
+
+        <div class="topFifty">
+            <h1>Searching...</h1>
+            <div class="top-cards-container">
+                 
+                <% searchAnim['results'].forEach((x,i) => { %>
+                    <div class="card">
+                        <div class="img">
+                            <img src="<%= x.image_url %>" alt="<%= x.title %> img">
+                            <div class="synopsis">
+                                <p><%= x.synopsis %></p>
+                            </div>
+                        </div>
+                        <div class="rank">
+                            <span>Episodes: <strong><%= x.episodes %></strong></span>
+                            <span>Score: <strong><%= x.score %></strong></span>
+                        </div>
+                        <h3><%= x.title %></h3>
+                        <a id="addbtn<%= i %> " class="addbtn">Add to list</a>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+    <script src="public/assets/client.js"></script>
+</body>
+</html>

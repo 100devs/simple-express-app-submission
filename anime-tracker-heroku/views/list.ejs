@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/assets/style.css">
+    <script src="https://kit.fontawesome.com/22dd73ce13.js" crossorigin="anonymous"></script>
+    <title>Anime List</title>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="header-ctrls">
+                <h2 class="logo"><a href="/">AL</a></h2>
+                <form class="search" method="GET" action="/search">
+                    <input type="text" placeholder="Search" name="title" Content-Type="application/json">
+                    <button type="submit" id="submit"><i class="fa-solid fa-play"></i></button>
+                </form>
+            </div>
+
+            <ul>
+                <li class="nav"><a href="/">Home</a></li>
+                <li class="nav"><a href="/mylist">My list</a></li>
+                <div class="line"></div>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Sign up</a></li>
+            </ul>
+        </div>
+
+        <div class="topFifty">
+            <h1>My List...</h1>
+            <div class="list-container">
+                <% anime.forEach((x,i) => { %>
+                    <div class="list">
+                        <div class="li-left">
+                            <div class="li-img">
+                                <img src="<%= x.img %>" alt="<%= x.title %>">
+                            </div>
+                            <div class="li-details">
+                                <h6><%= x.title %></h6>
+                                <div class="li-details-top">
+                                    <span>Episodes: <%= x.ep %></span>
+                                    <span>Score: <%= x.score %></span>
+                                </div>
+                                <div class="li-synopsis">
+                                    <p><%= x.synopsis %></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="li-right">
+                            <div class="li-progress">
+                                <h4>Progress Bar</h4>
+                                <div class="li-progress-bar">
+                                    <div class="li-bar"></div>
+                                </div>
+                                <div class="li-progress-ctrls">
+                                    <button type="button"><i class="fa-solid fa-chevron-left left"></i></button>
+                                    <span>0</span>
+                                    <input type="number" class="epInput" value="<%= x.currentEp %>" step="1" min="0" max="<%= x.ep %>"><!--current EP / Ep.length * 100-->
+                                    <span><%= x.ep %></span>
+                                    <button type="button"><i class="fa-solid fa-chevron-right right"></i></button>
+                                </div>
+                            </div>
+                            <div class="li-ctrls">
+                                <h4>Controls</h4>
+                                <div class="li-btn">
+                                    <!-- <button type="button"><i class="fa-regular fa-star"></i></button> -->
+                                    <button type="button"><i class="fa-regular fa-trash-can trash trash<%=i%>"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+    <script src="public/assets/listClient.js"></script>
+</body>
+</html>

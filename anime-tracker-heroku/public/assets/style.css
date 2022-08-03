@@ -1,0 +1,370 @@
+@import url('http://fonts.cdnfonts.com/css/anurati');
+@import url('http://fonts.cdnfonts.com/css/circular-std');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+  /* font-family: 'Anurati', sans-serif; */
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	scroll-behavior: smooth;
+	vertical-align: baseline;
+    text-decoration: none;
+
+  list-style: none;
+}
+body{
+    line-height: 1;
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--color-black);
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+:root{
+    --color-red: #C92130;
+    --color-black: #201F1F;
+    --color-white: #FFFFFF;
+    --color-gray: #333333;
+}
+
+.header ul a{
+    color: white;
+    font-weight: 900;
+}
+.header{
+    background-color: var(--color-red);
+    display: flex;
+    outline: 1px dotted red;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 10rem;
+}
+.header ul{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.header-ctrls{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+.search{
+    width: 100%;
+    display: flex;
+}
+.search input{
+    border: none;
+    min-height: 48px;
+    background-color: var(--color-gray);
+    width: 80%;
+    text-indent: 1rem;
+    font-size: 1.25rem;
+}
+.search input:focus{
+    outline: none;
+    color: var(--color-white);
+}
+.search input::placeholder{
+    color: var(--color-white);
+    
+}
+.search button{
+    background-color: var(--color-gray);
+    border: none;
+    height: 48px;
+    padding: 1rem;
+    color: var(--color-white);
+    cursor: pointer;
+}
+.logo{
+    font-size: 2rem;
+    padding: 0.5rem;
+    letter-spacing: -5px;
+    background-color: var(--color-white);
+    display: grid;
+    place-content: center;
+}
+.logo a{
+    color: var(--color-black);
+    font-weight: 900;
+}
+.line{
+    height: 1.75rem;
+    width: 1px;
+    background-color: var(--color-white);
+}
+.topFifty{
+    /* background-color: aqua; */
+    padding: 2rem 10rem 0rem 10rem;
+    width: 100%;
+    height: calc(100vh - 96px);
+}
+.topFifty h1{
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-red);
+    font-size: 2.5rem;
+    color: var(--color-white);
+    font-weight: 900;
+}
+.top-cards-container{
+    /* min-height: 90%; */
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(6, 1fr); /*227px*/
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.card{
+    /* width: 270px; */
+    /* height: 272px; */
+    border: 1px solid var(--color-gray);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--color-white);
+    align-items: center;
+}
+.card .img{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    min-height: 389px;
+    position: relative;
+}
+.card .img:hover .synopsis{
+    display: block;
+}
+.card .img img{
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: fill;
+    
+}
+.synopsis{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.781);
+    width: 100%;
+    min-height: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+}
+.card .rank{
+    width: 100%;
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    justify-content: space-between;
+    background-color: var(--color-red);
+}
+.card h3{
+    text-align: center;
+    padding: 5px 10px;
+}
+.card a{
+    background-color: var(--color-white);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: var(--color-black);
+    cursor: pointer;
+}
+.card a:hover{
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+.card a:active{
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.list-container{
+    display: flex;
+    flex-direction: column;
+}
+.list-container button{
+    cursor: pointer;
+}
+.list{
+    display: flex;
+    padding: 0.5rem 0.5rem;
+    color: var(--color-white);
+    background-color: var(--color-gray);
+    margin-bottom: 8px;
+}
+.li-img{
+    width: 80px;
+    overflow: hidden;
+}
+.li-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.li-left{
+    display: flex;
+    width: 50%;
+}
+.li-details{
+    padding: 0 1rem;
+    width: 85%;
+}
+.li-details h6{
+    text-align: center;
+    font-weight: 900;
+}
+.li-details-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    
+}
+.li-synopsis{
+    border: 1px solid var(--color-black);
+    padding: 0.5rem;
+    max-height: 82px;
+    /* overflow: hidden; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.li-right{
+    width: 50%;
+    display: flex;
+    text-align: center;
+}
+.li-right h4{
+    font-weight: 900;
+}
+.li-progress{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.li-progress-bar{
+    /* background-color: var(--color-red); */
+    width: 80%;
+    height: 25%;
+    border-radius: 5px;
+    border: 1px solid var(--color-black);
+    position: relative;
+    margin: 1rem 0;
+
+}
+.li-bar{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 5px;
+    background-color: var(--color-red);
+    transition: 1s;
+}
+.li-progress-ctrls{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.li-progress-ctrls input{
+    background-color: var(--color-gray);
+    border: none;
+    text-align: center;
+    width: 50px;
+    font-size: 1.2rem;
+    border: 1px solid var(--color-gray);
+    color: var(--color-white);
+
+}
+.li-progress-ctrls input::-webkit-outer-spin-button,
+.li-progress-ctrls input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.li-progress-ctrls input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+.li-progress-ctrls input:focus{
+    outline: none;
+    border: 1px solid var(--color-white);
+}
+.li-progress-ctrls input:hover{
+    border: 1px solid var(--color-white);
+}
+.li-progress-ctrls button{
+    background-color: var(--color-white);
+    font-size: 1.5rem;
+    width: 25px;
+    border-radius: 50%;
+    color: var(--color-gray);
+    height: 25px;
+    padding: 1rem;
+    z-index: 10;
+    border: none;
+    display: grid;
+    place-content: center;
+}
+.li-progress-ctrls button i{
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+.li-progress-ctrls button:active{
+    color: var(--color-red);
+}
+.li-ctrls{
+    width: 30%;
+}
+.li-btn{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.li-btn button{
+    background-color: var(--color-gray);
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-white);
+    margin: 1rem 0;
+
+}
+.li-btn button:hover{
+    color: var(--color-red);
+}
+.li-btn button:active{
+    color: var(--color-red);
+}
