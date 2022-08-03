@@ -1,4 +1,4 @@
-const songs = {
+const angrySongsObj = {
      angrySongs: [
           {
                artist: "Kanye West",

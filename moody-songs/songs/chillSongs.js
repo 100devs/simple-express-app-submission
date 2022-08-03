@@ -1,4 +1,4 @@
-const songs = {
+const chillSongsObj = {
      chillSongs: [
           {
                artist: "Various Artists",
