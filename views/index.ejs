@@ -1,0 +1,175 @@
+
+
+<section class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4 backgroundImg justify-content-center">
+  
+  
+  <section class="col-12 col-lg-6 ">
+    
+    <img class ="hero-img img-fluid mx-auto d-block"
+      src="/img/eggs.png"
+     
+      class="img-fluid"
+      loading="lazy"
+      alt="emotions with node.js"
+    />
+  </section>
+  <section class="col-12 col-lg-6">
+    <h1 class="display-6 fw-bold mb-3">Reveal and resolve your emotions</h1>
+    <p class="lead">
+      Emotionalizer is an emotion diary tool intended to support and manage those feelings we often find hard to understand.
+      With a simple concept of filling in a daily emotion with actions to to persist positive emotions and manage negative emotions, you can harness the power to take back control.
+    </p>
+    <section class="d-grid gap-2 d-md-flex justify-content-md-start">
+      <a
+        href="/explore-latest"
+        class="btn btn-primary btn-lg px-4 me-md-2"
+        >Explore your recent emotions</a
+      >
+      <!-- <a
+        href="/random-emotion"
+        class="btn btn-outline-secondary btn-dark btn-lg px-4 me-md-2"
+        >Show Random emotions</a
+      > -->
+    </section>
+  </section>
+</section>
+
+<!-- show all emotion categories on homepage-->
+<!-- Categories Start -->
+
+<section class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+    <!-- uses categories from emotionsController which uses the model interface to the db in Category.js -->
+    <% if(categories !='') { %>
+        <% categories.forEach(function(category, i){ %>
+            <!-- href creates a route for the categories to provide the option display all the files or just one of the files -->
+    <a href="/categories/<%- category.name %>" class="col text-center category_link">
+    <section class="category__img shadow">
+      <img src="img/<%- category.image %>" alt="<%- category.name %>" loading="lazy" />
+    </section>
+    <section class="pt-1"><%- category.name %></section>
+  </a>
+  <% }) %>
+  <% } %>
+<!-- links to all moods when clicked on -->
+  <a href="/categories" class="col text-center category_link">
+    <section class="category__img shadow">
+      <img src="img/allemotions.jpg" alt="All Moods" loading="lazy" />
+    </section>
+    <section class="pt-1">All emotions</section>
+  </a>
+</section>
+
+<!-- Categories End -->
+
+<!-- this weeks emotions -->
+
+<!-- latest start -->
+<section class="pb-4 pt-5">
+  <section class="d-flex mb-2 align-items-center">
+    <h2>This weeks Emotions</h2>
+    <a href="/explore-latest" class="ms-auto">View More</a>
+  </section>
+
+  <section class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+   <!-- creates link using emotion route to details created under emotion.ejs -->
+   <% if(feelings !='') { %>
+    <% feelings.LatestEmotion.forEach(function(emotion, index){ %>
+        <!-- uses the id as the link to the indivial emotion by id -->
+    <a href="/emotion/<%= emotion._id %>" class="col text-center category_link">
+      <section class="category__img category__img--large shadow">
+        <img src="/uploads/<%= emotion.image %>" alt="<%= emotion.name %>" loading="lazy" />
+      </section>
+      <section class="pt-1">
+        <%= emotion.name %>
+      </section>
+    </a>
+  
+    <% }) %>
+    <% } else { %>
+      <p>No items found.</p>
+    <% } %>
+  </section>
+</section>
+
+
+
+<!-- latest end -->
+
+<!-- show all entries under individual emotion categories on home page eg all posts that are happy  -->
+
+<!-- Happy start -->
+<section class="pb-4 pt-5">
+    <section class="d-flex mb-2 align-items-center">
+      <h2>Happy Emotions</h2>
+      <a href="/categories/Happy" class="ms-auto">View More</a>
+    </section>
+  
+    <section class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+     <!-- covers if the object is undefined or not there -->
+     <% if(typeof feelings.happy !='undefined' && feelings.happy.length > 0) { %>
+      <% feelings.happy.forEach(function(emotion, index){ %>
+      <a href="/emotion/<%= emotion._id %>" class="col text-center category_link">
+        <section class="category__img category__img--large shadow">
+          <img src="/uploads/<%= emotion.image %>" alt="<%= emotion.name %>" loading="lazy" />
+        </section>
+        <section class="pt-1"><%= emotion.name %></section>
+      </a>
+      <% }) %>
+    <% } else { %>
+      <p>No items found.</p>
+    <% } %>
+    </section>
+  </section>
+  
+  <!-- Happy end -->
+  <!-- Angry start -->
+<section class="pb-4 pt-5">
+    <section class="d-flex mb-2 align-items-center">
+      <h2>Angry Emotions</h2>
+      <a href="/categories/Angry" class="ms-auto">View More</a>
+    </section>
+  
+    <section class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+     <!-- covers if the object is undefined or not there -->
+     <% if(typeof feelings.angry !='undefined' && feelings.angry.length > 0) { %>
+      <% feelings.angry.forEach(function(emotion, index){ %>
+      <a href="/emotion/<%= emotion._id %>" class="col text-center category_link">
+        <section class="category__img category__img--large shadow">
+          <img src="/uploads/<%= emotion.image %>" alt="<%= emotion.name %>" loading="lazy" />
+        </section>
+        <section class="pt-1"><%= emotion.name %></section>
+      </a>
+  
+      <% }) %>
+      <% } else { %>
+        <p>No items found.</p>
+      <% } %>
+    </section>
+  </section>
+  
+  <!-- Angry end -->
+
+<!-- Submit - start -->
+
+<section class="px-1  py-5 my-5 text-center submitBackground">
+  <!-- <img
+    class="d-block mx-auto mb-4 img-fluid"
+    src="img/publish-emotion.jpg"
+    alt="Publish your daily emotion"
+    width="'566"
+    height="208"
+    loading="lazy"
+  /> -->
+  <h1 class="display-6 fw-bold">Publish your daily emotion</h1>
+  <section class="col-lg-6 mx-auto ">
+    <p class="lead mb-4">
+      Publish and record your emotion with actionable tasks
+    </p>
+    <section class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="/submit-emotion" class="btn btn-primary btn-lg"
+        >Submit Emotion</a
+      >
+    </section>
+  </section>
+</section>
+<!-- Submit - end-->

@@ -1,0 +1,125 @@
+<section class="px-4 py-5 my-5 text-center">
+  <!-- <h1 class="display-5 fw-bold text-start">Submit Your Emotion</h1> -->
+  <section class="col-lg-8 mx-auto">
+    <h1 class="display-6 fw-bold text-start">Submit Your Emotion</h1>
+    <p class="lead text-start">
+      Let your emotions make sense and fill out your daily emotion below. 
+      Just complete in the summary and the rest of the details allowing you to describe how you feel every day. 
+    Set actions to counteract negative feelings or persist in positive ones and then submit. Thats all there is to it, go ahead, take control of your emotions.
+    </p>
+  </section>
+</section>
+
+<section class="row justify-content-center">
+  <% if(infoSubmitObj !=''){ %>
+  <div class="col-8 alert alert-success" role="alert"><%= infoSubmitObj %></div>
+  <% } %> 
+  <% if(infoErrorsObj !=''){ %>
+  <div class="col-8 alert alert-danger" role="alert">
+    <%= infoErrorsObj[0].message %>
+  </div>
+  <% } %>
+
+  <section class="col-8">
+    <form action="/submit-emotion" enctype="multipart/form-data" method="POST">
+      <section class="row g-3">
+        <section class="col-12">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" name="email" id="email" class="form-control" />
+        </section>
+        <section class="col-12">
+          <label for="name" class="form-label">Emotion Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            required
+          />
+        </section>
+        <section class="col-12">
+          <label for="description" class="form-label"
+            >Describe your emotion</label
+          >
+          <!-- text area needs to stay on one line or it will add space, could use a trim method -->
+          <textarea name="description" id="description" class="form-control" cols="30" rows="4" required></textarea>
+        </section>
+
+        <section class="col-12">
+          <label for="feelings" class="form-label">List your feelings</label
+          ><br />
+          <small>Example: content, joyful</small>
+          <section class="emotionList mb-1">
+            <section class="emotionSection">
+              <input type="text" name="feelings" class="form-control" />
+            </section>
+          </section>
+        </section>
+        <section class="col-12">
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            id="addEmotionsBtn"
+          >
+            + Feeling
+          </button>
+        </section>
+
+
+        <section class="col-12">
+          <label for="nextSteps" class="form-label">Add actions to either persist or negate the emotion(s)</label
+          ><br />
+          <small>Example: Do some exercise</small>
+          <section class="actionList mb-1">
+            <section class="actionSection">
+              <input type="text" name="actions" class="form-control" />
+            </section>
+          </section>
+        </section>
+        <section class="col-12">
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            id="addActionsBtn"
+          >
+            + Action
+
+          </button>
+        </section>
+
+        
+
+        <section class="col-12">
+          <label for="category">Select Catagory</label>
+          <select
+            class="form-select form-control"
+            name="category"
+            aria-label="category"
+          >
+            <option selected>Select Category</option>
+            <option value="Happy">Happy</option>
+            <option value="Sad">Sad</option>
+            <option value="Angry">Angry</option>
+            <option value="Confused">Confused</option>
+            <option value="Depressed">Depressed</option>
+            <option value="Anxious">Anxious</option>
+          </select>
+          </section>
+        <section class="col-12">
+          <label for="image">Emotion Image</label>
+          <input
+            type="file"
+            class="form-control"
+            name="image"
+            id="fileUpload"
+            accept="image/*"
+          />
+        </section>
+
+        <section class="col-12">
+          <button type="submit" class="btn btn-light">Submit Emotion</button>
+        </section>
+      </section>
+    </form>
+  </section>
+</section>
