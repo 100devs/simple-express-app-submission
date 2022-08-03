@@ -1,0 +1,24 @@
+{
+  "name": "moody-songs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snowsneakers/moody-songs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snowsneakers/moody-songs/issues"
+  },
+  "homepage": "https://github.com/snowsneakers/moody-songs#readme",
+  "dependencies": {
+    "figlet": "^1.5.2"
+  }
+}
