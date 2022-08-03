@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Edit the Guest Information</h1>
+            <h4><%= guestById.name %></h4>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form action="/edit-guest/<%=guestById._id%>" enctype="multipart/form-data" method="POST">
+
+            <div class="col-12">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" id="name" value="<%= guestById.name %>" class="form-control" required>
+            </div>
+
+            <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" value="<%= guestById.email %>"class="form-control" required>
+            </div>
+
+            <div class="col-12">
+                <label for="phone" class="form-label">Enter the phone number</label>
+                <input type="tel" name="phone" id="phone" value="<%= guestById.phone_number %>"class="form-control"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            </div>
+
+            <div class="col-12">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" value = "2020-05-19" name="date" value="<%= guestById.date %>"id="date" class="form-control" required>
+            </div>
+            <div class="col-12">
+                <label for="room" class="form-label">Room Number</label>
+                <input type="room" name="room" id="room" class="form-control" value="<%= guestById.room_number %>"required>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-success btn-lg"type="submit">Edit User</button>
+            </div>
+        </form> 
+    </div>
+</div>
