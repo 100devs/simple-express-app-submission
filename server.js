@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser= require('body-parser');
 const app = express();
 const MongoClient = require ('mongodb').MongoClient
-const connectionString = 'mongodb+srv://ana_url:idrW9Lu87P!Us9N@cluster0.swhx7ao.mongodb.net/?retryWrites=true&w=majority'
+require('dotenv').config()
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
@@ -38,11 +38,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
       })
 
-<<<<<<< HEAD
     app.put('/quotes', (req,res) =>  {
-=======
-      app.put('/quotes', (req,res) =>  {
->>>>>>> 64c9acddfbb328c1fad63e74278c50b948cb7af0
           quotesCollection.findOneAndUpdate (
               {name: 'Audre Lorde' },
               {
@@ -59,11 +55,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           .catch(error=> console.error(error))
       })
 
-<<<<<<< HEAD
     app.delete('/quotes', (req, res) => {
-=======
-      app.delete('/quotes', (req, res) => {
->>>>>>> 64c9acddfbb328c1fad63e74278c50b948cb7af0
         quotesCollection.deleteOne(
           { name: req.body.name }
         )
