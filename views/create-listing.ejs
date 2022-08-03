@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" entry="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Listing</title>
+        <!-- GOOGLE FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <!-- FONTAWESOME -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+            <!-- STYLESHEETS -->
+        <link rel="stylesheet" href="/normalize.css">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+<body>
+    <header>
+        <nav class="nav">
+            <ul class="nav__elems">
+                <li class="nav__elem"><a href="/">Buy</a></li>
+                <li class="nav__elem"><a href="create-listing">Sell</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="welcome">
+        <div class="container welcome__text">
+            <h1 class="welcome__title">911er Sales</h1>
+            <h3 class="welcome__intro">Buy and sell premium 911 models</h3>
+        </div>
+    </section>   
+    <section class="input gallery__item" id="input">
+        <div class="container">
+            <h2 class="input__heading">List your 911 for sale</h2>
+            <div class="input__center">
+                <form action="/" method="post" class="input__form">
+                    <label for="model">Model</label>
+                    <select name="model" id="model" class="input__elem">
+                        <option value="" disabled selected hidden>--Generation--</option>
+                        <option value="Early years">Early years</option>
+                        <option value="G-Series">G-Series</option>
+                        <option value="964">964</option>
+                        <option value="993">993</option>
+                        <option value="996">996</option>
+                        <option value="997">997</option>
+                        <option value="991">991</option>
+                        <option value="992">992</option>
+                    </select>
+                    <label for="color">Color</label>
+                    <input name="color"type="text" id="color" class="input__elem">
+                    <label for="mileage">Mileage</label>
+                    <input name="mileage" type="number" id="mileage" class="input__elem">
+                    <label for="price">Price</label>
+                    <input name="price" type="number" id="price" class="input__elem">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" cols="30" rows="10" placeholder="Anything else you want to add"></textarea class="input__elem">
+                <button type="submit" class="input__btn btn__interaction">Create Listing</button>
+            </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

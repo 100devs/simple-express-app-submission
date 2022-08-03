@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" entry="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Listing</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+            <nav class="nav">
+                <ul class="nav__elems">
+                    <li class="nav__elem"><a href="/">Buy</a></li>
+                    <li class="nav__elem"><a href="/create-listing">Sell</a></li>
+                </ul>
+            </nav>
+    </header>
+    <section class="welcome">
+        <div class="container welcome__text">
+            <h1 class="welcome__title">911er Sales</h1>
+            <h3 class="welcome__intro">Buy and sell premium 911 models</h3>
+        </div>
+    </section>
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="gallery__heading">Edit Listing</h2>
+            <ul class="gallery__list" id="edit__item">
+                <% listings.forEach(entry => {%>
+                    <% if (entry._id== idEntry) { %>
+                        <li class="gallery__item gallery__item-edit">
+                            <div class="gallery__img">
+                                <img src="/images/<%=entry.model%>.jpg" alt="Porsche 911">
+                            </div>
+                            <form action="/edit/<%=entry._id%>" method="POST" class="input__form input__form--edit">
+                                <label for="model">Model</label>
+                                <select name="model" id="model" class="input__elem">
+                                    <option value="" disabled selected hidden>--Generation--</option>
+                                    <option value="Early years">Early years</option>
+                                    <option value="G-Series">G-Series</option>
+                                    <option value="964">964</option>
+                                    <option value="993">993</option>
+                                    <option value="996">996</option>
+                                    <option value="997">997</option>
+                                    <option value="991">991</option>
+                                    <option value="992">992</option>
+                                </select>
+                                <label for="color">Color</label>
+                                <input name="color"type="text" id="color" class="input__elem" value="<%=entry.color %>">
+                                <label for="mileage">Mileage</label>
+                                <input name="mileage" type="number" id="mileage" class="input__elem" value="<%=entry.mileage %>">
+                                <label for="price">Price</label>
+                                <input name="price" type="number" id="price" class="input__elem" value="<%=entry.price %>">
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" cols="30" rows="10"><%=entry.description %></textarea class="input__elem">
+                                <button type="submit" class="input__btn input__confirm btn__interaction">Update</button>
+                                <a href="/" class="input__cancel input__btn btn__interaction">Cancel</a>
+                        </form>
+                        </li>
+                        <% } %>
+                <% }) %> 
+            </ul>
+        </div>
+        <span id="end"></span>
+    </section>
+</body>
+</html>
