@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+</head>
+<body>
+  <h1> What should I learn NEXT? </h1>
+  <h2>Early career Software Developer</h2>
+
+  <form action="/quotes" method="POST">
+    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="action" name="quote">
+    <button type="submit">Submit</button>
+  </form>
+  <div>
+    <h2>The React PUSH!</h2>
+    <p>
+      Add an Action with "Learn React"
+    </p>
+    <button id="update-button">Moar React</button>
+  </div>
+  <!-- <%= quotes %> -->
+  <h2> ACTIONS </h2>
+
+<ul class="quotes">
+  <!-- Loop through quotes -->
+  <% for(var i = 0; i < quotes.length; i++) {%>
+    <li class="quote">
+      <!-- Output name from the iterated quote object -->
+      <span><%= quotes[i].name %></span>:
+      <!-- Output quote from the iterated quote object -->
+      <span><%= quotes[i].quote %></span>
+    </li>
+  <% } %>
+</ul>
+
+<div>
+    <h2>Remove Meta!</h2>
+    <p>
+      Delete one Meta quote.
+    </p>
+    <button id="delete-button">Delete Metas's quote</button>
+    
+  </div>
+  <div id="message"></div>
+
+<script src="/main.js"></script>
+</body>
+</html>
