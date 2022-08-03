@@ -20,3 +20,9 @@ I completed the challenge: 5
 I feel good about my code: 4
 I'm not sure if my constructors are setup cleanly...
 ```
+
+
+/////////NOTE///////////
+The original repo can be found here: https://github.com/whit-morgan/best-dessert
+
+The app is hosted on heroku and can be accessed here: https://vote-best-dessert.herokuapp.com/
