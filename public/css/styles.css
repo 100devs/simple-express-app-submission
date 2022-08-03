@@ -1,0 +1,156 @@
+:root {
+  --bs-font-sans-serif: 'Albert Sans', sans-serif;
+}
+
+.container-xxl {
+  max-width: 1530px;
+  /* background: mintcream; */
+}
+/* 
+body {
+  background: hsla(319, 82%, 52%, 1);
+
+  background: linear-gradient(90deg, hsla(319, 82%, 52%, 1) 0%, hsla(197, 61%, 83%, 1) 100%);
+  
+  background: -moz-linear-gradient(90deg, hsla(319, 82%, 52%, 1) 0%, hsla(197, 61%, 83%, 1) 100%);
+  
+  background: -webkit-linear-gradient(90deg, hsla(319, 82%, 52%, 1) 0%, hsla(197, 61%, 83%, 1) 100%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E91FA8", endColorstr="#B9DFEE", GradientType=1 );
+} */
+
+/* makes links black  in bootstrap */
+a {
+  color: var(--bs-dark);
+}
+
+
+/* Category Card */
+.category__link {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  transition: 250ms all;
+}
+
+.category__link:hover {
+  transform: scale(1.1);
+}
+
+.category__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.category__img--large {
+  height: 170px;
+}
+
+.category__img img {
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.hero-img {
+ 
+
+
+}
+/* 
+.btn-dark { 
+  background:#075F63 ;
+  border:1px solid #075F63 
+}
+.btn-outline-dark{
+  border:1px solid #075F63 
+}
+
+#description{
+  white-space: normal
+}
+
+textarea{
+border:none;
+}
+
+#fileUpload::before{
+  background:#075F63 ;
+  border:1px solid #075F63 
+} */
+
+.backgroundImg{
+  /* background-image: url(/img/circlesc.svg); */
+  background-repeat: no-repeat;
+  
+}
+
+.submitBackground{
+  
+     background-image: url(/img/submitcircle.svg); 
+     height: 70vh;
+     background-repeat: no-repeat;
+     background-position: top left;
+     
+}
+
+.emotImage{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 80%; */
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+  overflow: hidden;
+  border-radius: 8px;
+
+}
+
+
+.userInputs, .actionInputs{
+  display: flex;
+  flex-wrap: wrap;
+  max-width:600px;
+  /* border:1px solid red; */
+  height:40px;
+  word-wrap: break-word;
+  word-break: break-all;
+  
+
+}
+
+.editfields{
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+
+
+}
+
+.emotion-headers{
+
+  display: flex;
+  flex-wrap: wrap;
+  max-width:600px;
+  /* border:1px solid red; */
+  height:40px;
+  word-wrap: break-word;
+  word-break: break-all;
+
+}
+
+[contenteditable] {
+  outline: 0px solid transparent;
+  padding:5%;
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+  height:20%;
+}

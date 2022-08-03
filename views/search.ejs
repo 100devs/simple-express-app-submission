@@ -1,0 +1,19 @@
+<h1 class="pb-4">Search Results</h1>
+
+<section class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+  <!-- covers if the object is undefined or not there -->
+  <% if(emotion !='') { %> <% emotion.forEach(function(emotion, index){ %>
+  <a href="/emotion/<%= emotion._id %>" class="col text-center category_link">
+    <section class="category__img category__img--large shadow">
+      <img
+        src="/uploads/<%= emotion.image %>"
+        alt="<%= emotion.name %>"
+        loading="lazy"
+      />
+    </section>
+    <section class="pt-1"><%= emotion.name %></section>
+  </a>
+  <% }) %> <% } else { %>
+  <p>No items found.</p>
+  <% } %>
+</section>

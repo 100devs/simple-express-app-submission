@@ -1,0 +1,19 @@
+// custom sass -  have to put bootstrap values above import to make them work 
+//- these colors will override and work because the main bootstrap file contains 
+// the setting default which means if another color isn't set then use the main boostrap color. 
+//we do have something set though so it will choose the colors we set below
+$primary:#B5DBDB;
+$light:#B5DBDB;
+// this works with $theme-colors maps in _variables.scss
+//import 2 files from original sass source
+@import '../../node_modules/bootstrap/scss/_functions'; // functions must come first because variable file uses it
+@import '../../node_modules/bootstrap/scss/_variables'; // varaibles will now come after the ones defned aboove and thenthe ones after this come next
+
+$custom-theme-colors:(
+    "altlight":#B5DBDB,
+    )
+ // merged 
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+// import bootstrap - imports all the bootstrap scss files - ensure you are on the correct relative path as below
+
+@import '../../node_modules/bootstrap/scss/bootstrap';

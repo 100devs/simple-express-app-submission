@@ -1,0 +1,52 @@
+<h1 class="pb-4">Explore Mood Categories</h1>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/categories">categories</a></li>
+    <li class="breadcrumb-item active" aria-current="page">
+      Explore Mood Categories
+    </li>
+  </ol>
+</nav>
+<!-- list all categories by clicking on 'All moods /emotions' from the home page -->
+<section class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mb-4">
+  <% if(typeof categories !== 'undefined' && categories.length > 0) { %> <%
+  categories.forEach(function(category, i){ %>
+  <!-- href creates a route for the categories to provide the option display all the files or just one of the files -->
+  <a
+    href="/categories/<%- category.name %>"
+    class="col text-center category_link"
+  >
+    <section class="category__img shadow">
+      <img
+        src="img/<%- category.image %>"
+        alt="<%- category.name %>"
+        loading="lazy"
+      />
+    </section>
+    <section class="pt-1"><%- category.name %></section>
+  </a>
+  <% }) %> <% } %>
+</section>
+
+<!-- list indivdual items per category eg angry  -->
+<section class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+  <!-- covers if the object is undefined or not there -->
+  <% if(typeof categoryById !='undefined' && categoryById.length > 0) { %> <%
+  categoryById.forEach(function(emotion, index){ %>
+  <a href="/emotion/<%= emotion._id %>" class="col text-center category_link">
+    <section class="category__img category__img--large shadow">
+      <img
+        src="/uploads/<%= emotion.image %>"
+        alt="<%= emotion.name %>"
+        loading="lazy"
+      />
+    </section>
+    <section class="pt-1"><%= emotion.name %></section>
+  </a>
+
+  <% }) %> <% } else { %>
+  <p>No items found.</p>
+  <% } %>
+</section>
