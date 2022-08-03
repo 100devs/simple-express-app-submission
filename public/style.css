@@ -1,0 +1,457 @@
+/* Default */
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 62.5%;
+}
+body {
+  background: #F3F3F7;  
+  padding: 5rem 0;
+  position: relative;
+}
+
+/* Helpers */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+input:focus, 
+input:focus-within {
+  outline: none;
+}
+.default-container {
+  padding: 0 20px;
+}
+
+/* Title */
+.title {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+  .title h1 {
+    font-size: 3rem;
+  }
+
+/* Buttons */
+.buttons button {
+  font-size: 1.5rem;
+  background: #23395B;
+  color: #fff;
+  border: none;
+  box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+  transition: all 0.2s ease-in;
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+}
+.buttons button:hover {
+  border: 1px solid #23395B;
+  background: #fff;
+  color: #000;
+}
+/* Filters */
+.filters {
+  margin: 5rem 0;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+  .filters button {
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    transition: all 0.2s ease-in;
+  }
+  .filters button:hover, .filters button.active {
+    background: #23395B;
+    color: white;
+  }
+
+/* Add Item */
+.addItem {
+  margin: 5rem auto;
+  text-align: center;
+  max-width: 700px;
+  border: 1.5px solid #c3c5cf;
+  padding: 2rem;
+  border-radius: 5px;
+}
+  .addItem p {
+    font-size: 1.3rem;
+    color: #787879;
+  }
+  .addItem button {
+    font-size: 1.5rem;
+    background: #23395B;
+    color: white;
+    border: 0;
+    padding: .7rem 1.7rem;
+    transition: all 0.1s ease-in;
+  }
+  .addItem .row {
+    margin-bottom: 1rem;
+    /* padding: 0 1rem; */
+  }
+    .addItem .row.small {
+      gap: 1rem;
+    }
+      .addItem .row.small input {
+        flex-basis: calc(50% - .5rem);
+      }
+    .addItem .row fieldset .options {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;  
+      flex-wrap: wrap;
+    }
+    .addItem .row fieldset legend {
+      margin-bottom: 1rem;
+      color: #787879;
+      font-size: 1.3rem;
+    }
+      .addItem .row fieldset label {
+        color: #787879;
+        cursor: pointer;
+      }
+      .addItem .row fieldset input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        height: 30px;
+        width: 30px;
+        padding: 0;
+        background: white;
+        border: 1.5px solid #d8d9dd;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .addItem .row fieldset input[type="checkbox"]::after {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 20px;
+        color: white;
+        display: none;
+      }
+      .addItem .row fieldset input[type="checkbox"]:hover {
+        background: #f0f1f5;
+      }
+      .addItem .row fieldset input[type="checkbox"]:checked {
+        background: #23395B;
+        border-color: transparent;
+      }
+      .addItem .row fieldset input[type="checkbox"]:checked:after{
+        display: block;
+      }
+    .addItem input {
+      padding: 1rem 2rem;
+      font-size: 1.3rem;
+      border: 1.5px solid #d8d9dd;
+      border-radius: 5px;
+    }
+      .addItem input::placeholder, .addItem input[type=date]:invalid::-webkit-datetime-edit {
+        color: #8d8e93;
+      }
+      .addItem input:focus {
+        border: 1.5px solid #23395B;
+      }
+        .addItem input.add {
+          border: 1.5px solid #d8d9dd;
+          transition: all 0.1s ease-in;
+          width: 150px;
+          background: #23395B;
+          color: white;
+        }
+          .addItem input.add:hover {
+            border: 1.5px solid transparent;
+            background: #23395bd3;
+            opacity: .6;
+          }
+        .addItem input.add + button {
+          width: 150px;
+          padding: 1rem 2rem;
+          border-radius: 5px;
+          border: 1.5px solid #d8d9dd;
+          background: rgb(111, 26, 26);
+          color: white;
+        }
+            .addItem input.add + button:hover {
+              border: 1.5px solid transparent;
+              background: rgba(111, 26, 26, 0.66);
+            }
+        .addItem .row:last-child {
+          justify-content: center;
+          gap: 5rem;
+          margin-top: 2rem;
+        }
+    .addItem label {
+      width: 100px;
+      font-size: 1.3rem;
+      align-items: start;
+      text-align: start;
+      padding-left: 1rem;
+    }
+    .addItem .option {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 100px;
+    }
+      .addItem .option input {
+        height: 2rem;
+        width: 2rem;
+        accent-color:  #23395B;
+      }
+    .addItem form .image {
+      display: block;
+      border: 1.5px solid #d8d9dd;
+      background: #fff;
+    }
+      .addItem form i {
+        display: inline;
+      }
+      .addItem form .image input {
+        flex-basis: 70%;
+        border: none;
+        width: 250px;
+        margin: auto;
+        font-size: 1.3rem;
+        color: #787879;
+      }
+      .addItem form .image label {
+        flex-basis: 30%;
+        font-size: 1.3rem;
+        color: #787879;
+        width: fit-content;
+        padding: 1rem 2rem;
+      }
+.addItemContainer {
+  display: none;
+}
+.addItemContainer.active {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: #F3F3F7;
+  top: 0;
+  left: 0;
+}
+
+/* Collection */
+.collection {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 4rem;
+}
+
+/* Item */
+.item {
+  box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 200px;
+  transition: all 0.2s ease-in;
+}
+    .item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      margin: auto;
+    }
+  .item .details {
+    color: #8d8e93
+  }
+    .item h3 {
+      margin-bottom: 2rem;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+    .item p {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: .1rem;
+    }
+      .item .detailsKey {
+        font-weight: bold;
+      }
+  .item .controls {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+    .item .controls button {
+      border: none;
+      background: none;
+    }
+      .item .controls i {
+        font-size: 1.5rem;
+        transition: all 0.1s ease-in;
+      }
+      .item .controls i:hover {
+        transform: rotate(-45deg) scale(1.3);
+      }
+      .item .controls .update i:hover {
+        color: green;
+      }
+      .item .controls .delete i:hover {
+        color: red;
+      }
+
+/* Updte item */
+.updateItem {
+  display: none;
+}
+  .updateItem.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    .updateItem.active .bg {
+      position: absolute;
+      background: #0000008f;
+      width: 100%;
+      height: 100%;
+    }
+    .updateItem.active .form {
+      background: white;
+      padding: 4rem;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 700px;
+      height: 80vh;
+      overflow: scroll;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+      .updateItem.active .form input {
+        padding: 1rem 2rem;
+        font-size: 1.3rem;
+        border: 1.5px solid #d8d9dd;
+        border-radius: 5px;
+        color: #000000;
+        overflow: unset;
+      }
+      .updateItem.active .form label {
+        color: #787879;       
+        font-size: 1.3rem;
+      }
+        .updateItem.active fieldset .options {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;  
+          flex-wrap: wrap;
+        }
+        .updateItem.active fieldset legend,
+        .updateItem.active .form p {
+          margin-bottom: 1rem;
+          color: #787879;
+          text-align: center;
+          font-size: 1.3rem;
+        }
+        .updateItem.active fieldset label {
+          color: #787879;
+          cursor: pointer;
+        }
+        .updateItem.active fieldset input[type="checkbox"] {
+          appearance: none;
+          -webkit-appearance: none;
+          height: 30px;
+          width: 30px;
+          padding: 0;
+          background: white;
+          border: 1.5px solid #d8d9dd;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .updateItem.active fieldset input[type="checkbox"]::after {
+          content: "\f00c";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          font-size: 20px;
+          color: white;
+          display: none;
+        }
+        .updateItem.active fieldset input[type="checkbox"]:hover {
+          background: #f0f1f5;
+        }
+        .updateItem.active fieldset input[type="checkbox"]:checked {
+          background: #23395B;
+          border-color: transparent;
+        }
+        .updateItem.active fieldset input[type="checkbox"]:checked:after{
+          display: block;
+        }
+        .updateItem.active label {
+          width: 100px;
+          font-size: 1.3rem;
+          align-items: start;
+          text-align: start;
+          padding-left: 1rem;
+        }
+        .updateItem.active .option {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-basis: 100px;
+        }
+        .updateItem.active .option input {
+          height: 2rem;
+          width: 2rem;
+          accent-color:  #23395B;
+        }
+        .updateItem.active input.updateSubmit:hover {
+          border: 1.5px solid transparent;
+          background: #23395B;
+          color: white;
+        }
+        .updateItem.active .image {
+          justify-content: center;
+          align-items: center;
+          border: 1.5px solid #d8d9dd;
+          width: 100%;
+          margin: auto;
+        }
+          .updateItem.active .image input {
+            flex-basis: 70%;
+            border: none;
+            width: 250px;
+            margin: auto;
+            font-size: 1.3rem;
+            color: #787879;
+            border: none;
+          }
+          .updateItem.active .image label {
+            flex-basis: 30%;
+            font-size: 1.3rem;
+            color: #787879;
+          }
+
+/* Media Query */
+
+@media screen and (max-width: 500px) {
+  .addItem form .image {
+    flex-direction: column;
+  } 
+  .addItem form .image label {
+    width: 100%;
+    text-align: center;
+  }
+}

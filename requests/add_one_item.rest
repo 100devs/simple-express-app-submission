@@ -1,0 +1,11 @@
+POST http://localhost:8000/post
+Content-Type: application/json
+
+{
+  "title": "Item 2",
+  "price": "Item 2",
+  "brand": "Item 2",
+  "dateAcquired": "Item 2",
+  "placeAcquired": "Item 2",
+  "tags": ["item-2.0", "item-2.1"]
+}
