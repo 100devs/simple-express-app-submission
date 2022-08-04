@@ -25,7 +25,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(
     app.use(express.json());
 
     // the port that the server is listening for
-    app.listen(process.env.PORT || 3000, () => {
+    app.listen(process.env.PORT || PORT, () => {
       console.log(`Server running on port 3000`);
     });
 
