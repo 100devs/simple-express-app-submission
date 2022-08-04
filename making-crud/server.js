@@ -21,6 +21,7 @@ MongoClient.connect('mongodb+srv://nikiatoll:6Lm8zmh4OcXSj8Zn@cluster0.h3ldwtq.m
         app.listen(3000, function () {
             console.log('listening on 3000')
         })
+        
         app.get('/', (req, res) => {
             db.collection('quotes').find().toArray()
             .then(results=>{
@@ -30,6 +31,7 @@ MongoClient.connect('mongodb+srv://nikiatoll:6Lm8zmh4OcXSj8Zn@cluster0.h3ldwtq.m
             
             // res.sendFile(__dirname + '/index.html')
         })
+
         app.post("/quotes", (req, res) => {
             quotesCollection.insertOne(req.body)
             .then(result =>{
@@ -39,6 +41,7 @@ MongoClient.connect('mongodb+srv://nikiatoll:6Lm8zmh4OcXSj8Zn@cluster0.h3ldwtq.m
                 console.log(error)
             })
         })
+
         app.put('/quotes', (req, res)=>{
             quotesCollection.findOneAndUpdate(
                 { name:'Yoda' },
@@ -56,6 +59,7 @@ MongoClient.connect('mongodb+srv://nikiatoll:6Lm8zmh4OcXSj8Zn@cluster0.h3ldwtq.m
             })
             .catch(error => console.error(error))
         })
+
         app.delete('/quotes', (req, res)=>{
             quotesCollection.deleteOne({name: req.body.name })
             .then(result => {
