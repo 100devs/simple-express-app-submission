@@ -1,22 +1,25 @@
-#100Devs Simple Express App Submission
+## Contributors
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+Aaron Clamp [@ronaldconn](https://github.com/ronaldconn) and Poornima P K [@poornimapk](https://github.com/poornimapk)
 
-### How to submit your code for review:
+# Magic 8 Ball
+This Magic 8 Ball looks into your future to find answers to your questions. Ask your question and click the button, your future will be revealed!
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+![gif of eigthball in action](eightballapp.gif)
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+
+# How It's Made:
+**Tech used:** HTML, CSS, JavaScript, Node.js
+
+The magic eight ball pulls fortunes at random from a hosted database.
+
+
+# Optimizations
+Ideally this app would have a more streamlined GUI. As it is, it works to get the user a fortune, but the refresh rate is not ideal. There are two main animations: (1) procuring the fortune (2) returning the eight ball to a pre-fortune state.
+
+Following the first fortune selection, the refresh occurs automatically on a set timer. However, ideally there will be a third animation that procures a new fortune after the first fortune is animated and shown disappearing.
+
+This will be more seamless and feel better and less "chunky"
+
+# Lessons Learned:
+This app challenged us to keep our code as dry as possible and impeded our databases within our back-end js files. We had to make sure that all that information was abstracted from the user as well. We had the most fun experiementing with animations for the eightball. Like a coastal shelf, CSS is a continually deepening puzzle. I hope you enjoy our app. :)
