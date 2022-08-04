@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { IconHeart } from '@tabler/icons';
-import { Card, Image, Text, Group, Badge, Button, ActionIcon, createStyles, Stack, Space, Textarea } from '@mantine/core';
-import { openModal, closeAllModals } from '@mantine/modals';
+import { Card, Image, Text, Group, Button, ActionIcon, createStyles, Stack, Space, Textarea } from '@mantine/core';
+import { openModal } from '@mantine/modals';
 import axios from 'axios';
 
 const useStyles = createStyles((theme) => ({
@@ -33,9 +33,8 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
-
 const BookContainer = ({bookCover, title, author, isbn, notes}) => {
-  const [value, setValue] = useState(String(notes));
+  const [value, setValue] = useState(notes ? notes : '');
   const refContainer = useRef(value)
   const { classes, theme } = useStyles();
   
@@ -49,10 +48,8 @@ const BookContainer = ({bookCover, title, author, isbn, notes}) => {
   }
 
   const handleTextInput = (e) => {
-    console.log('updating text:', e.target.value, ' ref: ', refContainer.current.value)
     setValue(e.target.value);
   }
-
 
   const handleModal = () => {
     openModal(
@@ -64,20 +61,24 @@ const BookContainer = ({bookCover, title, author, isbn, notes}) => {
             <Textarea
               label="Notes"
               defaultValue={value}
-              key={refContainer.current.value}
+              key={value}
               placeholder="What do you want to gain from this book?"
               onChange={handleTextInput}
               minRows={4}
               ref={refContainer}
             />
+            <Space w="sm"/>
             <Button 
               radius="md" 
               style={{ flex: 1 }}
               onClick={() => handleSave()}
-            >Save</Button>
+            >
+              Save
+            </Button>
           </>
         )
-      })
+      }
+    )
   }
 
   const handleSave = async () => {
