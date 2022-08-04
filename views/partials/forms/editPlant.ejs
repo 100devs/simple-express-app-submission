@@ -1,0 +1,46 @@
+<form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-6">
+                <label for="plant-name" class="form-label">Plant nickname (if it has one)</label>
+                <input type="text" id="edited-plant-name" class="form-control" placeholder="Plant name" name="name">
+            </div>
+    <div class="col-md-6 mb-2">
+      <label for="location" class="form-label">Location</label>
+      <select class="form-select" id="edited-location" name="location">
+        <option selected disabled value="<%= plant.location %>"><%= plant.location %></option>
+        <% if (currentUser.locations.length > 0) { %>
+          <% currentUser.locations.forEach(location => {%>
+            <% if (location !== "No location assigned") { %> 
+            <option value="<%= location %>" name="location"><%= location %></option>
+            <% } %>
+          <% }) %>
+        <% } else { %>
+          <option disabled value="">Enter a location on the menu above to get started!</option>
+        <% } %>
+
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="wateringFrequency" class="form-label">Watering frequency (in days)?</label>
+      <input type="number" class="form-control" id="edited-watering-interval" name="wateringInterval" true>
+    </div>
+   
+    
+    <div class="col-md-6">
+      <label for="lastWatered" class="form-label">Last watered:</label>
+      <input type="date" class="form-control" id="edited-last-watered" name="lastWatered">
+    </div>
+
+    <div class="col-md-6">
+      <label for="lastFertilized" class="form-label">Last fertilized:</label>
+      <input type="date" class="form-control" id="edited-last-fertilized" name="lastFertilized">
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="lastRepotted" class="form-label">Last repotted:</label>
+      <input type="date" class="form-control" id="edited-last-repotted" name="lastRepotted">
+    </div>
+
+    <button class="btn btn-success" id="edit-plant">Submit form</button>
+</div>
+</form>
+

@@ -1,0 +1,50 @@
+<h1 class="text-success text-center mt-5"><%= plant.BotanicalName %></h1>
+<div class="h2 text-center text-secondary mb-4 border-bottom pb-5">"<%= plant.CommonName %>"</div>
+
+<section class="p-2 mt-5 pt-5 text-center text-md-start">
+  <div class="container">
+    <div class="row align-items-start justify-content-start">
+      <div class="col-md"><%- plantImageTag %></div>
+      <div class="col-md col-7-md">
+        <h2 class="border-bottom text-success pr-3 pb-2 pt-4 pt-md-0">Care Needs</h2>
+        <div>
+          <span class="h4 mt-3">Light:</span>
+          <span class="mx-4"><%= plant.Light %></span>
+        </div>
+        <div>
+          <span class="h4 mt-1">Temperature:</span>
+          <span class="mx-4"><%= plant.Temperature %></span>  
+        </div>
+        <div>
+          <span class="h4 mt-1">Water:</span>
+          <span class="mx-4"><%= plant.Water %></span>  
+        </div>
+        <div>
+          <span class="h4 mt-1">Humidity:</span>
+          <span class="mx-4"><%= plant.RelativeHumidity %></span>  
+        </div>
+        <div>
+          <span class="h4 mt-1">Soil Mix:</span>
+          <sspan class="mx-4"><%= plant.SuggestedSoilMix %></span>  
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="text-center mt-5 py-5">
+  <h2 class="border-bottom text-success px-3 pb-2">Similar Plants</h2>
+  <div class="container">
+    <div class="row">
+      <% similarPlants.forEach((plant, index) => { %>
+          <div class="col pt-4">
+            <a href="/plants/<%= plant._id %>" class="link-success">
+            <%- similarPlantsImageTags[index] %>
+            <div class="link-success mt-2"><%= plant.CommonName %></div>
+          </a>
+          </div>
+      <% }) %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,105 @@
+
+<h1 class="text-success text-center mt-5 border-bottom pb-3">Plant Collection</h1>
+
+<div class="container text-center">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addPlant"><i class="bi bi-plus-circle"></i> Add Plant </button>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addLocation"><i class="bi bi-plus-circle"></i> Add Location </button>
+</div>
+<!-- Button trigger modal -->
+
+<div class="modal fade" id="addPlant" tabindex="-1" aria-labelledby="addPlantLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title text-success h3" id="addPlantLabel">Add Plant</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('../partials/forms/addPlant.ejs') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addLocation" tabindex="-1" aria-labelledby="addLocationLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title text-success h3" id="addLocationLabel">Add Location</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('../partials/forms/addLocation.ejs') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="text-center my-5" id="main-section" data-userid="<%= currentUser._id %>">
+  <% if (locations.length > 0) { %>
+    <% locations.forEach((location) => { %>
+          <% if (location !== "No location assigned") { %>
+            <h2 class="text-center border-bottom my-4"><%= location %>
+            <i class="bi bi-trash fs-3 mobile-hidden" title="delete location" id="deleteLocationModalOpenButton" data-bs-toggle="modal" data-bs-target="#deleteLocation" style="position:absolute;left:90%;"></i>
+            <i class="bi bi-pencil-square fs-3 mobile-hidden" title="edit location" id="editLocationModalOpenButton" data-bs-toggle="modal" data-bs-target="#editLocation" style="position:absolute;left:93%;"></i> 
+            </h2>
+            <i class="bi bi-trash fs-1 mx-2 mobile-visible" title="delete location" id="deleteLocationModalOpenButton" data-bs-toggle="modal" data-bs-target="#deleteLocation" ></i>
+            <i class="bi bi-pencil-square fs-1 mx-2 mb-4 mobile-visible" title="edit location" id="editLocationModalOpenButton" data-bs-toggle="modal" data-bs-target="#editLocation"></i>        
+          <% } else if (userPlants.some(plant => plant.location == "No location assigned")) { %>
+            <h2 class="text-center border-bottom my-4">No location assigned</h2>
+            <% } %>
+      <div class="container">
+      <% if (userPlants.length > 0) { %>
+        <div class="row">
+        <% userPlants.forEach((plant, index) => {  %>
+          <% if (plant.location == location) { %>
+            <div class="col py-2 text-center">
+              <a href="/users/plants/<%=plant._id %>" class="link-success">
+                <div class="mt-2"><%= plant.name %></div>
+                  <%- userPlantsImageTags[index] %>
+              </a>
+                <div class="mb-5 mt-2" data-plantid="<%=plant._id %>">
+                  <i class="bi bi-droplet-fill fs-1 mx-3 text-success" title="water plant" id="water-plant"></i>
+                  <i class="bi bi-bucket-fill fs-1 text-success" title="fertilize plant" id="fertilize-plant"></i>   
+                </div>        
+            </div>
+          <% } %>
+        <% }) %>
+        </div>
+      <% } %>
+      </div>
+    <% }) %>
+  <% } %>
+</div>
+
+<div class="modal fade" id="deleteLocation" tabindex="-1" aria-labelledby="deleteLocationLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title text-success h3" id="deleteLocationLabel">Delete Location</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('../partials/forms/deleteLocation.ejs') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editLocation" tabindex="-1" aria-labelledby="editLocationLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title text-success h3" id="editLocationLabel">Edit Location</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('../partials/forms/editLocation.ejs') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/scripts/formValidationFunctions.js"></script>
+<script type="module" src="/scripts/dashboardFetchRequests.js"></script> 
+

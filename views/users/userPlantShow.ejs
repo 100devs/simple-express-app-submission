@@ -1,0 +1,167 @@
+<h1 class="text-success text-center mt-5" id="nickname"><%= plant.name %></h1>
+<div class="h2 text-center text-secondary mb-4 border-bottom pb-5"><%= plant.species.BotanicalName %></div>
+
+<section class="p-2 my-5 py-5 text-center text-md-start" data-plantid="<%= plant._id %>" data-userid="<%= currentUser._id %>" id="main-section">
+  <div class="container">
+    <div class="row align-items-start justify-content-start">
+      <div class="col-md"><%- plantImageTags[plantImageTags.length - 1].imageTag %></div>
+      <div class="col-md col-7-md">
+        <h2 class="border-bottom text-success pr-3 pb-2 pt-4 pt-md-0">Plant Detail</h2>
+        <div>
+          <span class="h4 mt-3">Location:</span>
+          <span id="location" class="mx-3"><%= plant.location %></span>
+        </div>
+        <div>
+          <span class="h4 mt-1">Watering Interval:</span>
+          <span id="wateringInterval" class="mx-3"><%= plant.wateringInterval %></span>  
+        </div>
+        <div>
+        <% if (Date.parse(plant.lastWatered) !== 0) { %>
+          <span class="h4 mt-1">Last Watered:</span>
+        <span id="lastWatered" class="mx-3"><%= new Date(plant.lastWatered).toUTCString().split(" ").slice(0, 4).join(" ")%></span>  
+        <% } else { %> 
+          <span id="lastWatered"></span>  
+        <% } %> 
+        <div>
+          <% if (Date.parse(plant.lastFertilized) !== 0) { %>
+            <span class="h4 mt-1">Last Fertilized:</span>
+          <span id="lastFertilized" class="mx-3"><%= new Date(plant.lastFertilized).toUTCString().split(" ").slice(0, 4).join(" ")%></span>  
+          <% } else { %> 
+            <span id="lastFertilized"></span>  
+          <% } %> 
+        </div>
+        <div>
+          <% if (Date.parse(plant.lastRepotted) !== 0) { %>
+            <span class="h4 mt-1">Last Repotted:</span>
+          <span id="lastRepotted" class="mx-3"><%= new Date(plant.lastRepotted).toUTCString().split(" ").slice(0, 4).join(" ")%></span>  
+          <% } else { %> 
+            <span id="lastRepotted"></span>  
+          <% } %> 
+          <div>
+        <div class="text-center mt-4">
+          <button type="button" class="btn btn-success my-2" data-bs-toggle="modal" data-bs-target="#addImage" id="add-image-modal-open-button"><i class="bi bi-plus-circle"></i> Add Photo </button>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addNote"><i class="bi bi-plus-circle"></i> Add Note </button>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editPlant" id="edit-plant-modal-open-button"><i class="bi bi-pencil-square"></i> Edit Plant </button>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#deletePlant" id="delete-plant-modal-open-button"><i class="bi bi-trash"></i> Delete Plant </button>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div>
+      <% if (notes.length > 0) { %>
+      <h2 class="border-bottom text-success text-center pr-3 pb-2 pt-4 pt-md-0 my-3">Notes</h2>
+      <div class="accordion" id="accordion">
+        <% for (let note of notes) { %>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading<%= note._id %>">
+            <button class="accordion-button btn-warning bg-light text-success fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= note._id %>" aria-expanded="true" aria-controls="collapse<%= note._id %>">
+              <%= note.date.toUTCString().split(" ").slice(0, 4).join(" ") %>
+            </button>
+          </h2>
+          <div id="collapse<%= note._id %>" class="accordion-collapse collapse show" aria-labelledby="heading<%= note._id %>" data-bs-parent="#accordion" >
+            <div class="accordion-body my-3" >
+                <%= note.body %>
+            </div>
+            <button type="button" class="btn btn-success mt-0 mb-4 mx-3 note-open-edit-modal-button" data-bs-toggle="modal" data-bs-target="#editNote" data-noteId="<%=note._id%>" data-noteDate="<%= note.date.toUTCString() %>"><i class="bi bi-pencil-square"></i> Edit Note </button>
+            <button type="button" class="btn btn-warning mt-0 mb-4 mx-0 note-open-delete-modal-button" data-bs-toggle="modal" data-bs-target="#deleteNote" data-noteId="<%=note._id%>" ><i class="bi bi-trash"></i> Delete Note </button>
+          </div>
+          <% } %>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  <% if (plantImageTags.length > 1) { %>
+    <h2 class="border-bottom text-success text-center pr-3 pb-2 pt-4 pt-md-0 my-5">Images</h2>
+    <%- include('../partials/layout/imageGallery.ejs') %>
+  <% } %>
+
+</section>
+
+<div class="modal fade" id="addNote" tabindex="-1" aria-labelledby="addNoteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title text-success h3" id="addNoteLabel">Add Note</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('../partials/forms/addNote.ejs') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editNote" tabindex="-1" aria-labelledby="editNoteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title text-success h3" id="editNoteLabel">Edit Note</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('../partials/forms/editNote.ejs') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteNote" tabindex="-1" aria-labelledby="deleteNoteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title text-success h3" id="deleteNoteLabel">Delete Note</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('../partials/forms/deleteNote.ejs') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deletePlant" tabindex="-1" aria-labelledby="deletePlantLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title text-success h3" id="deletePlantLabel">Delete Plant</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('../partials/forms/deletePlant.ejs') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addImage" tabindex="-1" aria-labelledby="addImageLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title text-success h3" id="addImageLabel">Add Image</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('../partials/forms/addImage.ejs') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="editPlant" tabindex="-1" aria-labelledby="editPlantLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title text-success h3" id="editPlantLabel">Edit Plant</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('../partials/forms/editPlant.ejs') %>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="/scripts/formValidationFunctions.js"></script>
+<script type="module" src="/scripts/userPlantFetchRequests.js"></script> 

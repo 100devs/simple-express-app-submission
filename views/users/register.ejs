@@ -1,0 +1,48 @@
+
+  <main class="form-signin text-center my-4">
+    <form id ="register-form" novalidate>
+      <i class="bi bi-flower3 text-warning mb-4 display-3"></i>
+      <h1 class="h2 mb-5 fw-normal">Register</h1>
+  
+      <div class="form-floating form-control-custom">
+        <input autocomplete="email" type="email" class="form-control mb-3" id="username" placeholder="Username" name="username" required>
+        <label for="username" class="required">Email Address</label>
+        <i class="bi bi-check-square-fill text-success"></i>
+        <i class="bi bi-exclamation-circle-fill text-danger"></i>			          
+        <small class="text-danger">Error message</small>
+      </div>
+      <div class="form-floating text-start password-tooltip">
+        Paswords must include the following:
+        <ol>
+          <li>At least one uppercase and one lowercase letter</li>
+          <li>At least one number: 1-9</li>
+          <li>At least 1 special character, from the following: !@#$%^&*_=+-</li>
+          <li>Minimum 8 characters, maximum 16 characters</li>
+
+        </ol>
+      </div>
+      <div class="form-floating form-control-custom">
+        <input autocomplete="new-password" type="password" class="form-control mb-3 required" id="password" placeholder="Password" name="password">
+        <label for="password" class="required">Password</label>
+        <i class="bi bi-check-square-fill text-success"></i>
+        <i class="bi bi-exclamation-circle-fill text-danger"></i>			          
+        <small class="text-danger">Error message</small>
+      </div>
+      <div class="form-floating form-control-custom">
+        <input type="password" class="form-control mb-3 required" id="password2" placeholder="Confirm Password">
+        <label for="password" class="required">Confirm Password</label>
+        <i class="bi bi-check-square-fill text-success"></i>
+        <i class="bi bi-exclamation-circle-fill text-danger"></i>			          
+        <small class="text-danger">Error message</small>
+      </div>
+      
+  
+      <button class="w-100 btn btn-lg btn-success mb-3" type="submit">Register</button>
+      <% if (errorMessage) { %>
+        <div class="mb-3 text-danger" ><%= errorMessage %></div>
+      <% } %>      
+      <a href="/login" class="text-success">Already have an account? Login</a>
+    </form>
+  </main>
+  <script type="module" src="/scripts/formValidationFunctions.js"></script>
+  <script type="module" src="/scripts/registrationFormValidation.js"></script>

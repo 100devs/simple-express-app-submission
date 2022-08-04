@@ -1,0 +1,16 @@
+<main class="my-5">
+    <h1 class="text-success text-center my-5 border-bottom pb-3">Your Result</h1>
+<% if (plant) { %> 
+    <div class="text-center">
+        <a href="/plants/<%= plant._id %>">
+            <%- plantImageTag %>
+        </a>
+    </div>
+    <div class="h2 text-success text-center mt-5"><%= plant.BotanicalName %></h1>
+    <div class="h2 text-center text-secondary mb-4 pb-5">"<%= plant.CommonName %>"</div>
+    
+<% } else { %>
+    <%- include('../partials/errors/noPlantFound.ejs') %>
+<% } %>
+
+</main>

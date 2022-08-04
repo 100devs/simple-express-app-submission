@@ -1,0 +1,12 @@
+<form class="row g-3 needs-validation" id="add-location-form" data-userid="<%= currentUser._id %>"  novalidate>
+    <div class="col-md-12 mb-3 form-control-custom">
+        <label for="newLocation" class="form-label">New Location</label>
+        <input name="newLocation" type="text" id="newLocation" class="form-control" maxlength="40" placeholder="New Location">
+        <i class="bi bi-check-square-fill text-success"></i>
+        <i class="bi bi-exclamation-circle-fill text-danger"></i>			          
+        <small class="text-danger">Error message</small>
+    </div>
+
+    <button class="btn btn-success" type="submit">Add Location</button>
+</div>
+</form>
