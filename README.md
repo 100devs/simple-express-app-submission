@@ -17,6 +17,6 @@
 Example:
 ```
 I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
+I feel good about my code: 3
+I completed the text stuff with my remo friend, who I really enjoyed meeting, but I need to really review it. The power to prograstinate has taken over me...Ok I do a tomato timer!
 ```
