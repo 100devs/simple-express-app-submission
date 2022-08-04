@@ -6,22 +6,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const MongoClient = require('mongodb').MongoClient
-
+const PORT = 3000
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'))
 app.use(bodyParser.json())
 
-MongoClient.connect('mongodb+srv://nikiatoll:6Lm8zmh4OcXSj8Zn@cluster0.h3ldwtq.mongodb.net/?retryWrites=true&w=majority', {useUnifiedTopology: true})
+MongoClient.connect('mongodb+srv://nikiatoll:jlk48nuHD9zYm6VZ@cluster0.h3ldwtq.mongodb.net/?retryWrites=true&w=majority', {useUnifiedTopology: true})
     .then(client=>{
         console.log('connected to database')
         const db = client.db('star-wars-quotes')
         const quotesCollection = db.collection('quotes')
 
-        app.listen(3000, function () {
-            console.log('listening on 3000')
+        app.listen(process.env.PORT || PORT, function () {
+            console.log(`listening on ${process.env.PORT}`)
         })
-        
+
         app.get('/', (req, res) => {
             db.collection('quotes').find().toArray()
             .then(results=>{
