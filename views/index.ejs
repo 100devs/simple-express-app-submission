@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Players </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Add, Upvote or Delete NBA Players</h1>
+    <ul class="players">
+        <% for (let i=0; i<info.length; i++){%>
+            <li class="player">
+                <span><%= info[i].fullName %> -</span>
+                <span><%= info[i].currentTeam %> -</span>
+                <span><%= info[i].rings %> -</span>
+                <span><%= info[i].likes %></span>
+                <span class='fa fa-thumbs-up'></span>
+                <span class='fa fa-trash'></span>
+            </li>
+        <% } %>
+    </ul>
+
+    <h2>Add A Player:</h2>
+
+    <form action="/addPlayer" method="POST">
+        <input type="text" placeholder="Full Name" name="fullName">
+        <input type="text" placeholder="Current Team" name="currentTeam">
+        <input type="text" placeholder="Rings" name="rings">
+        <input type="submit">
+    </form>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
