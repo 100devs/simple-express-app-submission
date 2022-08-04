@@ -1,0 +1,60 @@
+h1{
+    color: red;
+}
+
+input{
+    display: flex;
+    margin: 10px;
+}
+
+li{
+    list-style: none;
+    border: 2px solid navy;
+    border-radius: 10px;
+    background-color: lightgoldenrodyellow;
+    max-width: 30rem;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+li span{
+    display: flex;
+}
+
+.epDescription{
+    max-width: 50%;
+    position: relative;
+    margin: 25px 30px 0 0;
+}
+
+.string{
+    text-decoration: underline;
+    float: left;
+    clear: both;
+    padding: 4px 0 0 0;
+}
+
+.nonstring{
+    font-weight: bold;
+    padding: 5px 0 0 3px;
+}
+
+body{
+   font-family:'Arial Narrow', Arial, sans-serif;
+   background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Seinfeld_logo.svg/1200px-Seinfeld_logo.svg.png');
+   background-repeat: no-repeat;
+   background-position: right;
+   background-attachment: fixed;
+}
+
+
+h1, h2{
+    font-family: Tahoma, Geneva, Verdana, sans-serif
+}
+
+textarea{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+    width: 200px;
+    height: 75px
+}
