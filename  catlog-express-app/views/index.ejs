@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Foster Log</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Catlog</h1>
+
+    <section class="row">
+        <section class="column">
+            <h2>Input Cat Data Here</h2>
+            <form action="/api" method="POST">
+                <input type="text" placeholder="Cat Name" name="name">
+                <input type="date" value="2022-08-01" name="date">
+                <input type="text" placeholder="Wet Food" name="wetFoodBrand">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <h4>Wet Food Rating:</h4>
+                <div class="wet-rating rating clearfix">
+                    <span><input type="radio" name="wetfoodRating" id="str5" value="5"><label for="str5"></label></span>
+                    <span><input type="radio" name="wetfoodRating" id="str4" value="4"><label for="str4"></label></span>
+                    <span><input type="radio" name="wetfoodRating" id="str3" value="3"><label for="str3"></label></span>
+                    <span><input type="radio" name="wetfoodRating" id="str2" value="2"><label for="str2"></label></span>
+                    <span><input type="radio" name="wetfoodRating" id="str1" value="1"><label for="str1"></label></span>
+                </div>
+                <input type="text" placeholder="Wet Food Weight" name="wetFoodWeight">
+
+                <input type="text" placeholder="Dry Food" name="dryFoodBrand">
+                <h4>Dry Food Rating:</h4>
+                <div class="dry-rating rating clearfix">
+                    <span><input type="radio" name="dryfoodRating" id="str5" value="5"><label for="str5"></label></span>
+                    <span><input type="radio" name="dryfoodRating" id="str4" value="4"><label for="str4"></label></span>
+                    <span><input type="radio" name="dryfoodRating" id="str3" value="3"><label for="str3"></label></span>
+                    <span><input type="radio" name="dryfoodRating" id="str2" value="2"><label for="str2"></label></span>
+                    <span><input type="radio" name="dryfoodRating" id="str1" value="1"><label for="str1"></label></span>
+                </div>
+                <input type="text" placeholder="Dry Food Weight" name="dryFoodWeight">
+
+                <textarea cols="40" rows="5" type="text" placeholder="Feeding Note" name="feedingNote"></textarea>
+
+                <input type="text" placeholder="Poopoo Note" name="poopooNote">
+                <input type="text" placeholder="Peepee Note" name="peepeeNote">
+
+                <input type="text" placeholder="Image" name="image">
+                <input type="text" placeholder="Body Weight" name="weight">
+
+                <textarea cols="40" rows="5" type="text" placeholder="Other Notes" name="otherNote"></textarea>
+                <button type="submit">Submit New</button>
+                <button type="button" id="updateButton">Update Existing</button>
+            </form>
+        </section>
+
+        <section class="column">
+            <h2>Delete Cat Date HERE</h2>
+            <input class="nameToDelete" type="text" placeholder="Name to delete" name="nameToDelete" id="deleteInput">
+            <input class="dateToDelete" type="date" value="2022-08-01" name="dateToDelete">
+            <button id="deleteButton">Delete</button>
+
+            <h2>Most Recent Catlog</h2>
+            <% for (let i = info.length - 1; i > Math.max(0, (info.length - 30)); i--) { %>
+                <li class="alien">
+                    <span>
+                        <%= info[i][0] %> 
+                    </span> <span>
+                        <%= info[i][1] %>
+                    </span>
+                </li>
+                <% } %>
+                    </ul>
+        </section>
+    </section>
+
+
+    <script src="/main.js"></script>
+</body>
+
+</html>
