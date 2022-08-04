@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Seinfeld Episodes</h1>
+    <h2>Add Episode:</h2>
+
+    <form action="/addEpisode" method="POST">
+        <input type="text" placeholder="Episode Name" name="nameOfEpisode">
+        <input type="text" placeholder="Season #" name="seasonNum">
+        <input type="text" placeholder="Episode #" name="episodeNum">
+        <textarea class="descInput" type="text" placeholder="Episode Description" name="epDescription"></textarea>
+        <input id="submitBtn"type="submit">
+    </form>
+    <ul class="episodess">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="episodes">
+            <span class="string"><%= 'Episode Title:' %></span>
+            <span class="nonstring"><%= info[i].nameOfEpisode %></span>
+            <span class="string"><%= 'Season #:' %></span>
+            <span class="nonstring"><%= info[i].seasonNum %></span>
+            <span class="string"><%= 'Episode #:' %></span>
+            <span class="nonstring"><%= info[i].episodeNum %></span>
+            <span class="string"><%= 'Episode Description:' %></span>
+            <span class="epDescription nonstring"><%= info[i].epDescription %></span>
+            <span class="string"><%= '# of Likes:' %></span>
+            <span class="nonstring"><%= info[i].likes %></span>
+            <span class='fa fa-thumbs-up'></span>
+            <span class="fa fa-thumbs-down"></span>
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
