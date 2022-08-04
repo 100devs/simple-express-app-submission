@@ -1,0 +1,173 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+body{
+  background:#f6e7ee;
+  font-size: 62.5%;
+  font-family: 'Roboto Mono', monospace, Georgia;
+}
+
+.logoImgContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.logoImg{
+  width: 300px;
+}
+
+ body p{
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.quoteWall {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-self: center;
+}
+
+.quote {
+  background:#e89999;
+  width: 100%;
+  min-height: 250px;
+  padding-bottom: 10px;
+  margin: 5px 30px;
+  align-self: center;
+  background-image: url(../img/pin.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding-top: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+
+.quote:last-child {
+  margin-bottom: 190px;
+}
+
+.quote span:first-child{
+  display: block;
+  color: white;
+  font-size: 1.3rem;
+}
+
+
+.quoteText {
+  font-size: 1.5rem;
+}
+
+form {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #a65d9db1;
+  height:100%;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  top: 90%;
+  margin-top: 1px;
+}
+
+form h2 {
+  margin-top: 45px;
+  background: white;
+  background-size:auto;
+}
+
+.formTop {
+  display: flex;
+  flex-direction: row;
+}
+.openForm {
+  width: 100%;
+  text-align: center;
+}
+
+.closeForm {
+  display: none;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.openForm{
+  color: white;
+}
+
+
+.authorInput, .quoteInput{
+  width: 90%;
+  margin-bottom: 10px;
+  background: #f6e7ee;
+  font-size: 1.2rem;
+  border-radius: 20px;
+  border: 2px white solid;
+  font-family: 'Roboto Mono', monospace, Georgia;
+}
+
+.quoteInput{
+  height: 400px;
+  /* text-align: center; */
+}
+
+.submitButton {
+  background: #e89999;
+  width: 40%;
+  border-radius: 20px;
+  border: 2px white solid;
+  font-size: 1.5rem;
+  font-family: 'Roboto Mono', monospace, Georgia;
+  text-align: center;
+}
+
+.submitButton:hover{
+  background:#ffb3b3;
+  cursor: pointer;
+}
+
+.fa-trash, .fa-thumbs-up {
+  color:#845454;
+}
+
+
+/******************************************
+/* MEDIA QUERIES
+/*******************************************/
+
+@media screen and (min-width:1000px){
+  .quote{
+    width: 50%;
+    margin: 0;
+    border: solid #f6e7ee 5px;
+  }
+  .quoteWall {
+    flex-direction: row;
+  }
+  .quote:last-child {
+    margin-bottom: 0;
+  }
+  form input, .quoteInput {
+    margin: 0 100px;
+  }
+  .submitButton {
+    margin-top: 10px;
+  }
+
+}
