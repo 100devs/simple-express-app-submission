@@ -26,7 +26,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(
 
     // the port that the server is listening for
     app.listen(process.env.PORT || PORT, () => {
-      console.log(`Server running on port 3000`);
+      console.log(`Server running on port ${PORT}`);
     });
 
     // displays the ejs
