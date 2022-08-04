@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Keeper</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/7fe634c4f7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <section class="hero">
+        <div class="directions"> 
+            <p>Directions: Add every player and then use the buttons to add or remove strokes from their score.</p> 
+        </div>
+        <div class="title">
+            <h2>Current Scores:</h2>
+            <table class="playerdata"> 
+                <tr>
+                  <th>Ranking</th>
+                  <th>Player</th>
+                  <th>Score</th>
+                  <th>Delete</th>
+                </tr>
+                <% for(let i=0; i < info.length; i++) {%>
+                <tr>
+                  <td><%= i+1 %></td>
+                  <td><%= info[i].playerName %></td>
+                  <td><span class="fa-solid fa-circle-minus"></span>
+                      <span><%= info[i].score %></span>
+                      <span class="fa-solid fa-circle-plus"></span></td>
+                  <td><span class='fa fa-trash'></span></td>
+                </tr>
+                <% } %>
+              </table>
+            </div>
+            <div class="addplayerbox">
+            <h3>Add a Player:</h3>
+            <form action="/addPlayer" method="POST">
+                <input type="text" placeholder="Player Name" name="playerName">
+                <input type="submit">
+            </form>
+             </div>
+    </section>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
