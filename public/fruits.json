@@ -1,0 +1,78 @@
+{
+    "0": {
+        "Name": "Tomato",
+        "Count": 0,
+        "HexVal": "127813"
+    },
+    "1": {
+        "Name": "Eggplant",
+        "Count": 0,
+        "HexVal": "127814"
+    },
+    "2": {
+        "Name": "Grape",
+        "Count": 0,
+        "HexVal": "127815"
+    },
+    "3": {
+        "Name": "Melon",
+        "Count": 0,
+        "HexVal": "127816"
+    },
+    "4": {
+        "Name": "Watermelon",
+        "Count": 0,
+        "HexVal": "127817"
+    },
+    "5": {
+        "Name": "Orange",
+        "Count": 0,
+        "HexVal": "127818"
+    },
+    "6": {
+        "Name": "Lemon",
+        "Count": 0,
+        "HexVal": "127819"
+    },
+    "7": {
+        "Name": "Banana",
+        "Count": 0,
+        "HexVal": "127820"
+    },
+    "8": {
+        "Name": "Pineapple",
+        "Count": 0,
+        "HexVal": "127821"
+    },
+    "9": {
+        "Name": "RedApple",
+        "Count": 0,
+        "HexVal": "127822"
+    },
+    "10": {
+        "Name": "GreenApple",
+        "Count": 0,
+        "HexVal": "127823"
+    },
+    "11": {
+        "Name": "Pear",
+        "Count": 0,
+        "HexVal": "127824"
+    },
+    "12": {
+        "Name": "Peach",
+        "Count": 0,
+        "HexVal": "127825"
+    },
+    
+    "13": {
+        "Name": "Cherry",
+        "Count": 0,
+        "HexVal": "127826"
+    },
+    "14": {
+        "Name": "Strawberry",
+        "Count": 0,
+        "HexVal": "127827"
+    }
+}

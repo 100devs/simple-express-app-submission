@@ -1,0 +1,241 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* CHANGE FONT TO ROBOTO */
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: rgb(252, 187, 187);
+	/* background-color: rgb(66, 66, 66); */
+	/* text-align: center; */
+	/* padding-top: 100px; */
+}
+
+nav {}
+
+img {
+	margin: 0.25em;
+	height: 50px;
+	width: 50px;
+}
+
+button {
+	width: 140px;
+	height: 45px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	
+	font-size: 14px;
+	text-transform: uppercase;
+	/* letter-spacing: 2.5px; */
+	font-weight: 500;
+	color: #000;
+	background-color: #fff;
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+	transition: all 0.2s ease 0s;
+	cursor: pointer;
+	outline: none;
+	margin: 0.5em;
+}
+
+h2 {
+
+	display: flex;
+	justify-content: center;
+	font-size: 30px;
+	margin: auto;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+	/* border-bottom: solid rgb(151, 57, 57) 2px; */
+	border-radius: 2px;
+	max-width: 40em;
+	
+}
+
+#timer {
+	display: flex;
+	font-size: 100px;
+	justify-content: center;
+	margin: 0.5em;
+	
+}
+
+#controls-top {
+	display: flex;
+	/* border: 3px solid green; */
+	/* flex-direction: row;
+	margin-left: auto; */
+	justify-content: center;
+
+}
+
+#controls-bottom {
+	display: flex;
+	flex-direction: row;
+	/* border: 3px solid red; */
+
+	justify-content: center;
+
+}
+
+#fruit-collection {
+	margin-top: 1em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#task-container{
+	max-width: 35em;
+	margin: auto;
+}
+
+#add-task-button{
+	
+	width: 100px;
+	height: 40px;
+	margin: 15px;
+	background-color: rgb(197, 197, 197);
+}
+
+#add-task-input{
+	border-style: none;
+	border-radius: 10px;
+	font-size: 20px;
+	height: 40px;
+	width: 15em;
+	margin: 15px;
+	padding: 15px;
+	flex-grow: 2;	
+}
+
+#task-list{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	max-width: 560px;
+	margin: auto;
+	
+}
+
+.timerButton:hover {
+	background-color: rgb(146, 218, 79);
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+	
+	color: #fff;
+	transform: translateY(-7px);
+}
+
+.controlButton:hover {
+	background-color: #ff7171;
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+}
+
+.timerButton {
+	background-color: rgb(109, 184, 38);
+}
+
+.controlButton {
+	background-color: rgb(253, 67, 67);
+}
+
+.task-button{
+	/* display: flex; */
+	width: 100px;
+	justify-content: center;
+	align-items: center;
+	margin: 15px;	
+	font-size: large;
+}
+
+.task-item{
+	display: flex;
+	flex-basis: 100%;
+	font-size: 20px;
+	text-align: left;
+	margin: 15px;
+	border: 1px solid gray;
+	border-radius: 10px;
+	padding: 0.5em;
+	align-items: center;
+	max-width: 300px;
+	overflow-wrap: anywhere;
+}
+
+.task-item-container{
+	display: flex;
+	/* flex-wrap: wrap; */
+	flex-basis: 100%;
+	justify-content: left;
+	
+}
+
+.emoji{
+	font-size: 5em;
+	position: relative;
+	
+	margin: 0.15em;
+}
+
+.count{
+	font-size: 14pt;
+	font-weight: bold;
+	position: absolute;
+	top: 0;
+	left: 90%;
+}

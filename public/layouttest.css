@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    
+}
+.break {
+    height: 0%;
+    flex-basis: 100%;
+}
+
+.red-border {
+    border: solid 2px red;
+}
+
+.green-border {
+    border: solid 2px green;
+}
+
+.blue-border {
+    border: solid 2px blue;
+}
+
+.specified-dim {
+    width: 200px;
+    height: 200px;
+}
+
+.timer-container {
+    width: 50%;
+    /* margin-top: ; */
+    height: inherit;
+    background-color: green;
+    text-align: center;
+}
