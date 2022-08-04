@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MERN notes</title>
+    <%#
+    style.css is served via static middlewear with Express.
+    That means when static files are requested (linked/included/etc),
+    they are treated as if they were served from the root directory,
+    so any relative paths are relative to the root directory.
+    Intellisense will yell at you in the meantime.
+    %>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section>
+        <h1> Using MongoDB, Express, React and Node.</h1>
+    </section>
+    <section class="contact">
+        <form action="/add" method="post">
+            <input type="text" placeholder="recipe name" name="name" aria-label="recipe name">
+            <input type="text" placeholder="ingredients" name="ingredients" aria-label="recipe ingredients">
+            <input type="text" placeholder="instructions" name="instructions" aria-label="recipe instructions">
+            <button type="submit">Add Recipe</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Recipes</h2>
+        <ul class="recipe-list">
+            <% for (const recipe of recipes) { %>
+                <li class="recipe">
+                    <h3><%= recipe.name %></h3>
+                    <p><%= recipe.ingredients %></p>
+                    <p><%= recipe.instructions %></p>
+                    <button class="btn edit">Edit</button>
+                    <button class="btn delete">Delete</button>
+                </li>
+            <% } %>
+        </ul>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

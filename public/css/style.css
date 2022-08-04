@@ -1,0 +1,27 @@
+body {
+    background-color: #333333;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: beige;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input, button {
+    height: 3rem;
+    width: 80%;
+    font-size: 1.5rem;
+}
