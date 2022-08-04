@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="description" content="Your description goes here" />
+      <meta name="keywords" content="one, two, three" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>SimpleWorx</title>
+
+      <!-- external CSS link -->
+      <link rel="stylesheet" href="css/normalize.css" />
+      <link rel="stylesheet" href="css/style.css" />
+
+      <!-- font awesome -->
+      <script
+         src="https://kit.fontawesome.com/cab467bb3d.js"
+         crossorigin="anonymous"
+      ></script>
+      <!-- fonts -->
+      <link
+         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300;400;500;700&display=swap"
+         rel="stylesheet"
+      />
+   </head>
+   <body class="">
+      <nav class="nav flex">
+         <ul class="navButtons flex">
+            <li id="accountInfo" class="accountInfoMain topNavButtons">
+               <a href="/account"><i class="icon fa-solid fa-user"></i></a>
+            </li>
+            <li id="moduleInfo" class="moduleInfoMain topNavButtons">
+               <i class="icon fa-solid fa-industry"></i>
+            </li>
+            <li class="workOrdersMain">
+               <a href="/workOrders"><i id="workOrdersInfo" class="fa-solid fa-clipboard-list"></i></a>
+            </li>
+            <li class="pmInfoMain">
+               <i class="fa-solid fa-calendar-day"></i>
+            </li>
+            <li class="storeRoomInfoMain">
+               <i class="fa-solid fa-warehouse"></i>
+            </li>
+            <li class="messagingMain">
+               <i class="fa-solid fa-comment"></i>
+            </li>
+            <li class="coworkerInfoMain">
+               <i class="fa-solid fa-people-group"></i>
+            </li>
+         </ul>
+      </nav>
+
+      <section class="mainContainer">
+         <section class="employee flex">
+            <img class="logo" src="/images/default-monochrome.svg" alt="">
+            </img>            
+            <section class="flex">
+               <section class="container flex">
+                  <span id="name">Danielle Rader</span>
+                  <span id="title">Industrial Electrician</span>
+                  <span>Engineering</span>
+               </section>
+               <span class="userPic"
+               ><img class="headshot" src="/images/headshot.png" alt=""
+               /></span>
+               <a href="/user" class="logout">Login</a>
+            </section> 
+         </section>
+         <section class="createContainer flex">
+            <section class="sort flex">
+               <h3>Sort Work Orders </h3>
+               <select name="sort" id="sortOptions" class="sortOptions">
+                  <option value="recent">Recent</option>
+                  <option value="open">Open</option>
+                  <option value="closed">Closed</option>
+                  <option value="responded">Responded To</option>
+               </select>
+            </section>
+            <a href="/create" id="createWO" class="createWOMain create flex"
+               >+ Create New Work Order</a
+            >
+         </section>
+         <section class="main">
+            <section class="workOrdersMain flex">
+               <section class="title flex">
+                  <span>WO Number</span>
+                  <span>Status</span>
+                  <span>Requested Dept</span>
+                  <span>Requested Location</span>
+                  <span>Problem Detail</span>
+               </section>
+               <ul class="workOrders"></ul>
+               <!-- </section> -->
+               <section id="closedWorkOrders" class="container hidden">
+                  <ul class="workOrders"></ul>
+               </section>
+            </section>
+            <section class="woInfo hidden flex">
+               <section class="buttons flex">
+                  <a href="#" class="respond hidden">Respond</a>
+                  <a href="#" class="close hidden">Close</a>
+                  <a href="#" class="delete hidden">Delete</a>
+               </section>
+               <section class="info flex">
+                  <section class="requested flex">
+                     <section class="left flex">
+                        <div>WO# <span id="woNum"></span></div>
+                        <div>Status: <span id="status"></span></div>
+                        <div>Requested Dept: <span id="department"></span></div>
+                        <div>
+                           Requested Location: <span id="location"></span>
+                        </div>
+                     </section>
+                     <section class="middle flex">
+                        <div>Requested By: <span id="reqBy"></span></div>
+                        <div>Requested Day: <span id="reqDate"></span></div>
+                        <div>Requested Time: <span id="reqTime"></span></div>
+                     </section>
+                     <section class="textDetail">
+                        <h2>Problem Detail</h2>
+                        <span id="detail"></span>
+                     </section>
+                  </section>
+                  <section class="responded flex">
+                     <section class="right flex">
+                        <div>Responded By: <span id="resEmp"></span></div>
+                        <div>Responded Day: <span id="resDate"></span></div>
+                        <div>Responded Time: <span id="resTime"></span></div>
+                     </section>
+                     <section class="textDetail flex">
+                        <h2>Solution Detail</h2>
+                        <section class="solDetail"></section>
+                     </section>
+                  </section>
+               </section>
+            </section>
+            <section class="accountInfoMain hidden flex">
+               <h1>User Profile</h1>
+               <section class="flex">
+                  <h2>Name</h2>
+                  <input type="text" value="Danielle Rader" disabled />
+               </section>
+               <section class="job flex">
+                  <section>
+                     <h2>Job Title</h2>
+                     <input
+                        type="text"
+                        value="Industrial Electrician"
+                        disabled
+                     />
+                  </section>
+                  <section class="payInput">
+                     <h2>Pay</h2>
+                     <input type="text" value="$XX.XX" disabled />
+                  </section>
+               </section>
+               <section class="crew flex">
+                  <section>
+                     <h2>Supervisor</h2>
+                     <input type="text" value="Ted Bonham" disabled />
+                  </section>
+                  <section class="crewInput">
+                     <h2>Crew</h2>
+                     <input type="text" value="C" disabled />
+                  </section>
+               </section>
+               <section>
+                  <h2>Address</h2>
+                  <input type="text" value="605 N Ash St" disabled />
+                  <input type="text" value="" disabled />
+               </section>
+               <section>
+                  <h2>City</h2>
+                  <input type="text" value="Deshler" disabled />
+               </section>
+               <section>
+                  <h2>State</h2>
+                  <input type="text" value="OH" disabled />
+               </section>
+               <section>
+                  <h2>Zip</h2>
+                  <input type="text" value="43516" disabled />
+               </section>
+            </section>
+            <section class="moduleInfoMain hidden flex">
+               <h2>module info</h2>
+               <section class="shellPress">SP</section>
+               <section class="balancer">Balancer</section>
+               <section class="linerContainer flex">
+                  <section class="liner">Liner</section>
+                  <section class="liner">Liner</section>
+                  <section class="liner">Liner</section>
+                  <section class="liner">Liner</section>
+                  <section class="liner">Liner</section>
+                  <section class="liner">Liner</section>
+               </section>
+               <section class="middleBals flex">
+                  <section class="balancer">Balancer</section>
+                  <section class="balancer">Balancer</section>
+               </section>
+               <section class="backEnd flex">
+                  <section class="pressAndBag">
+                     <section>CP</section>
+                     <section>Autobagger</section>
+                  </section>
+                  <section class="pressAndBag">
+                     <section>CP</section>
+                     <section>Autobagger</section>
+                  </section>
+                  <section class="pressAndBag">
+                     <section>CP</section>
+                     <section>Autobagger</section>
+                  </section>
+               </section>
+            </section>
+            <section class="pmInfoMain hidden flex">
+               <h2>pm info</h2>
+            </section>
+            <section class="storeRoomInfoMain hidden flex">
+               <h2>storeroom</h2>
+            </section>
+            <section class="messagingMain hidden flex">
+               <section class="messagesContainer flex">
+                  <span class="message user">This is a text</span>
+                  <span class="message coworker"
+                     >Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                     Cumque corporis, unde suscipit id inventore hic tenetur.
+                     Aliquam molestiae dolore culpa vitae tenetur mollitia
+                     voluptatum? Doloribus corrupti voluptatibus quia possimus
+                     quam.</span
+                  >
+                  <span class="message user"
+                     >This is a text to myself to design the html of the
+                     messages tabs.</span
+                  >
+                  <span class="message coworker">This is a text</span>
+                  <span class="message user">This is a text</span>
+                  <span class="message user">This is a text</span>
+               </section>
+               <section class="newMessageContainer flex">
+                  <form action="">
+                     <input type="text" />
+                     <button>Send</button>
+                  </form>
+               </section>
+            </section>
+            <section class="coworkerInfoMain hidden flex">
+               <h2>coworker info</h2>
+            </section>
+         </section>
+      </section>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pusher/7.1.1-beta/pusher.min.js" integrity="sha512-BPyqC/fsFB0wLkveLSwmEDvb8AHSezUQqCSL2mMieTTPvC4BfjIJIuLVH+4M6cRJFvYiwvdW1DKcVg77g4Mlrg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script type="text/javascript" src="js/main.js"></script>
+      <script type="text/javascript" src="js/workOrders.js"></script>
+   </body>
+</html>

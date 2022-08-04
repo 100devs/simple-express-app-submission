@@ -1,0 +1,805 @@
+/* Box Model Hack */
+* {
+   box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+   content: ".";
+   display: block;
+   clear: both;
+   visibility: hidden;
+   line-height: 0;
+   height: 0;
+}
+
+.clear {
+   clear: both;
+}
+
+.temp {
+   color: rgb(12, 37, 86);
+   color: rgb(31, 54, 99);
+   color: rgb(51, 120, 255);
+   color: rgb(244, 245, 247);
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+body,
+html {
+   height: 100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   overflow-y: hidden;
+}
+body {
+   justify-content: space-between;
+   padding: 0 2rem;
+}
+html {
+   font: 62.5% "IBM Plex Serif", sans-serif;
+   background: rgb(204, 206, 209);
+   background: white;
+}
+
+.flex {
+   display: flex;
+   justify-content: center;
+}
+.hidden {
+   display: none;
+}
+.disabled {
+   pointer-events: none;
+   background: gray !important;
+}
+
+/******************************************
+/* TOP
+/*******************************************/
+.nav {
+   position: fixed;
+   top: 10rem;
+   left: 0;
+   flex-direction: column;
+}
+.nav ul {
+   flex-direction: column;
+   padding: 0 2rem;
+}
+.nav li {
+   text-align: center;
+   list-style: none;
+   font-size: 4rem;
+   cursor: pointer;
+   color: rgb(132, 149, 180);
+   background: rgb(6, 23, 59);
+   padding: 0.5rem 1rem;
+   margin: 0.5rem 0;
+   border-radius: 1rem;
+}
+.nav a {
+   font-size: 4rem;
+   color: rgb(132, 149, 180);
+   padding: 0.5rem;
+}
+.nav li:hover {
+   color: rgb(244, 245, 247);
+   background: rgb(31, 54, 99);
+}
+
+.mainContainer {
+   margin-left: 10rem;
+}
+.employee {
+   height: 10rem;
+   justify-content: space-evenly;
+   align-items: center;
+   background: rgb(6, 23, 59);
+   border-radius: 1rem;
+   padding-right: 1rem;
+   margin: 3rem 0 0 0;
+}
+.employee section {
+   align-items: center;
+}
+.employee .container,
+.logout {
+   flex-direction: column;
+   align-items: flex-end;
+   font-size: 1.5rem;
+   text-decoration: none;
+   color: rgb(132, 149, 180);
+}
+.logo {
+   width: 20rem;
+   height: auto;
+}
+.userPic {
+   height: 8rem;
+   margin: 0 2rem;
+}
+.headshot {
+   height: 100%;
+   width: auto;
+   border: 1px solid black;
+   border-radius: 50%;
+   margin: auto auto;
+}
+
+.createContainer {
+   height: 8rem;
+   width: 100%;
+   justify-content: center;
+}
+.createContainer .sort {
+   align-items: center;
+   margin-right: 2rem;
+}
+.sort {
+   position: relative;
+   right: 20rem;
+}
+.sort h3 {
+   font-size: 2rem;
+   padding: 1rem;
+}
+.sortOptions {
+   height: 3rem;
+   font-size: 1.5rem;
+   text-align: center;
+}
+.create {
+   height: 5rem;
+   align-items: center;
+   text-align: center;
+   font-size: 1.6rem;
+   text-decoration: none;
+   text-transform: uppercase;
+   color: white;
+   background: rgb(231, 0, 0);
+   border-radius: 1rem;
+   padding: 1rem;
+   margin: auto 0;
+}
+
+.workOrdersMain {
+   flex-direction: column;
+}
+
+.workOrders {
+   width: 100%;
+   height: 20rem;
+   padding: 0;
+   overflow-y: auto;
+}
+
+.request {
+   min-height: 3rem;
+   width: 100%;
+   font-size: 1.5rem;
+   list-style: none;
+   justify-content: space-between;
+   align-items: center;
+   background: rgb(6, 23, 59);
+   cursor: pointer;
+   transition: all 0.1s ease-in;
+
+   border-bottom: 1px solid white;
+}
+.request:hover {
+   background: rgb(31, 54, 99);
+}
+.selected {
+   background: rgb(31, 54, 99);
+}
+
+.request span {
+   width: 22rem;
+   text-align: center;
+   margin: 0 5rem;
+}
+.title {
+   min-width: 100%;
+   align-items: center;
+   font-size: 2rem;
+   font-weight: bold;
+   background: rgba(239, 239, 239, 0.85);
+   background: rgba(0, 0, 0, 0.15);
+   border-radius: 1rem;
+}
+.title span {
+   width: 22rem;
+   text-align: center;
+   margin: 0 5rem;
+}
+
+.woInfo {
+   flex-direction: column;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   background: rgba(239, 239, 239, 0.85);
+   background: rgba(0, 0, 0, 0.15);
+   background: rgba(6, 23, 59, .8);
+   background: rgb(6, 23, 59);
+   background: white;
+   /* color: white; */
+   padding: 1rem 0 0;
+   border: 1rem solid transparent;
+   border-radius: 1rem;
+}
+.requested {
+   width: 58%;
+   justify-content: center;
+}
+.responded {
+   width: 41%;
+   justify-content: center;
+}
+
+.woInfo .left,
+.woInfo .middle,
+.woInfo .right,
+.woInfo .textDetail {
+   height: 100%;
+   width: 270px;
+   flex-direction: column;
+   padding: 0.5rem;
+   border-right: 1px solid black;
+}
+.woInfo .middle {
+   padding-left: 1rem;
+}
+.textDetail {
+   text-align: center;
+   align-items: center;
+}
+.responded .textDetail {
+   border-right: none;
+}
+#status {
+   font-weight: bold;
+}
+
+.woInfo div {
+   font-size: 1.5rem;
+   font-weight: bold;
+}
+.woInfo span {
+   width: 22rem;
+   font-size: 1.5rem;
+   font-weight: normal;
+   color: black;
+}
+.info {
+   flex-wrap: wrap;
+   border-top: 1px solid black;
+   margin-top: 1rem;
+}
+
+.buttons {
+   height: 3rem;
+   width: 100%;
+   justify-content: space-evenly;
+}
+.buttons a {
+   width: 11rem;
+   height: 3rem;
+   line-height: 1rem;
+   font-size: 1.5rem;
+   text-decoration: none;
+   text-align: center;
+   color: black;
+   border-radius: 3rem;
+   padding: 1rem;
+}
+.buttons .respond {
+   background: rgb(250, 150, 0);
+}
+.buttons .close {
+   background: rgb(0, 255, 0);
+}
+.buttons .delete {
+   color: white;
+   background: black;
+}
+.solDetail,
+.solDetailText {
+   height: 9rem;
+   width: 230px;
+   font-size: 1.5rem;
+}
+.solDetailText {
+   height: 8rem;
+   margin: 0 auto;
+}
+
+/* .main .createWOMain {
+} */
+/* .top {
+   position: fixed;
+   top: 0;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+   margin: 1rem;
+}
+.top .right {
+   width: 50%;
+}
+.top .icon {
+   width: 40px;
+   text-align: center;
+   font-size: 3.5rem;
+}
+.small {
+   justify-content: space-evenly;
+}
+.small a {
+   height: 5rem;
+   width: 50%;
+   text-transform: none;
+   text-align: center;
+   line-height: 5rem;
+   background: rgb(0, 77, 0);
+   padding: 0.5rem 2rem;
+   margin: 1rem 0.5rem;
+   border-radius: 1rem;
+}
+.small a {
+   color: rgb(0, 195, 0);
+}
+.headshot {
+   height: 15rem;
+   width: auto;
+   border: 0.5rem solid rgb(0, 77, 0);
+   border-radius: 50%;
+   margin: auto auto;
+}
+
+.employeeInfo {
+   flex-direction: column;
+}
+.employeeInfo span {
+   font-size: 1.5rem;
+}
+#name {
+   font-size: 2.2rem;
+   font-weight: bold;
+}
+
+.bottom {
+   flex-direction: column;
+}
+
+.create {
+   height: 5rem;
+   align-items: center;
+   text-align: center;
+   text-transform: uppercase;
+   background: rgb(231, 0, 0);
+   border-radius: 1rem;
+   padding: 0.5rem 1.5rem;
+   margin-top: 1rem;
+   margin: 2rem auto 0;
+}
+.create a {
+   font-size: 2rem;
+   text-decoration: none;
+   color: white;
+} */
+
+/* .bottom {
+   width: 100%;
+   position: fixed;
+   bottom: 0;
+   align-items: center;
+   margin: 0;
+   padding: 1rem 0;
+} */
+/* .bottom .footer {
+   align-self: flex-end;
+} */
+
+/* main {
+   width: 100%;
+   height: 38rem;
+   min-height: 70rem;
+   width: 100%;
+   align-self: flex-start;
+   margin: .5rem;
+   height: 50rem;
+   margin-top: 25rem;
+
+   border: 5px solid blue;
+} */
+
+/* WORK ORDER MAIN */
+/* main .workOrdersMain {
+   width: 100%;
+   flex-direction: column;
+   justify-content: flex-start;
+   margin: 1rem;
+}
+.workOrdersMain .tabs {
+   justify-content: center;
+}
+.workOrdersMain a {
+   cursor: pointer;
+}
+.workOrdersMain .workOrders {
+   list-style: none;
+   font-size: 2rem;
+   padding: 0;
+   margin: 0;
+}
+.request .dept {
+   width: 14rem;
+   align-items: center;
+   text-align: center;
+}
+.request .dept span {
+   font-size: 2rem;
+}
+.workOrders .request {
+   min-height: 6.5rem;
+   justify-content: space-around;
+   color: black;
+   cursor: pointer;
+   padding: 0.5rem 0;
+   margin: 1rem 0;
+   border-radius: 1rem;
+}
+.workOrders .request:hover {
+   color: rgb(0, 195, 0);
+   background: transparent !important;
+   border: 1px solid rgb(0, 77, 0);
+}
+.workOrders span {
+   font-size: 1.5rem;
+}
+.workOrders .rightSide {
+   flex-direction: column;
+}
+.workOrders .woNum {
+   font-weight: bold;
+}
+.workOrders .rightSide span {
+   width: 16.5rem;
+} */
+
+/* WO REQUEST MAIN */
+/* .woRequestMain {
+   width: 100%;
+   max-height: 75rem;
+   flex-direction: column;
+   align-items: center;
+   margin: 2rem 0.5rem 5rem;
+   overflow-y: auto;
+}
+.woRequestMain span {
+   font-size: 1.2rem;
+}
+.woRequestMain h3 {
+   font-size: 1.6rem;
+   font-weight: bold;
+   margin: 0;
+}
+.woRequestMain .info {
+   width: 100%;
+   color: rgb(255, 255, 255);
+   background: rgb(0, 0, 0);
+   border: 1rem solid rgb(255, 0, 0);
+   border-radius: 1rem;
+}
+#status {
+   font-weight: bold;
+   text-transform: uppercase;
+   color: red;
+}
+.info .container {
+   min-height: 5rem;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 0.5rem 1rem;
+   margin: 1rem;
+   border-radius: 1rem;
+   box-shadow: inset 0.25rem 0.25rem 0.2rem rgb(190, 190, 190),
+      inset -0.25rem -0.25rem 0.2rem rgb(190, 190, 190);
+}
+.back {
+   align-self: flex-start;
+   font-size: 2rem;
+   text-decoration: none;
+   color: rgb(0, 121, 0);
+}
+.buttons {
+   width: 100%;
+   justify-content: space-between;
+   margin: 1rem 0 1rem;
+}
+.buttons a {
+   width: 11rem;
+   height: 5rem;
+   font-size: 2rem;
+   text-decoration: none;
+   text-align: center;
+   color: black;
+   border-radius: 3rem;
+   padding: 1rem;
+}
+.buttons .respond {
+   background: rgb(250, 150, 0);
+}
+.buttons .close {
+   background: rgb(0, 255, 0);
+}
+.buttons .delete {
+   color: white;
+   background: black;
+}
+#solDetail {
+   height: 13rem;
+   font-size: 1.6rem;
+   overflow-y: auto;
+}
+#solDetail textarea {
+   height: 12rem;
+   width: 100%;
+} */
+
+/* CREATE WO MAIN */
+/* .createWOMain {
+   max-height: 50rem;
+   flex-direction: column;
+   align-items: center;
+   margin: 0;
+   overflow-y: auto;
+}
+.createWOMain h1 {
+   font-size: 2.5rem;
+   margin-bottom: 0;
+}
+.createWOMain h2 {
+   font-size: 2rem;
+   margin: 1rem 0 0;
+}
+.createWOMain form {
+   max-height: 30rem;
+   text-align: center;
+   overflow-y: auto;
+}
+.createWOMain select {
+   width: 20rem;
+   font-size: 2rem;
+   border: none;
+}
+.createWOMain .machine select {
+   width: 15rem;
+   margin: 0 1rem;
+}
+.createWOMain option {
+   width: 10rem;
+   font-size: 2rem;
+   border: none;
+   padding: 0;
+}
+.createWOMain textarea {
+   height: 15rem;
+   width: 35rem;
+   font-size: 2rem;
+   border: none;
+}
+.createWOMain button {
+   font-size: 2.5rem;
+} */
+
+/* ACCOUNT INFO MAIn */
+/* .accountInfoMain {
+   height: 70rem;
+   width: 70%;
+   flex-direction: column;
+   padding-bottom: 1rem;
+   margin: 0 auto;
+   margin-top: -5.5rem;
+}
+.accountInfoMain h1 {
+   font-size: 2.5rem;
+   margin: 1rem auto;
+}
+.accountInfoMain section {
+   width: 20rem;
+   flex-direction: column;
+}
+.accountInfoMain .job,
+.accountInfoMain .crew {
+   width: 30rem;
+   flex-direction: row;
+}
+.accountInfoMain h2 {
+   font-size: 2rem;
+   margin: 0;
+}
+.accountInfoMain input {
+   height: 2.5rem;
+   font-size: 1.5rem;
+   color: white;
+   background: rgb(155, 155, 155);
+   padding-left: 0.5rem;
+   margin-bottom: 2rem;
+   border: none;
+}
+.accountInfoMain .crewInput,
+.accountInfoMain .payInput {
+   margin-left: 1rem;
+}
+.accountInfoMain .crewInput input,
+.accountInfoMain .payInput input {
+   width: 8rem;
+   font-size: 1.5rem;
+} */
+
+/* MODULE INFO MAIN */
+/* .moduleInfoMain {
+   flex-direction: column;
+   align-items: center;
+}
+.moduleInfoMain section {
+   height: 3rem;
+   margin: 1rem;
+} */
+
+/* MESSAGES MAIN */
+/* .messagingMain,
+.messagesContainer {
+   width: 100%;
+   flex-direction: column;
+}
+.messagesContainer {
+   max-height: 46rem;
+   padding-top: 5rem;
+   overflow-y: auto;
+}
+.newMessageContainer {
+   border-top: 0.2rem solid rgba(0, 0, 0, 0.25);
+   padding-top: 1rem;
+}
+.newMessageContainer input {
+   height: 5rem;
+   width: 30rem;
+   font-size: 1.5rem;
+   border: none;
+}
+.newMessageContainer button {
+   height: 5rem;
+   width: 6rem;
+   font-size: 1.5rem;
+   font-weight: bold;
+   color: rgb(0, 121, 0);
+   background: rgb(255, 255, 255);
+   margin-left: 1rem;
+   border-radius: 2rem;
+   border: 0.2rem solid rgb(0, 77, 0);
+}
+.message {
+   max-width: 30rem;
+   font-size: 1.5rem;
+   padding: 1rem 1.5rem;
+   margin: 1rem;
+   border-radius: 1rem;
+}
+.user {
+   align-self: flex-end;
+   background: white;
+}
+.coworker {
+   align-self: flex-start;
+   color: rgb(0, 195, 0);
+   background: rgb(0, 77, 0);
+}
+
+.tabs {
+   text-align: center;
+}
+.tabs a {
+   width: 50%;
+   font-size: 1.8rem;
+   color: rgb(0, 195, 0);
+   background: rgb(0, 77, 0);
+   border-radius: 0 1rem 1rem 0;
+   padding: 1.5rem;
+}
+.tabs a:first-child {
+   border-radius: 1rem 0 0 1rem;
+}
+main .workOrdersMain .selected,
+.footer .selected {
+   color: rgb(0, 121, 0);
+   background: white;
+   border: 3px solid rgb(0, 77, 0);
+   box-shadow: inset 0.25rem 0.25rem 0.2rem rgb(150, 150, 150),
+      inset -0.25rem -0.25rem 0.2rem rgb(150, 150, 150);
+}
+#openedWorkOrders {
+   overflow-y: auto;
+} */
+
+/******************************************
+/* FOOTER
+/*******************************************/
+/* .footer {
+   width: 100%;
+   flex-direction: column;
+   margin-bottom: -1.5rem;
+}
+.footer .workOrdersMain {
+   margin: 0;
+}
+.footer ul {
+   width: 100%;
+   align-items: center;
+   justify-content: center;
+   padding: 0;
+   margin: 0;
+}
+.footer li {
+   height: 75px;
+   width: auto;
+   display: inline;
+   font-size: 4rem;
+   text-align: center;
+   background: rgb(0, 77, 0);
+   padding: 0 2rem 0 2rem;
+   cursor: pointer;
+}
+.footer li:hover {
+   background: transparent;
+   color: white;
+   border-top: 0.3rem solid rgb(0, 77, 0);
+}
+.footer a {
+   color: rgb(0, 195, 0);
+   margin: 0 0 1.5rem;
+} */
+
+@media screen and (min-width: 400px) {
+   /* .bottom {
+      height: 65%;
+      position: fixed;
+      top: 25rem;
+
+      border: 1px solid blue;
+   } */
+   /* .bottom .footer ul {
+      width: 100%;
+   } */
+   /* .footer li {
+      width: 20%;
+   } */
+
+   /* .woRequestMain {
+      max-height: 39rem;
+      margin: 0 .5rem;
+      padding: 0;
+   } */
+   /* .woRequestMain .info {
+      overflow-y: auto;
+   } */
+
+   /* .workOrdersMain .container {
+      max-height: 29rem;
+   } */
+   /* 
+   .footer {
+      display: block;
+   }
+
+
+   .footer li:hover {
+      background: transparent;
+      color: white;
+      border-top: 0.3rem solid rgb(0, 77, 0);
+   } */
+}

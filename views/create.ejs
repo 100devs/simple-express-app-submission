@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="description" content="Your description goes here" />
+      <meta name="keywords" content="one, two, three" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>SimpleWorx</title>
+
+      <!-- external CSS link -->
+      <link rel="stylesheet" href="css/normalize.css" />
+      <link rel="stylesheet" href="css/style.css" />
+
+      <!-- font awesome -->
+      <script
+         src="https://kit.fontawesome.com/cab467bb3d.js"
+         crossorigin="anonymous"
+      ></script>
+      <!-- fonts -->
+      <link
+         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300;400;500;700&display=swap"
+         rel="stylesheet"
+      />
+   </head>
+   <body class="">
+      <nav class="nav flex">
+         <ul class="navButtons flex">
+            <li id="accountInfo" class="accountInfoMain topNavButtons">
+               <a href="/account"><i class="icon fa-solid fa-user"></i></a>
+            </li>
+            <li id="moduleInfo" class="moduleInfoMain topNavButtons">
+               <i class="icon fa-solid fa-industry"></i>
+            </li>
+            <li class="workOrdersMain">
+               <a href="/workOrders"><i id="workOrdersInfo" class="fa-solid fa-clipboard-list"></i></a>
+            </li>
+            <li class="pmInfoMain">
+               <i class="fa-solid fa-calendar-day"></i>
+            </li>
+            <li class="storeRoomInfoMain">
+               <i class="fa-solid fa-warehouse"></i>
+            </li>
+            <li class="messagingMain">
+               <i class="fa-solid fa-comment"></i>
+            </li>
+            <li class="coworkerInfoMain">
+               <i class="fa-solid fa-people-group"></i>
+            </li>
+         </ul>
+      </nav>
+
+      <section class="mainContainer">
+         <section class="employee flex">
+            <img class="logo" src="/images/default-monochrome.svg" alt="">
+            </img>            
+            <section class="flex">
+               <section class="container flex">
+                  <span id="name">Danielle Rader</span>
+                  <span id="title">Industrial Electrician</span>
+                  <span>Engineering</span>
+               </section>
+               <span class="userPic"
+               ><img class="headshot" src="/images/headshot.png" alt=""
+               /></span>
+               <a href="/user" class="logout">Logout</a>
+            </section> 
+         </section>
+         <section class="main">
+            <section class="createWOMain flex">
+               <form action="" method="">
+                  <h2>Select Module</h2>
+                  <select name="module" id="mod">
+                     <option value="1">Mod 1</option>
+                     <option value="2">Mod 2</option>
+                     <option value="3">Mod 3</option>
+                     <option value="4">Mod 4</option>
+                     <option value="5">Mod 5</option>
+                     <option value="6">Mod 6</option>
+                     <option value="7">Mod 7</option>
+                     <option value="8">Mod 8</option>
+                  </select>
+                  <h2>Select Machine</h2>
+                  <div class="machine flex">
+                     <select name="machine" id="mach">
+                        <option value="1">Shell Press</option>
+                        <option value="2">Balancer</option>
+                        <option value="3">Liner</option>
+                        <option value="4">Conversion Press</option>
+                        <option value="5">Autobagger</option>
+                     </select>
+                     <select name="machNum" id="machNum">
+                        <option value="1">11</option>
+                     </select>
+                  </div>
+                  <h2>Select Help Needed</h2>
+                  <select name="shop" id="reqDept">
+                     <option class="option" value="1">Lead</option>
+                     <option value="2">Electrical</option>
+                     <option value="3">Machine Shop</option>
+                     <option value="4">Millwright</option>
+                     <option value="5">Warehouse</option>
+                  </select>
+                  <h2>Problem Description</h2>
+                  <textarea
+                     name="probDetail"
+                     id="probDetail"
+                     cols="15"
+                     rows="10"
+                  ></textarea>
+                  <button id="woRequest">Submit</button>
+               </form>
+            </section>
+         </section>
+      </section>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pusher/7.1.1-beta/pusher.min.js" integrity="sha512-BPyqC/fsFB0wLkveLSwmEDvb8AHSezUQqCSL2mMieTTPvC4BfjIJIuLVH+4M6cRJFvYiwvdW1DKcVg77g4Mlrg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script type="text/javascript" src="js/create.js"></script>
+   </body>
+</html>
