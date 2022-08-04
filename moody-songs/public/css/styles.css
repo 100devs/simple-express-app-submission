@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  list-style: none;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  color: rgb(236, 236, 209);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(
+    -45deg,
+    #3f51b1 0%,
+    #5a55ae 13%,
+    #7b5fac 25%,
+    #8f6aae 38%,
+    #a86aa4 50%,
+    #cc6b8e 62%,
+    #f18271 75%,
+    #f3a469 87%,
+    #f7c978 100%
+  );
+  background-size: 400% 400%;
+  position: relative;
+  animation: animate 7.5s ease-in-out infinite;
+  font-family: "Poppins", sans-serif;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+.welcome {
+  text-align: center;
+  width: 40%;
+  padding: 1rem;
+  margin: 0 auto;
+}
+header,
+.songDetails,
+.lyrics,
+.welcome {
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: saturate(120%) blur(20px);
+  border-radius: 1rem;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* list styles */
+
+ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+li {
+  font-size: 4rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  animation: emojiSpin 5s ease-in-out infinite;
+  user-select: none;
+}
+li:nth-child(2) {
+  animation-delay: 0.5s;
+}
+li:nth-child(4) {
+  animation-delay: 0.25s;
+}
+li:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+/* album styles */
+
+.albumInfo {
+  width: 100%;
+  padding: 2rem;
+}
+iframe {
+  display: block;
+  margin: 0.5rem auto;
+  width: 420px;
+  height: 236px;
+}
+.albumStuff {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  animation: fade;
+  animation-duration: 2s;
+}
+.titleArtist {
+  padding: 1rem;
+  font-size: 3rem;
+}
+.songDetails {
+  overflow: hidden;
+  min-height: 417px;
+}
+.songDetails span {
+  display: block;
+  margin-top: .5rem;
+  font-size: 1rem;
+}
+
+/* lyric styles */
+
+.lyrics {
+  width: 420px;
+  height: 417px;
+  overflow: scroll;
+  line-height: 1.5;
+  white-space: pre-line;
+  text-align: center;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.lyrics::-webkit-scrollbar {
+  display: none;
+}
+p {
+  padding: 0 1rem;
+}
+/* font styles */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+
+/* onload fade animation for sections */
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animated background */
+
+@keyframes animate {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* Animated Emojis */
+
+@keyframes emojiSpin {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* media queries */
+
+@media (max-width: 985px) {
+  .albumStuff {
+    flex-direction: column;
+  }
+  li {
+    font-size: 2rem;
+  }
+  .songDetails {
+    height: auto;
+  }
+  .welcome {
+    width: 100%;
+  }
+}
+@media (max-width: 425px) {
+  .lyrics {
+    padding: 0 1rem;
+    width: 100%;
+  }
+  iframe {
+    width: 315px;
+    height: 177px;
+  }
+  .albumStuff {
+    gap: 2rem;
+  }
+}
+@media (max-width: 380px) {
+  li {
+    font-size: 1.25rem;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+}
