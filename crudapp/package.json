@@ -1,0 +1,19 @@
+{
+  "name": "ex3_1",
+  "version": "1.0.0",
+  "description": "excercise of backend with node",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "Arikabs",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
