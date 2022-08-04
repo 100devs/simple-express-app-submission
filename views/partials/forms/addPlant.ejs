@@ -1,0 +1,76 @@
+<form class="row g-3 add-plant-form" data-userid="<%= currentUser._id %>" novalidate>
+            <div class="col-md-6 form-control-custom" position="relative">
+                <label for="plant-name" class="form-label">Plant nickname</label>
+                <input type="text" id="plant-name" class="form-control" placeholder="Plant name" name="name" maxlength="20">
+                <i class="bi bi-check-square-fill text-success"></i>
+                <i class="bi bi-exclamation-circle-fill text-danger"></i>			          
+                <small class="text-danger">Error message</small>
+            </div>
+            <div class="col-md-6 mb-2 form-control-custom" position="relative">
+              <label for="location" class="form-label required">Location</label>
+              <select class="form-select" id="location" name="location">
+                <option selected disabled value="">Choose a location</option>
+                <% if (currentUser.locations.length > 0) { %>
+                  <% currentUser.locations.forEach(location => {%>
+                    <% if (location !== "No location assigned") {%>
+                    <option value="<%= location %>" name="location"><%= location %></option>
+                    <% } %>
+                  <% }) %>
+                <% } else { %>
+                  <option disabled value="">Enter a location on the menu above to get started!</option>
+                <% } %>
+              </select>
+              <i class="bi bi-check-square-fill text-success"></i>
+              <i class="bi bi-exclamation-circle-fill text-danger"></i>			          
+              <small class="text-danger">Error message</small>
+            </div>
+        
+    <div class="col-md-12 mb-2 form-control-custom" position="relative">
+      <label for="plantSpecies" class="form-label">Plant Species</label>
+      <input class="form-control" list="plantSpeciesOptions" id="plantSpecies" placeholder="Type to search...">
+      <datalist id="plantSpeciesOptions">
+        <% for (const name in plantNames) { %>
+          <option value="<%= name %> (<%= plantNames[name] %>)"></option>
+        <% } %>
+      </datalist>
+            <i class="bi bi-check-square-fill text-success"></i>
+        <i class="bi bi-exclamation-circle-fill text-danger"></i>			          
+        <small class="text-danger">Error message</small>
+    </div>
+    <div class="col-md-6 form-control-custom" position="relative">
+      <label for="wateringFrequency" class="form-label required">Watering frequency (in days)?</label>
+      <input type="number" class="form-control" id="wateringFrequency" name="wateringInterval" max="90" min="0">
+      <i class="bi bi-check-square-fill text-success"></i>
+      <i class="bi bi-exclamation-circle-fill text-danger"></i>			          
+      <small class="text-danger">Error message</small>
+    </div>
+   
+    
+    <div class="col-md-6 form-control-custom" position="relative">
+      <label for="lastWatered" class="form-label">Last watered:</label>
+      <input type="date" class="form-control date-picker" id="lastWatered" name="lastWatered" min="1899-01-01">
+      <i class="bi bi-check-square-fill text-success"></i>
+      <i class="bi bi-exclamation-circle-fill text-danger"></i>			          
+      <small class="text-danger">Error message</small>
+    </div>
+
+    <div class="col-md-6 form-control-custom" position="relative">
+      <label for="lastFertilized" class="form-label">Last fertilized:</label>
+      <input type="date" class="form-control date-picker" id="lastFertilized" name="lastFertilized" min="1899-01-01">
+      <i class="bi bi-check-square-fill text-success"></i>
+      <i class="bi bi-exclamation-circle-fill text-danger"></i>			          
+      <small class="text-danger">Error message</small>
+    </div>
+
+    <div class="col-md-6 mb-3 form-control-custom" position="relative">
+      <label for="lastRepotted" class="form-label">Last repotted:</label>
+      <input type="date" class="form-control date-picker" id="lastRepotted" name="lastRepotted" min="1899-01-01">
+      <i class="bi bi-check-square-fill text-success"></i>
+      <i class="bi bi-exclamation-circle-fill text-danger"></i>			          
+      <small class="text-danger">Error message</small>
+    </div>
+
+    <button class="btn btn-success" type="submit">Submit form</button>
+</div>
+</form>
+

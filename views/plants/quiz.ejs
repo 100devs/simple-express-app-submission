@@ -1,0 +1,104 @@
+<h1 class="text-success text-center my-5 border-bottom pb-3">Care Quiz</h1>
+
+<div class="container px-5 mx-md-0 my-5">
+    <form action="/plants/quiz/result" method="GET" class="px-md-5">
+        <fieldset class="my-5">
+            <legend class="mb-4">1. Think about the window sill where your plant will live. Which direction does it face?</legend>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Light" id="directionNorth" value="low" checked>
+                <label class="form-check-label" for="directionNorth">
+                North
+                </label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Light" id="directionSouth" value="high|sunny" required>
+                <label class="form-check-label" for="directionSouth">
+                South
+                </label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Light" id="directionEast" value="low|medium">
+                <label class="form-check-label" for="directionEast">
+                East
+                </label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Light" id="directionWest" value="medium|high">
+                <label class="form-check-label" for="directionWest">
+                West
+                </label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Light" id="directionNoWindow" value="low">
+                <label class="form-check-label" for="directionNoWindow">
+                The plant will not be in a window (low-light).
+                </label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Light" id="directionGrowLights" value="high|sunny">
+                <label class="form-check-label" for="directionGrowLights">
+                The plant will be under grow lights.
+                </label>
+            </div>
+        </fieldset>
+        <fieldset class="my-5">
+            <legend class="mb-4">2. How warm do you like to keep your home? If the temperature tends to vary, think about the coolest your home regularly gets. </legend>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Temperature" id="temperatureCool" value="cool" checked>
+                <label class="form-check-label" for="temperatureCool">
+                On the cooler side (around 60 degrees)
+                </label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Temperature" id="temperatureAverage" value="average" required>
+                <label class="form-check-label" for="temperatureAverage">
+                Consistently room temperature (around 70 degrees)
+                </label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Temperature" id="temperatureWarm" value="warm">
+                <label class="form-check-label" for="temperatureWarm">
+                On the warmer side (around 80 degrees)
+                </label>
+            </div>
+        </fieldset>
+        <fieldset class="my-5">
+            <legend class="mb-4">3. Are you willing to buy a humidifier, or is your home regularly over 50% humidity?         </legend>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="RelativeHumidity" id="humidityHigh" value="low|medium|high" checked>
+                <label class="form-check-label" for="humidityHigh">
+                    Yes      
+                </label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="RelativeHumidity" id="humidityLow" value="low|medium" required>
+                <label class="form-check-label" for="humidityLow">
+                    No
+                </label>
+            </div>
+        </fieldset>
+        <fieldset class="my-5">
+            <legend class="mb-4">4. Which of the following best describes your watering habits?       </legend>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Water" id="waterLow" value="moderately dry" checked>
+                <label class="form-check-label" for="waterLow">
+                    I sometimes forget my plants exist and forget to water them.       
+                </label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Water" id="waterMedium" value="should dry" required>
+                <label class="form-check-label" for="waterMedium">
+                    I consistently stick my finger in my plants' soil to test their moisture level.
+                </label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="Water" id="waterHigh" value="moist" >
+                <label class="form-check-label" for="waterHigh">
+                    I tend to dump water on my plants whenever I walk by. 
+                </label>
+            </div>
+        </fieldset>
+        <button type="submit" class="w-100 btn btn-lg btn-success mb-3 mt-3">Recommend me a plant!</button>
+    </form>
+</div>
+  

@@ -1,0 +1,89 @@
+
+<!-- Showcase -->
+
+<section class="bg-success text-light p-5 text-center text-sm-start">
+  <div class="container">
+    <div class="d-sm-flex align-items-center justify-content-between">
+      <div>
+        <h1>Houseplant care, <span class="text-warning">simplified</span></h1>
+        <p class="lead my-4">Foliary is an elegant, one-stop solution for houseplant selection, research, and care.</p>
+        <a href="/plants/quiz" class="btn btn-dark btn-lg">Get a plant recommendation</a>
+      </div>
+      <img class="px-4 img-fluid w-50 d-none d-sm-block" src="undraw_flowers_vx06-3.svg" alt="Woman sitting on open box with flowers appearing out of it">
+    </div>
+  </div>
+</section>
+
+<!-- Showcase -->
+<section class="p-5">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md mb-4">
+        <div class="card bg-light text-dark">
+          <div class="card-body text-center">
+            <i class="bi bi-flower1 display-1 mb-5"></i>
+            <h2 class="card-title my-3">Search</h2>
+            <p class="card-text">No more nasty surprises! Search by care needs to find plants that you know will do well in your home - whether it be a studio apartment or a greenhouse - so you can spend more time enjoying your plants and less time worrying.  </p>
+            <a href="/plants/search" class="btn btn-success">Search plants</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md mb-4">
+        <div class="card bg-light text-dark">
+          <div class="card-body text-center">
+            <i class="bi bi-droplet-half display-1 mb-5"></i>
+            <h2 class="card-title my-3">Care</h2>
+            <p class="card-text">Never forget to water or fertilize your plants. Use Foliary's tools to track your watering, fertilizing, repotting, and other care events. Set a schedule for care and let Foliary do the rest. We will remind you when it's time to water or fertilize your plants. </p>
+            <a href="/register" class="btn btn-warning">Register an account</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md mb-4">
+        <div class="card bg-light text-dark">
+          <div class="card-body text-center">
+            <i class="bi bi-clipboard-data display-1 mb-5"></i>
+            <h2 class="card-title my-3">Track</h2>
+            <p class="card-text">Foliary's flexible tools allow you to precisely track your plant's growth. Store photographs of your plant's progress, track important milestones with notes, and set care schedules that work for you - all on Foliary.</p>
+            <a href="#" class="btn btn-success">Learn about our tools</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Search -->
+<section class="bg-warning text-dark p-5">
+  <form action="/plants/search" method="GET">
+  <div class="container">
+    <div class="d-md-flex justify-content-between align-items-center">
+      <h2 class="mb-3 mb-md-0">Quick Search:</h2>
+      <div class="input-group news-input">
+          <!-- want this to redirect to the search page and search by common name  -->
+          <form action="/plants/search" method="GET">
+            <input type="text" class="form-control" placeholder="Plant name (common name)" aria-label="Plant name (common name)" aria-describedby="button-addon2" name="CommonName">
+            <button class="btn btn-dark btn-lg" id="button-addon2" type="submit">Search</button>
+          </form>
+        <!-- /plants/search?CommonName=silver&BotanicalName= -->
+      </div>
+    </div>
+  </div>
+  </form>
+</section>
+
+<!-- Random plant carousel -->
+<section class="bg-white text-dark p-5">
+<h2 class="text-center mb-5 text-success">Plants from our collection:</h2>
+<div class="container">
+  <div class="row">
+    <% plants.forEach((plant, index) => { %>
+      <div class="col-md mb-5 plant-card text-center">    
+        <a href="plants/<%= plant._id %>" class="link-success">
+        <%- plantsImageTags[index] %>
+        <div class="mt-2 text-center"><%= plant.CommonName %></div>
+        </a>
+      </div>
+    <% }) %>
+  </div>
+</div>
+</section>

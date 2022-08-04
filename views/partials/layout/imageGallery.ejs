@@ -1,0 +1,49 @@
+<div class="text-center pb-5">
+      <div class="container">
+        <div class="row my-2">
+          <% plantImageTags.forEach((image, index) => { %>
+            <div class="col my-4 mx-2">
+                  <div class="mt-2 mb-4"><%= new Date(image.uploaded).toUTCString().split(" ").slice(0, 4).join(" ") %></div>
+                  <%- image.imageTag %> 
+                  <div data-cloudinaryid="<%= image.cloudinaryId %>">
+                <i class="bi bi-trash fs-3 mx-3" title="delete image" id="deleteImageModalOpenButton" data-bs-toggle="modal" data-bs-target="#deleteImage"></i>
+                <i class="bi bi-pencil-square fs-3" title="edit image" id="editImageModalOpenButton" data-bs-toggle="modal" data-bs-target="#editImage"></i> </div>
+           </div>
+          <% }) %>
+        </div>
+      </div>
+</div>
+  
+
+
+<div class="modal fade" id="deleteImage" tabindex="-1" aria-labelledby="deleteImageLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="modal-title text-success h3" id="deleteImageLabel">Delete Image</span>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%- include('../forms/deleteImage.ejs') %>
+        </div>
+      </div>
+  </div>
+</div>
+  
+
+<div class="modal fade" id="editImage" tabindex="-1" aria-labelledby="editImageLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title text-success h3" id="editImageLabel">Delete Image</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('../forms/editImage.ejs') %>
+      </div>
+    </div>
+</div>
+</div>
+
+  
+  

@@ -1,0 +1,154 @@
+.navbar a:focus, a.dropdown-item:active{
+    background-color: #28a745 !important;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #ffffffd3 !important;
+}
+
+.form-signin {
+    width: 50%;
+    margin: 0 auto;
+}
+
+footer i {
+    font-size: 2rem;
+}
+
+.navbar-brand, h1, h2, h3, h4, h5, .h1, .h2, .h4{
+    font-family: 'Patrick Hand', cursive;
+}
+
+.navbar-brand {
+    font-size: 2.5rem;
+}
+
+h1{
+    font-size: 3.5rem;
+}
+
+h2, .h2{
+    font-size: 2.5rem;
+}
+
+.h4 {
+    display:inline-block;
+}
+
+body{
+    font-family: 'Karla', sans-serif;
+}
+
+.care-needs-search [type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+.care-needs-search [type=radio] + svg {
+    cursor: pointer;
+  }
+  
+.care-needs-search [type=radio]:checked + svg {
+    fill: #FFCC00;
+}
+
+.form-control-custom {
+    position:relative;
+}
+
+.form-control-custom i {
+	visibility: hidden;
+	position: absolute;
+	top: 40px;
+	right: 20px;
+}
+
+#register-form .form-control-custom i {
+	top: 15px;
+	right: 20px;
+}
+
+.form-control-custom.success input, .form-control-custom.success select {
+	border-color: #2ecc71;
+} 
+
+.required::after {
+        font-size: 1.5rem;
+        content: "*";
+        color: red;
+        position: absolute;
+        top: -5px;
+}
+
+.form-floating>.required::after {
+    top: 5px;
+}
+
+.form-control-custom.error input, .form-control-custom.error select {
+	border-color: #e74c3c;
+}
+
+.form-control-custom.success i.bi-check-square-fill {
+	visibility: visible;
+}
+
+.form-control-custom.error i.bi-check-square-fill {
+	visibility: hidden;
+}
+
+.form-control-custom.error i.bi-exclamation-circle-fill {
+	visibility: visible;
+}
+
+.form-control-custom.success i.bi-exclamation-circle-fill {
+	visibility: hidden;
+}
+
+.form-control-custom small {
+	color: #e74c3c;
+	position: absolute;
+	bottom: -10;
+	left: -10;
+	visibility: hidden;
+}
+#register-form .form-control-custom small {
+    bottom: -30px;
+    left: 0px;
+}
+
+.form-control-custom.error small {
+	visibility: visible;
+}
+
+@media screen and (min-width: 650px) {
+    .mobile-visible{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .mobile-hidden {
+        display:none;
+    }
+    .mobile-visible {
+        display: inline-block;
+    }
+}
+
+@media(min-width: 768px) {
+    .news-input{
+        width: 50%;
+    }
+}
+
+@media(max-width: 768px) {
+    .plant-card {
+        text-align:center;
+    }
+}
