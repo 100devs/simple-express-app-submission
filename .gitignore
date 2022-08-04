@@ -1,0 +1,5 @@
+#removes node_modules from git pushes
+node_modules
+
+#removes .env from git pushes
+.env
