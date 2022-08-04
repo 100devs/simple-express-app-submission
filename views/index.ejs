@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Database</title>
+</head>
+<body>
+    <h1>Inventory Database</h1>
+    <article>
+        <form action="/assets" method="POST">
+            <input type="text" placeholder="Type" name="type">
+            <input type="text" placeholder="Brand" name="brand">
+            <input type="text" placeholder="Model" name="model">
+            <input type="text" placeholder="Asset Tag #" name="asset">
+            <input type="text" placeholder="Serial #" name="serial">
+            <input type="text" placeholder="MAC Address" name="macAddress">
+            <input type="text" placeholder="Assignment" name="assignment">
+            <input type="text" placeholder="Status" name="status">
+            
+            <button type="submit">Submit</button>
+        </form>
+
+        <ul class="assets">
+            <!-- This loops through all the items in each asset -->
+            <% for(var i = 0; i < assets.length; i++) {%>
+                <li class="asset">
+                    <!-- Output type from the iterated asset object -->
+                    <span><%= assets[i].type %></span>:
+                    <!-- Output brand from the iterated asset object -->
+                    <span><%= assets[i].brand %></span>:
+                    <!-- Output model from the iterated asset object -->
+                    <span><%= assets[i].model %></span>:
+                     <!-- Output model from the iterated asset object -->
+                     <span><%= assets[i].asset %></span>:
+                    <!-- Output serial number from the iterated asset object -->
+                    <span><%= assets[i].serial %></span>:
+                    <!-- Output mac address from the iterated asset object -->
+                    <span><%= assets[i].macAddress %></span>:
+                    <!-- Output assignment from the iterated asset object -->
+                    <span><%= assets[i].assignment %></span>:
+                    <!-- Output assignment from the iterated asset object -->
+                    <span><%= assets[i].status %></span>
+                </li>
+            <% } %>
+        </ul>
+
+            
+    </article>
+    
+</body>
+</html>
