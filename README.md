@@ -1,22 +1,11 @@
-#100Devs Simple Express App Submission
+# Magic 8 Ball
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+This Magic 8 Ball looks into your future to find answers to your questions. Ask your question and click the button, your future will be revealed!
 
-### How to submit your code for review:
+## Tech stack
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+Behind the screen, we have used HTML5/CSS3/JavaScript/Node.js for the prediction.
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+## Contributors
+
+Aaron Clamp (@ronaldconn) and Poornima P K (@poornimapk)
