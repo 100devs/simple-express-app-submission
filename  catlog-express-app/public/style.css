@@ -1,0 +1,87 @@
+/* body {
+    background-color: black;
+    color: white;
+} */
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+    padding-left: 2%;
+}
+
+input, h4, textarea {
+    display: block;
+    font-size: 20px;
+    padding: 4px 2px;
+    margin: 2px 0 20px 10px;
+}
+
+
+.rating {
+    width: 300px;
+    margin: 20px 10px;
+}
+
+.rating span input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+}
+
+.rating span label {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: #FFF;
+    background: #ccc;
+    font-size: 30px;
+    margin-right: 2px;
+    line-height: 30px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.rating span:hover~span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked~span label {
+    background: #F90;
+    color: #FFF;
+}
+
+.rating {
+    float:left;
+    width:300px;
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.rating span label {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#FFF;
+    background:#ccc;
+    font-size:30px;
+    margin-right:2px;
+    line-height:30px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    background:#F90;
+    color:#FFF;
+}
