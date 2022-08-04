@@ -1,0 +1,63 @@
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 125%;
+  line-height: 1.4;
+  font-family: Helvetica;
+}
+
+body {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto 2fr;
+  grid-template-areas:
+    "header header header"
+    "add-quotes update-quote delete-quote"
+    "quotes quotes quotes";
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem;
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(146,148,146,1) 50%);
+}
+
+[data-position="header"] {
+  grid-area: header;
+}
+
+[data-position="add-quotes"] {
+  grid-area: add-quotes;
+}
+
+[data-position="update-quotes"] {
+  grid-area: update-quotes;
+}
+
+[data-position="delete-quotes"] {
+  grid-area: delete-quotes;
+}
+
+[data-position="quotes"] {
+  grid-area: quotes;
+  overflow: scroll;
+}
+
+[data-position] {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+input {
+  width: 220px;
+}

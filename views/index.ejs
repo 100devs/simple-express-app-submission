@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>Garth Marenghi's Darkplace Quote App</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <h1 data-position="header">Garth Marenghi's Darkplace Quote App</h1>
+
+    <section data-position="add-quote">
+      <h2>Add quote</h2>
+      <form action="/quotes" method="post">
+        <select id="name-select" name="name" required>
+          <option value="">Select character's name</option>
+          <option value="Garth Marenghi / Dr. Rick Dagless">
+            Garth Marenghi / Dr. Rick Dagless
+          </option>
+          <option value="Dean Learner / Thornton Reed">
+            Dean Learner / Thornton Reed
+          </option>
+          <option value="Todd Rivers / Dr. Lucien Sanchez">
+            Todd Rivers / Dr. Lucien Sanchez
+          </option>
+          <option value="Madeleine Wool / Dr. Liz Asher">
+            Madeleine Wool / Dr. Liz Asher
+          </option>
+        </select>
+        <input type="text" placeholder="Quote" name="quote" required>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section data-position="update-quote">
+      <div>
+        <h2>Dean interjects</h2>
+        <p>Replace the first Madeleine / Liz quote with a quote by Dean / Thornton.</p>
+        <button id="update-button">Replace quote</button>
+      </div>
+    </section>
+
+    <section data-position="delete-quote">
+      <div>
+        <h2>Silence Dean</h2>
+        <p>Delete a Dean / Thornton quote.</p>
+        <button id="delete-button">Delete quote</button>
+      </div>
+      <div id="message"></div>
+    </section>
+
+    <section data-position="quotes">
+      <h2>Quotes</h2>
+      <ul class="quotes">
+        <% for (let i = 0; i < quotes.length; i++) { %>
+        <li class="quote">
+          <span><%= quotes[i].name %></span>:
+          <span>"<%= quotes[i].quote %>"</span>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
