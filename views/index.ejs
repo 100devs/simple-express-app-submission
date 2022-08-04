@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Office Quote App</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <h1 data-position="header">The Office Quotes</h1>
+
+    <section data-position="add-quote">
+      <h2>Add quote</h2>
+
+      <form action="/quotes" method="POST">
+        <input type="text" placeholder="name" name="name" />
+        <input type="text" placeholder="quote" name="quote" />
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section data-position="update-quote">
+      <div>
+        <h2>Michael invades!</h2>
+        <p>
+          Replace the first Dwight quote with a quote said by Michael 
+        </p>
+        <button id="update-button">Replace Dwight's quote</button>
+      </div>
+    </section>
+
+    <section data-position="delete-quote">
+      <div>
+        <h2>Remove Micheal!</h2>
+        <p>
+          Delete one of Michael's quotes. *Does nothing if there aren't any more
+          Michael quotes.*
+        </p>
+        <button id="delete-button">Delete Michael's quote</button>
+      </div>
+      <div id="message"></div>
+    </section>
+
+    <section data-position="quotes">
+      <h2>Quotes</h2>
+
+      <ul class="quotes">
+        <% for(var i = 0; i < quotes.length; i++) {%>
+        <li class="quote">
+          <span><%= quotes[i].name %></span>:
+          <span><%= quotes[i].quote %></span>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
