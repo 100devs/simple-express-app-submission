@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+     <!-- Google Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@300;400;600;700&display=swap" rel="stylesheet">
+     <!-- Icons -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+     <!-- Stylesheet Link -->
+    <link rel="stylesheet" href="/style.css">
+   
+</head>
+<body>
+    <section class="todo-container">
+        <h2>Edit List Item</h2>
+        <section class="todo">
+            <ul class="todo-list">
+                <% todoTasks.forEach(task => {%>
+                    <% if (task._id == idTask) { %>
+                        <li class="todo-list-item">
+                            <form action="/edit/<%= task._id %>" method="POST">
+                                <input aria-label='input box' type="text" name="title" value="<%= task.title %>">
+                                <textarea name="content" cols="45" rows="6"><%= task.content %></textarea>
+                                <button type="submit" class="confirm">Confirm</button>
+                                <a href="/" class="cancel">Cancel</a>
+                            </form>
+                        </li>
+                        <% } else { %>
+                        <li class="todo-list-item">
+                            <div class="todo-list-item-title">
+                                <%= task.title %>
+                            </div>
+                            <div class="todo-list-item-content">
+                                <%= task.content %>
+                            </div>
+                            <a href="/edit/<%= task._id %>" class="edit"><span class="fas fa-edit"></span><a>
+                            <a href="/remove/<%= task._id %>" class="remove"><span class="fas fa-times"></span><a>
+                        </li>    
+                        <% } %>
+                    <% }) %>
+            </ul>
+        </section>
+    </section>
+</body>
+</html>
