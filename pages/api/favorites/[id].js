@@ -11,8 +11,6 @@ export default async(req,res) => {
   // update book notes by id
   if (method === "PUT") {
     try {
-      console.log('updating in db ', req.body.notes)
-      // console.log('updating in db ', req.body.value.notes)
       const result = await Book.findOneAndUpdate(
         { isbn: id }, 
         { notes: req.body.notes }

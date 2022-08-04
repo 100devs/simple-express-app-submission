@@ -31,9 +31,6 @@ const dbConnect = async () => {
   }
 
   cached.conn = await cached.promise;
-  // cached.conn?.once('open', () => {
-  //   console.log('Database connected!');
-  // });
   
   cached.conn.on('error', (err) => {
     console.error('connection error:', err);
