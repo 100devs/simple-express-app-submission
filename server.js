@@ -20,7 +20,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(
     // lets the server know to expect ejs format
     app.set("view engine", "ejs");
 
-    // lets server know that we are using bodyparser to get values from the form
+    app.use(express.static("public"));
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
 
