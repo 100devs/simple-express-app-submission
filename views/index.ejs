@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Wall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    <title>Quote Wall</title>
+</head>
+<body>
+    <section class="logoImgContainer">
+        <img class="logoImg" src="/img/wall-logo.png" alt="logo">
+    </section>
+    <p>Drop a quote and upvote your favorites!</p>
+    <section class="quoteWall">
+    <% for(let i=0; i < info.length; i++) {%>
+        <section class="quote">
+            <span><%= info[i].authorName %></span>
+            <span class="quoteText"><%= info[i].quoteContent %></span>
+            <span class="likesInput"><%= info[i].likes %></span>
+            <span class='fa fa-thumbs-up'></span>
+            <span class='fa fa-trash'></span>
+        </section>
+    <% } %>
+    </section>
+    
+    <form action="/addQuote" method="POST">
+        <section class="formTop">
+            <div class="openForm"><i class="fa-solid fa-plus"></i></div>
+            <div class="closeForm"><i class="fa fa-times"></i></div>
+        </section>
+        <h2>Add a Quote:</h2>
+        <input class="authorInput" type="text" placeholder="Author Name" name="authorName">
+        <textarea name="quoteContent" class="quoteInput" cols="30" rows="10" placeholder="Quote"></textarea>
+        <!-- <input class="quoteInput" type="text" placeholder="Quote" name="quoteContent"> -->
+        <input class="submitButton" type="submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
