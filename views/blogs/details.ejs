@@ -1,0 +1,61 @@
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/nav.ejs') %>
+            <div class="details content">
+                <h2>
+                    <%= blog.title %>
+                </h2>
+                <h4>
+                    <%= blog.snippet %>
+                </h4>
+                <input type="text" name="snippet" class="snippet">
+                <button class="edit" data-doc="<%= blog._id %> ">Edit Snippet</button>
+                <div class="content">
+                    <p>
+                        <%= blog.body %>
+                    </p>
+                </div>
+                <a class="delete" data-doc="<%= blog._id %> ">
+                    <img src="/trash_can.svg" alt="">
+                </a>
+            </div>
+
+            <%- include('../partials/footer.ejs') %>
+
+                <script>
+                    const deleteItem = document.querySelector('a.delete');
+                    const button = document.querySelector('.edit');
+
+                    deleteItem.addEventListener('click', (e) => {
+                        const endpoint = `/blogs/${deleteItem.dataset.doc}`;
+                        fetch(endpoint, {
+                            method: 'DELETE'
+                        })
+                            .then((res) => res.json())
+                            .then((data) => window.location.href = data.redirect)
+                            .catch((error) => console.log(error))
+                    })
+
+                    button.addEventListener('click', () => {
+                        const snippet = document.querySelector('.snippet').value;
+                        const endpoint = `/blogs/${button.dataset.doc}`;
+                        fetch(endpoint, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                snippet,
+                            })
+                        })
+                            .then((res) => res.json())
+                            .then((data) => location.reload())
+                            .catch((error) => console.log(error))
+                    })
+                </script>
+    </body>
+
+
+</html>
