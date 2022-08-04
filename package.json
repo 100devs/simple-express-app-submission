@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -13,7 +19,8 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.18.1",
-    "mongodb": "^3.7.3"
+    "mongodb": "^3.7.3",
+    "serve": "^14.0.1"
   },
   "description": ""
 }
