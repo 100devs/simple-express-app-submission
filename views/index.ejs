@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+
+    <section class="container">
+        <div class="heading">
+          <img class="heading__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/laptop.svg">
+          <h1 class="heading__title">To-Do List</h1>
+        </div>
+
+        <form action="/addTask" method="POST" class="form">
+          <div class="form-box">
+            <label class="form__label" for="todo">~ Today I need to ~</label>
+            <input class="form__input"
+                 type="text" 
+                 id="todo" 
+                 name="taskName"
+                 size="30"
+                 placeholder="TASK"
+                 required>
+          <input class="form__input"
+                 type="text" 
+                 id="todo2" 
+                 name="descriptionName"
+                 size="30"
+                 placeholder="DESCRIPTION"
+                 >
+            <button class="button"><span>Submit</span></button>
+          </div>
+        </form>
+
+        <div>
+            <h4>Click thumbs up to change priority</h4>
+          <ul class="toDoList">
+                <% for(let i=0; i < info.length; i++) {%>
+                    <li class="task">
+                        <span><%= info[i].taskName %></span>
+                        <span class="descriptionName"><%= info[i].descriptionName %></span>
+                        <span><%= info[i].likes %></span>
+                        <span class='fa fa-thumbs-up'></span>
+                        <span class='fa fa-trash'></span>
+                    </li>
+                <% } %>
+          </ul>
+        </div>
+
+        
+    <!-- <form action="/addTask" method="POST">
+        <input type="text" placeholder="Task Name" name="taskName">
+        <input type="text" placeholder="Task Description" name="descriptionName">
+        <input type="submit">
+    </form> -->
+
+      </section>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
