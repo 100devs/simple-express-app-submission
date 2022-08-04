@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wire Quotes</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1 class="header">Quotes from The Wire</h1>
+    <section class="form">
+      <h3>Add Quote:</h3>
+      <form action="/quotes" method="POST">
+        <input type="text" placeholder="Character Name" name="name">
+        <input type="text" placeholder="Quote" name="quote">
+        <button type="submit">Submit</button>
+      </form>
+  </section>
+    <ul class="quotes">
+        <% for(var i = 0; i < quotes.length; i++) {%>
+          <li class="quote">
+            <span class="name"><%= quotes[i].name %></span>:
+            <span class="quote"><%= quotes[i].quote %></span>
+          </li>
+        <% } %>
+      </ul>
+      <div class="bubbles">
+        <button id="update-button">Respect Bubbles</button>
+        <button id="delete-button">Delete Bubbles</button>
+      </div>
+      <div id="message" class="bubbles"></div>
+
+      <script src="/main.js"></script> 
+</body>
+</html>
