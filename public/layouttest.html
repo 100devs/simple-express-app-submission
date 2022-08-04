@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="layouttest.css">
+    <title>Document</title>
+</head>
+<body>
+  
+    <header class="container red-border">
+        <h1>Head</h1>
+    </header>
+    <main class="container blue-border">
+        <div class="green-border timer-container">
+            <div class="red-border">
+                <button class="" id='' onclick="setTimeLimit(25)">25:00</button>
+                <button class="" onclick='setTimeLimit(5)'>5:00</button>
+                <button class="" onclick='setTimeLimit(15)'>15:00</button>
+            </div>
+            
+            <h1 id='timer'>25:00</h1>
+        
+            <div>
+                <button class="" id='' onclick='start()'>Start</button>
+                <button class="" onclick='stop()'>Stop</button>
+                <button class="" onclick='reset()'>Reset</button>
+            </div>
+        </div>
+        
+        
+    </main>
+    <footer class="container green-border">
+        <h1>Footer</h1>
+    </footer>
+</body>
+</html>

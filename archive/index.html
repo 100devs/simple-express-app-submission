@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="restyle.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Fruitydoro</title>
+</head>
+<body>
+    
+    
+    
+    <script src="script.js"></script>
+    
+    <div class="head">
+        <h1 id="title">Tomato Timer</h1>
+    </div>
+    
+    <div id="main-container">
+        <div id="controls-top">
+            <button class="timerButton" id='pomodoroButton' onclick="setTimeLimit(25)">25:00</button>
+            <button class="timerButton" onclick='setTimeLimit(5)'>5:00</button>
+            <button class="timerButton" onclick='setTimeLimit(15)'>15:00</button>
+        </div>
+        
+        <h1 id='timer'>25:00</h1>
+        <div id="controls-bottom">
+            <button class="controlButton" id='startButton' onclick='start()'>Start</button>
+            <button class="controlButton" onclick='stop()'>Stop</button>
+            <button class="controlButton" onclick='reset()'>Reset</button>
+        </div>
+        
+    </div>
+    
+    <h2>Tasks</h2>
+    <div id="task-container">
+        <input type="text" id="add-task-input" placeholder="Enter a task to complete">
+        <button id="add-task-button" onclick="addTask()">Add</button>
+        
+        <ul id="task-list">
+        </ul>
+    </div>
+    
+    <h2>Fruit Collection</h2>
+    <div id="fruit-collection">
+        <p class="emoji">&#127813;</p>
+        <p class="emoji">&#127814;</p>
+        <p class="emoji">&#127815;</p>
+        <p class="emoji">&#127816;</p>
+        <p class="emoji">&#127817;</p>
+        <p class="emoji">&#127818;</p>
+        <p class="emoji">&#127819;</p>
+        <p class="emoji">&#127820;</p>
+        <p class="emoji">&#127821;</p>
+        <p class="emoji">&#127822;</p>
+        <p class="emoji">&#127823;</p>
+        <p class="emoji">&#127824;</p>
+        <p class="emoji">&#127825;</p>
+        <p class="emoji">&#127826;</p>
+        <p class="emoji">&#127827;</p>
+    </div>
+    
+
+    
+</body>
+</html>
