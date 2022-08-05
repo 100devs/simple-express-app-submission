@@ -1,0 +1,41 @@
+.words, h1, h2 {
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+form {
+    text-align: center;
+}
+
+.submit {
+    display: block;
+    width: 5%;
+    margin: 1% auto;
+}
+
+
+
+li {
+    padding-top: 1%;
+    margin-bottom: 0%;
+    margin-top: 0%;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-top: 1.5px solid black;
+    border-bottom: 1.5px solid black;
+}
+
+li:first-of-type {
+    border-top: 3px solid black;
+}
+
+li:last-of-type {
+    border-bottom: 3px solid black;
+}
+
+body {
+    background: lightgreen;
+}
