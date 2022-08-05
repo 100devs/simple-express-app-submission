@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite UFC Fighters</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite UFC Fighters</title>
+</head>
+<body>
+    <h1>Favorite UFC Figthers</h1>
+    <ul class="rappers">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="rapper">
+            <span><%= info[i].stageName %></span>
+            -
+            <span><%= info[i].birthName %></span>
+            <span><%= info[i].likes %></span>
+            <span class='fa fa-thumbs-up'></span>
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Add Your Fighter:</h2>
+
+    <form action="/addRapper" method="POST">
+        <input type="text" placeholder="Name" name="stageName">
+        <input type="text" placeholder="Why do you like them?" name="birthName">
+        <input type="submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
