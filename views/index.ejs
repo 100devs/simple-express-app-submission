@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Club</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Movie Club History</h1>
+    <!-- <ul class="movieList">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="movie">
+            <span><%= info[i].movieName %></span>
+            <span><%= info[i].foodName %></span>
+            <span><%= info[i].hostName %></span>
+            <span><%= info[i].date %></span>
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul> -->
+
+    <table class="pure-table pure-table-horizontal">
+        <tr>
+          <th>Movie</th>
+          <th>Food</th>
+          <th>Host</th>
+          <th>MM/YY</th>
+        </tr>
+        <% for(var i=0; i < info.length; i++) { %>
+        <tr>
+            <td><%= info[i].movieName %></td>
+            <td><%= info[i].foodName %></td>
+            <td><%= info[i].hostName %></td>
+            <td><%= info[i].date %></td>
+            <td class='fa fa-trash'></td>
+        </tr>
+         <% } %>
+      </table>
+
+    <h2>Add a movie!</h2>
+
+    <form class="pure-form pure-form-stacked" action="/addMovie" method="POST">
+        <input type="text" placeholder="Movie Title" name="movieNameS">
+        <input type="text" placeholder="Food" name="foodNameS">
+        <select type="text" placeholder="host" name="hostNameS">
+            <option value="Grace">Grace</option>
+            <option value="Jamie">Jamie</option>
+            <option value="Tony">Tony</option>
+        </select>
+        <input type="date" placeholder="Date" name="date">
+        <input type="submit" value = "Submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
