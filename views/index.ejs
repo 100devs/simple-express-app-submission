@@ -10,21 +10,27 @@
 <body>
     <h1>Bookshelf</h1>
 
-    <form action="/addBook" method="POST">
-        <label for="title">Book Title</label>
-        <input type="text" name="title" placeholder="Title">
-        <label for="note">Book Note</label>
-        <input type="text" name="note" placeholder="Note">
-        <input type="submit" value="Add Book">
-    </form>
-    
-    <ul class="bookshelf">
-        <% for (let i = 0; i < books.length; i++) {%>
-            <li class="book">
-                <span><%= books[i].title%> - <%= books[i].note %></span>
-            </li>
-        <%} %>
-    </ul>
+    <section class="bookshelf-container">
+        <div class="add-book">
+            <form action="/addBook" method="POST">
+                <label for="title">Book Title</label>
+                <input type="text" name="title" placeholder="Title">
+                <label for="note">Book Note</label>
+                <input type="text" name="note" placeholder="Note">
+                <input type="submit" value="Add Book">
+            </form>
+        </div>
+        
+        <div class="bookshelf-books">
+            <ul class="bookshelf">
+                <% for (let i = 0; i < books.length; i++) {%>
+                    <li class="book">
+                        <span><%= books[i].title%> - <%= books[i].note %></span>
+                    </li>
+                <%} %>
+            </ul>
+        </div>
+    </section>
     
     <script src='js/main.js'></script>
 </body>
