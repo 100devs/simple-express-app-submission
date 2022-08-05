@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bookshelf</title>
+    <title>Bookshelf</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>My Bookshelf</h1>
 
-
-    <form action="/addBook">
-        <label for="bookItem">Add to Bookshelf</label>
-        <input type="text" name="bookItem" placeholder="Book Title">
+    <form action="/addBook" method="POST">
+        <label for="title">Book Title</label>
+        <input type="text" name="title" placeholder="Title">
+        <label for="note">Book Note</label>
+        <input type="text" name="note" placeholder="Note">
         <input type="submit" value="Add Book">
     </form>
+    
+    <ul class="bookshelf">
+        <% for (let i = 0; i < books.length; i++) {%>
+            <li class="book">
+                <span><%= books[i].title%></span>
+            </li>
+        <%} %>
+    </ul>
     
     <script src='js/main.js'></script>
 </body>
