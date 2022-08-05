@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>My Bookshelf</h1>
+    <h1>Bookshelf</h1>
 
     <form action="/addBook" method="POST">
         <label for="title">Book Title</label>
@@ -21,7 +21,7 @@
     <ul class="bookshelf">
         <% for (let i = 0; i < books.length; i++) {%>
             <li class="book">
-                <span><%= books[i].title%></span>
+                <span><%= books[i].title%> - <%= books[i].note %></span>
             </li>
         <%} %>
     </ul>

@@ -23,11 +23,15 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
         const booksCollection = db.collection('books');
 
         app.get('/', async (req, res) => {
-            // get documents from MongoDB
-            const bookItems = await booksCollection.find().toArray();
+            try{
+                // get documents from MongoDB
+                const bookItems = await booksCollection.find().toArray();
         
-            // render root/home view
-            res.render('index.ejs', { books: bookItems });
+                // render root/home view
+                res.render('index.ejs', { books: bookItems });
+            } catch (error) {
+                if (error) return res.status(500).send(erro);
+            }
         })
 
         app.post('/addBook', (req, res) => {
