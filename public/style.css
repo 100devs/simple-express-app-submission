@@ -1,0 +1,120 @@
+/* Set overall font size*/
+html {
+    font-size: 62.5%;
+    font-family: 'Lexend', sans-serif;
+}
+
+/* Get rid of default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set color and height of body */
+body {
+    background: #c7ded0;
+}
+
+/* Create flex container */
+#container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    gap: 2.5%;
+}
+
+/* Set nav at end of grid, set size */
+nav {
+    justify-self: end;
+    width: 50%;
+}
+
+/* Set ul color and size */
+#journal-entries {
+    background: #FFE5D9;
+    height: 75vh;
+    justify-self: end;
+    box-shadow: 8px 8px #5a5a5a;
+}
+#journal-entries h2 {
+    font-size: 1.75rem;
+    padding-top: 16px;
+    padding-bottom: 4px;
+}
+
+/* Delete bullet points in ul */
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-radius: 8px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.entry span {
+    font-size: 1.25rem;
+    color: black;
+}
+.entry span:hover {
+    color: #ffffff;
+}
+.entry a {
+    text-decoration: none;
+}
+
+/* Set styling and size of main */
+#journal-container {
+    background: #FFE5D9;
+    height: 75vh;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: 48px;
+    border-radius: 8px;
+    box-shadow: 8px 8px #5a5a5a;
+}
+
+#journal-container > h2 {
+    align-self: center;
+    font-size: 4rem;
+    margin-top: 48px;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+/* Make form flex container and column */
+.daily-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+}
+
+/* Style and set size of input boxes */
+.daily-entry > input {
+    width: 90%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px black solid;
+    line-height: 5rem;
+    font-size: 2.5rem;
+    outline: none;
+}
+
+/* Style button */
+.daily-entry > button {
+    border: none;
+    padding: 16px;
+    font-family: 'Lexend', sans-serif;
+    border-radius: 8px;
+}
+
+#journal-container button:hover {
+    background: #5a5a5a;
+    color: #ffffff;
+    cursor: pointer;
+}

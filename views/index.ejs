@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gratitude Journal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="container">
+        <nav>
+            <ul id="journal-entries">
+                <h2>past entries</h2>
+                <% entries.forEach(entry => {%>
+                    <li class="entry">
+                        <a href="/edit/<%=entry._id %>"><span><%= entry.date %></span></a>
+                    </li>
+                <% }) %>
+            </ul>
+            <div id="message"></div>
+        
+            
+        </nav>
+        <main id="journal-container">
+            <h2>today I'm grateful for</h2>
+            <form action="/" method="POST" class="daily-entry">
+                <input type="date" placeholder="date" name="date">
+                <input type="text" placeholder="1st thing" name="first">
+                <input type="text" placeholder="2nd thing" name="second">
+                <input type="text" placeholder="3rd thing" name="third">
+                <button type="submit">submit</button>
+            </form>
+        </main>
+    </section>
+</body>
+</html>

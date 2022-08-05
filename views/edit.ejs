@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gratitude Journal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <section id="container">
+        <nav>
+            <ul id="journal-entries">
+                <h2>past entries</h2>
+                <% entries.forEach(entry => {%>
+                    <li class="entry">
+                        <a href="/edit/<%=entry._id %>"><span><%= entry.date %></span></a>
+                    </li>
+                <% }) %>
+            </ul>
+            <div id="message"></div>
+        
+            
+        </nav>
+        <main id="journal-container">
+            
+            <% entries.forEach(entry => { %>
+                <% if (entry._id == idEntry) { %>
+                <h2><%= entry.date %></h2>
+                    <form action="/edit/<%=entry._id %>" method="POST" class="daily-entry">
+                        <input type="text" value="<%= entry.first %>" name="first">
+                        <input type="text" value="<%= entry.second %>" name="second">
+                        <input type="text" value="<%= entry.third %>" name="third">
+                        <button type="submit" id="update">update</button>
+                        <button type="submit" data-doc="<%= entry._id %>" id="delete-button">delete</button>
+                    </form>
+                <% } %>
+            <% }) %>
+        </main>
+    </section>
+
+    <script src="../main.js"></script>
+</body>
+</html>
