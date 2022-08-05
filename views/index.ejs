@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/31073337d6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section>
+    <h1>Add item to to-do list</h1>
+    <form action="/addtodo" method="POST">
+        <input type="text" placeholder="Task" name="task">
+        <textarea type="text" placeholder="Description" name="content"></textarea>
+        <input type="submit">
+    </form>
+    <h1>Current to-do list</h1>
+    <span>Click task title to show details</span>
+    <ul class="todo_list">
+    <% for(let i=0; i < info.length; i++) { %>
+        <li class="todo_items">
+            <% if (info[i].completed === true){ %>
+                <span class="date completed"><%= info[i].date %></span>
+                <span class="title completed"><%= info[i].task %></span>
+                <span class="content completed hidden"><%= info[i].content %></span>
+                
+
+            <% }else{ %>
+                <span class="date"><%= info[i].date %></span>
+                <span class="title"><%= info[i].task %></span>
+                <span class="content hidden"><%= info[i].content %></span>
+                
+                
+                <span class="fa-solid fa-check"></span>
+
+            <% } %>
+                <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul>
+    </section>
+    <script src="js/main.js"></script>
+</body>
+</html>
