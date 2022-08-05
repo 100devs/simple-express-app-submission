@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extreme Heat Advice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+<!-- <p id='head1' class='header'>Awesome designs</p>
+<p id='head2' class='header'>Just</p>
+<p id='head3' class='header'>For you</p>
+<p id='head4' class='header'>simple and awesome all the time</p>
+<p id='head5' class='header'>Extreme Heat Advice*</p> -->
+
+    <section class="intro">    
+        <h1>Extreme Heat Advice*</h1>
+        <p class="introP">Cases of extreme heat are rising across the globe.</p> 
+        <p class="introP">This app is meant to serve as a hub where people who have experience navigating extreme heat can share helpful advice.</p>
+        <p class="introP">Feel free to see advice below, add your own, and upvote your favorites.</p> 
+    </section>
+
+    <section class="formSection">
+        <h2>Add Your Advice:</h2>
+        <form action="/addAdvice" method="POST">
+            <input type="text" placeholder="Your Advice" name="adviceText" class="adviceInput">
+            <input type="text" placeholder="Your Name" name="contributorName">
+            <input type="submit">
+        </form>
+    </section>
+
+    <section class="adviceSection">
+        <ul class="adviceList">
+            <% for(let i=0; i < info.length; i++) {%>
+                <li class="advice">
+                    <span id="adviceText"><%= info[i].adviceText %></span>
+                    <span id="contributorName"><%= info[i].contributorName %></span>
+                    <span class='fa fa-hand-holding-heart'></span>
+                    <span id="likes"><%= info[i].likes %></span>
+                    <!-- <span class='fa fa-trash'></span> -->
+                </li>
+            <% } %>
+        </ul>
+    </section>
+
+    <div class='light x1'></div>
+    <div class='light x2'></div>
+    <div class='light x3'></div>
+    <div class='light x4'></div>
+    <div class='light x5'></div>
+    <div class='light x6'></div>
+    <div class='light x7'></div>
+    <div class='light x8'></div>
+    <div class='light x9'></div>
+
+    <script src='js/main.js'></script>
+</body>
+<footer>
+<span>* For entertainment purposes only. No content in this application should be construed as professional advice. Always consult appropriate professionals prior to making any life-impacting decisions.</span>
+</footer>
+</html>
