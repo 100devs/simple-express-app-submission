@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/34f690c3ba.js" crossorigin="anonymous"></script>
+    <title>MY APP</title>
+</head>
+<body>
+   <h1>Input name of movie and most unexplained detail</h1>
+    <form action="/quotes" method="POST">
+        <input type="text" placeholder="name of movie" name="name">
+        <input type="text" placeholder="unexplained detail" name="quote">
+        
+        <button type="submit">Submit</button>
+    </form>
+            <div><i class="fa-solid fa-video"> Movies</i><i class="fa-solid fa-video"></i></div>
+            <ul class='quotes'>
+                <% for (var i=0; i< info.length ; i++){%>
+                        <li class='quote'>
+                             <span><%=info[i].name %></span>
+                             <span><%=info[i].quote %></span>
+                             
+                             <span class="fa-solid fa-arrow-up"></i></span>
+                             <span><%=info[i].likes %></span>
+                            
+                             <span class='fa fa-trash'></span>
+                             
+
+                        </li>
+                <%}%>
+            </ul>
+                     
+    <script src='/main.js'></script>
+</body>
+</html>

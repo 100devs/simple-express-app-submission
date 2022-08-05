@@ -14,9 +14,12 @@
   - (1 to 5 no 3) I feel good about my code
   - Anything specific on which you want feedback!
 
-Example:
+Khezu_Gravios
 ```
-I completed the challenge: 5
+I completed the challenge: 4
+
 I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+
+I'm not sure if my constructors are setup cleanly, not alot of things are cleanly written in my code
+But I learned a ton. More practice is needed
+
