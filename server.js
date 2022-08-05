@@ -77,6 +77,6 @@ app.delete('/removeOne', (req, res) => {
     .catch(err => console.error(err))
 })
 
-app.listen(process.env.port || PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`running on port ${PORT}`)
 })
