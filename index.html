@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="width=device-width,initial-scale=1,maximum-scale=10,minimum-scale=.25,user-scalable=yes"
+      name="viewport"
+    />
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	  <style>
+  .container {
+  	width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+  }
+	form {
+		width: 500px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+    margin-bottom: 30px;
+	}
+
+  .unchange {
+    color: green;
+  }
+
+  .change {
+    color: orange;
+  }
+
+  form {
+      border: 2px solid #94A7AE;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+  }
+
+  form > * {
+    margin: 10px;
+    height: 30px;
+  }
+
+  form > input {
+    width: 393px;
+    padding-left: 10px;
+    border: 1px solid #94A7AE;
+    border-radius: 5px;
+  }
+  form > div {
+    width: 400px;
+  }
+
+
+  form > textarea {
+    width: 368px;
+    height: 100px;
+    border: 1px solid #94A7AE;
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  .options {
+    display: flex;
+  }
+
+  .options > div {
+    width: 50%;
+    display: inline-block;
+    margin-right: 20px;
+        height: 30px;
+
+  }
+
+  span.label {
+    padding-right: 10px;
+    display: inline-block;
+        height: 30px;
+    border-radius: 5px;
+  }
+
+  select {
+      width: 80px;
+    height: 30px;
+    border: 1px solid #94A7AE;
+    border-radius: 5px;
+  }
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+  button {
+    width: 100px;
+    border-color: transparent;
+    border-radius: 5px;
+  }
+
+  button[type="submit"] {
+    background-color: #0A62D0;
+    color: #FFF;
+  }
+
+    button[type="reset"] {
+    background-color: #94A7AE;
+    color: #fff;
+    }
+
+  .title {
+    font-weight: bold;
+    font-size: 30px;
+    color:#94A7AE;
+    text-align: center;
+  }
+
+  .task-list {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: auto;
+  }
+
+  .task-item {
+     display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 5px;
+    border-bottom: 1px solid #FDA403
+  }
+
+  .task-item > * {
+    padding-left: 10px;
+
+  }
+
+  .fullfilled {
+    color: green;
+  }
+
+  .pending {
+    color: orange;
+  }
+  .fa-trash {
+      color: red;
+  }
+
+
+  .taskname {
+    width: 150px;
+    font-weight: bold;
+  }
+
+  .state {
+    width: 70px;
+    display: inline-block;
+    padding: 0 10px;
+  }
+
+  .priority {
+    width: 30px;
+    display: inline-block;
+        padding: 0 10px;
+  }
+
+  .info {
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  </style>
+  </head>
+  <body>
+  <div class="container" id="formContainer">
+
+  <form action="/api/todo" method="POST">
+    <div class="title">Add a new task</div>
+    <input type="hidden" name="taskId" value="" id="taskId"/>
+    <input type="text" placeholder="Task Name" name="taskName" id="taskName" />
+    <textarea col="10" placeholder="Task description" name="description" id="description"></textarea>
+    <div class="options">
+    <div class="priority"><span class="label">Priority</span>
+	<select name="priority" id="priority">
+		<option value="Low">Low</option>
+		<option value="Normal">Normal</option>
+		<option value="Higth">Higth</option>
+		<option value="Urgent">Urgent</option>
+	</select>
+  </div>
+  <div class="state"><span class="label">Status</span>
+	<select name="state" id="state">
+		<option value="Pending">Pending</option>
+		<option value="Fullfilled">Fullfilled</option>
+	</select>
+</div>
+</div>
+  <div class="actions">
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+    </div>
+  </form>
+
+  </div>
+  <div class="task-list">
+  </div>
+
+
+    <script type="module" src="/src/client/entry-client.tsx"></script>
+    <!--ssr-outlet-->
+  </body>
+</html>
