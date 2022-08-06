@@ -16,7 +16,7 @@
         "build:client": "vite build --outDir dist/client",
         "build:server": "vite build --ssr src/client/entry-server.tsx --outDir dist/server",
         "test": "jest",
-        "start": "vite serve",
+        "start": "node server.js",
         "test:watch": "jest --watch",
         "coverage": "jest --coverage",
         "serve": "pnpm build && pnpm copy-files && cross-env NODE_ENV=production vite-node dist/server.js",
@@ -127,5 +127,8 @@
         "hooks": {
             "pre-push": "pnpm format"
         }
-    }
+    },
+    "engines": {
+    "node": "16.13.1"
+  }
 }
