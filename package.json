@@ -22,7 +22,7 @@
         "serve:local": "vite serve",
         "clean": "rimraf dist/",
         "predeploy": "pmpm build",
-        "deploy": "gh-pages -d build",
+        "deploy": "gh-pages -d dist",
         "fix-code": "prettier-eslint --write 'src/**/*.{js,jsx}' ",
         "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}' ",
         "copy-files": "copyfiles public/* dist/ && copyfiles -dist/client/* dist/",
