@@ -1,0 +1,18 @@
+///
+/// Transit by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Section/Article */
+
+	section, article {
+		&.special {
+			text-align: center;
+		}
+	}
+
+	@mixin color-section($p: null) {
+	}
+
+	@include color-section;

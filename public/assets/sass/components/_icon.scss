@@ -1,0 +1,56 @@
+///
+/// Transit by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Icon */
+
+	.icon {
+		@include icon;
+		position: relative;
+		border-bottom: none;
+
+		> .label {
+			display: none;
+		}
+
+		&.major {
+			display: inline-block;
+			margin: 0 0 (_size(element-margin) * 0.5) 0;
+			text-align: center;
+
+			&:before {
+				display: block;
+				border: solid 1px _palette(border);
+				color: _palette(highlight);
+				font-size: 2rem;
+				width: 5.25rem;
+				height: 5.25rem;
+				line-height: 5.25rem;
+				border-radius: 5.25rem;
+			}
+
+			&.alt {
+				&:before {
+					font-size: 1.25rem;
+					width: 3.25rem;
+					height: 3.25rem;
+					line-height: 3.25rem;
+					border-radius: 3.25rem;
+				}
+			}
+		}
+
+		&.solid {
+			&:before {
+				font-weight: 900;
+			}
+		}
+
+		&.brands {
+			&:before {
+				font-family: 'Font Awesome 5 Brands';
+			}
+		}
+	}

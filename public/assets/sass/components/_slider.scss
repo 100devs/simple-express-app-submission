@@ -1,0 +1,206 @@
+///
+/// Transit by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Slider */
+
+	.slider-wrapper {
+		position: relative;
+		margin: 0 0 _size(element-margin) calc(-3rem + 1px);
+		width: calc(100% + 6rem - 2px);
+
+		.slider {
+			position: relative;
+			width: 100%;
+			overflow-x: hidden;
+			overflow-y: hidden;
+			white-space: nowrap;
+			padding-bottom: 0.125rem;
+
+			&:after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+
+			article {
+				@include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
+				display: inline-block;
+				cursor: default;
+				width: 25rem;
+				max-width: calc(100% - 6rem);
+				margin: 0 3rem 0 0;
+				opacity: 1;
+
+				.image {
+					@include vendor('user-select', 'none');
+					display: block;
+					width: 100%;
+					border-radius: 0;
+					margin-bottom: 0;
+					border-top-left-radius: _size(border-radius);
+					border-top-right-radius: _size(border-radius);
+
+					img {
+						display: block;
+						width: 100%;
+						border-radius: 0;
+						border-top-left-radius: _size(border-radius);
+						border-top-right-radius: _size(border-radius);
+					}
+				}
+
+				.content {
+					padding: 1.25rem 1.25rem;
+					border: solid 1px;
+					border-top: 0;
+					border-bottom-left-radius: _size(border-radius);
+					border-bottom-right-radius: _size(border-radius);
+
+					> :last-child {
+						margin-bottom: 0;
+					}
+				}
+
+				&:first-child {
+					margin-left: 3rem;
+				}
+
+				&.inactive {
+					opacity: 0.25;
+
+					a {
+						@include vendor('pointer-events', 'none');
+						cursor: default;
+					}
+				}
+			}
+		}
+
+		.indicators {
+			cursor: default;
+			margin-top: 2rem;
+
+			a {
+				display: inline-block;
+				position: relative;
+				width: 1.25rem;
+				height: 1.25rem;
+				text-indent: -2.5rem;
+				overflow: hidden;
+				border: 0;
+				outline: 0;
+
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: 0.625rem;
+					height: 0.625rem;
+					margin: -0.3125rem 0 0 -0.3125rem;
+					border-radius: 0.625rem;
+					border: solid 1px;
+				}
+
+				&.active {
+					&:before {
+						border: 0;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			margin: 0 0 _size(element-margin) calc(-2rem + 1px);
+			width: calc(100% + 4rem - 2px);
+
+			.slider {
+				article {
+					margin: 0 2rem 0 0;
+
+					&:first-child {
+						margin-left: 2rem;
+					}
+				}
+			}
+
+			.indicators {
+				margin-top: 1.5rem;
+			}
+		}
+
+		@include breakpoint('<=xsmall') {
+			.slider {
+				article {
+					max-width: calc(100% - 4rem);
+				}
+			}
+
+			.indicators {
+				a {
+					width: 2.25rem;
+					height: 2rem;
+					text-indent: -5.5rem;
+
+					&:before {
+						width: 0.75rem;
+						height: 0.75rem;
+						margin: -0.375rem 0 0 -0.375rem;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=xxsmall') {
+			margin: 0 0 _size(element-margin) calc(-1.5rem + 1px);
+			width: calc(100% + 3rem - 2px);
+
+			.slider {
+				article {
+					margin: 0 1.5rem 0 0;
+					max-width: calc(100% - 3rem);
+
+					&:first-child {
+						margin-left: 1.5rem;
+					}
+				}
+			}
+		}
+	}
+
+	@mixin color-slider($p: null) {
+		.slider-wrapper {
+			.slider {
+				article {
+					.content {
+						border-color: _palette($p, border);
+					}
+				}
+			}
+
+			.indicators {
+				a {
+					&:before {
+						border-color: _palette($p, border);
+					}
+
+					&.active {
+						&:before {
+							@if ($p != null) {
+								background-color: _palette($p, fg-bold);
+							}
+							@else {
+								background-color: _palette(highlight);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include color-slider;

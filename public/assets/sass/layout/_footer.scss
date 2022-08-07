@@ -1,0 +1,69 @@
+///
+/// Transit by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Footer */
+
+	#footer {
+		@include vendor('display', 'flex');
+		@include vendor('align-items', 'center');
+		background-color: _palette(bg-alt);
+		border-bottom-left-radius: _size(border-radius);
+		border-bottom-right-radius: _size(border-radius);
+		padding: 1.75rem 2rem;
+		color: _palette(fg-light);
+		cursor: default;
+
+		> * {
+			@include vendor('flex-grow', '1');
+			@include vendor('flex-shrink', '1');
+			width: 100%;
+			margin-bottom: 0;
+		}
+
+		> :first-child {
+			text-align: left;
+		}
+
+		> :last-child {
+			text-align: right;
+		}
+
+		.copyright {
+			font-size: 0.9rem;
+		}
+
+		.icons {
+			a {
+				color: inherit;
+			}
+		}
+
+		@include breakpoint('<=small') {
+			padding: 1rem 1.5rem;
+
+			.copyright {
+				font-size: 1rem;
+			}
+		}
+
+		@include breakpoint('<=xsmall') {
+			@include vendor('flex-direction', 'column');
+			padding: 1.5rem 1.5rem;
+
+			> * {
+				margin: 0 0 0.5rem 0;
+			}
+
+			> :first-child {
+				text-align: center;
+			}
+
+			> :last-child {
+				text-align: center;
+				margin-bottom: 0;
+			}
+		}
+	}

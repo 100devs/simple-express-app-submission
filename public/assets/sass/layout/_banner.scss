@@ -1,0 +1,86 @@
+///
+/// Transit by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Banner */
+
+	#banner {
+		@include color-typography(invert);
+		@include color-button(invert);
+		@include vendor('cursor', 'default');
+		position: relative;
+		padding: 5rem 3rem;
+		background-color: _palette(bg-alt);
+
+		.image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 0;
+
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: 0;
+			}
+		}
+
+		.content {
+			@include padding(3.5rem, 2rem);
+			@include vendor('transition', (
+				'opacity 1s ease-in-out',
+				'transform 1s ease-in-out'
+			));
+			position: relative;
+			width: 30rem;
+			max-width: 100%;
+			margin: 0 auto;
+			background-image: linear-gradient(90deg, rgba(_palette(accent1), 0.9), rgba(_palette(accent2), 0.9));
+			border-radius: _size(border-radius);
+			text-align: center;
+			z-index: 1;
+
+			h1 {
+				margin-bottom: _size(element-margin) * 0.325;
+			}
+
+			p {
+				margin-bottom: _size(element-margin) * 0.625;
+			}
+		}
+
+		body.is-preload & {
+			.content {
+				@include vendor('transform', 'translateY(0.5rem)');
+				opacity: 0;
+			}
+		}
+
+		@include breakpoint('<=small') {
+			padding: 3rem 2rem;
+
+			.content {
+				@include padding(3rem, 1.5rem);
+				width: 25rem;
+			}
+		}
+
+		@include breakpoint('<=xsmall') {
+			padding: 2rem;
+
+			.content {
+				@include padding(2.5rem, 1.5rem);
+			}
+		}
+
+		@include breakpoint('<=xxsmall') {
+			padding: 2rem 1.5rem;
+		}
+	}

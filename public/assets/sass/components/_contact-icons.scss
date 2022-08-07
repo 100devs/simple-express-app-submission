@@ -1,0 +1,65 @@
+///
+/// Transit by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Contact Icons */
+
+	ul.contact-icons {
+		@include vendor('display', 'flex');
+		list-style: none;
+		padding-left: 0;
+
+		li {
+			@include vendor('flex-grow', '1');
+			@include vendor('flex-shrink', '1');
+			border-left: solid 1px;
+			padding-left: 0;
+			width: 100%;
+
+			> :last-child {
+				margin-bottom: 0;
+			}
+
+			&:first-child {
+				border-left: 0;
+			}
+
+			a {
+				color: inherit;
+				border-bottom-color: transparent;
+
+				&:hover {
+					border-bottom-color: inherit;
+				}
+			}
+		}
+
+		@include breakpoint('<=xsmall') {
+			@include vendor('flex-direction', 'column');
+
+			li {
+				border-left: 0;
+				border-top: solid 1px;
+				padding-top: _size(element-margin);
+				margin-top: _size(element-margin);
+
+				&:first-child {
+					border-top: 0;
+					padding-top: 0;
+					margin-top: 0;
+				}
+			}
+		}
+	}
+
+	@mixin color-contact-icons($p: null) {
+		ul.contact-icons {
+			li {
+				border-color: _palette($p, border);
+			}
+		}
+	}
+
+	@include color-contact-icons;
