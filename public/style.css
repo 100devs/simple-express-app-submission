@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #f5dfbb;
+  font-family: "Roboto", sans-serif;
+}
+
+.todo-container {
+  color: #562c2c;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-family: "Raleway", sans-serif;
+  color: #562c2c;
+  padding: 10px;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.todo {
+  width: 400px;
+}
+
+input {
+  font-family: "Fira Code", monospace;
+  margin-bottom: 2px;
+  padding: 10px;
+  border-radius: 5px;
+  height: 20px;
+  font-size: 1rem;
+  margin: 5px auto;
+  width: 100%;
+}
+
+textarea {
+  font-family: "Fira Code", monospace;
+  display: block;
+  font-size: 1rem;
+  padding: 10px;
+  margin: auto;
+  width: 100%;
+}
+
+.todo-header button {
+  color: #f5dfbb;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f2542d;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin: 5px auto;
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+.todo-list-item {
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #f5dfbb;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 3.2px 7.2px 0 rgb(0 0 0 / 13%), 0 0.6px 1.8px 0 rgb(0 0 0 / 11%);
+}
+
+.todo-list-item-content {
+  font-size: 0.8rem;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.todo-list-item form {
+  width: 100%;
+  display: flex;
+}
+.todo-list-item input {
+  flex-grow: 2;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.todo-list-item .confirm {
+  color: #562c2c;
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: limegreen;
+  max-height: 30px;
+  margin-left: 5px;
+  font-family: "Roboto", sans-serif;
+  display: block;
+}
+
+.todo-list-item .cancel {
+  color: #562c2c;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 5px;
+  cursor: pointer;
+  background-color: red;
+  max-height: 30px;
+  margin-left: 5px;
+  font-family: "Roboto", sans-serif;
+  display: block;
+}
+
+.todo-list-item div {
+  flex-grow: 2;
+  display: flex;
+}
+
+.todo-list-item .edit {
+  color: #0e9594;
+  margin-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.todo-list-item .remove {
+  color: red;
+  margin-right: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
