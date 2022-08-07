@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="width=device-width,initial-scale=1,maximum-scale=10,minimum-scale=.25,user-scalable=yes"
+      name="viewport"
+    />
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" crossorigin src="/assets/index.f0be8c05.js"></script>
+    <link rel="stylesheet" href="/assets/index.2ce941ba.css">
+  </head>
+  <body>
+  <div class="container" id="formContainer">
+
+  <form action="/api/todo" method="POST">
+    <div class="title">Add a new task</div>
+    <input type="hidden" name="taskId" value="" id="taskId"/>
+    <input type="text" placeholder="Task Name" name="taskName" id="taskName" />
+    <textarea col="10" placeholder="Task description" name="description" id="description"></textarea>
+    <div class="options">
+    <div class="priority"><span class="label">Priority</span>
+	<select name="priority" id="priority">
+		<option value="Low">Low</option>
+		<option value="Normal">Normal</option>
+		<option value="Higth">Higth</option>
+		<option value="Urgent">Urgent</option>
+	</select>
+  </div>
+  <div class="state"><span class="label">Status</span>
+	<select name="state" id="state">
+		<option value="Pending">Pending</option>
+		<option value="Fullfilled">Fullfilled</option>
+	</select>
+</div>
+</div>
+  <div class="actions">
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+    </div>
+  </form>
+
+  </div>
+  <div class="task-list">
+  </div>
+
+
+    
+    <!--ssr-outlet-->
+  </body>
+</html>
