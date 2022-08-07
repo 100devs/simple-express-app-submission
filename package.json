@@ -16,7 +16,7 @@
         "build:client": "vite build --outDir dist/client",
         "build:server": "vite build --ssr src/client/entry-server.tsx --outDir dist/server",
         "test": "jest",
-        "start": "node dist/server.js",
+        "start": "tsc && node dist/server.js",
         "test:watch": "jest --watch",
         "coverage": "jest --coverage",
         "serve": "npm run build && npm run copy-files && cross-env NODE_ENV=production vite-node dist/server.js",
@@ -28,7 +28,7 @@
         "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}' ",
         "copy-files": "copyfiles public/* dist/ && copyfiles -dist/client/* dist/",
         "format": "tsc && npm run fix-code && npm run fix-styles",
-		"heroku-postbuild": "npm config set ignore-scripts true && npm install && npm run serve"
+		"heroku-postbuild": "npm install && npm run serve"
     },
     "dependencies": {
         "@types/styled-components": "^5.1.25",
