@@ -67,6 +67,7 @@ MongoClient.connect(process.env.DB_CONN_STRING, { useUnifiedTopology: true })
             const url = req.originalUrl;
             // 1. Read index.html
             let template = fs.readFileSync(path.resolve(__dirname, "index.html"), "utf-8");
+            if(!isProd) {
             try {
                 // 2. Apply Vite HTML transforms. This injects the Vite HMR client, and
                 //    also applies HTML transforms from Vite plugins, e.g. global preambles
@@ -88,6 +89,7 @@ MongoClient.connect(process.env.DB_CONN_STRING, { useUnifiedTopology: true })
                 // your actual source code.
                 vite.ssrFixStacktrace(e);
                 next(e);
+            }
             }
             // 6. Send the rendered HTML back.
             res.status(200).set({ "Content-Type": "text/html" }).end(template);
