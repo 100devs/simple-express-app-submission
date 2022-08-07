@@ -25,7 +25,7 @@ MongoClient.connect(process.env.DB_CONN_STRING, { useUnifiedTopology: true })
         const resolve = (p) => path.resolve(__dirname, p);
         //  app.use("/", routes);
         app.use("/", todos_1.default);
-        // use this only in dev 
+        // use this only in dev
         if (!isProd)
             app.set('view engine', 'ejs');
         let isDistFolder = false;
@@ -81,7 +81,7 @@ MongoClient.connect(process.env.DB_CONN_STRING, { useUnifiedTopology: true })
                 //    e.g. ReactDOMServer.renderToString()
                 const appHtml = await render(url);
                 // 5. Inject the app-rendered HTML into the template.
-                const template = template.replace(`<!--ssr-outlet-->`, appHtml);
+                template = template.replace(`<!--ssr-outlet-->`, appHtml);
             }
             catch (e) {
                 // If an error is caught, let Vite fix the stack trace so it maps back to
