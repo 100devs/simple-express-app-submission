@@ -28,7 +28,6 @@
         "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}' ",
         "copy-files": "copyfiles public/* dist/ && copyfiles -dist/client/* dist/",
         "format": "tsc && npm run fix-code && npm run fix-styles",
-        "prepare": "husky install",
 		"heroku-postbuild": "npm config set ignore-scripts true && npm install && npm run serve"
     },
     "dependencies": {
