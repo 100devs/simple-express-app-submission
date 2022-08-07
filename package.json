@@ -2,6 +2,7 @@
   "name": "Project loaded from gh-pages",
   "version": "0.0.0",
   "description": "Gh pages",
+  "homepage": "https://github.com/Angra974/simple-express-app-submission/",
   "scripts": {
 	"start": "node server.js && serve"
   },
