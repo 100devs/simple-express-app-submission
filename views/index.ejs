@@ -1,0 +1,52 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Adventure Time Quotes App</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <h1>Adventure Time Quotes</h1>
+
+    <form action="/quotes" method="POST">
+      <input type="text" placeholder="name" name="name" />
+      <input type="text" placeholder="quote" name="quote" />
+      <button type="submit">Submit</button>
+    </form>
+    <h2> Fight Ice King with a Finn Quote! </h2>
+
+    <ul class="quotes">
+  <!-- Loop through quotes -->
+  <% for(var i = 0; i < quotes.length; i++) {%>
+    <li class="quote">
+      <!-- Output name from the iterated quote object -->
+      <span><%= quotes[i].name %></span>:
+      <!-- Output quote from the iterated quote object -->
+      <span><%= quotes[i].quote %></span>
+    </li>
+  <% } %>
+    </ul>
+
+    <div>
+      <h2>Ice King invades!</h2>
+      <p>
+        Get a response from Ice King
+      </p>
+      <button id="update-button">Ice King Quote</button>
+    </div>
+
+    <div>
+      <h2>Kick Ice King's Buns!</h2>
+      <p>
+        Delete one of Ice King's quote. Does nothing if there are no more Ice King quotes.
+      </p>
+      <button id="delete-button">Delete Ice King's quote</button>
+    </div>
+
+    <div id="message"></div>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
