@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon.png">
+    
+    <script src="https://kit.fontawesome.com/b22d580f52.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Famous Coders</title>
+</head>
+<body>
+    <h1>My Favorite Famous Coders</h1>
+    <ul class="coders fa-ul">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="coder"><span class="fa-li"><i class="fa-solid fa-xs fa-code"></i></span>
+            <span><%= info[i].firstName %></span>
+            <span><%= info[i].lastName %></span></span>
+            <span><%= info[i].birthDate %></span>
+            <span class='fa-solid fa-trash-can'></span>
+            <span><%= info[i].likes %></span>
+            <% if (info[i].likes >= 1) { %>
+                <span class='fa-solid fa-heart red'></span>
+            <% } else { %> 
+                <span class='fa-solid fa-heart'></span>
+            <% } %>
+        </li>
+    <% } %>
+    </ul>
+    <hr>
+    <h2>Add A Famous Coder:</h2>
+    <div>
+        <form action="/addCoder" method="POST">
+            <label for="firstName">First Name:</label>
+            <input type="text" placeholder="First Name" name="firstName">
+            <label for="lastName">Last Name:</label>
+            <input type="text" placeholder="Last Name" name="lastName">
+            <label for="birthDate">Birth Date:</label>
+            <input type="date" placeholder="dd-mm-yyyy" value="1/1/1955" name="birthDate">
+            <textarea type="text" placeholder="They're famous for..." name="famousFor"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src='js/main.js'></script>
+</body>
+</html>
