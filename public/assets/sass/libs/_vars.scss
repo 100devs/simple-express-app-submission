@@ -1,0 +1,53 @@
+// Misc.
+	$misc: (
+		z-index-base:		10000
+	);
+
+// Duration.
+	$duration: (
+		menu:				0.5s,
+		transition:			0.2s
+	);
+
+// Size.
+	$size: (
+		border-radius:		0.325rem,
+		element-height:		2.825rem,
+		element-margin:		2rem
+	);
+
+// Font.
+	$font: (
+		family:				('Source Sans Pro', Helvetica, sans-serif),
+		family-fixed:		('Courier New', monospace),
+		weight:				300,
+		weight-bold:		400
+	);
+
+// Palette.
+	$palette: (
+		bg:					#ffffff,
+		bg-alt:				#f1f1f1,
+		bg-overlay:			#476777,
+		fg:					#656565,
+		fg-bold:			#454545,
+		fg-light:			#bbbbbb,
+		border:				#d5d5d5,
+		border-bg:			rgba(#d5d5d5,0.075),
+
+		highlight:			#54c3e1,
+		accent1:			#54c3e1,
+		accent2:			#6bc378,
+		accent3:			#5da49b,
+		accent4:			#6e7baa,
+
+		invert: (
+			bg:				#454545,
+			fg:				rgba(255,255,255,0.75),
+			fg-bold:		#ffffff,
+			fg-light:		rgba(255,255,255,0.5),
+			border:			#ffffff,
+			border-bg:		rgba(255,255,255,0.125)
+		)
+
+	);

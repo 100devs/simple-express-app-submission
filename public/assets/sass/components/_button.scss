@@ -1,0 +1,165 @@
+///
+/// Transit by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Button */
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+		@include vendor('appearance', 'none');
+		@include vendor('transition', (
+			'background-color #{_duration(transition)} ease-in-out',
+			'box-shadow #{_duration(transition)} ease-in-out',
+			'color #{_duration(transition)} ease-in-out'
+		));
+		border-radius: _size(border-radius);
+		border: 0;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: _font(weight-bold);
+		height: _size(element-height);
+		line-height: _size(element-height);
+		padding: 0 1.5rem;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+
+		&.icon {
+			&:before {
+				margin-right: 0.5rem;
+				opacity: 0.5;
+			}
+		}
+
+		&.fit {
+			width: 100%;
+		}
+
+		&.wide {
+			width: 9rem;
+		}
+
+		&.small {
+			font-size: 0.8rem;
+			height: _size(element-height) * 0.75;
+			line-height: _size(element-height) * 0.75;
+			padding: 0 1.25rem;
+		}
+
+		&.large {
+			font-size: 1.325rem;
+			height: _size(element-height) * 1.25;
+			line-height: _size(element-height) * 1.25;
+			padding: 0 1.75rem;
+		}
+
+		&.disabled,
+		&:disabled {
+			@include vendor('pointer-events', 'none');
+			opacity: 0.25;
+		}
+	}
+
+	@mixin color-button($p: null) {
+		$highlight: _palette($p, highlight);
+
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		button,
+		.button {
+			background-color: transparent;
+			box-shadow: inset 0 0 0 2px _palette($p, border);
+			color: _palette($p, fg-bold) !important;
+
+			&:hover {
+				@if $p != null {
+					background-color: _palette($p, border-bg);
+					color: _palette($p, fg-bold) !important;
+				}
+				@else {
+					box-shadow: inset 0 0 0 2px $highlight;
+					color: $highlight !important;
+				}
+
+				&:active {
+					@if $p != null {
+						background-color: rgba(_palette($p, border-bg), 0.325);
+					}
+					@else {
+						background-color: rgba($highlight, 0.075);
+					}
+				}
+			}
+
+			&.primary {
+				box-shadow: none;
+
+				@if $p != null {
+					background-color: _palette($p, fg-bold);
+					color: _palette($p, bg) !important;
+				}
+				@else {
+					background-color: $highlight;
+					color: _palette(bg) !important;
+				}
+			}
+		}
+
+		@if $p == 'invert' {
+			&.accent1 {
+				input[type="submit"],
+				input[type="reset"],
+				input[type="button"],
+				button,
+				.button {
+					&.primary {
+						color: _palette(accent1) !important;
+					}
+				}
+			}
+
+			&.accent2 {
+				input[type="submit"],
+				input[type="reset"],
+				input[type="button"],
+				button,
+				.button {
+					&.primary {
+						color: _palette(accent2) !important;
+					}
+				}
+			}
+
+			&.accent3 {
+				input[type="submit"],
+				input[type="reset"],
+				input[type="button"],
+				button,
+				.button {
+					&.primary {
+						color: _palette(accent3) !important;
+					}
+				}
+			}
+
+			&.accent4 {
+				input[type="submit"],
+				input[type="reset"],
+				input[type="button"],
+				button,
+				.button {
+					&.primary {
+						color: _palette(accent4) !important;
+					}
+				}
+			}
+		}
+	}
+
+	@include color-button;

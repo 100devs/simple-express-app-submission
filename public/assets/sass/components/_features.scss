@@ -1,0 +1,121 @@
+///
+/// Transit by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Features */
+
+	ul.features {
+		@include vendor('display', 'inline-flex');
+		@include vendor('cursor', 'default');
+		list-style: none;
+		padding-left: 0;
+
+		li {
+			display: block;
+			padding-left: 3.25rem;
+
+			h3 {
+				color: inherit;
+				font-size: 1rem;
+			}
+
+			.icon {
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: -3.25rem;
+					width: 3.25rem;
+					height: 1px;
+				}
+			}
+
+			&:first-child {
+				padding-left: 0;
+
+				.icon {
+					&:after {
+						display: none;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			li {
+				padding-left: 2rem;
+
+				.icon {
+					&:after {
+						left: -2rem;
+						width: 2rem;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=xsmall') {
+			@include vendor('flex-wrap', 'wrap');
+
+			li {
+				padding: 2rem 1rem;
+				width: 50%;
+				border: solid 1px;
+				border-right: 0;
+				border-bottom: 0;
+
+				.icon {
+					&:after {
+						display: none;
+					}
+				}
+
+				> :last-child {
+					margin-bottom: 0;
+				}
+
+				&:first-child {
+					padding-left: 1rem;
+				}
+
+				&:nth-child(-n + 2) {
+					border-top: 0;
+				}
+
+				&:nth-child(2n - 1) {
+					border-left: 0;
+				}
+			}
+
+			&.odd {
+				li {
+					&:last-child {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	@mixin color-features($p: null) {
+		ul.features {
+			li {
+				.icon {
+					&:after {
+						background-color: _palette($p, border);
+					}
+				}
+			}
+
+			@include breakpoint('<=xsmall') {
+				li {
+					border-color: _palette($p, border);
+				}
+			}
+		}
+	}
+
+	@include color-features;

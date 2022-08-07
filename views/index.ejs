@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<!--
+	Transit by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+<html>
+	<head>
+		<title>When's my turn?</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+                        <% if(p1 == '') {%><a href="/" class="logo"><strong>When's my turn in Guilty Gear -Strive-?</strong></a><% } else { %>
+                        <a href="/" class="logo"><strong>You're <%= p1.split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ') %> vs. <%= p2.split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ') %>:</strong></a><% } %>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Nav -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="/">Home</a></li>
+							<li><a href="/api">API</a></li>
+							<li><a href="https://github.com/anitanotto/ggst-framedata">Github</a></li>
+						</ul>
+
+                            <% if (p1 !== '') { %>
+                        <ul class="actions stacked">
+                            <li>Change Matchup</li>
+        <select id="p1"> 
+            <% for(let i = 0;  i < Object.keys(info).length; i++) {%>
+            <% if(Object.keys(info)[i] == p1) {%>
+            <option value="<%= Object.keys(info)[i] %>" selected><%= Object.keys(info)[i].split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ') %></option>
+            <% } else {%>
+            <option value="<%= Object.keys(info)[i] %>"><%= Object.keys(info)[i].split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ') %></option>
+            <% } %>
+            <% } %>
+        </select>
+        <span> vs. </span>
+        <select id="p2">
+            <% for(let i = 0;  i < Object.keys(info).length; i++) {%>
+            <% if(Object.keys(info)[i] == p2) {%>
+            <option value="<%= Object.keys(info)[i] %>" selected><%= Object.keys(info)[i].split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ') %></option>
+            <% } else {%>
+            <option value="<%= Object.keys(info)[i] %>"><%= Object.keys(info)[i].split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ') %></option>
+            <% } %>
+            <% } %>
+        </select>
+        
+    </form>
+								<li><a href="/" class="button">When's my turn?</a></li>
+
+                            <% } %>
+                        </ul>
+					</nav>
+
+				<!-- Banner -->
+                <% if(p1 == '' && p2 == '') {%>
+					<section id="banner">
+						<div class="image filtered" data-position="center">
+							<img src="/images/pic01.jpg" alt="" />
+						</div>
+						<div class="content">
+    <form>
+        <span>I'm</span>
+        <select id="p1"> 
+            <% for(let i = 0;  i < Object.keys(info).length; i++) {%>
+            <% if(Object.keys(info)[i] == 'sol_badguy') {%>
+            <option value="<%= Object.keys(info)[i] %>" selected><%= Object.keys(info)[i].split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ') %></option>
+            <% } else {%>
+            <option value="<%= Object.keys(info)[i] %>"><%= Object.keys(info)[i].split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ') %></option>
+            <% } %>
+            <% } %>
+        </select>
+        <span> vs. </span>
+        <select id="p2">
+            <% for(let i = 0;  i < Object.keys(info).length; i++) {%>
+            <% if(Object.keys(info)[i] == 'ky_kiske') {%>
+            <option value="<%= Object.keys(info)[i] %>" selected><%= Object.keys(info)[i].split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ') %></option>
+            <% } else {%>
+            <option value="<%= Object.keys(info)[i] %>"><%= Object.keys(info)[i].split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ') %></option>
+            <% } %>
+            <% } %>
+        </select>
+        
+    </form>
+							<ul class="actions special">
+								<li><a href="/" class="button">When's my turn?</a></li>
+							</ul>
+						</div>
+					</section>
+                    <% } %>
+
+				<!-- Spotlight -->
+    <% if(p1 !== '' && p2 !== '') {%>
+    <% let validMoves = {} %>
+    <% let invalidMoves = ['Servant', '100T Weight', 'Earthquake', 'bt.', 'j.', 'KK', 'SS', 'Kachoufuugetsu', 'Hiiragi', 'Air Throw', 'Heavenly Potemkin', 'Finish Blow', 'Burn It Down', 'Followup'] %>
+    <% for(let yourMove in info[p1]) {%>
+    <% if(info[p1][yourMove].startup && info[p1][yourMove].startup !== '-' && invalidMoves.every(e => !yourMove.includes(e))) {%>
+    <% let startup = info[p1][yourMove].startup %>
+
+    <% if(typeof startup !== 'number' && startup.includes('+')) {%>
+    <% startup = startup.split('+') %>
+    <% startup = Number(startup[0]) + Number(startup[startup.length-1]) %>
+    <% } %>
+
+    <% if(typeof startup !== 'number' && startup.includes(' [')) {%>
+    <% startup = startup.split(' [') %>
+    <% startup = Number(startup[0]) %>
+    <% } %>
+
+    <% if(typeof startup !== 'number' && startup.includes(',')) {%>
+    <% startup = startup.split(',') %>
+    <% startup = Number(startup[0]) %>
+    <% } %>
+
+    <% if(typeof startup !== 'number' && startup.includes(' (')) {%>
+    <% startup = startup.split(' (') %>
+    <% startup = Number(startup[0]) %>
+    <% } %>
+
+    <% if(typeof startup !== 'number' && startup.includes('+0(')) {%>
+    <% startup = 11 %>
+    <% } %>
+
+    <% if(typeof startup !== 'number' && startup.includes('] ')) {%>
+    <% startup = startup.split('] ') %>
+    <% startup = Number(startup[0].slice(1)) %>
+    <% } %>
+
+    <% if(typeof startup !== 'number' && startup.includes('~')) {%>
+    <% startup = startup.split('~ ') %>
+    <% startup = Number(startup[0]) %>
+    <% } %>
+
+    <% validMoves[yourMove] = startup %>
+    <% } %>
+    <% } %>
+    
+    <% let imgCounter = 0 %>
+    <% for(let move in info[p2]) {%>
+    <% let plusMoves = [[],[],[],[]] %>
+    
+    <% let onBlock = info[p2][move].onBlock %>
+
+    <% if (onBlock.includes('GI')) {%>
+        <% if (p1 == 'giovanna') { %>
+        <% onBlock = '14' %>
+        <% } else { %>
+        <% onBlock = '12' %>
+        <% } %>
+    <% } else { %>
+    <% onBlock = onBlock.replace(/[()~\[\]{},]/g,' ') %>
+    <% onBlock = onBlock.split(/ + /g) %>
+    <% } %>
+
+    <% if (onBlock.length === 1) {%>
+    <% onBlock = onBlock[0] %>
+
+
+
+    <% for(let yourMove in validMoves) {%>
+    <% if (onBlock < 0 && Math.abs(info[p2][move].onBlock) > validMoves[yourMove] ) {%>
+    <% plusMoves[0].push(yourMove) %>
+    <% } %>
+    <% } %>
+
+    <% if (info[p2][move].onBlock && plusMoves[0].length > 0) {%>
+    <section class="main spotlight right invert accent1">
+    <div class="image filtered" data-position="center">
+        <img src="/images/<%= p2 %>/<%= imgCounter %>.png">
+    </div>
+    <div class="content">
+    <h2>If you block their <%= move %>, you can :</h2>
+    <p><%= plusMoves[0].join(", ") %></p>
+    </div>
+    </section>
+    <% } %>
+    <% } %>
+
+    <% if (Array.isArray(onBlock)) { %>
+    <% let renderString1 = '' %>
+    <% let renderString2 = '' %>
+    <% let renderString3 = '' %>
+    <% let renderString4 = '' %>
+
+    <% if (onBlock.length === 2) {%>
+    <% if (info[p2][move].onBlock.includes('~')) {%>
+    <% onBlock = onBlock.sort((a,b) => b-a) %>
+    <% renderString1 = 'If you block their properly spaced' %>
+    <% renderString2 = 'If it was improperly spaced' %>
+    <% } else if (info[p2][move].onBlock.includes('[')) {%>
+    <% if (p2 == 'ky_kiske') { %>
+    <% renderString1 = 'If you block their' %>
+    <% renderString2 = 'If you were already in shock state when you blocked' %>
+    <% } else if (p2 == 'leo_whitefang') { %>
+    <% if (move.includes('bt.')) { %> 
+    <% renderString1 = 'If they don\'t stance cancel and you block their' %>
+    <% renderString2 = 'If they stance cancel it' %>
+    <% } else if (move.includes('Zweit')) {%>
+    <% renderString1 = 'If you block their run through and it does not cross up' %>
+    <% renderString2 = 'If it does cross up' %>
+    <% } %>
+    <% } else if (p2 == 'may' || p2 == 'faust' || p2 == 'anji_mito') { %>
+    <% renderString1 = 'If you block their uncharged' %>
+    <% renderString2 = 'If it was fully charged' %>
+    <% } else if (p2 == 'ramlethal_valentine') { %>
+    <% renderString1 = 'If you block their' %>
+    <% renderString2 = 'If their sword was unequipped' %>
+    <% } %>
+    <% } %>
+    <% } %>
+
+    <% if (onBlock.length === 3) { %>
+    <% if (p2 == 'ramlethal_valentine') { %>
+    <% renderString1 = 'If you block their' %>
+    <% renderString2 = 'If they only have one sword equipped' %>
+    <% renderString3 = 'If they have neither sword equipped' %>
+    <% } else if (p2 == 'i-no') { %>
+    <% renderString1 = 'If you block their uncharged' %>
+    <% renderString2 = 'If they bounced' %>
+    <% renderString3 = 'If they charged' %>
+    <% } else if (p2 == 'millia_rage') { %>
+    <% renderString1 = 'If you block their 3-hit' %>
+    <% renderString2 = 'If it was 6-hit' %>
+    <% renderString3 = 'If it was 9-hit' %>
+    <% } %>
+
+    <% } %>
+
+    <% if (onBlock.length === 4) { %>
+    <% if (p2 == 'ky_kiske') {%>
+    <!-- I guess this is never actually minus enough to be punishable? -->
+    <% renderString1 = '' %>
+    <% renderString2 = '' %>
+    <% renderString3 = '' %>
+    <% renderString4 = '' %>
+    <% } %>
+
+    <% } %>
+
+    <% for(let yourMove in validMoves) {%>
+    <% if (onBlock[0] < 0 && Math.abs(onBlock[0]) > validMoves[yourMove] ) {%>
+    <% plusMoves[0].push(yourMove) %>
+    <% } %>
+    <% } %>
+
+    <% if (info[p2][move].onBlock && plusMoves[0].length > 0) {%>
+    <section class="main spotlight right invert accent1">
+        <div class="image filtered" data-position="center">
+            <img src="/images/<%= p2 %>/<%= imgCounter %>.png">
+        </div>
+        <div class="content">
+            <h2><%= renderString1 %> <%= move %>, you can :</h2>
+    <p><%= plusMoves[0].join(", ") %></p>
+
+    <% for(let yourMove in validMoves) {%>
+    <% if (onBlock[1] < 0 && Math.abs(onBlock[1]) > validMoves[yourMove] ) {%>
+    <% plusMoves[1].push(yourMove) %>
+    <% } %>
+    <% if (onBlock[2] < 0 && Math.abs(onBlock[2]) > validMoves[yourMove] ) {%>
+    <% plusMoves[2].push(yourMove) %>
+    <% } %>
+    <% if (onBlock[3] < 0 && Math.abs(onBlock[3]) > validMoves[yourMove] ) {%>
+    <% plusMoves[3].push(yourMove) %>
+    <% } %>
+    <% } %>
+
+    <% if (onBlock.length > 1) {%>
+    <% if (info[p2][move].onBlock && plusMoves[1].length > 0) {%>
+    <h2><%= renderString2 %>, you can :</h2>
+    <p><%= plusMoves[1].join(", ") %></p>
+    <% } %>
+    <% } %>
+
+    <% if (onBlock.length > 2) {%>
+    <% if (info[p2][move].onBlock && plusMoves[2].length > 0) {%>
+    <h2><%= renderString3 %>, you can :</h2>
+    <p><%= plusMoves[2].join(", ") %></p>
+    <% } %>
+    <% } %>
+
+    <% if (onBlock.length > 3) {%>
+    <% if (info[p2][move].onBlock && plusMoves[3].length > 0) {%>
+    <h2><%= renderString4 %>, you can :</h2>
+    <p><%= plusMoves[3].join(", ") %></p>
+    <% } %>
+    <% } %>
+        </div>
+    </section>
+    <% } %>
+
+    <% } %>
+    
+    <% imgCounter++ %>
+    <% } %>
+    <% } %>
+
+				<!-- Footer -->
+					<footer id="footer">
+                        <p class="copyright">Data from <a href="https://www.dustloop.com/wiki/index.php?title=Guilty_Gear_-Strive-">Dustloop</a></p>
+						<ul class="icons">
+                            <% if (p1) { %><li><a href="#header">Back to Top</a></li> <% }  %>
+							<li><a href="https://github.com/anitanotto/ggst-framedata/" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+            <script src="/assets/js/router.js"></script>
+
+	</body>
+</html>

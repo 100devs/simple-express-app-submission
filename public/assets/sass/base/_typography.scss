@@ -1,0 +1,247 @@
+///
+/// Transit by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Type */
+
+	html {
+		font-size: 18pt;
+
+		@include breakpoint('<=xlarge') {
+			font-size: 14pt;
+		}
+
+		@include breakpoint('<=large') {
+			font-size: 12pt;
+		}
+
+		@include breakpoint('<=small') {
+			font-size: 11pt;
+		}
+
+		@include breakpoint('<=xxsmall') {
+			font-size: 10.5pt;
+		}
+	}
+
+	body {
+		background-color: _palette(bg);
+		color: _palette(fg);
+	}
+
+	body, button, input, select, textarea {
+		font-family: _font(family);
+		font-weight: _font(weight);
+		font-size: 1rem;
+		line-height: 1.65;
+	}
+
+	a {
+		text-decoration: none;
+		border-bottom: dotted 1px;
+		@include vendor('transition', (
+			'color #{_duration(transition)} ease-in-out',
+			'border-color #{_duration(transition)} ease-in-out'
+		));
+
+		strong {
+			@include vendor('transition', (
+				'color #{_duration(transition)} ease-in-out',
+				'border-color #{_duration(transition)} ease-in-out'
+			));
+		}
+
+		&:hover {
+			border-bottom-color: transparent;
+
+			strong {
+				color: inherit;
+			}
+		}
+	}
+
+	strong, b {
+		font-weight: _font(weight-bold);
+	}
+
+	em, i {
+		font-style: italic;
+	}
+
+	p {
+		margin: 0 0 _size(element-margin) 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: _font(weight-bold);
+		line-height: 1.3;
+		margin: 0 0 (_size(element-margin) * 0.5) 0;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+
+	h1 {
+		font-size: 2.25rem;
+		font-weight: _font(weight);
+		line-height: 1.2;
+	}
+
+	h2 {
+		font-size: 1.75rem;
+		font-weight: _font(weight);
+	}
+
+	h3 {
+		font-size: 1.35rem;
+		font-weight: _font(weight);
+	}
+
+	h4 {
+		font-size: 1.1rem;
+	}
+
+	h5 {
+		font-size: 0.9rem;
+	}
+
+	h6 {
+		font-size: 0.7rem;
+	}
+
+	@include breakpoint('<=small') {
+		h1 {
+			font-size: 2rem;
+			line-height: 1.3;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+		}
+
+		h3 {
+			font-size: 1.25rem;
+		}
+	}
+
+	sub {
+		font-size: 0.8rem;
+		position: relative;
+		top: 0.5rem;
+	}
+
+	sup {
+		font-size: 0.8rem;
+		position: relative;
+		top: -0.5rem;
+	}
+
+	blockquote {
+		border-left: solid 4px;
+		font-style: italic;
+		margin: 0 0 _size(element-margin) 0;
+		padding: (_size(element-margin) / 4) 0 (_size(element-margin) / 4) _size(element-margin);
+	}
+
+	code {
+		border-radius: _size(border-radius);
+		border: solid 1px;
+		font-family: _font(family-fixed);
+		font-size: 0.8rem;
+		margin: 0 0.25rem;
+		padding: 0.25rem 0.65rem;
+	}
+
+	pre {
+		-webkit-overflow-scrolling: touch;
+		font-family: _font(family-fixed);
+		font-size: 0.9rem;
+		margin: 0 0 _size(element-margin) 0;
+
+		code {
+			display: block;
+			line-height: 1.75;
+			padding: 1rem 1.5rem;
+			overflow-x: auto;
+		}
+	}
+
+	hr {
+		border: 0;
+		border-bottom: solid 1px;
+		margin: _size(element-margin) 0;
+
+		&.major {
+			margin: (_size(element-margin) * 1.5) 0;
+		}
+	}
+
+	.align-left {
+		text-align: left;
+	}
+
+	.align-center {
+		text-align: center;
+	}
+
+	.align-right {
+		text-align: right;
+	}
+
+	@mixin color-typography($p: null) {
+		@if $p != null {
+			background-color: _palette($p, bg);
+			color: _palette($p, fg);
+		}
+
+		button, input, select, textarea {
+			color: _palette($p, fg-bold);
+		}
+
+		a {
+			color: inherit;
+
+			@if $p != null {
+				&:hover {
+					color: _palette($p, fg-bold) !important;
+				}
+			}
+			@else {
+				&:hover {
+					color: _palette(highlight) !important;
+				}
+			}
+		}
+
+		strong, b {
+			color: _palette($p, fg-bold);
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			@if $p != null {
+				color: _palette($p, fg-bold);
+			}
+			@else {
+				color: _palette(highlight);
+			}
+		}
+
+		blockquote {
+			border-left-color: _palette($p, border);
+		}
+
+		code {
+			background: _palette($p, border-bg);
+			border-color: _palette($p, border);
+		}
+
+		hr {
+			border-bottom-color: _palette($p, border);
+		}
+	}
+
+	@include color-typography;
