@@ -4,7 +4,7 @@
   "description": "Gh pages",
   "homepage": "https://github.com/Angra974/simple-express-app-submission/",
   "scripts": {
-	"start": "node server.js && serve"
+	"start": "node server.js"
   },
   "dependencies": {
 	"body-parser": "^1.20.0",
