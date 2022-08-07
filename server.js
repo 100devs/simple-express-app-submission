@@ -28,12 +28,10 @@ MongoClient.connect(process.env.DB_CONN_STRING, { useUnifiedTopology: true })
         // use this only in dev
         if (!isProd)
             app.set('view engine', 'ejs');
-        let isDistFolder = false;
-        // Using fs.exists() method
-        fs.exists('/dist', (exists) => {
-            if (!exists)
-                isDistFolder = true;
-        });
+        
+        
+        let isDistFolder = isProd;
+
         //not sure what "extended: false" is for
         const requestHandler = express.static(resolve(isDistFolder ? 'assets' : "public/assets"));
         /**
