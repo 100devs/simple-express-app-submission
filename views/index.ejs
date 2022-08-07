@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonebook</title>
+</head>
+<body>
+    <h1>Phonebook</h1>
+
+    <h2>Add Person</h2>
+    <form action="/api/persons" method="POST">
+      <input type="text" placeholder="name" name="name" />
+      <input type="tel" placeholder="homeNumber" name="homeNumber" />
+      <button type="submit">Add</button>
+    </form>
+
+    <h2>List of Persons</h2>
+    <ul class="persons">
+    <!-- Loop through persons -->
+    <% for(var i = 0; i < persons.length; i++) {%>
+        <li class="person">
+        <!-- Output name from the iterated quote object -->
+        <span><%= persons[i].name %></span>:
+        <!-- Output quote from the iterated quote object -->
+        <span><%= persons[i].homeNumber %></span>
+        </li>
+    <% } %>
+    </ul>
+
+    <!-- <div>
+        <h2>Update Test Document</h2>
+        <p></p>
+        <form action="/api/persons" method="PUT">
+          <input type="text" placeholder="name" name="name" />
+          <input type="tel" placeholder="homeNumber" name="homeNumber" />
+          <button type="submit">Add</button>
+        </form>
+        <button id="update-button">Update Test Document</button>
+    </div> -->
+
+    <div>
+        <h2>Delete Entry</h2>
+        <p></p>
+        <!-- <form action="/" method="DELETE"> -->
+            <input id='delete-name' type="text" placeholder="name" name="name" />
+            <button id="delete-button">Delete</button>
+        <!-- </form> -->
+    </div>
+    <div id="message"></div>
+
+    <script src="/main.js"></script>
+</body>
+</html>
