@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 h1{
     color: red;
 }
 .completed{
     color: gray;
     text-decoration: line-through;
+=======
+.login-container {
+  width: 400px;
+  margin-top: 50px;
+  text-align: center;
+>>>>>>> answer
 }

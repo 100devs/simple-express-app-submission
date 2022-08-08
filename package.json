@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "todo-list-express-main",
   "version": "1.0.0",
   "description": "npm install add DB_STRING to .env file",
@@ -111,5 +112,44 @@
   "homepage": "https://github.com/mitch8020/todo-list-express#readme",
   "devDependencies": {
     "nodemon": "^2.0.19"
+=======
+  "name": "simple-express-app-submission-answer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=production node app.js",
+    "dev": "cross-env NODE_ENV=development nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitch8020/simple-express-app-submission-answer.git"
+  },
+  "author": "JP Mitra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mitch8020/simple-express-app-submission-answer/issues"
+  },
+  "homepage": "https://github.com/mitch8020/simple-express-app-submission-answer#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "connect-mongo": "^3.1.2",
+    "dotenv": "^16.0.1",
+    "env": "^0.0.2",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "heroku": "^7.62.0",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.5.1",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0"
+>>>>>>> answer
   }
 }
