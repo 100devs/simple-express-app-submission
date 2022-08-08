@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class='title'>
+      <h1>Message Board</h1>
+      <h2>A safe place for everyone except for those that like pineapple on pizza</h2>
+    </div>
+  
+    <a href="/new"><button class="reveal">Have something to say?</button></a>
+    <form class='hidden message' autocomplete='off'action="/messages" method="POST">
+        <input id='title' type="text" placeholder="title" name="title" />
+        <textarea name="message"></textarea>
+        <input id='username'type="text" placeholder="userName" name="userName" />
+        <button type="submit">Submit</button>
+      </form>
+
+        <ul class="quotes">
+        <% for(var i = 0; i < data.length; i++) {%>
+            <li class="quote">
+            <span class="hidden"><%= data[i]._id %></span>
+            <span class="messageTitle"><%= data[i].title %></span> 
+            <span class="text">"<%= data[i].message %>"</span> 
+            <span class="username"><%= data[i].userName %></span>
+            <button class="delete">Delete</button>
+            <span><%= data[i].likes %></span>
+            <button class= 'likes'>Like Me!</button>
+            <!-- <div class="buttons">
+              <button class= 'likes'>Like Me!</button>
+              <button class="delete">Delete</button>
+            </div> -->
+            </li>
+        <% } %>
+        </ul>
+      <script src="/main.js" defer></script>
+</body>
+</html>

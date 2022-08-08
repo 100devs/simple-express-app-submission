@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class='title'>
+      <h1>Message Board</h1>
+      <h2>A safe place for everyone except for those that like pineapple on pizza</h2>
+    </div>
+    <!-- method tells you where it goes -->
+    <form class='message' autocomplete='off' action="/messages" method="POST">
+        <input id='title' type="text" placeholder="title" name="title" />
+        <textarea name="message"></textarea>
+        <input id='username'type="text" placeholder="userName" name="userName" />
+        <button type="submit">Submit</button>
+      </form>
+
+    
+      <script src="/main.js" defer></script>
+</body>
+</html>
