@@ -1,0 +1,4 @@
+node_modules
+*.rest
+.env
+.DS_Store
