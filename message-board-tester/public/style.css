@@ -1,0 +1,92 @@
+.hidden{
+    display:none !important;
+}
+.reveal{
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    width: 60%;
+    padding: 5px;
+    font-size: 1.5rem;
+    background-color: white;
+    color:rgb(24, 166, 213);
+    border-radius: 0.8rem;
+    border: 2px solid rgb(24, 166, 213);
+    margin-top: 40px;
+}
+.reveal:hover{
+    background-color: rgb(24, 166, 213);
+    color: white;
+}
+.title{
+    text-align: center;
+    background-color: rgb(24, 166, 213);
+    color: white;
+    padding: 20px 100px;
+}
+textarea{
+    resize: none;
+    flex-basis: 4rem;
+}
+form > button{
+    height: 2rem;
+}
+.message{
+    padding: 10px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 50%;
+    margin: 0 auto;
+}
+#title,#username{
+    flex-basis: 2rem;
+}
+h1{
+    padding: 10px;
+}
+h2{
+    font-size: 18px;
+}
+body,h1,h2{
+    margin: 0;
+}
+body{
+    background-color: #f5f5f5;
+    font-family:Arial, Helvetica, sans-serif;
+}
+li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 40px;
+    padding: 20px;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 0;
+}
+.messageTitle,.username{
+    color:rgb(35, 168, 213)
+}
+.messageTitle{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+li span{
+    padding: 5px 0
+}
+a{
+    text-decoration: none;
+}
+.delete,.likes{
+    width:20%;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
