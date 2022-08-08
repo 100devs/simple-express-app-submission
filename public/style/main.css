@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    gap: 10%;
+}
+
+.container {
+    background: rgba(18,183,236,1);
+    border: 2px solid black;
+    max-width: 1670px;
+    width: 50%;
+    margin: auto;
+}
+
+
+.flex-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    padding: 1% 2%; 
+}
+
+.flex-section.column {
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+h1, h2 {
+    margin: 2% auto;
+    text-align: center;
+    font-family: 'Syncopate', sans-serif;
+}
+
+.poll {
+    color: white;
+    border: 2px solid black;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: slategrey;
+    min-height: 300px;
+    min-width: 250px;
+    max-width: 500px;
+}
+
+.poll > h3 {
+    align-self: center;
+    margin: 50px 0;
+}
+
+.poll div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.poll div span:first-child {
+    display: inline-block;
+    border: 1px solid black;
+    width: 90%;
+    padding: 3px;
+    margin: 5% 1%;
+}
+
+.vote-count {
+    padding: 0 5px;
+}
+
+
+.button-87 {
+    margin: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-87:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .button-87:active {
+    transform: scale(0.95);
+  }
+
+.button-7 {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin-left: 10px;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  width: 70px;
+}
+
+.button-7:hover,
+.button-7:focus {
+  background-color: #07c;
+}
+
+.button-7:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-7:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+
+input {
+    height: 30px;
+    border-radius: 5px;
+    width: 95%;
+}
+
+p {
+    font-family: 'Alef', sans-serif;
+}
+
+form {
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 75%;
+    max-width: 600px;
+}
+
+
+button {
+    width: 50%;
+    align-self: center;
+}
+
+
+
+/*small screens*/
+@media only screen and (max-width: 1000px) {
+    body {
+        font-size: 2.5em;
+    }
+
+    .flex-container {
+        flex-direction: column;
+        
+    }
+
+    .poll, form {
+        min-width: 900px;
+        max-width: 1000px;
+        min-height: 900px;
+    }
+
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+    form {
+        width: 100%;
+    }
+
+    input, button {
+        margin: 5px auto;
+        /* //width: 100%; */
+        /* height: 2em; */
+        font-size: 1em;
+    }
+    .flex-container {
+        width: 100%;
+        min-width: 300px;
+        min-height: 50vh;
+        font-size: 3em;
+    }
+
+    .quotes {
+        font-size: .5em;
+        width: 100%;
+    }
+
+    .flex-section {
+        width: 100%;
+    }
+
+    .flex-section.column {
+        width: 95%;
+    }
+
+    input, .poll div span:first-child {
+        height: 2em;
+        line-height: 2em;
+    }
+
+    .poll div {
+        display: inline-block;
+    }
+
+    .button-7 {
+        width: 75%;
+        height: 2em;
+        margin: auto;
+        display: block;
+        align-self: center;
+        font-size: 1em;
+    }
+
+}

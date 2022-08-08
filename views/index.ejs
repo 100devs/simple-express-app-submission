@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Poll</title>
+        <link href="/style/main.css" rel="stylesheet" type="text/css" >
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alef&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <section class="flex-section">
+                <h1>Create A Poll</h1>
+                <form action="/polls" method="POST">
+                    <input required type="text" placeholder=" Question" name="question">
+                    <input required type="text" placeholder=" Option 1" name="option1">
+                    <input required type="text" placeholder=" Option 2" name="option2">
+                    <input required type="text" placeholder=" Option 3" name="option3">
+                    <button type="submit" class="button-87" role="button">SAVE</button>
+                </form>
+            </section>
+            <div>
+                <section class="flex-section">
+                    <h2>Polls</h2>     
+                    <div class="flex-section column">
+                        <!-- Loop through polls -->
+                        <% for(var i = 0; i < polls.length; i++) {%>
+                            <section class="flex-section poll">
+                                <h3><%= polls[i].question %></h3>
+                                <div>
+                                    <span><%= polls[i].option1 %></span>
+                                    <span data-vote="votes1" class="vote-count"><%= polls[i].votes1 %></span>
+                                    <button class="button-7 vote" role="button">VOTE</button>
+                                </div>
+                                <div>
+                                    <span><%= polls[i].option2 %></span>
+                                    <span data-vote="votes2" class="vote-count"><%= polls[i].votes2 %></span>
+                                    <button class="button-7 vote" role="button">VOTE</button>
+                                </div>
+                                <div>
+                                    <span><%= polls[i].option3 %></span>
+                                    <span data-vote="votes3" class="vote-count"><%= polls[i].votes3 %></span>
+                                    <button class="button-7 vote" role="button">VOTE</button>
+                                </div>
+                                <button class="button-87 delete" role="button">DELETE</button>
+                            </section>
+                        <% } %>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <script src="/main.js"></script>
+    </body>
+</html>
+
