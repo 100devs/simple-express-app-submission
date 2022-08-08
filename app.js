@@ -12,6 +12,9 @@ const connectDB = require('./config/db')
 // Load config
 dotenv.config({ path: './config/config.env' })
 
+// Passport config
+require('./config/passport')(passport)
+
 connectDB()
 
 const app = express()
@@ -53,6 +56,7 @@ app.use(function (req, res, next) {
 
 // Routes
 app.use('/', require('./routes/index'))
+app.use('/auth', require('./routes/auth'))
 
 // PORT Connection
 app.listen(PORT, ()=>{
