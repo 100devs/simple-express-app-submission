@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.entryList {
+  list-style: none;
+  display: flex;
+  padding-left: 0;
+}
+
+.entryList li {
+  margin-right: 10px;
+  white-space: pre-wrap;
+}
+
+Nav{
+  list-style-type: none;
+}
+
+.slider::-moz-range-thumb{
+  -webkit-appearance: none; /*Override default look*/
+  appearance: none;
+  border-radius: 15px;
+  width: 8px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-webkit-slider-thumb{
+  -webkit-appearance: none; /*Override default look*/
+  appearance: none;
+  border-radius: 15px;
+  width: 8px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 40%; /* Full-width */
+  height: 25px; /* Specified height */
+  /* background: #d3d3d3; Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 15px;
+  position: relative;
+}
+
+.slide{
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider:hover{
+  opacity: 1;
+}
+
+.value{
+  position: absolute;
+  left: 49%;
+  bottom: 20%;
+}
+
+.min{
+  position: absolute;
+  left: 27%;
+  bottom: 20%;
+}
+
+.max{
+  position: absolute;
+  right: 27%;
+  bottom: 20%;
+}
+
+.main {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card {
+  height: 100px;
+  width: auto;
+  font-size: 25px;
+  background: blue;
+  margin: 10px;
+  display: inline-block;
+  line-height: 100px; 
+}
+
+.container {
+  vertical-align: middle;
+  display: inline-block;
+  width: 50%;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
