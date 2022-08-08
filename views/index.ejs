@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="/public/favicon.ico">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+</head>
+<body>
+    
+<br>Keep track of your habits everyday, and don't break the streak!<br>Enter a goal and motivation in and click Submit to create a new habit.<br><br><span class="fa fa-plus"></span> - adds one to your habit streak<br><span class="fa fa-trash"></span> -  deletes the habit
+<br>🔥 - is your current streak    
+
+    <h2>Add A New Habit:</h2>
+
+    <form style="margin-left: 5%;"  action="/addRapper" method="POST">
+        <input type="text" placeholder="Goal" name="stageName">
+        <input type="text" placeholder="Motivation" name="birthName">
+        <input class="btn" type="submit">
+    </form>
+
+    <h2>Current Habits:</h2>
+    <ul class="rappers">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="rapper">
+            <span class="goal"><%= info[i].stageName %></span>
+            <span class="motive"><%= info[i].birthName %></span>
+            <span class="addLike"><%= info[i].likes %></span>            
+            <span id="add" class='fa fa-plus'></span>
+            <span id="delete" class='fa fa-trash'></span>            
+        </li>
+    <% } %> 
+    </ul>
+    
+    <script src='js/main.js'></script>
+</body>
+</html>
