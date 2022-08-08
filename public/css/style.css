@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:wght@600&display=swap');
+
+.title{
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 1.1rem;
+    text-shadow: rgba(0,0,0,0.6) 2px 2px 1px;
+
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    padding: 2%;
+    color: #fff;
+    text-shadow: rgba(0,0,0,0.6) 2px 2px 2px;
+    background-color: rgb(98, 103, 100);
+    
+}
+
+h1{
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 2.5rem;
+    text-shadow: rgba(0,0,0,0.4) 4px 4px 1px;
+}
+
+.rapper {
+    list-style: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+    transition: 0.3s;
+    font-style: bold;
+    color: #f2f2f2;
+    width: 80%;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 10px;    
+    background: rgb(107,162,89);
+    background: linear-gradient(90deg, rgba(107,162,89,1) 0%, rgba(163,221,131,1) 86%, rgba(163,221,131,1) 100%);
+  }
+  .rapper:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+    width: 80%;
+  }
+.goal {
+    content: "GOAL: ";
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+.goal::before{     content: "GOAL: ";
+}
+.goal::after {
+    content: "\a";
+    white-space: pre;
+}
+
+.motive {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+.motive::before{     content: "MOTIVE: ";
+}
+.motive::after {
+    content: "\a";
+    white-space: pre;
+}
+.addLike::before{     content: "🔥 X ";
+}
+.addLike {
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 20px;
+    margin: 10px 0;
+}
+#add {
+    padding-left: 20px;    
+}
+#add:hover {
+    /* color: #45a399; */
+    color: rgb(125, 131, 127);
+}
+#delete {
+    padding: 20px;
+}
+#delete:hover {
+    /* color: #45a399; */
+    color: rgb(125, 131, 127);
+}
+input {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+    padding: 10px;
+    margin: 10px 0;
+}
+.btn {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    border-radius: 8px;
+    border: none;
+    color: #f2f2f2;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+    padding: 10px;
+    margin: 10px 0;
+    background: rgb(107,162,89);
+    /* background: linear-gradient(90deg, rgba(107,162,89,1) 0%, rgba(163,221,131,1) 86%, rgba(163,221,131,1) 100%); */
+
+}
+.btn:hover {
+    /* background: rgb(107,162,89); */
+    background: linear-gradient(90deg, rgba(107,162,89,1) 0%, rgba(163,221,131,1) 86%, rgba(163,221,131,1) 100%);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+
