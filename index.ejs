@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    
+    <title>Calorie Tracker</title>
+</head>
+<body>
+    <header>
+        <h1>Calorie Tracker</h1>
+    </header>
+
+    <form action="/track" method="POST">
+        <input type="text" placeholder="Food Name" name="foodName">
+        <input type="text" placeholder="Serving Size" name="foodSize">
+        <input type="text" placeholder="Calories" name="foodCal">
+        <input type="submit">
+    </form>
+
+    <div class="parent">
+
+                <span>Food Name</span>
+                <span>Serving Size</span>
+                <span>Calories</span>
+                
+                <% for(let i=0; i < foodItem.length; i++) {%>
+    <div class="child">
+                <li><%= foodItem[i].foodname %></li>
+                <li><%= foodItem[i].foodsize %></li>
+                <li><%= foodItem[i].calories %></li>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-trash"></i>
+    </div>
+    <% } %>
+</div>
+    <form id ="pop-up" action="PUT">
+        <label for="name">Food Name</label>
+        <input type="text" />
+        <br>
+        <label for="name">Serving Size</label>
+        <input type="text" />
+        <br>
+        <label for="name">Calories</label>
+        <input type="text" />
+
+        <button type="submit">Update</button>
+    </form>
+
+    <script src="/main.js"></script>
+</body>
+</html>
