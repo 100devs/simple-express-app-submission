@@ -5,3 +5,43 @@ html {
 form input {
     display: block;
 }
+
+/*************/
+/* bookshelf */
+/*************/
+.bookshelf-container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.book {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.book-title,
+.book-note,
+.book-actions {
+    flex: 1;
+}
+
+.book-actions {
+    text-align: right;
+}
+
+.read {
+    color: gray;
+    text-decoration: line-through;
+}

@@ -4,32 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Bookshelf</title>
+    
+    <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!-- stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Bookshelf</h1>
 
-    <section class="bookshelf-container">
+    <section class="form-container">
         <div class="add-book">
             <form action="/addBook" method="POST">
                 <label for="title">Book Title</label>
-                <input type="text" name="title" placeholder="Title">
-                <label for="note">Book Note</label>
-                <input type="text" name="note" placeholder="Note">
-                <input type="submit" value="Add Book">
+                <input type="text" name="title" placeholder="The Hobbit">
+                <label for="note">Book Author</label>
+                <input type="text" name="author" placeholder="JRR Tolkien">
+                <!-- <input type="submit" value="Add Book"> -->
+                <button type="submit"><span class="fas fa-plus"></span> Add Book</button>
             </form>
         </div>
-        
-        <div class="bookshelf-books">
-            <ul class="bookshelf">
-                <% for (let i = 0; i < books.length; i++) {%>
-                    <li class="book">
-                        <span><%= books[i].title%> - <%= books[i].note %></span>
-                    </li>
-                <%} %>
-            </ul>
-        </div>
+    </section>
+    
+    <section class="bookshelf-container">
+        <ul class="bookshelf">
+            <% for (let i = 0; i < books.length; i++) {%>
+                <li class="book">
+                    <% if(books[i].read === true) { %>
+                        <span class="book-title read"><%= books[i].title %></span>
+                        <span class="book-author read"><%= books[i].author %></span>
+                    <%} else {%>
+                        <span class="book-title"><%= books[i].title %></span>
+                        <span class="book-author"><%= books[i].author %></span>
+                    <% } %>
+                    <div class="book-actions">
+                        <a href="/readBook/<%= books[i]._id %>"><span class="fa fa-check"></span></a>
+                        <a href="/deleteBook/<%= books[i]._id %>"><span class="fa fa-trash"></span></a>
+                    </div>
+                </li>
+            <%} %>
+        </ul>
     </section>
     
     <script src='js/main.js'></script>
