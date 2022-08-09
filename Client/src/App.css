@@ -1,0 +1,100 @@
+:root {
+  --font-color: #f8e9e0;
+}
+.buttonContainer button {
+  font-size: 1.2rem;
+  margin: 5%;
+  padding: 0.6rem 0.6rem;
+  background-color: #363062;
+  color: var(--font-color);
+  border: none;
+  border-radius: 4px;
+}
+.indivToDo {
+  border: 3px solid #4d4c7d;
+  border-radius: 10px;
+  margin-bottom: 3%;
+  /* min-width: 18rem; */
+  max-width: 23rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20rem;
+  padding: 0 1rem;
+  background-color: rgba(130, 115, 151, 0.5);
+  color: var(--font-color);
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.toDoContainer {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 40px;
+  grid-auto-rows: minmax(200px, auto);
+  grid-row-gap: 10px;
+  grid-auto-flow: dense;
+}
+
+.formArea textarea,
+.formArea input {
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  background-color: #f8e9e0;
+  margin-bottom: 0.8rem;
+  border-radius: 5px;
+}
+.formArea button {
+  margin-top: 0.9rem;
+  background-color: rgba(130, 115, 151, 0.5);
+  border-radius: 5px;
+  color: var(--font-color);
+  padding: 0.2rem 1.5rem;
+  font-size: 1.2rem;
+}
+@media only screen and (max-width: 870px) {
+  .toDoContainer {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(1, 19rem);
+    grid-auto-rows: minmax(200px, auto);
+    grid-row-gap: 10px;
+    grid-auto-flow: dense;
+  }
+  /* .indivToDo {
+    width: 17rem;
+  } */
+  .buttonContainer button {
+    font-size: 1.2rem;
+    margin: 0.4rem;
+    padding: 0.6rem 0.6rem;
+    background-color: #363062;
+    color: var(--font-color);
+    border: none;
+    border-radius: 4px;
+  }
+  .formArea textarea,
+  .formArea input {
+    font-size: 1.4rem;
+    padding: 0.5 0rem;
+    width: 10rem;
+    height: 2.3rem;
+    background-color: #f8e9e0;
+    margin-bottom: 0.8rem;
+    border-radius: 5px;
+  }
+}
+
+@media only screen and (min-width: 880px) and (max-width: 1077px) {
+  .toDoContainer {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 25rem);
+    grid-column-gap: 40px;
+    grid-auto-rows: minmax(200px, auto);
+    grid-row-gap: 10px;
+    grid-auto-flow: dense;
+  }
+}
