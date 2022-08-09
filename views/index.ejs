@@ -37,12 +37,16 @@
                     <% if(books[i].read === true) { %>
                         <span class="book-title read"><%= books[i].title %></span>
                         <span class="book-author read"><%= books[i].author %></span>
-                    <%} else {%>
+                    <%} else { %>
                         <span class="book-title"><%= books[i].title %></span>
                         <span class="book-author"><%= books[i].author %></span>
                     <% } %>
                     <div class="book-actions">
-                        <a href="/readBook/<%= books[i]._id %>"><span class="fa fa-check"></span></a>
+                        <% if(books[i].read === true) { %>
+                            <a href="/unReadBook/<%= books[i]._id %>"><span class="fa fa-window-close"></span></a>
+                        <% } else { %>
+                            <a href="/readBook/<%= books[i]._id %>"><span class="fa fa-check"></span></a>
+                        <% } %>
                         <a href="/deleteBook/<%= books[i]._id %>"><span class="fa fa-trash"></span></a>
                     </div>
                 </li>

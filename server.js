@@ -46,11 +46,12 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
             .catch(error => console.log(error));
         })
 
-        // MARK READ/UNREAD
+        // MARK READ
         app
             .route("/readBook/:id")
             .get((req, res) => {
                 const id = req.params.id;
+ 
                 booksCollection.updateOne(
                     { _id:ObjectId(id) },
                     { $set: { "read" : true } }    
@@ -59,8 +60,23 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
                 console.log('Book read.');
                 res.redirect('/');
             })
+
+        // MARK UNREAD
+        app
+            .route("/unReadBook/:id")
+            .get((req, res) => {
+                const id = req.params.id;
+ 
+                booksCollection.updateOne(
+                    { _id:ObjectId(id) },
+                    { $set: { "read" : false } }    
+                );
+                
+                console.log('Book un-read.');
+                res.redirect('/');
+            })
         
-            // DELETE BOOK
+        // DELETE BOOK
         app
             .route("/deleteBook/:id")
             .get((req, res) => {
