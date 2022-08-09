@@ -1,0 +1,26 @@
+<h3>Entries by {{name}}</h3>
+<div class="row">
+  {{#each entries}}
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          {{{editIcon user ../user _id}}}
+        </div>
+        <div class="card-content center-align">
+          <div class="chip">
+            <img src="{{user.image}}" alt="user image">
+            <a href="/entries/user/{{user._id}}">{{user.displayName}}</a>
+            <p>{{formatDate createdAt "M/D/YY, h:mm a"}}</p>
+          </div>
+          <br>
+          <p>{{stripTags (truncate body 150)}}</p>
+        </div>
+        {{!-- <div class="card-action center-align">
+          <a href="/entries/{{_id}}" class="btn grey">Read More</a>
+        </div> --}}
+      </div>
+    </div>
+  {{else}}
+    <p>No stories to display</p>
+  {{/each}}
+</div>

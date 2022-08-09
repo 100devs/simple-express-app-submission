@@ -1,0 +1,57 @@
+<h5>Dashboard</h5>
+<h3>Welcome {{name}}</h3>
+<div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          {{!-- {{{editIcon user ../user _id}}} --}}
+        </div>
+        <div class="card-content center-align">
+          <h4>This is where the mood chart will go</h4>
+          {{!-- <div class="chip">
+            <img src="{{user.image}}" alt="user image">
+            <a href="/entries/user/{{user._id}}">{{user.displayName}}</a>
+            <p>{{formatDate createdAt "M/D/YY, h:mm a"}}</p>
+          </div>
+          <br>
+          <p>{{stripTags (truncate body 150)}}</p> --}}
+        </div>
+        {{!-- <div class="card-action center-align">
+          <a href="/entries/{{_id}}" class="btn grey">Read More</a>
+        </div> --}}
+      </div>
+    </div>
+<p>Here are your entries:</p>
+{{#if entries}}
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Mood</th>
+        <th>Date</th>
+        <th>Notes</th>
+        <th>Edit / Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each entries}}
+        <tr>
+          <td><a href="/entries/{{_id}}">{{mood}}</a></td>
+          <td>{{formatDate createdAt "M/D/YY, h:mm a"}}</td>
+          <td><span class="dash-status">{{stripTags (truncate body 150)}}</span></td>
+          <td>
+            <a href="/entries/edit/{{_id}}" class="btn btn-float">
+              <i class="fas fa-edit"></i>
+            </a>
+            <form action="/entries/{{_id}}" method="POST" id="delete-form">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="btn red">
+                <i class="fas fa-trash"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p>You have not added any entries.</p>
+{{/if}}
