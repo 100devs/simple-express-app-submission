@@ -16,7 +16,10 @@
 
 Example:
 ```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
+I completed the challenge: 4
+I feel good about my code: 1
+
+I tried to code a more complex app for a bit but I couldn't figure it out. The parentNode[] and childNode[] selectors were messing me up. 
+
+https://movies-hw.herokuapp.com/
 ```
