@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "house-plant-api",
+  "version": "1.0.0",
+  "description": "house plant api for Logi ",
+  "main": "server.js",
+  "author": "",
+  "license": "ISC"
+}
