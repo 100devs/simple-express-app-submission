@@ -32,9 +32,10 @@ deleteButtonEl.addEventListener('click', (e) => {
 function handleItemContainerClick(e) {
   const parentNode = e.target.parentNode;
   let timeStampEl;
+  // no longer need to check
   // if parentNode is the container div
-  if (parentNode.id === 'item--js')
-    timeStampEl = getTimeStampEl(parentNode.children);
+  if (parentNode.id === 'item--js') return null;
+  // timeStampEl = getTimeStampEl(parentNode.children);
 
   // if parentNode is label
   if (parentNode.parentNode.id === 'item--js')
@@ -63,8 +64,7 @@ function createLogItemEl() {
   <div class="item-container" id="item--js">
           <label>
             Creatine Taken?
-            <input type="checkbox" name="taken" />
-            <!-- <span tabindex="0" class="checkbox"></span> -->
+            <input type="checkbox" name="taken" /
           </label>
           <p class="timestamp">Time Last Taken:</p>
         </div>
@@ -87,6 +87,7 @@ function createLogItemEl() {
   // input
   input.type = 'checkbox';
   input.name = 'taken';
+  label.htmlFor = '';
 
   // build label
   label.insertAdjacentElement('beforeend', input);
