@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Try?</title>
+</head>
+<body>
+    <h1>My All-Time Favorite Movies</h1>
+
+    <input type="text" placeholder="Search">
+    <button type="submit">Find</button>
+
+    <!-- <section class="movies-displayed">
+
+    </section> -->
+    <h2 class="name-of-movie"> </h2>
+
+    <!-- for display of release date -->
+    <h3 class="dateReleased"> </h3>
+
+    <!-- Notable celebrities -->
+    <h3 class="celeb1"> </h3>
+    <h3 class="celeb2"> </h3>
+    <h3 class="celeb3"> </h3>
+
+    <!-- short bio -->
+    <p class="movie-summary"> <br></p>
+
+    <!-- movie rating -->
+    <h4 class="movie-rating"> </h4>
+
+    <!-- Adding to my list of favorite movies -->
+    <section id="adding-movies">
+        <form action="/addMovie" method="POST">
+            <input type="text" placeholder="Movie Name" name="movieName">
+            <input type="text" placeholder="Release Date" name="releaseDate">
+
+            <input type="text" placeholder="Celeb Name" name="notableCeleb1">
+            <input type="text" placeholder="Celeb Name" name="notableCeleb2">
+            <input type="text" placeholder="Celeb Name" name="notableCeleb3">
+
+            <input type="text" placeholder="Summary Of Movie" name="movieSummary">
+            <input type="text" placeholder="Rating" name="ratingForMovie">
+
+            
+        </form>
+        <button id="add" type="submit">Add Movie</button>
+    </section>
+    
+
+    <script src="js/main.js"></script>
+</body>
+</html>
