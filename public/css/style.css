@@ -1,0 +1,52 @@
+h1, h2{
+    color: #6B5B95
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    background-color: #a0d2eb;
+
+}
+
+ul {
+
+        list-style: none; 
+        padding: 5px; 
+}
+li {
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    margin-block: 10px;
+    background-color: #e5eaf5;
+}
+
+.fa:hover {
+    background-color: #FFFFFF; 
+  color: black;
+}
+
+.fa {
+    transition-duration: 0.4s;
+}
+
+.button {
+    color: white;
+    border: none;
+    background-color: #a28089;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.stageName {
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
+}
