@@ -2,11 +2,14 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy
 const mongoose = require('mongoose')
 const User = require('../models/User')
 
+let baseUrl = process.env.NODE_ENV == 'development' ? "http://localhost:3000/auth/google/callback" 
+                                                    : "https://mood-tracker-demo.herokuapp.com/auth/google/callback"
+
 module.exports = (passport) => {
   passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
+    callbackURL: baseUrl
   },
   async (accessToken, refreshToken, profile, done) => {
     const newUser = {

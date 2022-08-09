@@ -1,0 +1,28 @@
+<h3>Add Entry</h3>
+<div class="row">
+  <form action="/entries" method="POST" class="col s12">
+    <div class="row">
+      <div class="input-field">
+        <select name="mood" id="mood">
+          <option value="poor" selected>Poor</option>
+          <option value="moderate" selected>Moderate</option>
+          <option value="excellent">Excellent</option>
+        </select>
+        <label for="mood">Mood</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+        <h5>Notes:</h5>
+        <textarea name="body" id="body"></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <input type="submit" value="Save" class="btn">
+      <a href="/dashboard" class="btn orange">Cancel</a>
+    </div>
+  </form>
+</div>
+

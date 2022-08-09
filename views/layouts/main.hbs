@@ -13,17 +13,17 @@
 </head>
 <body>
   {{> _header}}
-  {{!-- {{> _add_btn}} --}}
+  {{> _add_btn}}
   <div class="container">
     {{{body}}}
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.1/ckeditor.js" integrity="sha512-Ooi9IbjM2SIDjQ02ENbPFuuORT8F8Rc+rowcYfLneDwKRxw1+gVVj5tciVmV/APnA/Ys+qy1MbNKK3k2EaAHcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.1/ckeditor.js" integrity="sha512-Ooi9IbjM2SIDjQ02ENbPFuuORT8F8Rc+rowcYfLneDwKRxw1+gVVj5tciVmV/APnA/Ys+qy1MbNKK3k2EaAHcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
     M.Sidenav.init(document.querySelector('.sidenav'))
-    M.FormSelect.init(document.querySelector('#status'))
+    M.FormSelect.init(document.querySelector('#mood'))
 
     CKEDITOR.replace('body', {
       plugins: 'wysiwygarea, toolbar, basicstyles, link'
