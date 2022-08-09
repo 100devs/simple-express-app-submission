@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    background: lightblue;
+    padding: 10px;
+    border-radius: 10px;
+    width: 500px;
+    margin: 10px auto;
+    list-style: none;
+}
+
+.fa {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.postForm {
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: aquamarine;
+    width: 300px;
+}
+input {
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+.commentForm {
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.commentForm input[type="text"] {
+    width: 350px;
+}

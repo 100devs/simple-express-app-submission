@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form class="postForm" action="/addPost" method="POST">
+        <input type="text" name="postText">
+        <input type="submit" value="post">
+    </form>
+    
+
+    <ul class="posts">
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class="post">
+                <span><%= info[i].postText %></span>
+
+                <section>
+                    <span class='fa fa-thumbs-up'></span>
+                <span><%= info[i].likes %></span>
+                <span class='fa fa-trash'></span>
+
+                </section>
+                <form class="commentForm" action="/addComment" method="POST">
+                    <input type="text" name="commentText">
+                    <input type="submit" value="post">
+                </form>
+            </li>
+        <% } %>
+        </ul>
+
+        <script src='js/main.js'></script>       
+    </script>
+</body>
+</html>
