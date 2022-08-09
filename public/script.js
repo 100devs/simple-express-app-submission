@@ -102,6 +102,12 @@ function createLogItemEl() {
   // attach event listener
   div.addEventListener('click', handleItemContainerClick);
 
+  // check if delete button already exists
+  const existingDeleteBtnEl = document.querySelector('#delete-item--js');
+  if (existingDeleteBtnEl) {
+    label.insertAdjacentElement('beforeend', createDeleteButtonEl());
+  }
+
   return div;
 }
 
