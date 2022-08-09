@@ -1,0 +1,145 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    color: #000;
+}
+
+body, h1 {
+    font-family: 'Neuton', serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 2rem 0 .5rem 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+h2, label {
+    font-family: 'Work Sans', sans-serif;
+}
+
+label {
+    font-size: .9rem;
+    padding: .75rem 0;
+}
+
+button, footer, textarea, #loveNum{
+    font-family: 'Source Code Pro', monospace;
+}
+
+#loveNum {
+    color: #919191;
+    font-size: .75rem;
+    vertical-align: middle;
+    padding-left: .2rem;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+ul{
+    padding-left: 0;
+}
+
+footer, main {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+}
+
+.word {
+    font-size: 1.5rem;
+}
+
+.love, .remove {
+    font-size: 1rem;
+    padding-left: .75rem;
+}
+
+button, textarea{
+    -webkit-box-shadow: .1rem .1rem .3rem .1rem rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: .1rem .1rem .3rem .1rem rgba(0, 0, 0, 0.1);
+    box-shadow: .1rem .1rem .3rem .1rem rgba(0, 0, 0, 0.1);
+}
+
+button {
+    align-self: flex-end;
+    border: 0;
+    border-radius: 0.25rem;
+    background: #000;
+    color: #fff;
+    font-size: .75rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+
+    -webkit-box-shadow: .1rem .1rem .3rem .1rem rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: .1rem .1rem .3rem .1rem rgba(0, 0, 0, 0.1);
+    box-shadow: .1rem .1rem .3rem .1rem rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    align-self: flex-end;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+textarea {
+    border: 1px solid #DBDADA;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    font-size: .75rem;
+    resize: none;
+    outline: none;
+
+    -webkit-box-shadow: .1rem .1rem .3rem .1rem rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: .1rem .1rem .3rem .1rem rgba(0, 0, 0, 0.05);
+    box-shadow: .1rem .1rem .3rem .1rem rgba(0, 0, 0, 0.05);
+}
+
+textarea::placeholder{
+    color: #DBDADA
+}
+
+/* LAYOUT */
+
+.wrapper {
+    align-items: center;
+    max-width: 600px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-footer {
+    flex-shrink: 0;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+}
+
+.page-body {
+    flex-grow: 1;
+}
