@@ -25,13 +25,8 @@ app.get('/',async (request, response)=>{  // request home page
     const postsItems = await db.collection('posts').find().toArray() 
     
     response.render('index.ejs', { info : postsItems }) 
-    // db.collection('todos').find().toArray()
-    // .then(data => {
-    //     db.collection('todos').countDocuments({completed: false})
-    //     .then(itemsLeft => {
-    //         response.render('index.ejs', { items: data, left: itemsLeft })
-    //     })
-    // })
+ 
+   
     // .catch(error => console.error(error))
 })
 
