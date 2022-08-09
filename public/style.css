@@ -1,0 +1,85 @@
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+}
+
+  /* Clear fix hack */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-image: url("/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.og-form form{
+    padding: 0 0 0 150px;
+}
+
+li{
+    list-style: none;
+    padding-left: 150px;
+}
+
+span{
+    padding-left: 150px;
+}
+
+
+.parent {
+    display: flex;
+    flex-direction: row;
+    align-content: space-evenly;
+    padding: 20px 0px;
+    flex-wrap: wrap;
+}
+
+
+.child {
+    display: flex;
+    flex-direction: row;
+    align-content: space-evenly;
+    width: 100%;
+
+}
+
+.child i {
+    width: 2%;
+}
+
+.child * {
+    width: 15.5%;
+}
+
+.container-popup {
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    z-index: 9;
+    display: inline-block;
+    text-align: right;
+    display: none;
+    bottom: 50%;
+    right: 25%;
+    border: 3px solid #f1f1f1;
+}
+
+
+
+
