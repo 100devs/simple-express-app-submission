@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('https://images.unsplash.com/photo-1553518137-d567777430b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80');
+    /* -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.todo-container {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background: rgba(151, 150, 150, 0.4);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.todo {
+    width: 400px;
+}
+
+h2 {
+    padding: 10px;
+    font-size: 3rem;
+    background: rgba(42, 41, 41, 0.233);
+    color: rgb(255, 145, 0);
+    font-family: fantasy;
+}
+
+input {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 3px;
+    padding: 5px;
+    border: 1px gray solid;
+    border-radius: 5px;
+    height: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    width: 100%;
+    color: rgb(169, 164, 164);
+}
+
+textarea {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: block; /* item is forced onto a new line */
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 0.5rem;
+    color: rgb(169, 164, 164);
+}
+
+.todo-header button {
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px;
+    background-color: rgb(210, 162, 100);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+ul {
+    list-style: none;   
+}
+
+.todo-list-item {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.todo-list-item form {
+    width: 100%;
+}
+
+.todo-list-item-title{
+    font-size: medium;
+    color: rgb(233, 172, 92);
+}
+
+.todo-list-item-content {
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+.todo-list-item .confirm {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(26, 82, 26);
+    padding: 0.65rem;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.todo-list-item .cancel {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(113, 14, 14);
+    padding: 0.65rem;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.todo-list-item .edit {
+    color: rgb(5, 82, 5);
+    margin-right: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: auto;
+}
+
+.todo-list-item .remove {
+    color: rgb(113, 14, 14);
+    font-size: larger;
+    margin-right: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
