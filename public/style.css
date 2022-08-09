@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: lightslategray;
+}
+
+.todo-container {
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo {
+    width: 400px;
+}
+
+h2 {
+    padding: 10px;
+    font-size: 2rem;
+}
+
+input {
+    margin-bottom: 2px;
+    padding: 5px;
+    border-radius: 5px;
+    height: 20px;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.todo-header button {
+    color: black;
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px;
+    background-color: seagreen;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 5px;
+}
+
+.todo-list-item {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255, .5);
+}
+
+.todo-list-item {
+    font-size: .8rem;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.todo-list-item form {
+    width: 100%;
+    display: flex;
+}
+
+.todo-list-item input {
+    flex-grow: 2;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.todo-list-item .confirm {
+    color: black;
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px;
+    background-color: seagreen;
+    border-radius: 5px;
+    max-height: 30px;
+    margin-left: 5px;
+}
+
+.todo-list-item .cancel {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px;
+    background-color: lightcoral;
+    border-radius: 5px;
+    max-height: 30px;
+    margin-left: 5px;
+}
+
+.todo-list-item div{
+    flex-grow: 2;
+}
+
+.todo-list-item .edit {
+    margin-right: 10px;
+    color: darkblue;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: auto;
+}
+
+.todo-list-item .remove {
+        margin-right: 10px;
+        color: darkred;
+        cursor: pointer;
+
+    }

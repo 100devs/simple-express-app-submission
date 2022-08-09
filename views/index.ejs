@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <!-- Google Font (Optional)-->
+    <!--ICONS-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Style Sheet Link-->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<!-- Below was for the template -->
+    <!-- <h2>This is a test, yo.</h2>
+
+<h2>Here's howyou set up and push to Heroku.</h2>
+
+<ul>
+    <li>get init</li>
+    <li>heroku login</li>
+    <li>heroku create</li>
+    <li>echo "web: node server.js" > Procfile</li>
+    <li>get add .</li>
+    <li>git commit -m "changes</li>
+    <li>git push heroku main</li>
+</ul> -->
+<!-- Above was for the template -->
+
+<!-- For Todo list -->
+    <section class ='todo-container'>
+        <h2>To Do List</h2>
+        <section class ='todo'>
+        <form action="/" method="POST" class="todo-header">
+            <input type="text" name="title" value="title">
+            <textarea name="content" cols="45" rows="6">content</textarea>
+            <button type="submit"><span class="fas fa-plus"></span> Add Text</button>
+        </form>
+        <ul class="todo-list">
+            <% todoTasks.forEach(task => {%>
+            <li class="todo-list-item">
+                <div class="todo-list-item-title"><%= task.title %></div>
+                <div class="todo-list-item-title"><%= task.content %></div>
+                <a href="/edit/<%= task._id %>" class="edit">
+                    <span class="fas fa-edit"></span>
+                </a>
+                <a href="/remove/<%= task._id %>" class="remove">
+                    <span class="fas fa-trash"></span>
+                </a>
+            </li>
+           <% }) %>
+        </ul>
+        </section>
+    </section>
+
+</body>
+</html>
