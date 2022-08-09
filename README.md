@@ -3,20 +3,13 @@
 ### Goal: Make Your Own CRUD APP and Push To Heroku
 
 ### How to submit your code for review:
+I have completed the challenge. Since my frontend and backend are in separate repos I am mentioning the links here
+### Frontend: https://github.com/saira512dev/QUIZ
+### Backend : https://github.com/saira512dev/API-Quiz
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+### Live link: https://js-quiz-100devs.netlify.app/admin.html
 
-Example:
-```
-I completed the challenge: 5
+It lets the user play a javascript quiz. Admin can also add/edit/delete questions. Added questions will be avaialable in quiz.
+
 I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
 ```
