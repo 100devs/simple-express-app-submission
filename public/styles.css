@@ -1,0 +1,187 @@
+
+
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #2980b9, #8e44ad)
+    
+}
+/* styling for heading on page */
+/* position: relative; */
+.main-heading{
+    text-align: center;
+    width: 100%;
+    color: black;
+    font-family: 'IBM Plex Serif', serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight:bold;
+}
+
+
+/* Styling for Search Bar */
+.search-bar{
+    display: flex;
+    width: 50%;
+    margin: 2rem auto;
+    padding: 2rem;
+    position: relative;
+    
+    
+   
+    
+    /* border: 2px solid red;
+    box-shadow: 0 8px 16px black; */
+}
+.search-bar h1{
+    text-align: center;
+    margin-bottom: 24px;
+    color: black;
+    
+    
+}
+
+/* Find button styling */
+#search-button{
+    width: 40%;
+    border: 1px solid black;
+    background-color: #8e44ad;
+    color: white;
+    border-radius: 25px;
+    margin-left: 10px;
+    
+}
+
+/* Incoming data from db styling */
+.info-from-db{
+    text-align: center;
+    color: black;
+    /* border: 1px solid black; */
+    /* font-size: 30px; */
+}
+.info-from-db > p{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+
+
+
+/* Styling of the form */
+#adding-movies{
+    margin: auto;
+    width: 50%;
+    max-width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 30px;
+}
+#adding-movies form{
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px black;
+    background-color: white;
+    color: black;
+}
+#adding-movies form h1{
+    text-align: center;
+    padding: 0 0 20px 0;
+    font-family: 'IBM Plex Serif', serif;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+#adding-movies form input{
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: 2px solid black;
+    margin: 10px 0 18px 0;
+    padding: 0 10px;
+}
+
+label{
+    display: block;
+    padding: 1rem 0 .25rem;
+    font-size: 16px;
+}
+
+input,
+textarea{
+    display: block;
+    width: 100%;
+    border: 2px solid black;
+    padding: .5rem;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+
+/* Add button styling */
+#add{
+    width: 100%;
+    height: 30px;
+    border: 1px solid black;
+    background-color: #8e44ad;
+    color: white;
+    border-radius: 25px;
+    margin-left: 10px;
+    
+}
+
+
+/* Media queries */
+@media (min-width: 300px) and (max-width: 450px){
+    body{
+        min-height: 50vh;
+    }
+    #adding-movies{
+        width: 70%;
+    }
+    .search-bar{
+        width: 70%;
+    }
+    
+}
+
+@media (min-width: 1000px) and (max-width: 2560px){
+    label{
+        font-size: 20px;
+    }
+    .info-from-db{
+        font-size: 30px;
+    }
+}
+
+
+
+/* @media (orientation: landscape) and (max-width: 480px){
+   body{
+       background-position: center;
+       background-size: cover;
+   }
+} */
+
+/* for bigger screens */
+@media (min-width: 2000px) and (max-width: 2560px){
+    #adding-movies{
+        margin-top: 300px;
+        width: 200%;
+        height: 40vh;
+
+    }
+    input,
+    textarea{
+        
+        width: 100%;
+        padding: 1.0rem;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+}

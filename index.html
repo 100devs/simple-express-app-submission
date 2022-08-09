@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Movies</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,700&family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <h1 class="main-heading">My All-Time Favorite Movies</h1>
+
+    <!-- <h2>Find My Favorites</h2> -->
+    <section class="search-bar">
+        
+        <input type="text" placeholder="Search Favs">
+        <button id="search-button" type="submit">Find</button>
+        
+    </section>
+   
+    <div class="info-from-db">
+        <h2 class="name-of-movie"> </h2>
+
+        <!-- for display of release date -->
+        <h3 class="dateReleased"> </h3>
+
+        <!-- Notable celebrities -->
+        <h3 class="celeb1"> </h3>
+        <h3 class="celeb2"> </h3>
+        <h3 class="celeb3"> </h3>
+
+        <!-- short bio -->
+        <p class="movie-summary">  </p>
+
+        <!-- movie rating -->
+        <h4 class="movie-rating"> </h4>
+    </div>
+   
+    <!-- Adding to my list of favorite movies -->
+    <section id="adding-movies">
+        <form action="/addMovie" method="POST">
+            <h1>Add New Movie</h1>
+            <!-- input movie title -->
+            <label for="movieTitle">Movie: </label>
+            <input type="text" name="movieTitle">
+
+            <!-- input when movie came out -->
+            <label for="dateReleased">Release Date: </label>
+            <input type="text" name="dateReleased">
+        
+            <!-- input top celebrities that starred in movie -->
+            <label for="notableCelebs">Top 3 Celebs: </label>
+            <input type="text" name="name1">
+            <input type="text" name="name2">
+            <input type="text" name="name3">
+
+            <!-- <input type="text" placeholder="Summary Of Movie" name="movieSummary"> -->
+            <label for="shortBio">Movie Summary: </label>
+            <textarea name="shortBio"></textarea>
+            
+            <!-- input movie rating -->
+            <label for="rottenTomatoesRating">Rating: </label>
+            <input type="text" name="rottenTomatoesRating">
+
+            <button id="add" type="submit">Add Movie</button>
+        </form>
+        
+    </section>
+    
+
+    <script src="js/main.js"></script>
+</body>
+</html>
