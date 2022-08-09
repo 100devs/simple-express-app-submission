@@ -1,8 +1,8 @@
 const formEl = document.querySelector('form');
 const itemContainerList = document.querySelectorAll('#item--js');
-const confirmButtonEl = document.querySelector('form button');
+const confirmButtonEl = document.querySelector('#confirm-btn--js');
 const addButtonEl = document.querySelector('.add');
-
+const deleteButtonEl = document.querySelector('.delete');
 //------------------------
 //----event listeners-----
 //------------------------
@@ -17,6 +17,12 @@ Array.from(itemContainerList).map((el) =>
 
 addButtonEl.addEventListener('click', (e) => {
   confirmButtonEl.insertAdjacentElement('beforebegin', createLogItemEl());
+});
+
+deleteButtonEl.addEventListener('click', (e) => {
+  const allLabelElements = document.querySelectorAll('label');
+
+  addDeleteBtnToAllListItems(allLabelElements);
 });
 
 //--------------------------
@@ -97,4 +103,48 @@ function createLogItemEl() {
   div.addEventListener('click', handleItemContainerClick);
 
   return div;
+}
+
+function addDeleteBtnToAllListItems(nodeList) {
+  const elementArr = Array.from(nodeList);
+
+  elementArr.forEach((el) => {
+    const childrenArray = Array.from(el.children);
+
+    const existingDeleteBtn = childrenArray.find(
+      (el) => el.id === 'delete-item--js'
+    );
+    console.log(existingDeleteBtn);
+    // el here is the parent
+    if (!existingDeleteBtn) {
+      el.insertAdjacentElement('beforeend', createDeleteButtonEl());
+    } else {
+      existingDeleteBtn.remove();
+    }
+  });
+}
+
+function createDeleteButtonEl() {
+  const button = document.createElement('button');
+  const img = document.createElement('img');
+
+  // button
+  button.classList.add('button-23');
+  button.classList.add('delete-btn');
+  button.id = 'delete-item--js';
+
+  // img
+  img.src = '/assets/x.svg';
+  img.alt = 'delete item';
+
+  // build button
+  button.insertAdjacentElement('afterbegin', img);
+
+  return button;
+  /*
+  <button class="button-23 delete-btn" id="delete-item--js">
+                <img src="/assets/x.svg" alt="delete item" />
+              </button>
+  
+  */
 }

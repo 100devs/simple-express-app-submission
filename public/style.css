@@ -16,7 +16,7 @@
   --clr-text-fade: hsl(180, 100%, 41%);
 
   --clr-action: #f9a03f;
-  --clr-btn-accent: #3c1518;
+  --clr-btn-accent: rgb(60, 21, 24);
   /* --clr-error: #ff0033; */
   --clr-error: #7d451b;
 }
@@ -51,6 +51,7 @@ body {
 }
 
 .controls-Section img {
+  display: block;
   width: clamp(25px, 4vw, 50px);
   height: auto;
 }
@@ -88,6 +89,7 @@ form button {
 }
 
 .item-container label {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -95,13 +97,6 @@ form button {
   width: 80%;
   font-size: 20px;
   line-height: 100%;
-}
-
-.item-container .hiddenLabel {
-  position: absolute;
-  font-size: 0px;
-  width: 1px;
-  height: 1px;
 }
 
 .item-container input[type='checkbox'] {
@@ -223,4 +218,47 @@ form button {
   color: #dddddd;
   cursor: not-allowed;
   opacity: 1;
+}
+
+/* delete button */
+.delete-btn {
+  position: absolute;
+  /* right: 80px; */
+  right: -60px;
+  padding: 4px;
+  border-radius: 2px;
+}
+.delete-btn img {
+  display: block;
+  width: 20px;
+  height: auto;
+}
+
+.crossOut {
+  position: relative;
+  /* text-decoration: line-through; */
+  /* animation: crossOut 0.3s linear 0s 1 normal forwards; 
+  doesn't work*/
+}
+.crossOut::before {
+  position: absolute;
+  content: '';
+  left: 0px;
+  width: 20%;
+  height: 20px;
+  background-color: var(--clr-text-fade);
+  animation: crossOut 0.2s linear 0s 1 normal both;
+}
+
+@keyframes crossOut {
+  from {
+    width: 0;
+  }
+  to {
+    width: 30%;
+  }
+}
+
+.test:hover {
+  outline: 8px solid red;
 }
