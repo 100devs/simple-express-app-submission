@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <section class="container">
+        <section class="col">
+            <h2>Input API Data Here</h2>
+            <form action="/api" method="post"  >
+                <input type="text" placeholder="First Name" name="firstName">
+                <input type="text" placeholder="Last Name" name="lastName">
+                <input type="text" placeholder="Image Link" name="image">
+                <input type="number" placeholder="Player Number" name="jerseyNumber">
+                <input type="text" placeholder="Position" name="position">
+                <input type="text" placeholder="Bats" name="bats">
+                <input type="text" placeholder="Throws" name="throws">
+                <input type="number" placeholder="Age" name="age">
+                <input type="text" placeholder="Nickname" name="nickname">
+                <input type="text" placeholder="Full Name" name="fullName">
+                <button type="submit">SUBMIT NEW</button>
+                <button type="button" id="updateButton">UPDATE EXISTING</button>
+            </form>
+        </section>
+        <section class="col">
+            <h2>Delete API Date HERE</h2>
+            <input type="text" placeholder="Name to Delete" name="deleteInput" id="deleteInput">
+            <button id="deleteButton">Delete</button>
+            
+            <h2>Current Players</h2>
+            <ul class="players">
+                <% for(let i = 0; i < info.length; i++){%>
+                    <li class="player">
+                        <span><%= info[i] %></span>
+                    </li>
+               <% } %>
+            </ul>
+        </section>
+        
+    </section>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
