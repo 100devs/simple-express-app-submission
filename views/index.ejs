@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Words of encouragement for you</title>
+    <!-- Google Fonts import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@300;400&family=Source+Code+Pro&family=Work+Sans&display=swap" rel="stylesheet">
+    <!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <main class="page-body">
+      <h1>Words of Encouragement</h1>
+      <h2>Get encouragement Give encouragement</h2>
+      <ul class="words">
+          <% for(var i = 0; i < words.length; i++) {%>
+            <li class="word">
+              <span><%= words[i].words %></span>
+              <span class='love'>❤️</span>
+              <span id='loveNum'><%= words[i].loves %></span>
+              <span class='remove'>🗑</span>
+            </li>
+          <% } %>
+        </ul>
+          <section>
+          <form action="/addEncouragement" method="POST">
+            <!-- <input type="text" placeholder="words" name="words"> -->
+            <label for="words">Share some words of encouragement ✍️</label>
+            <textarea id="words" name="words" rows="5" placeholder="you can do it!"></textarea>
+            <button type="submit">+ ADD</button>
+        </form>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <span>A project by <a href="https://github.com/brittanycalla">Brittany Callahan</a></span>
+    </footer>
+  </div>
+  <script src='js/main.js'></script>
+</body>
+</html>
