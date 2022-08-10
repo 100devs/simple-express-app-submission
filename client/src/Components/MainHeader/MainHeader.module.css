@@ -1,0 +1,48 @@
+.main-header {
+  background-color: #282c34;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #454a53;
+  border-radius: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+.main-header .headerBack {
+  margin-right: auto;
+  background-color: #46108b;
+  color: white;
+  border-radius: .3rem;
+}
+
+.main-header .headerAddTime {
+  margin-left: auto;
+  background: #0ba0a6;
+  color: white;
+  border-radius: .3rem;
+}
+
+.main-header ul {
+  width: 95%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+}
+
+.main-header li {
+  display: flex;
+  margin: 1px;
+  padding: 5px;
+  justify-content: center;
+}
+
+li.headerCenter{
+  font-size: 2rem;
+  color: white;
+  background-color: #282c34;
+  border-radius: .3rem;
+}

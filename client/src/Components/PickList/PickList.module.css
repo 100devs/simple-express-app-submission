@@ -1,0 +1,19 @@
+.listItem{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+  list-style: none;
+  margin-top: .4rem;
+}
+
+.listItem .hidden {
+  visibility: none;
+}
+
+.listItem span {
+  display: inline-block;
+  text-align: left;
+  padding-right: 1rem;
+  width: 75px; 
+}

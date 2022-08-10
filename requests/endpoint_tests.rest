@@ -1,0 +1,59 @@
+# Change base url to match port if needed
+@baseUrl = http://localhost:8000
+# Some default database/track values to use for testing 
+# ensure your db has these initialized as a database and collection respectively
+# Alternatively create them using the 'POST /api/newGame' route and use those
+@testDB = f1_21_test
+@testTrack = bahrain
+
+
+
+### Get list of all db's available to select from (one for each game)
+GET {{baseUrl}}
+### api path
+GET {{baseUrl}}/api
+###
+
+### Get list of all tracks available within a game (json response)
+GET {{baseUrl}}/api/{{testDB}}
+###
+
+### Get list of all tracks available (ejs response)
+GET {{baseUrl}}/{{testDB}}
+###
+
+### Get list of all times for a given game + track (json response)
+GET {{baseUrl}}/api/{{testDB}}/{{testTrack}}
+###
+
+### Get list of all times for a given game + track (ejs response)
+GET {{baseUrl}}/{{testDB}}/{{testTrack}}
+###
+
+### Post new time to a given game + track
+POST {{baseUrl}}/api/{{testDB}}/{{testTrack}}
+Content-Type: application/json
+
+{
+  "driverInitial": "TST",
+  "time": "59:59.999",
+  "car": "equal performance"
+}
+
+### Get create new game form
+GET {{baseUrl}}/newGame
+###
+
+### Create a new game with track/ ime listing
+# Time can be stored as an 
+POST {{baseUrl}}/api/newGame
+Content-Type: application/json
+
+{
+  "game": "test_game",
+  "track": "test_track",
+  "driverInitial": "TST",
+  "car": "equal",
+  "time": "1:22.858"
+}
+###
