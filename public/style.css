@@ -1,0 +1,10 @@
+body {
+    font-size: larger;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    background-color: rgb(218, 44, 73);
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
