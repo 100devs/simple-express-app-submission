@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <p>Express be with you, always.</p>
+    </section>
+
+    <section>
+        <form action="/sentences" method="POST">
+            <input type="text" placeholder="name" name="name">
+            <input type="text" placeholder="quote" name="quote">
+            <button type="submit">Submit</button>
+        </form>
+        
+        
+    </section>
+
+    <h2> Sentences </h2>
+
+    <ul class="sentences">
+      <!-- Loop through quotes -->
+      <% for(var i = 0; i < sentences.length; i++) {%>
+        <li class="quote">
+          <!-- Output name from the iterated quote object -->
+          <span><%= sentences[i].name %></span>:
+          <!-- Output quote from the iterated quote object -->
+          <span><%= sentences[i].quote %></span>
+        </li>
+      <% } %>
+    </ul>
+
+
+    <div>
+        <h2>Darth Vadar invades!</h2>
+        <p>
+          Replace first Yoda's quote with a quote written by Darth Vadar
+        </p>
+        <button id="update-button">Replace Yoda's quote</button>
+      </div>
+
+      <script src="/main.js"></script>
+</body>
+</html>
