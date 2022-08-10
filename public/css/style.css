@@ -1,0 +1,425 @@
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+/* * {
+  outline: 2px solid blue;
+} */
+
+:root {
+  --accent: hsl(55, 40%, 51%);
+  --backgroundCard: rgb(25, 26, 29);
+  --background: rgb(35, 35, 35);
+  --neon: hsl(54, 80%, 71%);
+  --white: hsla(0, 0%, 100%, 0.75);
+  --boxShadowNeon: 0 0 0.4em var(--white), 0 0 1em var(--neon), inset 0 0 0.2em var(--white), inset 0 0 .5em var(--neon);
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background);
+  font-size: 1.6rem;
+  color: rgb(212, 212, 212);
+  padding-top: 5vw;
+}
+
+.results {
+  background: url(../images/diagmonds.webp) repeat;
+  background-size: 150px;
+}
+
+h1 {
+  
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 8rem;
+  font-family: 'Diplomata', cursive, 'Courier New', Courier, monospace;
+  word-spacing: 999px;
+  margin-left: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h2, h3, h4, h5, h6 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  /* line-height: 3rem; */
+}
+
+p, span, li, input {
+  font-size: 1.6rem;
+  font-weight: 400;
+  /* line-height: 3rem; */
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+a:hover {
+  color: var(--neon);
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+.card {
+  position: relative;
+  background: var(--backgroundCard);
+  width: 80vw;
+  max-width: 1200px;
+  margin: 80px auto;
+  overflow-wrap: break-word;
+  border: solid 1px var(--accent);
+}
+
+.card:before {
+  content: " ";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 8px;
+  bottom: 8px;
+  border: double 4px var(--accent);
+  pointer-events: none;
+}
+
+.cardFront, .cardBack {
+  margin: 20px;
+}
+
+.cardFront > h1 {
+  flex: 30;
+  margin-left: 40px;
+}
+
+.cardFront > h1::first-letter {
+  margin-left: -.5em;
+  font-size: calc(1em + 20%);
+}
+
+.toolTip {
+  flex: 1;
+}
+
+.cardFront {
+  border-bottom: solid 1px var(--accent);
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.cardBack {
+  margin-top: 15px;
+}
+
+.ingredients, .instructions, .glass {
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+.ingredients {
+  flex: 2;
+}
+
+.instructions {
+  border-left: solid 1px var(--accent);
+  border-right: solid 1px var(--accent);
+  flex: 6;
+}
+
+.glass {
+  text-align: center;
+  flex: 3;
+}
+
+.glass h3 {
+  text-align: left;
+}
+
+.glass img {
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  filter:brightness(.80);
+}
+
+.glass span {
+  margin-top: 15px;
+}
+
+.measurement, .instruction, .glassImage {
+  margin-top: 15px;
+}
+
+.measurement {
+  color: var(--accent);
+}
+
+.bullet {
+  color: var(--accent);
+  flex: none;
+  padding-right: 10px;
+}
+
+.instructionText {
+  flex: 14;
+}
+
+/******************************************
+/* HOMEPAGE
+/*******************************************/
+
+.homepage {
+  text-align: center;
+  min-height: 400px;
+  padding: 100px 40px;
+  position: relative;
+}
+
+.homepage form {
+  flex-wrap: wrap;
+  margin: auto;
+  width: 90%;
+  max-width: 500px;
+}
+
+.homepage #inputText, .homepage #inputSubmitQuery, .homepage #inputSubmitRandom {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--backgroundCard);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: .5em;
+  flex: 1;
+}
+
+.homepage #inputText {
+  flex: 1 1 100%;
+  max-width: 100%;
+  background-color: var(--background);
+  margin-bottom: .2em;
+  color: white;
+}
+
+.homepage #inputSubmitQuery {
+  margin-right: .1em;
+  cursor: pointer;
+}
+
+.homepage #inputSubmitRandom {
+  margin-left: .1em;
+  cursor: pointer;
+}
+
+.homepage #inputSubmitRandom:hover, .homepage #inputSubmitQuery:hover {
+  color: var(--neon);
+}
+
+#neonText {
+  color: var(--neon);
+  text-shadow: 0 0 0.2em var(--white), 0 0 0.5em var(--neon);
+  font-size: 8rem;
+  font-weight: 700;
+  word-spacing: normal;
+  margin: 0;
+  margin-bottom: 8rem;
+  padding: 0;
+  font-family: 'Neonderthaw', cursive, 'Courier New', Courier, monospace;  
+}
+
+.neon {
+  box-shadow: var(--boxShadowNeon);
+}
+
+#neonReflect {
+  object-fit: contain;
+  border: none;
+  content: "";
+  position: absolute;
+  background: var(--neon);
+  top: 65%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: perspective(32em) rotateX(74deg) scale(1.2, .5);
+  filter: blur(5em);
+  opacity: .5;
+}
+
+.credit, .homepageButton {
+  position: absolute;
+  top: 15px;
+  left: calc(50vw - 30px);
+}
+
+/******************************************
+/* 404
+/*******************************************/
+
+.error p {
+  margin: 10% 0;
+  font-size: 3rem;
+  text-align: center;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+* {
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+clear: both;
+}
+
+.flexContainerColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexContainerRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.toolTip {
+  max-height: 35px;
+  font-size: 3.5rem;
+  color: var(--accent);
+  position: relative;
+  cursor: pointer;
+}
+
+.toolTipText {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--backgroundCard);
+  border: 1px solid var(--accent);
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  cursor: default;
+  font-family: 'Courier New', Courier, monospace;
+  position: absolute;
+  top: -30px;
+  left: -170%;
+  z-index: 1;
+  /* user-select: none; */
+}
+
+.toolTip:hover .toolTipText {
+  visibility: visible;
+}
+
+/******************************************
+/* MEDIA
+/*******************************************/
+
+@media only screen and (max-width: 1024px) {
+
+  .cardFront > h1 {
+    font-size: 2.5rem;
+    line-height: 5rem;
+    margin-left: 25px;
+  }
+
+  #neonText {
+    font-size: 6rem;
+  }
+
+  #neonReflect {
+    display: none;
+  }
+
+  .cardBack {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .ingredients {
+    order: 1;
+    border-right: 1px solid var(--accent);
+    flex: 3;
+  }
+
+  .glass {
+    order: 2;
+    flex: 2;
+  }
+
+  .instructions {
+    flex: 1 1 100%;
+    order: 3;
+    border: none;
+    border-top: 1px solid var(--accent);
+    padding-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .cardFront > h1 {
+    font-size: 1.5rem;
+    line-height: 3rem;
+    margin-left: .1em;
+  }
+
+  #neonText {
+    font-size: 5rem;
+  }
+
+  .cardBack {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .ingredients {
+    order: 2;
+    /* flex: 2; */
+    border: none;
+    border-bottom: 1px solid var(--accent);
+    padding-top: 10px;
+  }
+
+  .glass {
+    order: 1;
+    /* flex: 2; */
+    border-bottom: 1px solid var(--accent);
+  }
+
+  .instructions {
+    order: 3;
+    /* flex: 1; */
+    border: none;
+  }
+
+  .glass img {
+    max-width: 35%;
+  }
+
+  .toolTip {
+    font-size: 3rem;
+  }
+}
