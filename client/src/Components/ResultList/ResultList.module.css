@@ -1,0 +1,29 @@
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table.resTable, th, td {
+  width: 80%;
+  border: 1px solid #454a53;
+  color: #d6d6d6;
+  padding: .3rem
+}
+
+th{
+  background-color: #282c34;
+}
+
+tr:nth-child(odd){
+  background-color: #353b46;
+}
+table.resTable{
+  border-collapse: collapse;
+  margin: 1rem;
+}
+
+.resTitle {
+  color: #d6d6d6
+}

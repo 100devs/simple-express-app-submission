@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1> <%= track %> Leaderboard</h1>
+  <form action="/api/<%= game %>/<%= track %>" method="POST">
+    <label for="time">Time:</label><input type="text" placeholder="1:23.456" name="time"/>
+    <br>
+    <label for="driverInitial">Driver Initial:</label><input type="text" placeholder="AAA" name="driverInitial" />
+    <br>
+    <label for"car">Car:</label><input type="text" value="equal performance" name="car"/>
+    <br>
+    <input type="submit">
+  </form>
+  <ul>
+    <% for(let i=0; i < info.length; i++){%>
+      <li>
+        <%= `${i + 1}: ${info[i].time} ${info[i].driverInitial} (${info[i].car})`%>
+      </li>
+      <%}%>
+  </ul>
+</body>
+
+</html>

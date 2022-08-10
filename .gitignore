@@ -1,0 +1,5 @@
+node_modules
+.env
+
+# Ignore react build
+client/build
