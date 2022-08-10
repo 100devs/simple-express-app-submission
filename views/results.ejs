@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Goblet Lounge</title>
+	<link rel="icon" type="image/png" href="/images/favicon.png"/>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Diplomata&family=Neonderthaw&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="results">
+	<header class="homepageButton">
+        <span><a href="https://golden-goblet-lounge.herokuapp.com/">Homepage</a></span>
+    </header>
+	
+    
+	<ul>
+		<!-- Iterate through every drink object inside info.drinks -->
+		<% for (let i = 0; i < info.drinks.length; i++) { %>
+			<section class="card">
+				<header class="cardFront flexContainerRow">
+					<h1>
+						<%= info.drinks[i].strDrink.toUpperCase() %>
+					</h1>
+						<span class="fa-solid fa-bookmark toolTip" id="<%= info.drinks[i].idDrink %>">
+							<span class="toolTipText">Favorite</span>
+						</span>
+				</header>
+				
+				<footer class="cardBack flexContainerRow">
+					<section class="ingredients">
+						<h2>Ingredients:</h2>
+						<ul>
+							<!-- Embed strMeasure and strIngredient while either value is truthy -->
+							<% let ii = 1 %>
+							<% while (info.drinks[i]['strMeasure' + ii] || info.drinks[i]['strIngredient' + ii]) { %>
+								<li class="measurement">
+									<%= info.drinks[i]['strMeasure' + ii] %>
+								</li>
+								<li class="ingredient">
+									<%= info.drinks[i]['strIngredient' + ii] %>
+								</li>
+								<% ii += 1 %>
+							<% } %>
+						</ul>
+					</section>
+					<section class="instructions">
+						<h2>Instructions:</h2>
+						<ol>
+							<!-- Replace missing period '.' at end of strInstructions that omitted them in error -->
+							<% let strInstructions = info.drinks[i].strInstructions %>
+							<% if (strInstructions[strInstructions.length - 1] != '.') { %>
+								<% strInstructions = strInstructions + '.' %>
+							<% } %>
+							<!-- Add a space ' ' at the end of strInstructions to ensure the split('. ') works correctly all objects -->
+							<% strInstructions = strInstructions + ' ' %>
+							<!-- Split strInstructions into an array  -->
+							<% const instructionsArray = strInstructions.split('. ') %>
+							<!-- Embed each element into the HTML  -->
+							<% for (let i = 0; i < instructionsArray.length - 1; i++) { %>
+								<li class="instruction flexContainerRow">
+									<span class="bullet">
+										<%= i + 1 + '.' %>
+									</span>
+									<span class="instructionText">
+										<%= instructionsArray[i] + '.' %>
+									</span>
+								</li>
+							<% } %>
+						</ol>
+					</section>
+					<section class="glass">
+						<h3>Glass:</h3>
+						<section class="flexContainerColumn">
+							<!-- Create strGlass variable to be implemented into template literal -->
+							<% const glassType = info.drinks[i].strGlass.toLowerCase().split(' ').join('') %>
+							<!-- <img src="<%= `images/${glassType}.png` %>" alt="<%= `${info.drinks[i].strGlass} clipart` %>" class="glassImage" onerror="this.onerror=null; this.src='images/default.png'"> -->
+							<img src="<%= `images/${glassType}.png` %>" alt="<%= `${info.drinks[i].strGlass} clipart` %>" class="glassImage">
+							<span>
+								<%= info.drinks[i].strGlass %>
+							</span>
+						</section>
+					</section>
+				</footer>
+			</section>
+		<% } %>
+	</ul>
+
+    <script src='js/main.js'></script>
+</body>
+</html>

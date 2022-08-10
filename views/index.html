@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Goblet Lounge</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png"/>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Diplomata&family=Neonderthaw&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="index">
+    <header class="credit">
+        <span><a href="https://github.com/RobinHerzig/Golden-Goblet-Lounge">Github</a></span>
+    </header>
+    
+    <section class="card homepage neon">
+        <h1 id="neonText">Golden Goblet Lounge</h1>
+        
+        <form action="/queryDrinks" method="POST" class="flexContainerRow">
+            <input autofocus type="text" placeholder="Enter a cocktail" name="ingredient" class="homepageInput" id="inputText">
+            <input type="submit" value="Search" class="homepageInput" id="inputSubmitQuery">
+            <input type="submit" value="Random" class="homepageInput" id="inputSubmitRandom" formaction="/queryRandom" formmethod="GET">
+            <!-- <input type="submit" value="Favorites" class="homepageInput" id="inputSubmitFavorites" formaction="/queryFavorites" formmethod="GET"> -->
+        </form>
+
+        <section id="neonReflect"></section>
+    </section>
+    <script src='js/main.js'></script>
+</body>
+</html>
