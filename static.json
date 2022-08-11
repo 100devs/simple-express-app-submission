@@ -1,0 +1,7 @@
+{
+  "clean_urls": true,
+  "routes": {
+    "/assets/*": "/assets/",
+    "/**": "index.html"
+  }
+}
