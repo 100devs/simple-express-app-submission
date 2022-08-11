@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taylor Swift Top Lyrics</title>
+</head>
+<body>
+    <h1>Taylor Swift Lyrics</h1>
+
+    <ol class="lyrics">
+        <% for (let i=0; i<lyrics.length; i++) { %>
+            <li class="quote">
+                <span><%= lyrics[i].title %></span>:
+                <span><%= lyrics[i].lyrics %></span>
+                <span><%= lyrics[i].likes %></span>
+                <button class="like-button">thumbs up</button>
+                <button class="delete-button">delete</button>
+            </li>
+        <% } %>
+    </ol>
+
+    <form action="/addLyrics" method="post">
+        <input type="text" placeholder="title" name="title"> 
+        <input type="text" placeholder="lyrics" name="lyrics"> 
+        <button class="submit-button" type="submit">Submit</button>
+    </form>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
