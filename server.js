@@ -2,7 +2,6 @@ const express = require('express');
 const dotenv = require('dotenv');
 const MongoClient = require('mongodb').MongoClient;
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 dotenv.config({ path: './config/config.env' })
 
@@ -74,6 +73,6 @@ app.put("/upvote", (request, response) => {
 
 })
 
-app.listen(PORT, () => {
-    console.log(`listening on port ${PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`listening on port ${process.env.PORT || 3000}`);
 });
