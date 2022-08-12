@@ -1,6 +1,6 @@
-body{
+/* body{
     background: #F0E3D5;
-}
+} */
 h1{
     color:#6AC458 ;
 }
@@ -11,6 +11,6 @@ ul{
     font-family: 'Permanent Marker', cursive;
     font-size: 22px;
 }
-.completed{
-    color:aquamarine;
-}
+/* .completed{
+    color:#F0E3D5 !important;
+} */

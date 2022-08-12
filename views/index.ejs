@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Home Page</title>
 </head>
-<body>
+<body class="completed">
     <h1>Dont let your dreams be dreams</h1>
     <h3>List of Colors:</h3>
     <ul class="colorItems">
         <% for (let i = 0; i < items.length; i++) {%>
             <li class="item">
                 <% if(items[i].completed === true) {%>
-                    <span class="completed fontsize"><%= items[i].thing %></span>
+                    <span class="fontsize"><%= items[i].thing %></span>
                 <% }else{ %>
                     <span class="fontsize"><%= items[i].thing %></span>    
                 <% } %>
