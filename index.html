@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Seed Finder</title>
+    </head>
+    <body>
+        <h1>Enter a Seed and an item you found</h1>
+        
+        <form action="/submit" method="POST"> <!-- "/submitSeed" -->
+            <input type="text" placeholder="seed" name="seed">
+            
+            
+            <label for="items">Choose an item type:</label>
+            <select name="items" id="items">
+                <option value="weapon">weapon</option>
+                <option value="armor">armor</option>
+                <option value="artifact">artifact</option>
+                <option value="ring">ring</option>
+                <option value="wand">wand</option>
+            </select>
+
+            <!--
+            <select name="weapon" id="weapon">
+                <option value="weapon">weapon</option>
+                <option value="armor">armor</option>
+                <option value="artifact">artifact</option>
+                <option value="ring">ring</option>
+                <option value="wand">wand</option>
+            </select> -->
+            
+            <input type="text" placeholder="item" name="item">
+            <label for="floor">What floor?</label>
+            <input type="floor" id="floor" min="1" max="25" />
+
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

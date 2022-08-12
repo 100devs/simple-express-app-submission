@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/08e00972b5.js" crossorigin="anonymous"></script>
+        <title>Secrets Confession</title>
+    </head>
+    <body>
+        <h1>Secrets Confessions</h1>
+        
+        <form action="/addSecret" method="POST">
+            <input type="hidden" name="identifier" id="identifier" value="secretID"> <!-- TBIL: unique identifier for your secret -->
+            <input type="text" placeholder="Your location" name="location">
+            <input type="text" placeholder="Your secret" name="secret">
+            <button type="submit">Submit Anonymously</button>
+        </form>
+
+        <h2> Secrets</h2>
+        <ul class="secrets-list">
+            <!-- loop through results-->
+            <% for(let i = 0; i < secrets.length; i++) {%>
+            <li class="secret">
+                <span><%= secrets[i].location %></span>
+                <span><%= secrets[i].secret %></span>
+                <span><%= secrets[i].likes %></span>
+                <span class='fa fa-thumbs-up'></span>
+                <span class='fa fa-trash'></span>
+            </li>
+            <% } %>
+        </ul>
+
+        <!-- <div>
+            <h2>Change your secret</h2>
+            <p>
+                Edit your secret.
+            </p>
+            <button id="update-button">Replace your secret</button>
+        </div>
+
+        <div>
+            <h2>Remove your secret</h2>
+            <p>
+                Delete your secret.
+            </p>
+            <button id="delete-button">Delete your secret</button>
+        </div> -->
+
+        <div id="message"></div>
+
+        <script src="/main.js"></script>
+    </body>
+</html>
