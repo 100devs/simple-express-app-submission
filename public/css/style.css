@@ -11,3 +11,6 @@ ul{
     font-family: 'Permanent Marker', cursive;
     font-size: 22px;
 }
+.completed{
+    color:aquamarine;
+}
