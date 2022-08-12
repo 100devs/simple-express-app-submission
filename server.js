@@ -43,22 +43,22 @@ app.post('/addColor', (req,res)=>{
     }).catch(error => console.error(error))
 })
 
-// @desc changes background color
+// @desc was to suppose to change the background but that is being handle by function colorChange in main.js
 // @route PUT /changeBG
-app.put('/changeBG', (req,res)=>{
-    db.collection('palette').updateOne({thing: req.body.itemFromJS},{
-        $set:{
-            completed: true
-        }
-    },{
-        sort: {_id: 1},
-        upsert: false
-    })
-    .then(result =>{
-        console.log('color of background changed')
-        res.json('color of background changed')
-    }).catch(error => console.error(error))
-})
+// app.put('/changeBG', (req,res)=>{
+//     db.collection('palette').updateOne({thing: req.body.itemFromJS},{
+//         $set:{
+//             completed: true
+//         }
+//     },{
+//         sort: {_id: 1},
+//         upsert: false
+//     })
+//     .then(result =>{
+//         console.log('color of background changed')
+//         res.json('color of background changed')
+//     }).catch(error => console.error(error))
+// })
 
 // @desc remove resource from list an db
 // @route DELETE /deleteColor
