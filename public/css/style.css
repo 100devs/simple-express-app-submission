@@ -1,0 +1,13 @@
+body{
+    background: #F0E3D5;
+}
+h1{
+    color:#6AC458 ;
+}
+ul{
+    list-style-type: '🎨 ';
+}
+.fontsize{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 22px;
+}
