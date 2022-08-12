@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Home Page</title>
 </head>
-<body class="completed">
-    <h1>Dont let your dreams be dreams</h1>
+<body>
+    <!-- <h1>Dont let your dreams be dreams</h1> -->
+    <section>
     <h3>List of Colors:</h3>
     <ul class="colorItems">
         <% for (let i = 0; i < items.length; i++) {%>
@@ -31,10 +32,12 @@
 
     <h3>Add A Color:</h3>
     <form action="/addColor" method="POST">
-        <input type="text" placeholder="Thing to do" name="addColor">
+        <input type="text" placeholder="Text" name="addColor">
         <input type="submit">
     </form>
+    </section>
 
+    
     <script src="js/main.js"></script>
 </body>
 </html>

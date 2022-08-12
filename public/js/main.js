@@ -48,6 +48,7 @@ async function deleteColor(){
 function colorChange(){
     const itemText = this.parentNode.childNodes[1].innerText;
     document.body.style.backgroundColor = itemText
+
 }
 
 console.log('📶📶📶')//connected to index.ejs, successfull
