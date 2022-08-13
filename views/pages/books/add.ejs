@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%- include('../../partials/head'); %>
+    </head>
+
+    <body class="container">
+
+        <header>
+            <%- include('../../partials/header.ejs'); %>
+        </header>
+
+        <main class="mt-5 mb-5 content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="jumbotron">
+
+                        <h3>Add Book</h3>
+                        <form action="/books/get-book-data" method="POST">
+                            <label for="isbn">ISBN</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="isbn" name="isbn"
+                                    placeholder="Fill Book isbn to get book details and cover"
+                                    value="<%=details?.isbn %>">
+                                <button class="btn btn-outline-secondary" type="submit" id="fetchBookData">Get
+                                    Book Data</button>
+                            </div>
+                        </form>
+                        <% if (details===null) { %>
+                            <h3 style="color:'red'">Could not find data for this ISBN! please fill data manualy :(</h3>
+                            <% } %>
+                                <div class="row">
+                                    <form action="/books" method="POST">
+                                        <div class="form-group">
+                                            <label for="title">Title</label>
+                                            <input type="text" class="form-control" id="title" name="title"
+                                                placeholder="Book title" value="<%=details?.title %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="author">Author</label>
+                                            <input type="text" class="form-control" id="author" name="author"
+                                                placeholder="Book author" value="<%=details?.author %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="author">Cover link</label>
+                                            <input type="text" class="form-control" id="cover" name="cover"
+                                                placeholder="Cover image link" value="<%=details?.cover %>">
+                                        </div>
+                                        <img src="<%= details?.cover %>" alt="">
+
+                                        <div class="form-group">
+                                            <label for="notes">Notes</label>
+                                            <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status">Select if you want this book to be shown in public or
+                                                not</label>
+                                            <select class="form-select form-select-lg mb-3" id="status" name="status">
+                                                <option value="public" selected>Public</option>
+                                                <option value="private">Private</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" id="quotes-list">
+                                            <label for="quote1">Quote1</label>
+                                            <textarea class="form-control" id="quote1" name="quote1"
+                                                rows="3"></textarea>
+                                            <label for="quote1">Quote2</label>
+                                            <textarea class="form-control" id="quote2" name="quote2"
+                                                rows="3"></textarea>
+                                            <label for="quote1">Quote3</label>
+                                            <textarea class="form-control" id="quote3" name="quote3"
+                                                rows="3"></textarea>
+                                            <label for="quote1">Quote4</label>
+                                            <textarea class="form-control" id="quote4" name="quote4"
+                                                rows="3"></textarea>
+                                            <label for="quote1">Quote5</label>
+                                            <textarea class="form-control" id="quote5" name="quote5"
+                                                rows="3"></textarea>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                            <a href="/dashboard" class="btn btn-danger">Cancel</a>
+                                        </div>
+                                    </form>
+                                </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="footer">
+            <%- include('../../partials/footer.ejs'); %>
+        </footer>
+        <script src=" /main.js">
+        </script>
+    </body>
+
+</html>

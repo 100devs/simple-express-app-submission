@@ -1,0 +1,39 @@
+{
+  "name": "book-bank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node app",
+    "dev": "cross-env NODE_ENV=development nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AwsYaseen22/book_bank.git"
+  },
+  "author": "Aws",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AwsYaseen22/book_bank/issues"
+  },
+  "homepage": "https://github.com/AwsYaseen22/book_bank#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.5.1",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.19"
+  }
+}

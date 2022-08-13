@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<%- include('../../partials/head'); %>
+	</head>
+
+	<body class="container">
+
+		<header>
+			<%- include('../../partials/header.ejs'); %>
+
+		</header>
+
+		<main class="mt-5 mb-5 content">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="jumbotron">
+						<h3>Edit Book</h3>
+						<div class="row">
+							<form action="/books/<%= book._id%>" method="POST">
+								<!-- the below hidden will change the method from POST request to PUT request by useing methodOverride in the app.js -->
+								<input type="hidden" name="_method" value="PUT">
+								<div class="form-group mb-4">
+									<label for="title">Title</label>
+									<input type="text" class="form-control" id="title" name="title"
+										placeholder="Book title" value="<%= book.title%>">
+								</div>
+								<div class="form-group mb-4">
+									<label for="author">Author</label>
+									<input type="text" class="form-control" id="author" name="author"
+										placeholder="Book author" value="<%= book.author%>">
+								</div>
+								<div class="form-group mb-4">
+									<label for="notes">Notes</label>
+									<textarea class="form-control" id="notes" name="notes"
+										rows="3"><%= book.notes%></textarea>
+								</div>
+
+								<div class="input-group mb-4">
+									<label class="input-group-text" for="status">Public or private</label>
+									<select class="form-select" id="status">
+										<option value="public" <%=book.status==='public' ? 'selected' : '' %>>Public
+										</option>
+										<option value="private" <%=book.status==='private' ? 'selected' : '' %>>Private
+										</option>
+									</select>
+								</div>
+
+								<div class="form-group mb-4" id="quotes-list">
+									<label for="quote1">Quote1</label>
+									<textarea class="form-control mb-3" id="quote1" name="quote1"
+										rows="3"><%= book.quotes[0]%></textarea>
+									<label for="quote1">Quote2</label>
+									<textarea class="form-control mb-3" id="quote2" name="quote2"
+										rows="3"><%= book.quotes[1]%></textarea>
+									<label for="quote1">Quote3</label>
+									<textarea class="form-control mb-3" id="quote3" name="quote3"
+										rows="3"><%= book.quotes[2]%></textarea>
+									<label for="quote1">Quote4</label>
+									<textarea class="form-control mb-3" id="quote4" name="quote4"
+										rows="3"><%= book.quotes[3]%></textarea>
+									<label for="quote1">Quote5</label>
+									<textarea class="form-control mb-3" id="quote5" name="quote5"
+										rows="3"><%= book.quotes[4]%></textarea>
+								</div>
+
+
+								<button type="submit" class="btn btn-success">Submit</button>
+								<a href="/dashboard" class="btn btn-danger">Cancel</a>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</main>
+
+		<footer class="footer">
+			<%- include('../../partials/footer.ejs'); %>
+		</footer>
+
+	</body>
+
+</html>
