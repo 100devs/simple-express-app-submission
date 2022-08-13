@@ -1,0 +1,29 @@
+/* body{
+    background: #F0E3D5;
+} */
+/* h1{
+    color:#6AC458 ;
+} */
+ul{
+    list-style-type: '🎨 ';
+    list-style-position: inside;
+    text-align: center;
+    margin-right: 40px;
+}
+.fontsize{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 22px;
+}
+/* .completed{
+    color:#F0E3D5 !important;
+} */
+section{
+    align-content: center;
+    text-align: center;
+    width: 400px;
+    border: 2px solid black;
+    border-radius: 10px ;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-bottom: 10px;
+}
