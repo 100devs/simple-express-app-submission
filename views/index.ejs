@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body+ Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1> Welcome to the Body Positive Media Collection! </h1>
+    <form action="/addMedia" method="POST">
+        <input type="text" placeholder="Dumplin'" name="title">
+        <select name="type">
+          <option selected>Movie</option>
+          <option>Book</option>
+          <option>TV Show</option>
+          <option>Website</option>
+          <option>Podcast</option>
+          <option>Instagram</option>
+          <option>Other</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+   
+    <div id="message"></div>  
+
+    <h2> Media </h2>
+
+<ul class="allMedia">
+  <!-- Loop through media -->
+  <% for(var i = 0; i < media.length; i++) {%>
+    <li class="media">
+      <!-- Output title from the iterated media object -->
+      <span><%= media[i].title %></span>:
+      <!-- Output type from the iterated media object -->
+      <span><%= media[i].type %></span>
+      <!-- Output number of likes -->
+      <span class='fa fa-thumbs-up'></span>
+      <span><%= media[i].likes %> Likes</span>
+      <!-- trash for deletion -->
+      <span class='fa fa-trash'></span>
+    </li>
+  <% } %>
+</ul>
+
+<script src="/main.js"></script>
+</body>
+</html>
