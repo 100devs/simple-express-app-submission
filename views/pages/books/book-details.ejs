@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%- include('../../partials/head'); %>
+    </head>
+
+    <body class="container">
+
+        <header>
+            <%- include('../../partials/header.ejs'); %>
+        </header>
+
+        <main class="mt-5 mb-5 content">
+
+            <div class="container">
+
+                <div class="row mt-5">
+
+                    <div class="col-md-3 col-sm-12 ">
+                        <img class="img-fluid d-block mx-auto shadow "
+                            src=" <%=book.cover ? book.cover : '/images/no-image.png' %>" alt="Book cover">
+                    </div>
+
+                    <div class="col-md-9 ">
+                        <div class=" p-4 mb-3 bg-light rounded ">
+                            <h3 class="my-3">
+                                <%= book.title%>
+                            </h3>
+                            <h5>
+                                By: <%= book.author%>
+                            </h5>
+                            <hr>
+                            <p><span><strong>Read by: </strong></span>
+                                <%= book.user.displayName %> -
+                                    <small>
+                                        <%= formatDate(book.createdAt, 'DD MMMM, YYYY' ) %>
+                                    </small>
+                            </p>
+
+                        </div>
+
+                        <br>
+                        <div class="p-4 mb-3 bg-light rounded ">
+                            <h3 class="my-3 ps-4">Reader notes:
+                            </h3>
+                            <div class="container py-2 h-100">
+                                <div class="row d-flex justify-content-center align-items-center h-100">
+                                    <div class="col-12">
+
+                                        <figure class="bg-light p-4 "
+                                            style="border-left: .6rem solid #5efc61; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                            <blockquote class="blockquote pb-2">
+                                                <p>
+                                                    <!-- <i class="fas fa-quote-left fa-lg text-warning me-2"></i> -->
+                                                    <span class="font-italic">
+                                                        <%= book.notes %>
+                                                    </span>
+                                                </p>
+                                            </blockquote>
+                                        </figure>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="p-4 mb-3 bg-light rounded ">
+                            <h3 class="my-3 ps-4">Quotes:</h3>
+
+                            <% book.quotes.filter(q=> q.length > 0).forEach(quote=> { %>
+                                <div class="container py-2 h-100">
+                                    <div class="row d-flex justify-content-center align-items-center h-100">
+                                        <div class="col-12">
+
+                                            <figure class="bg-light p-4 "
+                                                style="border-left: .6rem solid #fcdb5e; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                                <blockquote class="blockquote pb-2">
+                                                    <p>
+                                                        <i class="fas fa-quote-left fa-lg text-warning me-2"></i>
+                                                        <span class="font-italic">
+                                                            <%= quote %>
+                                                        </span>
+                                                    </p>
+                                                </blockquote>
+                                                <!-- <figcaption class="blockquote-footer mb-0">
+                                                    Steve Jobs in <cite title="Source Title">Source Title</cite>
+                                                </figcaption> -->
+                                            </figure>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <%- include('../../partials/footer.ejs'); %>
+        </footer>
+
+    </body>
+
+</html>

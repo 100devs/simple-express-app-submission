@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+p {
+    margin: 10px 0 !important;
+}
+
+.login-container {
+    width: 400px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.fa-small {
+    font-size: 16px !important;
+}
+
+.btn-float {
+    float: left;
+    margin-right: 10px;
+}
+
+.img-small {
+    width: 180px;
+}
+
+.icon-red {
+    color: red;
+}
+
+.small-image{
+    width: 40px;
+    border-radius: 50%;
+}
+
+
+
+.custom-card-main{
+    background-color: green;
+    height: 300px;
+    border-radius: 20px;
+}
+
+
+.custom-card-image{
+    width: 100%;
+
+}
+
+.book-title{
+    color: cornflowerblue;
+}
+
+
+
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex-shrink: 0;
+}

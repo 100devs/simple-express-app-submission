@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%- include('../partials/head'); %>
+    </head>
+
+    <body class="container">
+
+        <header>
+            <%- include('../partials/header.ejs'); %>
+                <!-- <h6>Welcome <%= user.firstName %>
+                </h6> -->
+        </header>
+
+        <main class="mt-5 mb-5 content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-sm-11">
+                                <h1>Books read by <%= user.firstName %>
+                                </h1>
+                            </div>
+                            <div class="col-sm-1">
+                                <!-- add button -->
+                                <%- include('../partials/add_button.ejs') %>
+                            </div>
+                        </div>
+
+
+                        <% if (books.length> 0) { %>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>Quotes</th>
+                                        <th>Status</th>
+                                        <th>Created At</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                <tbody>
+                                    <% books.forEach(e=> { %>
+                                        <tr>
+                                            <td>
+                                                <a href="/books/<%= e._id%>">
+                                                    <%= e.title %>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <%= e.author %>
+                                            </td>
+                                            <td>
+                                                <%= e.quotes.filter(q=> q.length > 0).length %>
+                                            </td>
+                                            <td>
+                                                <%= e.status %>
+                                            </td>
+                                            <td>
+                                                <%= formatDate(e.createdAt, 'DD MMMM, YYYY' ) %>
+                                            </td>
+                                            <td>
+                                                <a href="books/edit/<%= e._id%>" class="btn-float"><span
+                                                        class="fas fa-edit"></span></a>
+
+                                                <form action="/books/<%= e._id%>" method="POST" id="delete-form">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="submit" class="btn btn-link ">
+                                                        <span class="fas fa-trash icon-red"></span>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                                </thead>
+                            </table>
+                            <% } else { %>
+                                <p>You didn't add books to your profile yet!</p>
+                                <% } %>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="footer">
+            <%- include('../partials/footer.ejs'); %>
+        </footer>
+
+    </body>
+
+</html>

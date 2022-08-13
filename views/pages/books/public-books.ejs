@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<%- include('../../partials/head'); %>
+	</head>
+
+	<body>
+
+		<header>
+			<%- include('../../partials/header.ejs'); %>
+		</header>
+
+		<main class="mt-5 mb-5 content container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="jumbotron m-3">
+						<h1 class='text-center'>Great books read by great people</h1>
+						<div class="row p-3 g-3">
+							<% if (allBooks.length> 0) { %>
+								<% allBooks.forEach(b=> { %>
+									<div class="col-sm-12 col-md-6 col-lg-4 p-3">
+										<div class="card p-1" style="height: 250px; min-width: 350px;">
+											<div class="row g-0 " style="height: 80%">
+												<div class="col-4 p-2 " style="height: 100%">
+													<img src="<%= b.cover ? b.cover : '/images/no-image.png' %>"
+														alt="book cover" class="rounded-3 custom-card-image shadow">
+												</div>
+												<div class="col-8 card-body" style="position:relative; height: 100%">
+													<h5 class="card-title book-title">
+														<%= b.title %>
+													</h5>
+													<p class="card-text">
+														Notes: <%= truncate(b.notes, 75) %>
+													</p>
+													<p>Quotes: <%= b.quotes.filter(n=> n.length >0).length %>
+													</p>
+
+													<a href="/books/<%= b._id%>"
+														class="btn btn-outline-primary rounded-pill"
+														style="position:absolute;bottom:5px;right:5px;margin:0;">more...</a>
+												</div>
+											</div>
+											<div class="row" style="height: 20%">
+												<div class="hstack gap-3">
+													<div class="">
+														<a href="/books/user/<%= b.user._id%>">
+															<img src=<%=b.user.image %> alt="user image"
+															class="small-image
+															p-0
+															m-0">
+														</a>
+													</div>
+													<div class="">
+														<a href="/books/user/<%= b.user._id%>">
+															<%= b.user.firstName%>'s read list...
+														</a>
+													</div>
+													<div class=" ms-auto">
+														<p class="p-0 m-0"><small class="text-muted">
+																<%= formatDate(b.createdAt, 'MMMM, YYYY' ) %>
+															</small></p>
+													</div>
+												</div>
+
+
+											</div>
+										</div>
+									</div>
+
+
+									<% }) %>
+										<% } else { %>
+						</div>
+						<p>There are no public books to display!</p>
+						<% } %>
+					</div>
+				</div>
+
+			</div>
+		</main>
+
+		<footer class="footer">
+			<%- include('../../partials/footer.ejs'); %>
+		</footer>
+	</body>
+
+</html>
