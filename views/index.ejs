@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Body+ Media</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1> Welcome to the Body Positive Media Database! </h1>
     <form action="/addMedia" method="POST">
         <input type="text" placeholder="Dumplin'" name="title">
         <select name="type">
-          <option value="<%= media.type %>" selected>Movie</option>
-          <option value="<%= media.type %>">Book</option>
-          <option value="<%= media.type %>">TV Show</option>
-          <option value="<%= media.type %>">Website</option>
-          <option value="<%= media.type %>">Podcast</option>
-          <option value="<%= media.type %>">Instagram</option>
-          <option value="<%= media.type %>">Other</option>
+          <option selected>Movie</option>
+          <option>Book</option>
+          <option>TV Show</option>
+          <option>Website</option>
+          <option>Podcast</option>
+          <option>Instagram</option>
+          <option>Other</option>
         </select>
         <button type="submit">Submit</button>
     </form>
@@ -29,21 +29,23 @@
 
     <h2> Media </h2>
 
-<ul class="media">
+<ul class="allMedia">
   <!-- Loop through media -->
   <% for(var i = 0; i < media.length; i++) {%>
     <li class="media">
-      <!-- Output name from the iterated quote object -->
+      <!-- Output title from the iterated media object -->
       <span><%= media[i].title %></span>:
-      <!-- Output quote from the iterated quote object -->
+      <!-- Output type from the iterated media object -->
       <span><%= media[i].type %></span>
+      <!-- Output number of likes -->
       <span class='fa fa-thumbs-up'></span>
       <span><%= media[i].likes %> Likes</span>
+      <!-- trash for deletion -->
       <span class='fa fa-trash'></span>
     </li>
   <% } %>
 </ul>
 
-<script src="../public/main.js"></script>
+<script src="/main.js"></script>
 </body>
 </html>

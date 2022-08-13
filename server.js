@@ -36,9 +36,9 @@ app.use(bodyParser.json())
 // Update an entry by liking it
 app.put('/like', (req, res) => {
     db.collection('media').updateOne(
-        { thing: req.body.itemFromJS},
+        { title: req.body.titleFromJS },
         { $set: {
-            likes: likes++ 
+            likes: req.body.likesFromJS
         }},
         {   sort: { _id: -1},
             upsert: false }
@@ -75,10 +75,10 @@ app.post('/addMedia', (req, res) => {
 
 //delete an entry
 app.delete('/deleteMedia', (req, res) => {
-    db.collection('media').deleteOne({title: req.body.itemFromJS})
+    db.collection('media').deleteOne({title: req.body.titleFromJS})
     .then(result => {
         console.log('Entry Deleted')
-        response.json('Entry Deleted')
+        res.json('Entry Deleted')
     })
     .catch(error => console.error(error))
     })

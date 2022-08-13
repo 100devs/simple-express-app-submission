@@ -1,25 +1,27 @@
 
 // selecting like and trash buttons
-const likeBtn = document.querySelectorAll('.fa fa-thumbs-up')
-const deleteBtn = document.querySelectorAll('.fa fa-trash')
+const likeBtn = document.querySelectorAll('.fa-thumbs-up')
+const deleteBtn = document.querySelectorAll('.fa-trash')
 
 // creating event listeners. smurf it up
-Array.from(likeBtn.forEach((element) => {
+Array.from(likeBtn).forEach((element) => {
   element.addEventListener('click', likeItem)
-}))
-Array.from(deleteBtn.forEach((element) => {
+})
+Array.from(deleteBtn).forEach((element) => {
   element.addEventListener('click', deleteItem)
-}))
+})
 
 //like function
 async function likeItem() {
-  const itemText = this.parentNode.childNodes[1].innerText
+  const title = this.parentNode.childNodes[3].innerText
+  let likes = Number(this.parentNode.childNodes[13].innerText.split(" ")[0]) + 1
   try{
-      const response = await fetch('likeItem', {
+      const response = await fetch('like', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
-            'itemFromJS': itemText
+            'titleFromJS': title,
+            'likesFromJS': likes
           })
         })
       const data = await response.json()
@@ -33,13 +35,14 @@ async function likeItem() {
 
 //delete function
 async function deleteItem() {
-  const itemText = this.parentNode.childNodes[1].innerText
+  const title = this.parentNode.childNodes[3].innerText
   try{
-      const response = await fetch('deleteItem', {
+      const response = await fetch('deleteMedia', {
           method: 'delete',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
-            'itemFromJS': itemText
+            'titleFromJS': title
+            
           })
         })
       const data = await response.json()
