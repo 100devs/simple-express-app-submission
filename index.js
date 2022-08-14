@@ -52,14 +52,14 @@ app.delete('/deleteTodo', (req, res) => {
 })
 
 app.put('/editTodo', (req, res) => {
-    console.log(req)
+
     todoCollection.updateOne({ todo: req.body.todoName }, {
         $set: {
             todo: req.body.editName
         }
     }, {
-        sort: { _id: -1 },
-        upsert: true
+        // sort: { _id: -1 },
+        // upsert: false
     })
         .then(result => {
             console.log('edited')

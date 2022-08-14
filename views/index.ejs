@@ -23,15 +23,19 @@
     <section class="todos">
 
         <% for(var i=0; i < todos.length; i++) {%>
+
             <div class="output">
                 <p class="todo">
+
                     <%=todos[i].todo%>
+
                 </p>
                 <!-- <div class="icon"> -->
                 <span class='fa fa-trash'></span>
                 <span class='fas fa-edit'></span>
                 <!-- </div> -->
             </div>
+
             <% } %>
 
 

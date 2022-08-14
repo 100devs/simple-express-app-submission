@@ -16,23 +16,27 @@ Array.from(cancelBtn).forEach((element) => {
 
 async function edit() {
     const editTodo = prompt('edit')
-    const nameTodo = this.parentNode.childNodes[1].innerText
-    try {
-        const response = await fetch('editTodo', {
-            method: 'put',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                'editName': editTodo,
-                'todoName': nameTodo
+    if (editTodo == null || editTodo == "") {
+        return 1
+    } else {
+        const nameTodo = this.parentNode.childNodes[1].innerText
+        try {
+            const response = await fetch('editTodo', {
+                method: 'put',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    'editName': editTodo,
+                    'todoName': nameTodo
 
+                })
             })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
+            const data = await response.json()
+            console.log(data)
+            location.reload()
 
-    } catch (err) {
-        console.log(err)
+        } catch (err) {
+            console.log(err)
+        }
     }
 }
 async function deleteItem() {
