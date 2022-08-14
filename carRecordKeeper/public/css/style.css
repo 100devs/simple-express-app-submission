@@ -1,0 +1,25 @@
+form{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+input{
+    margin: 10px;
+    text-align: center;
+    line-height: 5px;
+    
+} 
+
+.success{
+    color: green;
+    font-size: 70px;
+    font-style: normal;
+}
+
+.error{
+    color: red;
+    font-size: 70px;
+    font-style:italic;
+    text-align: center;
+}
