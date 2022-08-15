@@ -1,4 +1,4 @@
-# BOOKSHELF | 100Devs Simple Express App
+# BOOKSHELF | 100Devs Simple CRUD
 
 Keep track of your book list. When you are done reading a book, make sure that you mark it *Finished*!
 
