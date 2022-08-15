@@ -1,9 +1,41 @@
-html {
-    color: black;
+body {
+    background: #297373;
+}
+
+#title {
+    font-size:2.53rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: #5DA271;
+    margin: 3.5rem 0 2rem 0;
+}
+
+/*************/
+/* form */
+/*************/
+.form-container {
+    max-width: 50%;
+    margin: 0 auto;
+    background: #E6E6E6;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 form input {
     display: block;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+}
+
+form label {
+    font-family: sans-serif;
+    font-weight: bold;
 }
 
 /*************/
@@ -12,6 +44,9 @@ form input {
 .bookshelf-container {
     max-width: 80%;
     margin: 0 auto;
+    background: #E6E6E6;
+    padding: 2rem;
+    border-radius: 10px;
 }
 
 ul {
@@ -29,6 +64,12 @@ li {
     justify-content: space-between;
     align-items: center;
     text-align: left;
+    border-bottom: 1px solid gray;
+    padding-top: 2rem;
+}
+
+.book:first-of-type {
+    padding-top: 0;
 }
 
 .book-title,
@@ -42,6 +83,18 @@ li {
 }
 
 .read {
-    color: gray;
+    color: #1B4B4B;
     text-decoration: line-through;
+}
+
+.icon {
+    color: #000;
+}
+.icon:hover {
+    color: #297373;
+}
+
+.fa-window-close,
+.fa-check {
+    margin-right: 1rem;
 }

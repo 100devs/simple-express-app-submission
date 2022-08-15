@@ -86,7 +86,6 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
                 console.log('Book deleted.');
                 res.redirect('/');
             })
-
     })
     .catch(error => console.log(error));
 
