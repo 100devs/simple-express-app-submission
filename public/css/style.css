@@ -1,5 +1,7 @@
 body {
     background: #297373;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 #title {
