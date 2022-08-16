@@ -1,0 +1,27 @@
+.my-recipes {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.my-recipes-pic {
+    width: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 464px) {
+    .my-recipes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+    .my-recipes-pic {
+        width: 150px;
+        object-fit: cover;
+    }
+}

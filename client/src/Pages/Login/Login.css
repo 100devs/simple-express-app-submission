@@ -1,0 +1,15 @@
+.login-container {
+    width: 1024px;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 auto;
+}
+
+.signup-group {
+    display: flex;
+    flex-direction: column;
+}

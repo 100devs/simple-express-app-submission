@@ -1,0 +1,60 @@
+.comment-outer {
+    max-width: 90%;
+    margin-bottom: 50px;
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.comment {
+    display: flex;
+    gap: 1rem;
+}
+.comment-poster {
+    font-weight: bold;
+}
+
+.comment-comment {
+    background-color: white;
+    width: 100%;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    margin-left: 15px;
+}
+
+.comment-delete-x {
+    color: red;
+    font-weight: bold;
+    align-items: flex-end;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.comment-text {
+    border-radius: 5px;
+}
+
+.new-comment {
+    margin: 15px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.comment-btn {
+    align-self: flex-end;
+    width: 100px;
+    margin-left: 10px;
+}
+
+@media (max-width: 400px) {
+    .comment-btn {
+        margin-left: 0;
+    }
+}

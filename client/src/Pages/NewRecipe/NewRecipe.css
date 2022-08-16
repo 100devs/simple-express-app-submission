@@ -1,0 +1,30 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group textarea {
+    border-radius: 5px;
+}
+
+.preview-picture {
+    margin-top: 1rem;
+    width: 200px;
+    position: relative;
+}
+
+.cancel-x {
+    position: absolute;
+    width: 15px;
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 50%;
+}

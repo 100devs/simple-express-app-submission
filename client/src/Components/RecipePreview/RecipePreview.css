@@ -1,0 +1,24 @@
+.recipe-preview {
+
+    border-radius: 10px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-pic {
+    width: 300px;
+    height: 208px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 25px;
+}
+
+.recipe-preview a {
+    text-decoration: none;
+}
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+  }
+  

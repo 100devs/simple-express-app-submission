@@ -1,0 +1,39 @@
+.profile-modal {
+    position: fixed;
+    width: 75%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid grey;
+    padding: 50px;
+    z-index: 1000;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-btns {
+    display: flex;
+    gap: 1rem;
+}
+
+.cancel-btn {
+    background-color: red;
+}
+
+.update-btn {
+    background-color: green;
+}
+
+.another-cancel {
+    position: absolute;
+    font-size: 2rem;
+    color: red;
+    top: 1rem;
+    right: 1rem;
+}
