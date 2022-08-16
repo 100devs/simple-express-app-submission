@@ -11,26 +11,27 @@
 </head>
 <body>
     <h1>Notes App</h1>
-    <!-- <div class="note">
-        <h2>Title</h2>
-        <p>This is some content</p>
-        <i class="fa-solid fa-trash-can"></i>
-        <i class="fa-solid fa-pen-to-square"></i>
-    </div> -->
+
     <ul>
-        <li>
-            <h2>Title #1</h2>
-            <p>Text Content #1</p>
-              <div class="links">
-                <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
-                <a href=""><i class="fa-solid fa-trash-can"></i></a>
-            </div>
-          </li>
+        <% for(let i = 0; i < notes.length; i++) { %> 
+            <li>
+                <h2><%= notes[i].title %></h2>
+                <p><%= notes[i].content %></p>
+                <div class="links">
+                    <a href="/edit/<%= notes[i]._id %> " class="editBtn"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <!-- <form method="POST" action="/delete/<%= notes[i]._id %> ?_method=DELETE">
+                        <input type="hidden">
+                        <input type="submit" name="delete" id="delete" value="">
+                    </form> -->
+                    <i class="deleteBtn fa-solid fa-trash-can"></i>
+                </div>
+            </li>
+        <% } %> 
     </ul>
+
     <a href="/add" class="addNoteBtn">Add New Note <i class="fa-solid fa-plus"></i></a>
 
 
-    <!-- <button><i class="fa-solid fa-plus-large"></i></button> -->
     <script src="../main.js"></script>
 </body>
 </html>
