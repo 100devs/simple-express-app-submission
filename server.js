@@ -3,6 +3,9 @@ const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 // const TestModel = require('./models/schema');
+const Starters = require('./models/Starters');
+const Reserves = require('./models/Reserves');
+const { errorMonitor } = require('events');
 require('dotenv').config();
 
 const connectDB = async () => {
@@ -16,3 +19,26 @@ const connectDB = async () => {
 }
 
 connectDB();
+
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+app.use(cors());
+
+
+app.get('/', async (req, res) => {
+  try {
+    const startingFive = await Starters.find({});
+    const reserves = await Reserves.find({});
+    console.log(startingFive);
+    console.log(reserves);
+    res.render('index.ejs', {starters: startingFive, rest: reserves});
+  } catch(err) {
+    res.status(500).send({message: err.message});
+  } 
+})
+
+app.listen(process.env.PORT || PORT, () => {
+  console.log('Server is running');
+})
