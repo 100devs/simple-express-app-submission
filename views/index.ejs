@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokemon Tracker</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <h1>Pokemon Starting Five</h1>
@@ -13,13 +13,54 @@
   </h2>
 
   <h2>Starting Five: </h2>
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name" placeholder="e.g Charizard">
-  <label for="level">Level</label>
-  <input type="number" name="level" id="level" max="100" min="1">
+  <form action="/add/starter" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="e.g Charizard">
+    <label for="currentLevel">Level</label>
+    <input type="number" name="currentLevel" class="currentLevel" max="100" min="1" value="1">
+    <button type="submit">Add Pokemon</button>
+  </form> 
+
+  <ul id="starters">
+    <% starters.forEach(starter => { %>
+      <li class="starter-item">
+        <div class="starter-item-title">
+          Name: <%= starter.name %>
+        </div>
+        <div class="starter-item-level">
+          Level: <%= starter.currentLevel %>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
 
   <h2>Reserves: </h2>
+  <form action="/add/reserve" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="e.g Blastoise">
+    <label for="currentLevel">Level</label>
+    <input type="number" name="currentLevel" class="currentLevel" max="100" min="1" value="1">
+    <label for="boxNumber">Box Number</label>
+    <input type="number" name="boxNumber" id="box" min="1" value="1">
+    <button type="submit">Add Pokemon</button>
+  </form> 
 
+
+  <ul id="reserves">
+    <% rest.forEach(reserve => { %>
+      <li class="reserve-item">
+        <div class="reserve-item-title">
+          Name: <%= reserve.name %>
+        </div>
+        <div class="reserve-item-level">
+          Level: <%= reserve.currentLevel %>
+        </div>
+        <div class="reserve-item-box">
+          Box No. <%= reserve.boxNumber %>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
 
   <ul>
     <li>git init</li>
@@ -31,6 +72,6 @@
     <li>git push heroku main</li>
   </ul>
 
-  <script src="main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
