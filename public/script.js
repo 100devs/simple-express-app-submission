@@ -1,10 +1,11 @@
 const formEl = document.querySelector('#log-form--js');
+const newItemFormEl = document.querySelector('#newItem-form--js');
 const itemContainerList = document.querySelectorAll('#item--js');
 const confirmButtonEl = document.querySelector('#confirm-btn--js');
 const addButtonEl = document.querySelector('.add');
 const deleteButtonEl = document.querySelector('.delete');
 const addItemPopUpBoxEl = document.querySelector('#add-dialog-box--js');
-const testEl = document.querySelector('#test');
+const animationEl = document.querySelector('#animation--js');
 
 //------------------------
 //----event listeners-----
@@ -20,14 +21,27 @@ Array.from(itemContainerList).map((el) =>
 
 addButtonEl.addEventListener('click', (e) => {
   addItemPopUpBoxEl.classList.toggle('hidden');
-  testEl.classList.toggle('openDoor');
-  confirmButtonEl.insertAdjacentElement('beforebegin', createLogItemEl());
+  animationEl.classList.toggle('openDoor');
 });
 
 deleteButtonEl.addEventListener('click', (e) => {
   const allLabelElements = document.querySelectorAll('label');
 
   addDeleteBtnToAllListItems(allLabelElements);
+});
+
+// new item form
+newItemFormEl.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const userInputBoxEl = document.querySelector('#userInputBox');
+
+  if (userInputBoxEl.value === '') return;
+
+  submitNewItemToDB(userInputBoxEl.value);
+  confirmButtonEl.insertAdjacentElement(
+    'beforebegin',
+    createLogItemEl(userInputBoxEl.value)
+  );
 });
 
 //--------------------------
@@ -64,7 +78,7 @@ function getTodaysDateString() {
   }).format(date);
 }
 
-function createLogItemEl() {
+function createLogItemEl(itemName) {
   /*
   <div class="item-container" id="item--js">
           <label>
@@ -87,7 +101,7 @@ function createLogItemEl() {
   div.id = 'item--js';
 
   // label
-  label.textContent = 'Creatine Taken?';
+  label.textContent = itemName;
 
   // input
   input.type = 'checkbox';
@@ -159,4 +173,21 @@ function createDeleteButtonEl() {
               </button>
   
   */
+}
+
+async function submitNewItemToDB(item) {
+  try {
+    const rawResponse = await fetch('/newLog', {
+      method: 'post',
+      body: JSON.stringify({ item: item }),
+      headers: { Accept: '*/*', 'Content-Type': 'application/json' },
+    });
+
+    const content = await rawResponse.json();
+
+    console.log(content);
+  } catch (err) {
+    console.log('💣💣💣 BANG BANG ERROR 💣💣💣');
+    console.error(err);
+  }
 }
