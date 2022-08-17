@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 // const TestModel = require('./models/schema');
 const Starters = require('./models/Starters');
 const Reserves = require('./models/Reserves');
-const { errorMonitor } = require('events');
 require('dotenv').config();
 
 const connectDB = async () => {
@@ -21,7 +20,9 @@ const connectDB = async () => {
 connectDB();
 
 app.set('view engine', 'ejs');
+// Static folder
 app.use(express.static('public'));
+// Body Parser
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
@@ -38,6 +39,11 @@ app.get('/', async (req, res) => {
     res.status(500).send({message: err.message});
   } 
 })
+
+// Routes
+app.use('/add', require('./routes/add'));
+
+
 
 app.listen(process.env.PORT || PORT, () => {
   console.log('Server is running');
