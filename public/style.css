@@ -267,30 +267,29 @@ h1 {
 
 .newLog-Section {
   font-family: 'Inter', sans-serif;
-  padding: 40px;
+  padding: clamp(20px, 3.2vw, 40px);
   /* display: flex;
   flex-direction: column;
   justify-content: center; */
   align-items: flex-start;
   background-color: var(--clr-action);
-  width: 800px;
-  height: 250px;
+  width: clamp(300px, 64vw, 800px);
   border: 3px solid currentColor;
   border-radius: 4px;
   box-shadow: 8px 8px 0 currentColor;
 }
 
 .newLog-Section h2 {
-  margin-bottom: 24px;
+  margin-bottom: clamp(16px, 1.92vw, 24px);
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 30px;
+  gap: clamp(6px, 0.08vw, 10px);
+  font-size: clamp(20px, 2.4vw, 30px);
 }
 
 .newLog-Section h2 img {
   display: block;
-  width: 30px;
+  width: clamp(20px, 2.4vw, 30px);
   height: auto;
 }
 
@@ -303,10 +302,10 @@ h1 {
 }
 
 .newLog-Section input {
-  padding: 15px 10px;
+  padding: clamp(7px, 1.2vw, 15px) 10px;
   width: 100%;
-  height: 54px;
-  font-size: 20px;
+  /* height: 54px; */
+  font-size: clamp(14px, 1.6vw, 20px);
   background-color: transparent;
   border: 3px solid currentColor;
   border-radius: 4px;
@@ -319,7 +318,7 @@ h1 {
   left: 0;
   top: 0;
   font-weight: 700;
-  font-size: 20px;
+  font-size: clamp(14px, 1.6vw, 20px);
   line-height: 100%;
   background-color: var(--clr-action);
   transition: transform 120ms ease-in;
@@ -327,7 +326,7 @@ h1 {
 
 .newLog-Section input:focus + .labelText,
 .newLog-Section input:not(:placeholder-shown) + .labelText {
-  transform: translate(0.15rem, -28px) scale(0.8);
+  transform: translate(0.15rem, clamp(-14px, 2.24vw, -28px)) scale(0.8);
   color: var(--clr-text);
 }
 
@@ -339,9 +338,8 @@ h1 {
   padding: 6px 16px;
   background-color: var(--clr-text);
   font-weight: 700;
-
+  font-size: clamp(14px, 1.28vw, 16px);
   border: 2px solid var(--clr-text);
-  border-color: none;
   border-radius: 4px;
   cursor: pointer;
 }
