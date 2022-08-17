@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- STYLESHEET LINK -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- FONT AWESOME LINK -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- GOOGLE FONT LINK -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Everything I need to do</title>
+</head>
+<body>
+    
+    <section class="todo-container">
+        <section class="topContainer">
+            <ul class="todo-list">
+                <% todoTasks.forEach(task => {%>
+                    <% if(task._id == idTask) { %>
+                        <li class="todo-list-item">
+                            <h2>Edit List Item</h2>
+                            <form action="/edit/<%= task._id%>" method="POST">
+                                <input type="text" name="title" value="<%=task.title%>">
+                                <textarea name="content" cols="30" rows="10"><%=task.content%></textarea>
+                                <div class="btnContainer">
+                                    <button class="confirmBtn" type="submit">confirm</button>
+                                    <a href="/" class="cancelBtn">cancel</a>
+                                </div>
+                            </form>
+                        </li>
+                    <% } else { %>
+                         <li class="todo-list-item">
+                            <div class="todo-list-item-title">
+                                <h5 class="taskTitle"><%= task.title %></h5>
+    
+                                <div class="iconsContainer">
+                                    <a href="/edit/<%= task._id %>" class="edit"><span class="fas fa-edit"></span></a>
+                                    <a href="/remove/<%= task._id %>" class="remove"><span class="fas fa-times"></span></a>
+                                </div>
+                            </div>
+                            <div class="todo-list-item-content">
+                                <p class="taskContent"><%= task.content %></p>
+                            </div>
+                         </li>
+                    <% } %>
+                <% }) %>
+            </ul>
+        </section>
+    </section>
+    <section>
+        
+    </section>
+    <script src="js/main.js"></script>
+</body>
+</html>

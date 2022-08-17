@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Figtree', sans-serif;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.topContainer{
+    max-width: 500px;
+    padding: .25rem;
+    margin: .75rem;
+}
+
+input,
+textarea{
+    padding: .25rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#title:focus::placeholder,
+#content:focus::placeholder{
+    color: transparent;
+}
+
+.submitBtn,
+.confirmBtn,
+.cancelBtn{
+    padding: .5rem;
+    max-width: 200px;
+}
+
+.cancelBtn{
+    width: 65px;
+    height: 36px;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: .23rem;
+    color: white;
+    background-color: rgba(122, 148, 225, 0.736);
+}
+
+.cancelBtn:hover{
+    color: rgba(122, 148, 225, 0.736);
+    background-color: white;
+    border: 2px solid rgba(122, 148, 225, 0.736);
+}
+
+ul.todo-list{
+    padding: .5rem;
+    width: 100%;
+}
+
+.todo-list-item{
+    border-radius: .5rem;
+    border: 1px solid black;
+    padding: .75rem;
+    margin: .25rem;
+}
+
+.todo-list-item-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+h5{
+    font-size: 1.3rem;
+}
+
+.todo-list-item-content{
+    font-weight: 100;
+}
+
+.iconsContainer a,
+.iconsContainer a:hover{
+    color: rgb(61, 61, 173);
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+}
