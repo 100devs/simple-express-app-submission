@@ -1,0 +1,42 @@
+h1{
+    color: #88baec;
+}
+.completed{
+    color: gray;
+    text-decoration: line-through;
+}
+
+.slant {
+    font-style: italic;
+}
+
+table, form {
+    width: 80%;
+    margin: 2% auto;
+    border-spacing: 0;
+}
+
+td {
+    text-align: center;
+    padding: 10px 15px;
+}
+
+
+th {
+    color: #333333;
+    font-weight: 400;
+    font-size: 1.2rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #88baec;
+}
+
+tr:nth-child(odd) { background-color: #e5e8ed; }
+
+.hidden {
+    display: none;
+}
+
+.fa{
+    padding: 1px;
+}
