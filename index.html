@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -33,8 +33,30 @@
       </button>
     </section>
 
+    <section class="newLog-Section">
+      <h2>
+        <span><img src="/assets/fat-plus.svg" alt="" /></span>
+        New item
+      </h2>
+      <form action="newLog" method="POST">
+        <label for="userInputBox">
+          <input
+            type="text"
+            name="newLogDescription"
+            id="userInputBox"
+            placeholder=" "
+          />
+          <span class="labelText">Description</span>
+        </label>
+        <div class="btn-container">
+          <button type="submit">Add</button>
+          <button type="button">Reset</button>
+        </div>
+      </form>
+    </section>
+
     <section class="logList-Section">
-      <form action="log" method="POST">
+      <form action="log" method="POST" id="log-form--js">
         <!-- example label -->
         <div class="item-container" id="item--js">
           <label for="" class="crossOut">

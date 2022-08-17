@@ -1,4 +1,4 @@
-const formEl = document.querySelector('form');
+const formEl = document.querySelector('#log-form--js');
 const itemContainerList = document.querySelectorAll('#item--js');
 const confirmButtonEl = document.querySelector('#confirm-btn--js');
 const addButtonEl = document.querySelector('.add');
