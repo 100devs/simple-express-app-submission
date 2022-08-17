@@ -33,27 +33,29 @@
       </button>
     </section>
 
-    <section class="newLog-Section">
-      <h2>
-        <span><img src="/assets/fat-plus.svg" alt="" /></span>
-        New item
-      </h2>
-      <form action="newLog" method="POST">
-        <label for="userInputBox">
-          <input
-            type="text"
-            name="newLogDescription"
-            id="userInputBox"
-            placeholder=" "
-          />
-          <span class="labelText">Description</span>
-        </label>
-        <div class="btn-container">
-          <button type="submit">Add</button>
-          <button type="button">Reset</button>
-        </div>
-      </form>
-    </section>
+    <div class="" id="test">
+      <section class="newLog-Section hidden" id="add-dialog-box--js">
+        <h2>
+          <span><img src="/assets/fat-plus.svg" alt="" /></span>
+          New item
+        </h2>
+        <form action="newLog" method="POST">
+          <label for="userInputBox">
+            <input
+              type="text"
+              name="newLogDescription"
+              id="userInputBox"
+              placeholder=" "
+            />
+            <span class="labelText">Description</span>
+          </label>
+          <div class="btn-container">
+            <button type="submit">Add</button>
+            <button type="button">Reset</button>
+          </div>
+        </form>
+      </section>
+    </div>
 
     <section class="logList-Section">
       <form action="log" method="POST" id="log-form--js">
@@ -106,6 +108,3 @@
     </section>
   </body>
 </html>
-
-<!-- HTML !-->
-<!-- <button class="button-23" role="button">Button 23</button> -->

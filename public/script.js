@@ -3,6 +3,9 @@ const itemContainerList = document.querySelectorAll('#item--js');
 const confirmButtonEl = document.querySelector('#confirm-btn--js');
 const addButtonEl = document.querySelector('.add');
 const deleteButtonEl = document.querySelector('.delete');
+const addItemPopUpBoxEl = document.querySelector('#add-dialog-box--js');
+const testEl = document.querySelector('#test');
+
 //------------------------
 //----event listeners-----
 //------------------------
@@ -16,6 +19,8 @@ Array.from(itemContainerList).map((el) =>
 );
 
 addButtonEl.addEventListener('click', (e) => {
+  addItemPopUpBoxEl.classList.toggle('hidden');
+  testEl.classList.toggle('openDoor');
   confirmButtonEl.insertAdjacentElement('beforebegin', createLogItemEl());
 });
 

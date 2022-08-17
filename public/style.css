@@ -22,11 +22,11 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   /* justify-content: center; */
-  align-items: center;
-  gap: 150px;
+  /* align-items: center; */
+  /* gap: 150px; */
   min-height: 100vh;
   background-color: var(--clr-bg);
   font-family: 'Poppins', sans-serif;
@@ -64,6 +64,7 @@ h1 {
 }
 
 .logList-Section {
+  margin-top: 80px;
   width: 100%;
 }
 
@@ -265,6 +266,68 @@ h1 {
 
 /* new log section */
 
+.hidden {
+  display: none;
+}
+
+.openDoor {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --max-height: clamp(250px, 32vw, 400px);
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: var(--max-height);
+  box-shadow: 0px 5px 2px currentColor inset, 0px -5px 2px currentColor inset;
+  animation: openBackground 1s linear 0s 1 normal both;
+}
+
+@keyframes openBackground {
+  0% {
+    height: 0px;
+  }
+  20% {
+    height: 0px;
+  }
+  90% {
+    height: var(--max-height);
+    box-shadow: 0px 0px 0px currentColor inset, 0px -0px 0px currentColor inset;
+  }
+  100% {
+    box-shadow: 0px 10px 15px currentColor inset,
+      0px -10px 15px currentColor inset;
+  }
+}
+
+.openDoor::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+  animation: splitScreen 1s linear 0s 1 normal both;
+}
+
+@keyframes splitScreen {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  20% {
+    width: 100%;
+    left: 0;
+  }
+  /* doesn't do anything only for keeping the 100%*/
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+
 .newLog-Section {
   font-family: 'Inter', sans-serif;
   padding: clamp(20px, 3.2vw, 40px);
@@ -274,9 +337,28 @@ h1 {
   align-items: flex-start;
   background-color: var(--clr-action);
   width: clamp(300px, 64vw, 800px);
+  height: min-content;
   border: 3px solid currentColor;
   border-radius: 4px;
   box-shadow: 8px 8px 0 currentColor;
+  animation: appear 2.5s linear 0s 1 normal both;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0%;
+    /* transform: translateY(-200px) scaleY(0); */
+  }
+  20% {
+    opacity: 0%;
+  }
+  90% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 100%;
+    /* transform: translateY(0px) scaleY(1); */
+  }
 }
 
 .newLog-Section h2 {
@@ -326,7 +408,7 @@ h1 {
 
 .newLog-Section input:focus + .labelText,
 .newLog-Section input:not(:placeholder-shown) + .labelText {
-  transform: translate(0.15rem, clamp(-14px, 2.24vw, -28px)) scale(0.8);
+  transform: translate(0.15rem, calc(-1 * clamp(14px, 2.24vw, 28px))) scale(0.8);
   color: var(--clr-text);
 }
 
