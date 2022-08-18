@@ -42,6 +42,8 @@ app.get('/', async (req, res) => {
 
 // Routes
 app.use('/add', require('./routes/add'));
+app.use('/remove', require('./routes/remove'));
+app.use('/edit', require('./routes/edit'));
 
 
 
