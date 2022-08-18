@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+  <h1>Pokemon Starting Five</h1>
+  <h2>Add your starters or reserves and keep track of them here!
+  </h2>
+
+  <h2>Starting Five: </h2>
+
+
+  <ul id="starters">
+    <% starters.forEach(starter => { %>
+      <% if (starter._id == idStarter) { %>
+        <li class="starter-item">
+          <form action="/edit/starter/<%= starter._id %>" method="POST">
+            <input type="text" name="name" value="<%= starter.name %>">
+            <input type="number" name="currentLevel" value="<%= starter.currentLevel %>">
+            <button type="submit" class="confirm">Confirm Change</button>
+            <a href="/" class="cancel">Cancel</a>
+          </form>
+        </li>
+      <% } else { %>
+      <li class="starter-item">
+        <div class="starter-item-title">
+          Name: <%= starter.name %>
+        </div>
+        <div class="starter-item-level">
+          Level: <%= starter.currentLevel %>
+        </div>
+        <div>
+
+          <a href="/edit/starter/<%= starter._id %>" class="edit">
+            <span class="fas fa-edit"></span>
+          </a>
+          <a href="/remove/starter/<%= starter._id %>" class="remove">
+            <span class="fas fa-times"></span>
+          </a>
+
+        </div>
+      </li>
+      <% } %>
+    <% }) %>
+  </ul>
+
+  <h2>Reserves: </h2>
+
+
+  <ul id="reserves">
+    <% rest.forEach(reserve => { %>
+      <% if (reserve._id == idReserve) { %>
+        <li class="reserve-item">
+          <form action="/edit/reserve/<%= reserve._id %>" method="POST">
+            <input type="text" name="name" value="<%= reserve.name %>">
+            <input type="number" name="currentLevel" value="<%= reserve.currentLevel %>">
+            <input type="text" name="boxNumber" value="<%= reserve.boxNumber %>">
+            <button type="submit" class="confirm">Confirm Change</button> 
+            <a href="/" class="cancel">Cancel</a>
+          </form>
+        </li>
+      <% } else { %>
+      <li class="reserve-item">
+        <div class="reserve-item-title">
+          Name: <%= reserve.name %>
+        </div>
+        <div class="reserve-item-level">
+          Level: <%= reserve.currentLevel %>
+        </div>
+        <div class="reserve-item-box">
+          Box No. <%= reserve.boxNumber %>
+        </div>
+        <div>
+
+          <a href="/edit/reserve/<%= reserve._id %>" class="edit">
+            <span class="fas fa-edit"></span>
+          </a>
+          <a href="/remove/reserve/<%= reserve._id %>" class="remove">
+            <span class="fas fa-times"></span>
+          </a>
+
+        </div>
+      </li>
+      <% } %>
+    <% }) %>
+  </ul>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

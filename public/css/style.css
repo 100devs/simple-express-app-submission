@@ -1,0 +1,14 @@
+
+.starter-item,
+.reserve-item {
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.starter-item-level,
+.reserve-item-level,
+.reserve-item-box {
+  margin-left: 2%;
+}
+
