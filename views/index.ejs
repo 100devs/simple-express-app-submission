@@ -1,0 +1,40 @@
+<!--include header-->
+    <%- include('include/_header') %>
+<!--/include header-->
+
+  <!--main site-->
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <a href="add-item" class="border-shadow">
+                <span class="text-gradient">Add item<i class="fa-solid fa-cart-shopping"></i></span>
+            </a>
+        </div>
+
+        <!--form handling-->
+        <form action="/" method="POST">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>List Number</th>
+                        <th>Item</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Got it!</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%- include('include/_show') %>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+</main>
+
+<!--/main site-->
+
+<!--include footer-->
+<%- include('include/_footer') %>
+<!--/include footer-->

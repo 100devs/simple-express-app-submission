@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/CSS/style.CSS">
+</head>
+<body>
+
+    <!--header-->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <h1> class="nav-brand"> Fresh Grocery
+                    </h1>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!--header-->
+
+    <!--main site-->
+        <main id="site-main">
+            <div class="container">
+                <div class="box-nav d-flex justify-between">
+                    <a href="add_item" class="border-shadow">
+                        <span class="text-gradient">Add item<i class="fa-solid fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+
+                <!--form handling-->
+                <form action="/" method="POST">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>List Number</th>
+                                <th>Item</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Got it!</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="container">
+                            <tr class="row">
+                                <td>1</td>
+                                <td class="discription">Item name</td>
+                                <td class="discription">Category</td>
+                                <td class="discription">Amount</td>
+                                <td>
+                                    <a class="btn border-shadow delete">
+                                        <span class="text-gradient"><i class="fas fa-check"></i></span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn border-shadow update">
+                                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                    </a>
+                                    <a class="btn border-shadow delete">
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+        </main>
+
+    <!--/main site-->
+
+
+
+</body>
+</html>

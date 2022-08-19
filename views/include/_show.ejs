@@ -1,0 +1,22 @@
+<% for(var i = 0; i < item.length; i++){ %>
+    <tr>
+        <td><%= i + 1 %></td>
+        <td class="discription"><%= item[i].item %></td>
+        <td class="discription"><%= item[i].category %> </td>
+        <td class="discription"><%= item[i].quantity %></td>
+        <td>
+            <div>
+                <input type="checkbox" class="gotIt" data-id="<%=item[i]._id%>"  name="gotIt" <%= item[i].gotIt === "yes" ?  'checked' : '' %>>
+                <label for="gotIt"></label>
+            </div>
+        </td>
+        <td>
+            <a href="/update-items?id=<%= item[i]._id%>" class="btn border-shadow update">
+                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+            </a>
+            <a class="btn border-shadow delete" data-id=<%= item[i]._id%>>
+                <span class="text-gradient"><i class="fas fa-times"></i></span>
+            </a>
+        </td>
+    </tr>
+<% } %>
