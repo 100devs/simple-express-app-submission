@@ -1,0 +1,21 @@
+<!--form handling-->
+<form action="/api/item" method="POST" id="add_item">
+    <div class="new_item">
+        <div class="form-group">
+            <label for="item" class="text-light">Item</label>
+            <input type="hidden" name="id" value="">
+            <input required type="text" name="item" value="" placeholder="Eggs">
+        </div>
+        <div class="form-group">
+            <label for="category" class="text-light">Category</label>
+            <input type="text" name="category" value="" placeholder="Dairy">
+        </div>
+        <div class="form-group">
+            <label for="quantity" class="text-light">Quantity</label>
+            <input type="text" name="quantity" value="" placeholder="One carton">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn-text-dark update" id="submit-btn">Save</button>
+        </div>
+    </div>
+</form>

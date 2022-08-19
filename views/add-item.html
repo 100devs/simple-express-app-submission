@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/CSS/style.CSS">
+</head>
+<body>
+
+    <!--header-->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href=*/* class="nav-brand text-dark"> Grocery list
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!--header-->
+
+    <!--main site-->
+        <main id="site-main">
+            <div class="container">
+                <div class="box-nav d-flex justify-between">
+                    <div class="filter">
+                        <a href="/"><i class="fa-solid fa-cart-shopping"></i>All Items</a>
+                    </div>
+                </div>
+                <div class="form-title text-center">
+                    <h2 class="text-dark">New Item</h2>
+                    <span class="text-light">Use the below form to add an item</span>
+                </div>
+
+                <!--form handling-->
+                <form method="POST" id="update_item">
+                    <div class="new_item">
+                        <div class="form-group">
+                            <label for="item" class="text-light">Item</label>
+                            <input type="hidden" name="id" value="">
+                            <input type="text" name="item" value="" placeholder="Eggs">
+                        </div>
+                        <div class="form-group">
+                            <label for="Category" class="text-light">Category</label>
+                            <input type="text" name="Category" value="" placeholder="Dairy">
+                        </div>
+                        <div class="form-group">
+                            <label for="Amount" class="text-light">Amount</label>
+                            <input type="text" name="Amount" value="" placeholder="One carton">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn-text-dark update" id="submit-btn">Save</button>
+                        </div>
+                    </div>
+
+                    
+                </form>
+            </div>
+
+        </main>
+
+    <!--/main site-->
+
+
+
+</body>
+</html>
