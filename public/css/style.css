@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-container {
+    height: 100vh   ;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
