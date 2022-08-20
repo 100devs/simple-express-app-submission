@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Quotes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/292e534ebf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Popular Quotes</h1>
+    
+    <h2>Add A Quote:</h2>
+    <form action="/addQuote" method="POST">
+        <input type="text" placeholder="Name" name="name">
+        <input type="text" placeholder="Quote" name="quote">
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul class="quotesContainer">
+        <% for (let i = 0 ; i < info.length; i++) {%>
+            <li class="quote">
+                <p><%= info[i].quote %></p>
+                <p class="align-right"><%= info[i].name %></p>
+                <span class=""><%= info[i].likes %></span> 
+                <span class='fa fa-thumbs-up'></span>
+                <span class='fa fa-trash'></span>
+            </li>
+        <% } %>
+    </ul>
+    <script src="/main.js"></script>
+    
+</body>
+</html>
