@@ -1,0 +1,28 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+
+<section class="card text-bg-dark mb-3 w-75 mx-auto">
+    <div class="card-header text-center">Edit</div>
+    <div class="card-body">
+        <% for(let show of shows) { %>
+            <% if(show._id == showId) {%>
+                <form action="/log/<%= show._id %>" method="POST">
+                    <label for="show_name" class="form-label">Show</label>
+                    <input type="text" value="<%= show.showName %>" name="show_name" id="show_name" class="form-control">
+
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" name="date" id="date" class="form-control">
+
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" value="<%= show.location %>" name="location" id="location" class="form-control">
+
+                    <input type="submit" class="btn btn-info mt-3">
+
+                    <a href="../log" class="btn btn-danger mt-3">Cancel</a>
+                </form>
+            <% } %>
+        <% } %>
+    </div>
+</section>
+
+<%- include("partials/footer") %> 
