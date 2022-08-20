@@ -16,7 +16,10 @@ const drivinghoursSchema = new mongoose.Schema( {
     },
     hwyHours: {
         type: Number,
+    },
+    instructor: {
+        type: String,
     }
 })
 
-module.exports = mongoose.model("DrivingHours", drivinghoursSchema, "user")
+module.exports = mongoose.model("DrivingHours", drivinghoursSchema, "hours")

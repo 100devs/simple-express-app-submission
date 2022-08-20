@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/68de1d0260.js" crossorigin="anonymous"></script>
+    <title>Student Driver - Hours Log</title>
+</head>
+<body>
+    <section class="hours-container">
+        <h2>Driving Hours Log</h2>
+        <section class="hours">
+            <form action="/" method="POST" class="hours-header">
+                <label for="total">Total hours driven this session:</label>
+                <input type="number" min= "1" name="total" id="total">
+                <label for="night">Total hours driven at night:</label>
+                <input type="number" min= "1" name="night" id="night">
+                <label for="hwy">Total hours driven on the highway:</label>
+                <input type="number" min= "1" name="hwy" id="hwy">
+                <label for="instructor">Instructor:</label>
+                <input type="text" name="instructor" id="instructor">
+                <label for="note">Session Note:</label>
+                <textarea name="note" id="note">Notes about maneuvers practiced, which need more practice, etc:</textarea>
+            </form>
+        </section>
+    </section>
+</body>
+</html>
