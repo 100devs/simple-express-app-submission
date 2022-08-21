@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <title>Street Fighter 4 Character Rating App</title>
+</head>
+<body>
+
+  <section data-position="characters">
+    <h1 data-position="header">Street Fighter 4 Characters</h1>
+    <h2>Rate them as many times as you wish</h2>
+
+    <ul class='characters'>
+      <% for(var i = 0; i < characters.length; i++) {%>
+      <li>
+        <span class='character'><%= characters[i].charName %></span> <span>- Likes: </span>
+        <span><%= characters[i].likes %></span>
+        <span class='fa fa-arrow-up'></span>
+        <span class='fa fa-arrow-down'></span>
+      </li>
+      <% } %>
+    </ul>
+  </section>
+
+  <script src="/main.js"></script>
+</body>
+</html>
