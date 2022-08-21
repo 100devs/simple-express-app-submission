@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    font-family: 'DynaPuff', cursive;
+    font-family: 'Kalam', cursive;
+    background: rgb(16, 16, 16);
+   
+}
+
+.main-container{
+    height: 100vh;
+    width: 100%;
+    /* background-image: url("/images/nica-cn-1zOtkv3hJ9s-unsplash.jpg"); */
+    opacity: 0.9;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:contain;
+    text-align: center;
+    
+}
+
+
+h1, h2{
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: rgb(241, 206, 139);
+    /* background: rgba(39, 41, 41, 0.533); */
+}
+
+.todos-container{
+    color: wheat;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    max-width: 600px;
+    padding: 3em;
+    transform: translate(-50%, -20%);
+    background: rgba(43, 45, 45, 0.708);
+    border-radius: 20px;
+    height:fit-content;
+}
+
+.todos-header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+input{
+    font-family: 'Kalam', cursive;
+    margin-bottom: 15px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1em;
+    max-width: 240px;
+}
+
+textarea{
+    font-family: 'Kalam', cursive;
+    margin-bottom: 15px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1em;
+    max-width: 240px;
+}
+
+button {
+    color: white;
+    border: none;
+    padding: 0.8em;
+    font-family: 'Kalam', cursive;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: green;
+    width: 80px;
+}
+
+.cancel{
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    font-family: 'Kalam', cursive;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: red;
+    width: 80px;
+}
+
+ul {
+    list-style: none;   
+}
+
+.todo-list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+ 
+    margin:10px;;
+    border: none;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.4);
+    min-width: 350px;
+    width: fit-content;
+    height: fit-content;
+   
+}
+
+.todo-list-item-title{
+    color:rgb(233, 121, 56);
+}
+.todo-list-item-content{
+    padding: 15px;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.total{
+    color:rgb(233, 121, 56);
+    
+}
