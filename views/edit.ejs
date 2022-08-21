@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;700&family=Kalam:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/337bea1167.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <section class="main-container">
+        <h2>Edit your food</h2>
+        <section class="todos-container">
+            <ul class="todos-list">
+                <% todos.forEach(todo=> { %>
+                    <% if (todo._id==todosId) { %>
+                        <li class="todo-list-item">
+                            <form action="/edit/<%= todo._id %>" method="POST">
+                                <input type="text" name="title" value="<%= todo.title %>">
+                                <textarea name="content" cols="20" rows="5"><%= todo.content %></textarea>
+                                <input type="text" name="calories" value="<%= todo.calories %>">
+                                <div>
+                                <button type="submit" class="confirm">Confirm</button>
+                                <a href="/" class="cancel">Cancel</a>
+                                </div>
+                            </form>
+                        </li>
+                    <% } else { %>
+                            <li class="todo-list-item">
+                                <div class="todo-list-item-title">
+                                    <%= todo.title %>
+                                </div>
+                                <div class="todo-list-item-content">
+                                    <%= todo.content %>
+                                </div>
+                                <div class="todo-list-item-calories">
+                                    <%= todo.calories %>
+                                </div>
+
+                                <a href="/edit/<%= todo._id %>" class="edit">
+                                    <span class="fas fa-edit"></span>
+                                </a>
+                                <a href="/remove/<%=todo._id %>" class="remove">
+                                    <span class="fas fa-times"></span>
+                                </a>
+                            </li>
+                            
+                        <% } %>
+                <% }) %>
+            </ul>
+
+        </section>
+    </section>
+</body>
+
+</html>

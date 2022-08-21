@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/337bea1167.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <section class="main-container">
+        <h1>Track Your Calories</h1>
+
+        <section class="todos-container">
+            <form action="/" method="POST" class="todos-header">
+                <input type="text" name="title" placeholder="Name">
+                <textarea name="content" cols="20" rows="5" placeholder="Description"></textarea>
+                <input type="text" name="calories" placeholder="Calories">
+
+                <button type="submit"><span class="fas fa-plus"></span>Add</button>
+            </form>
+
+            <ul class="todos-list">
+                <% let totalCal=0 %>
+                <% todos.forEach(todo => { %>
+                    <li class="todo-list-item">
+                        <div class="todo-list-item-title"><%= todo.title %></div>
+                        <div class="todo-list-item-content"><%= todo.content %></div>
+                        <div class="todo-list-item-calories"><%= todo.calories %></div>
+
+                        <a href="/edit/<%= todo._id %>" class="edit">
+                            <span class="fas fa-edit"></span>
+                        </a>
+                        <a href="/remove/<%=todo._id %>" class="remove">
+                        <span class="fas fa-times"></span>
+                        </a>
+                    </li>
+                    <% totalCal += todo.calories %>
+                <% }) %>
+            </ul>
+
+                <div class="total">Total calories consumed: <%= totalCal %></div>
+
+        </section>
+    </section>
+</body>
+</html>
