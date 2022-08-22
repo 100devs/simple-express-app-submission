@@ -20,7 +20,7 @@
 <body>
     <h2>Add A Vocab Word</h2>
     
-    <form action="/addWord" method="POST">
+    <form action="word/addWord" method="POST">
         <input type="text" placeholder="Vocab" name="word">
         <input type="text" placeholder="Defintion" name="defintion">
         <input class="submit" type="submit">
@@ -29,7 +29,7 @@
         <h1>Vocabulary Words</h1>
         <ul class="words">
         <% for(let i=0; i < words.length; i++) {%>
-            <li class="item">
+            <li class="item" data-id="<%= words[i]._id %>">
                 <% if(words[i].difficulty === 'hard') { %>
                     <i class="fa-solid fa-flag"></i>
                 <% } else { %>

@@ -1,5 +1,5 @@
 let trashcans = document.querySelectorAll('.fa-trash')
-let hards = document.querySelectorAll('.fa-solid, .fa-flag')
+let hards = document.querySelectorAll('.fa-solid.fa-flag')
 let easies = document.querySelectorAll('.fa-regular')
 let speakers = document.querySelectorAll('.fa-volume-high')
 
@@ -7,13 +7,14 @@ Array.from(trashcans).forEach(x => x.addEventListener('click', removeWord))
 Array.from(hards).forEach(x => x.addEventListener('click', changeToEasy))
 Array.from(easies).forEach(x => x.addEventListener('click', changeToHard))
 Array.from(speakers).forEach(x => x.addEventListener('click', readWord))
+console.log(easies)
+console.log(hards)
 
 async function removeWord() {
-    const word = this.parentNode.childNodes[7].innerText
-    console.log(word)
+    const word = this.parentNode.dataset.id
 
     try {
-        let res = await fetch('/removeOne', {
+        let res = await fetch('word/removeOne', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -21,7 +22,6 @@ async function removeWord() {
             })
         })
         let data = await res.json()
-        console.log(data)
         location.reload()
     } catch(err) {
         console.error(err)
@@ -29,13 +29,10 @@ async function removeWord() {
 }
 
 async function changeToHard() {
-    const nodes = this.parentNode.childNodes
-    console.log(nodes)
-    const word = this.parentNode.childNodes[7].innerText
-    console.log(word)
+    const word = this.parentNode.dataset.id
 
     try {
-        let res = await fetch('/setHard', {
+        let res = await fetch('word/setHard', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -43,7 +40,6 @@ async function changeToHard() {
             })
         })
         let data = await res.json()
-        console.log(data)
         location.reload()
     } catch(err) {
         console.error(err)
@@ -51,11 +47,10 @@ async function changeToHard() {
 }
 
 async function changeToEasy() {
-    const word = this.parentNode.childNodes[7].innerText
-    console.log(word)
+    const word = this.parentNode.dataset.id
 
     try {
-        let res = await fetch('/setEasy', {
+        let res = await fetch('word/setEasy', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -63,7 +58,6 @@ async function changeToEasy() {
             })
         })
         let data = await res.json()
-        console.log(data)
         location.reload()
     } catch(err) {
         console.error(err)
