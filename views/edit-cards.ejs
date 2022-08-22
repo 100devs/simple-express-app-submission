@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Cards</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Add a Card</h2>
+    <form action="/edit-cards" method="POST">
+        <fieldset>
+            <legend>Major Arcana</legend>
+            <label for="name">Card Name:</label>
+            <input type="text" placeholder="Card Name" name="name" autocomplete="off" required><br>
+
+            <label for="number">Number:</label>
+            <input type="text" placeholder="Number" name="number" autocomplete="off" required><br>
+
+            <label for="image">Image Link</label>
+            <input type="text" placeholder="Image Link" name="image" autocomplete="off" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Upright</legend>
+            <label for="keywordsUp">Keywords</label>
+            <input type="text" name="keywordsUp" placeholder="Keywords">
+            <label for="descriptionUp">Card Description</label>
+            <textarea rows="3" cols="60" placeholder="Description" name="descriptionUp" autocomplete="off"
+                required></textarea><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Reversed</legend>
+            <label for="keywordsRev">Keywords</label>
+            <input type="text" name="keywordsRev" placeholder="Keywords">
+            <label for="descriptionRev">Card Description</label>
+            <textarea rows="3" cols="60" placeholder="Description" name="descriptionRev" autocomplete="off"
+                required></textarea><br>
+        </fieldset>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- <h2>Edit Card</h2>
+    <form id="edit-form">
+        <label for="target">Card to Change:</label>
+        <select name="target" id="target">
+            <% for(let i=0; i < cards.length; i ++) {%>
+                <option value=<%=cards[i]._id%>> <%=cards[i].number%>
+                        <%=cards[i].name%>
+                </option>
+                <% } %>
+        </select>
+        <label for="fieldToChange">Field: </label>
+        <select name="targetField" id="targetField">
+            <% let cardKeys=Object.keys(cards[0]) %>
+                <% for(let i=1; i < cardKeys.length; i++) {%>
+                    <option value=<%=cardKeys[i]%>><%=cardKeys[i]%>
+                    </option>
+                    <% } %>
+        </select>
+        <label for="targetChange">Change:</label>
+        <textarea name="targetChange" cols="60" rows="10"></textarea>
+        <button type="submit" id="update-button">Submit</button>
+    </form> -->
+
+    <h2>Browse Cards</h2>
+    <% for(let i=0; i < cards.length; i++) {%>
+        <section class="card">
+            <h3>
+                <span>
+                    <%= cards[i].number %>
+                </span>
+                <span>
+                    <%= cards[i].name %>
+                </span>
+            </h3>
+            <!-- <img src=<%= cards[i].image %> alt=""> -->
+            <a href=<%=cards[i].image %>>Image</a>
+            <h4>Upright:</h4>
+            <p class="keywords">
+                <%= cards[i].keywordsUp %>
+            </p>
+            <p class="description">
+                <%= cards[i].descriptionUp %>
+            </p>
+            <h4>Reversed:</h4>
+            <p class="keywords">
+                <%= cards[i].keywordsRev %>
+            </p>
+            <p class="description">
+                <%= cards[i].descriptionRev %>
+            </p>
+            <button type="submit" class="delete-button" id=<%=cards[i]._id%>>Delete</button>
+        </section>
+        <% } %>
+
+        <script src="/card-editing.js"></script>
+</body>
+
+</html>
