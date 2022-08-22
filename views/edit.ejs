@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Tasks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Cinzel:wght@600&family=Kdam+Thmor+Pro&family=Outfit:wght@300;400&family=Roboto&family=Roboto+Mono:wght@300&family=Roboto+Slab:wght@300&family=Source+Sans+Pro&family=Ubuntu+Mono:ital@1&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/style.css'>
+  </head>
+    <body>
+      <section class='todo-container'>
+        <h2>Edit List Item </h2>
+        <section class="todo">
+          <ul class='todo-list'>
+            <% todoTasks.forEach(task => {%>
+              <% if (task._id == idTask) { %>
+                <li class='todo-list-item'>
+                  <form action="/edit/<%= task._id %>" method="POST">
+                    <input type="text" name="title" value="<%= task.title %>">
+                    <textarea rows='10' cols='50' name="content"><%= task.content %></textarea>
+                    <button type="submit" class='confirm'>Confirm</button>
+                    <a href='/' class='cancel'>Cancel</a>
+                  </form>
+                </li>
+                <% } else { %>
+                    <li class='todo-list-item'>
+                      <div class='todo-list-item-title'>
+                        <%= task.title %>
+                      </div>
+                      <div class='todo-list-item-content'>
+                        <%= task.content %>
+                      </div>
+                      <a  href='/edit/<%=task._id %>' class='edit'>Edit</a>
+                      <a  href='/remove/<%=task._id %>' class='remove'>Delete</a>
+                    </li>
+                  <% } %>
+                  <% }) %>
+                </ul>
+        </section>
+      </section>
+    </body>
+</html>
