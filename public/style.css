@@ -1,0 +1,55 @@
+* {
+    background-color: bisque;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    margin: auto;
+    width: 50%;
+}
+textarea {
+    display: block;
+}
+label {
+    display: block;
+}
+input, textarea, select {
+    background-color: rgb(251, 207, 154);
+}
+button {
+    margin-top: 0.5rem;
+    display: block;
+}
+h1 {
+    font-size: 3.2rem;
+}
+h2 {
+    font-size: 2.6rem;
+}
+h3 {
+    font-size: 2.2rem;
+}
+h4 {
+    font-size: 2.0rem;
+}
+p, button, li, input, label, legend {
+    font-size: 1.6rem;
+}
+
+.button {
+    padding: 0.5rem;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+}
+img {
+    margin: 1rem 0;
+    max-width: 50vw;
+    max-height: 50vh;
+}
+.keywords {
+    font-style: italic;
+}
+.hidden {
+    display: none;
+}
