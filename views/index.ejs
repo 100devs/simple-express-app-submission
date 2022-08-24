@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+   
+    <!-----GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+  <!----Font Awesome Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+   <!----stylesheet Link-->
+    <link rel="stylesheet" href="/styles.css"> <!---express knows to go in public folder-->
+</head>
+
+<body>
+
+
+   <img class="rightImage" src="/images/bobsburgers.gif" alt="gif of a cat wearing a pizza around his face">
+   <img class="leftImage" src="/images/pizzacat.gif" alt="gif of tina from bob's burgers giving it her all aka twerking">
+    
+      <section class="todo-container">
+
+         <section class="headerImage">
+              
+              <h2 class="titleName">Welcome Coding Baddies! Lets Encourage Fellow 100Devs and Thank Leon/100devs Through The Magic of CRUD!</h2>
+         </section>        
+
+
+         <section class="todo">
+                <form action="/" method="POST" class="todo-header"> 
+                    <input type="text" name="title" placeholder="your name/nickname/codename"> </input>
+                    <textarea rows="6" cols="45" name="content" placeholder="Say whatever your heart desires!"></textarea>
+                    <!---can directly interface with some CRUD content, without doing fetch ect, can send up path and method----->
+
+                    <input type="url" id="imageURL" name="imageURL" placeholder="Enter a url here for any image you want to upload :)"> 
+                    
+
+                    <button type="submit"><span class="fas fa-plus">Go forth! (submit)</button> <!----needs to be inside form-->                 
+                    
+                </form>
+
+                <section class="todo-list"> <!----creating an unordered list-->
+                  <!-----want list to be dynamic, become bigger or smaller depending on how many items are in the database, essentially add or delete list items automatically-->
+
+                  <!---for reach loop that will reach through each of the tasks that we ware sending back -->
+                    <% todoTasks.forEach(task=> {%> <!---enclosing something. referencing the object on line 24 of server.js. this forEach is looping through each of the tasks in the todotasks object which has a tasks array (foreachonly works on arrays) (its back from the database so its not a collection anymore its an object)-->
+                        <section class="todo-list-item"> <!----want to display each task as a list item-->
+                             <div class="todo-list-item-title"> <!---i want to have a title-->
+                                <%= task.title %> <!---ejs to help render the title, actually displaying something inside the div-->
+                             </div>   
+
+                             <div class="todo-list-item-content">  <!---i want to have content-->
+                                <%= task.content %> <!---ejs to help render the content, actually displaying something-->
+
+                            
+                             <!-----add a button to allow edits-->
+                             <a href="/edit/<%=task._id %>" class="edit"> 
+                              <span class="fas fa-edit"> </span>
+
+                             </a>
+                              <!------alert server we want to edit something, how to tell mongo we want to mess with THIS specific item we're clicking on? the id
+                              
+                              hey ejs grab the task._id, grab the task of the row we're currently on and send that back to the server as a path. And our server will be lisening for that.
+                              id is an an object, _id is a string------>
+
+
+                             <!----add a button to allow deletion-->
+
+                             <a href="/remove/<%=task._id %>" class="remove"> 
+                              <span class="fas fa-bomb"> </span>
+                             </a>
+                        </section>
+
+                     </div>
+              
+                     <div class="url-photo">
+                        <img class="url-images" src="<%= task.imageURL %>" alt="image">
+                     </div>
+                   <% }) %> <!---fixed the error-->
+                  </section>
+         </section>
+
+      </section>
+</body>
+
+</html>

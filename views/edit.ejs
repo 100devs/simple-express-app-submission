@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+   
+    <!-----GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+  <!----Font Awesome Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+   <!----stylesheet Link-->
+    <link rel="stylesheet" href="/style.css"> <!---express knows to go in public folder-->
+    <!---going to same style sheet, so don't need to change this for edit.ejs-->
+</head>
+
+
+<body>
+    <section class="todo-container">
+       <h2>Edit list item</h2>
+
+       <section class="todo">
+             
+              <ul class="todo-list"> 
+                  <% todoTasks.forEach(task=> {%>  <!--start loop-->
+                             <% if (task._id==idTask) { %> <!---see if theres a matching task, if it does match, do all of this form stuff-->
+                                <li class="todo-list-item">
+                                    <form action="/edit/<%= task._id %>"
+                                   method="POST">
+
+                                        <input type="text" name="title" 
+                                         value="<%= task.title %>" 
+                                        >
+                                        <!--the = line 36 is VERY important an is an easy thing to forget, it won't work without it  ---->                                    
+
+                                        <textarea rows="6" cols="45" 
+                                        name="content"><%=task.content %> </textarea>
+
+                                        <button type="submit">confirm</button>
+
+                                        <a href="/" class="cancel">cancel</a>
+                                          
+                                </form>
+                                </li>
+
+                                <% } else{%>        <!---otherwise, render as a regular list item-->                        
+                              
+                             <!---this time we say hey if you're scrolling through the ids, and see the one we've selected to edit, then do something different aka display a form-->
+
+                             <!---we use POST since put doesn't work with forms-->
+                            <li class="todo-list-item"> <!----want to display each task as a list item-->
+                           <div class="todo-list-item-title"> <!---i want to have a title-->
+                              <%= task.title %> <!---ejs to help render the title, actually displaying something inside the div-->
+                           </div>
+
+                           <div class="todo-list-item-content">  <!---i want to have content-->
+                              <%= task.content %> <!---ejs to help render the content, actually displaying something-->
+                           </div>
+
+                           <!-----add a button to allow edits-->
+                           <a href="/edit/<%=task._id %>" class="edit"> 
+                            <span class="fas fa-edit"> </span>
+
+                           </a>
+                            <!------alert server we want to edit something, how to tell mongo we want to mess with THIS specific item we're clicking on? the id
+                            
+                            hey ejs grab the task._id, grab the task of the row we're currently on and send that back to the server as a path. And our server will be lisening for that.
+                            id is an an object, _id is a string------>
+
+
+                           <!----add a button to allow deletion-->
+
+                           <a href="/remove/<%=task._id %>" class="remove"> 
+                            <span class="fas fa-times"> </span>
+                           </a>
+                      </li>
+                   <% } %><!--closing out the else{} statement, so only a } is needed -->
+                 <% }) %> <!---closing out our for each statement. Since we're closing .forEach({ we need => }).
+                     since the form still needs to exist inside the ul 4:15:23-->
+              </ul>
+       </section>
+
+    </section>
+</body>
+</html>
+
