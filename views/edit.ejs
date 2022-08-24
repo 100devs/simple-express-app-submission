@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Tracker</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <h1>Edit an entry</h1>
+
+    <form action="/editEntry/<%= entry._id %>" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="date">Select a date:</label>
+        <input type="date" id="date" name="date" value="<%= entry.date %>" class="date">
+        <fieldset class="painLevel">
+            <legend>How was your pain level that day?</legend>
+            <% if(entry.painLevel === 'Very Low') { %>
+                <input type="radio" id="veryLow" name="painLevel" value="Very Low" checked>
+                <label for="veryLow">Very low</label>
+            <% }else { %>
+                <input type="radio" id="veryLow" name="painLevel" value="Very Low">
+                <label for="veryLow">Very low</label>
+            <% } %>
+            <% if(entry.painLevel === 'Low') { %>
+                <input type="radio" id="low" name="painLevel" value="Low" checked>
+                <label for="low">Low</label>
+            <% }else { %>
+                <input type="radio" id="low" name="painLevel" value="Low">
+                <label for="low">Low</label>
+            <% } %>
+            <% if(entry.painLevel === 'Average') { %>
+                <input type="radio" id="average" name="painLevel" value="Average" checked>
+                <label for="average">Average</label>
+            <% }else { %>
+                <input type="radio" id="average" name="painLevel" value="Average">
+                <label for="average">Average</label>
+            <% } %>
+            <% if(entry.painLevel === 'High') { %>
+                <input type="radio" id="high" name="painLevel" value="High" checked>
+                <label for="high">High</label>
+            <% }else { %>
+                <input type="radio" id="high" name="painLevel" value="High">
+                <label for="high">High</label>
+            <% } %>
+            <% if(entry.painLevel === 'Very High') { %>
+                <input type="radio" id="veryHigh" name="painLevel" value="Very High" checked>
+                <label for="veryHigh">Very high</label>
+            <% }else { %>
+                <input type="radio" id="veryHigh" name="painLevel" value="Very High">
+                <label for="veryHigh">Very high</label>
+            <% } %>
+        </fieldset>
+        <button type="submit" class="editButton button" data-id="<%= entry._id %>">Change entry</button>
+        <button type="submit" class="deleteButton button">Delete entry</button>
+    </form>
+
+    
+
+    <script src="https://kit.fontawesome.com/c70c69bd1d.js" crossorigin="anonymous"></script>
+    <script src='/js/main.js'></script>
+
+</body>
+
+</html>

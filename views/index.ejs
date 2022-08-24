@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <h1>Symptom Tracker</h1>
+
+    <form action="/addEntry" method="POST">
+        <label for="date">Select a date:</label>
+        <input type="date" id="date" name="date" class="date">
+        <fieldset class="painLevel">
+            <legend>How was your pain level that day?</legend>
+            <input type="radio" id="veryLow" name="painLevel" value="Very Low">
+            <label for="veryLow">Very low</label>
+            <input type="radio" id="low" name="painLevel" value="Low">
+            <label for="low">Low</label>
+            <input type="radio" id="average" name="painLevel" value="Average">
+            <label for="average">Average</label>
+            <input type="radio" id="high" name="painLevel" value="High">
+            <label for="high">High</label>
+            <input type="radio" id="veryHigh" name="painLevel" value="Very High">
+            <label for="veryHigh">Very high</label>
+        </fieldset>
+        <button type="submit" class="button">Submit entry</button>
+    </form>
+    
+    <section>
+
+        <h3>Your Entries</h3>
+
+        <ul class="symptomHistory">
+            <% entries.forEach(entry => {%>
+            <li>
+                <span><%= entry.date %></span><span><%= `: ${entry.painLevel}` %></span>
+                <a href="/editPage/<%= entry._id %>"><span class="fa-solid fa-pen-to-square"></span></a>
+                <span class="deleteButton fa-solid fa-trash-can"></span>
+            </li>
+            <% }) %>
+        </ul>
+        
+    </section>
+
+    <script src="https://kit.fontawesome.com/c70c69bd1d.js" crossorigin="anonymous"></script>
+    <script src='js/main.js'></script>
+
+</body>
+
+</html>
