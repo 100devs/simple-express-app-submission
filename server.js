@@ -4,7 +4,7 @@ const app = express()
 const mongoose = require("mongoose")
 require('dotenv').config({path:'.env'}) /*things to keep secret, make sure it is able to use those variables*/
 const TodoTask =require('./models/todotask')
-const PORT = 8500
+const PORT = process.env.PORT||8500
 
 //middleware, use server.js to render ejs
 app.set('view engine', 'ejs')  
