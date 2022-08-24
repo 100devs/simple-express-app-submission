@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Add a patient:</h1>
+    <form action="/addPatient" method="POST">
+        <label class="input-label">Specialty</label>
+        <label for="patientSpecialty1"><input type="radio" id="patientSpecialty1" name="specialty" value="Dermatology" checked>Dermatology</label>
+        <label for="patientSpecialty2"><input type="radio" id="patientspecialty2" name="specialty" value="Neurology">Neurology</label>
+        <label for="patientSpecialty3"><input type="radio" id="patientspecialty3" name="specialty" value="Ophthalmology">Ophthalmology</label>
+        <label for="patientSpecialty4"><input type="radio" id="patientspecialty4" name="specialty" value="Pediatrics">Pediatrics</label>
+        <input type="submit">
+    </form>
+
+    <h1>Add a Doctor:</h1>
+    <form action="/addDoctor" method="POST">
+        <label class="input-label">Specialty</label>
+        <label for="doctorSpecialty1"><input type="radio" id="doctorSpecialty1" name="specialty" value="Dermatology" checked>Dermatology</label>
+        <label for="doctorSpecialty2"><input type="radio" id="doctorSpecialty2" name="specialty" value="Neurology">Neurology</label>
+        <label for="doctorSpecialty3"><input type="radio" id="doctorSpecialty3" name="specialty" value="Ophthalmology">Ophthalmology</label>
+        <label for="doctorSpecialty4"><input type="radio" id="doctorSpecialty4" name="specialty" value="Pediatrics">Pediatrics</label>
+        <input type="submit">
+    </form>
+
+    <h2>Patients waiting </h2>
+    <ul>
+    <% for(let i=0; i < patients.length; i++) {%>
+        <li>
+            <span class="patient"><%= patients[i].specialty %></span>
+            <span class='fa fa-trash patients'></span>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Doctors available </h2>
+    <ul>
+    <% for(let i=0; i < doctors.length; i++) {%>
+        <li>
+            <span class="doctor"><%= doctors[i].specialty %></span>   
+            <span class='fa fa-trash doctors'></span>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Stats </h2>
+    <ul>
+        <li>Resolved Dermatology requests = <%= ratioDermatology.toFixed(1) %> %</li>
+        <li>Resolved Neurology requests =  <%= ratioNeurology.toFixed(1) %> %</li>
+        <li>Resolved Ophthalmology requests =  <%= ratioOphthalmology.toFixed(1) %> %</li>
+        <li>Resolved Pediatrics requests =  <%= ratioPediatrics.toFixed(1) %> %</li>
+    </ul>
+
+    <script src='js/main.js'></script>
+</body>
+</html>
