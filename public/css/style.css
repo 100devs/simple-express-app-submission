@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+}
+
+form, section {
+    width: 50%;
+    margin: 20px auto;
+    padding: 15px;
+    border: 2px solid black;
+}
+
+.date, .painLevel, .button, ul{
+    margin: 10px 0;
+    padding-left: 0;
+}
+
+fieldset {
+    border: none;
+}
+
+.button{
+    padding: 5px;
+    margin-right: 10px;
+}
+
+li{
+    list-style-type: none;
+}
+
+.fa-pen-to-square{
+    padding-left: 10px;
+}
+
+.fa-trash-can{
+    padding-left: 5px;
+}
