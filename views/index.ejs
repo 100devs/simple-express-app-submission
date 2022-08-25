@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div>
+            <h1>TASKS</h1>
+            <span class="fa fa-eye hidden switch-tasks"></span>
+            <span class="fa fa-eye-slash switch-tasks"></span>
+        </div>
+    
+        <ul class="tasks">
+            <% for (let i = 0; i < task.length; i++) {%>
+                <% if (task[i].isCompleted === false) {%>
+                    <li class="uncompleted-task-list">
+                        <div class="header">
+                            <h3><%= task[i].header %></h3>
+                        </div>
+                        <div class="text-area">
+                            <span><%= task[i].context %></span>
+                            <span class="hidden"><%= task[i].isCompleted %></span>
+                            <div class="crud">
+                                <span class="fa fa-check"></span>
+                                <span class="fa fa-trash"></span>
+                            </div>
+                        </div>
+                    </li>
+                <% } %>
+                <% if (task[i].isCompleted === true) {%>
+                    <li class="completed-task-list hidden">
+                        <div class="header">
+                            <h3><%= task[i].header %></h3>
+                        </div>
+                        <div class="text-area">
+                            <span><%= task[i].context %></span>
+                            <span class="hidden"><%= task[i].isCompleted %></span>
+                            <div class="crud">
+                                <span class="fa fa-xmark"></span>
+                                <span class="fa fa-trash"></span>
+                            </div>
+                        </div>
+                    </li>
+                <% } %>
+            <% } %>        
+
+            <!-- Form for adding tasks -->
+            <li class="task-list">
+                <form action="/addTask" method="POST">
+                    <div class="header">
+                        <input type="text" name="taskHeader" placeholder="Header">
+                    </div>
+                    <div class="text-area">
+                        <input type="text" name="task" placeholder="Type the task">
+                        <div class="crud">
+                            <input type="submit" value="+">   
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+ 
+
+    <script src="js/main.js"></script>
+</body>
+</html>
