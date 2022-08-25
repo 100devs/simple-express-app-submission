@@ -6,6 +6,8 @@ const addButtonEl = document.querySelector('.add');
 const deleteButtonEl = document.querySelector('.delete');
 const addItemPopUpBoxEl = document.querySelector('#add-dialog-box--js');
 const animationEl = document.querySelector('#animation--js');
+const resetBtnEl = document.querySelector('#reset-btn--js');
+const userInputBoxEl = document.querySelector('#userInputBox');
 
 //------------------------
 //----event listeners-----
@@ -20,6 +22,7 @@ Array.from(itemContainerList).map((el) =>
 );
 
 addButtonEl.addEventListener('click', (e) => {
+  // animationEl.classList.remove('closeDoor');
   addItemPopUpBoxEl.classList.toggle('hidden');
   animationEl.classList.toggle('openDoor');
 });
@@ -33,7 +36,6 @@ deleteButtonEl.addEventListener('click', (e) => {
 // new item form
 newItemFormEl.addEventListener('submit', (e) => {
   e.preventDefault();
-  const userInputBoxEl = document.querySelector('#userInputBox');
 
   if (userInputBoxEl.value === '') return;
 
@@ -42,6 +44,17 @@ newItemFormEl.addEventListener('submit', (e) => {
     'beforebegin',
     createLogItemEl(userInputBoxEl.value)
   );
+  // reset input
+  userInputBoxEl.value = '';
+  // close add form
+  // animationEl.classList.toggle('closeDoor');
+  animationEl.classList.toggle('openDoor');
+  addItemPopUpBoxEl.classList.toggle('hidden');
+});
+
+// reset add box input on reset button click
+resetBtnEl.addEventListener('click', (e) => {
+  userInputBoxEl.value = '';
 });
 
 //--------------------------
@@ -51,6 +64,9 @@ newItemFormEl.addEventListener('submit', (e) => {
 function handleItemContainerClick(e) {
   const parentNode = e.target.parentNode;
   let timeStampEl;
+  // if clicked is deleteButton
+  if (e.target.id === 'delete-item--js') return null;
+
   // no longer need to check
   // if parentNode is the container div
   if (parentNode.id === 'item--js') return null;
@@ -140,7 +156,7 @@ function addDeleteBtnToAllListItems(nodeList) {
     const existingDeleteBtn = childrenArray.find(
       (el) => el.id === 'delete-item--js'
     );
-    console.log(existingDeleteBtn);
+
     // el here is the parent
     if (!existingDeleteBtn) {
       el.insertAdjacentElement('beforeend', createDeleteButtonEl());
