@@ -4,9 +4,9 @@
 
 ### How to submit your code for review:
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
+- Fork and clone this repo DONE
+- Create a new branch called answer DONE
+- Checkout answer branch   DONE
 - Push to your fork
 - Issue a pull request
 - Your pull request description should contain the following:
