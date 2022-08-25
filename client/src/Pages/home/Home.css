@@ -1,0 +1,34 @@
+.latest-recipe-container{
+    max-width: 1024px;
+    margin: 0 auto;
+}
+.recipes {
+    display: flex;
+    white-space: no-wrap;
+    gap: 1rem;
+    overflow-x: auto;
+}
+
+.category-container-home {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.category-image{
+    object-fit: cover;
+    max-width: 300px;
+}
+h1 {
+    font-weight: 300;
+}
+a {
+    text-decoration: none;
+}
+a, a:visited, a:hover, a:active {
+    color: inherit;
+  }

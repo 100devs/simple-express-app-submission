@@ -1,0 +1,37 @@
+.category-container {
+    max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.search input {
+    font-size: 1.2rem;
+}
+.category-recipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (max-width: 500px) {
+    .category-recipes img {
+        width: 250px;
+        display: block;
+        margin: 0 auto;
+    }
+    .category-recipes p {
+        align-self: center;
+        margin-left: 0 !important;
+    }
+    
+}
+

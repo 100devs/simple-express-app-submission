@@ -1,0 +1,23 @@
+.recipe-page {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.recipe-btns {
+    display: flex;
+    gap: 1rem;
+}
+
+.recipe-name {
+    font-weight: bold;
+}
+
+.likes {
+    display: flex;
+    gap: 1rem;
+}
