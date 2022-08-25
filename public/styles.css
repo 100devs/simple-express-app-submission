@@ -10,12 +10,7 @@ body {
   background-color:black;
   background-size: cover;
   font-family: 'Edu TAS Beginner', sans-serif;
-  border: 2px solid green;
- 
-
-
-}
-
+ }
 
 .rightImage {
   position: fixed;
@@ -27,10 +22,13 @@ body {
 .leftImage {
   position:fixed;
   max-width: 30%;
+  top: 5%;
+  left: 5%;
 }
 .todo-container {
   color: white;
   position: absolute;
+  background: rgba(206, 196, 228, 0.7);
   top: 10%;
   left: 50%;
   padding: 20px;
@@ -82,6 +80,7 @@ textarea {
   padding: 5px;
   background-color: #0f0121;
   font-family: 'Edu TAS Beginner', sans-serif;
+  font-size: 1.2rem;
 }
 
 ul {
@@ -103,6 +102,10 @@ ul {
   font-weight: 800;
   background-color: rgba(255, 255, 255, 0.3)
 
+}
+
+.titleName {
+  text-align: center;
 }
 
 .todo-list-item-content {
