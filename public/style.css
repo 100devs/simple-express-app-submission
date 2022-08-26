@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: linear-gradient(to bottom, #08f5ec 0%, #070dfa 100%);
+  min-height:100vh;
+}
+
+.top-bottom-margins {
+  margin: 10px 0;
+}
+
+.flex-basics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.bigger-text {
+  font-size: 2.5rem;
+  color: black;
+}
+
+.regular-text {
+  font-size: 1.8rem;
+  color: gray;
+}
+
+.displays {
+  padding: 20px 0;
+}
+
+.displays-divs {
+  display: flex;
+  justify-content: center;
+}
+
+.displays-items {
+  width: 90%;
+  max-width: 600px;
+  margin: 10px 0;
+}
+
+.display-container {
+  width: 95%;
+  max-width: 700px;
+  background: white;
+  border-radius: 5px;
+  padding: 15px;
+  -moz-box-shadow: 0 0 10px 2px gray;
+  -webkit-box-shadow: 0 0 10px 2px gray;
+}
+
+#sort-by {
+  display: flex;
+  justify-content: center;
+}
+
+#sort-by h3 {
+  font-size: 1.2rem;
+}
+
+#sort-items {
+  display: flex;
+  width: 95%;
+  max-width: 700px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.sort-items {
+  font-size: 1.2rem;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-left: 1px solid black;
+  cursor: pointer;
+}
+
+.sort-items:hover {
+  font-weight: bold;
+}
+
+#first-sort {
+  border-left: none;
+}
+
+
+i {
+  cursor: pointer;
+  color: gray;
+  margin-left: 10px;
+}
+
+.icon-text {
+  font-size: 1.5rem;
+}
+
+#likes {
+  width: 90%;
+  justify-content: center;
+}
+
+.btn {
+  padding: 15px;
+  border-radius: 3px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background: black;
+  color: white;
+  max-width: 90%;
+  text-shadow: 1px 1px black;
+}
+
+.btn:hover,
+nav a:hover {
+  color: #08f5ec;
+}
+
+.btn:active {
+  color: navy;
+  background: gray;
+}
+
+.share-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+}
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 110px; /* Place the button at the bottom of the page */
+  right: 10px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+
+}
+
+
+nav a {
+  color: white;
+  margin: 5px 0px 15px 0px;
+  padding: 0 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  border-right: 1px solid white;
+}
+
+nav a:last-child {
+  border-right: none;
+}
+
+nav a:active {
+  color: navy;
+}
+
+
+img {
+  border: 10px solid black;
+}
+
+header {
+  background: black;
+  /* background: #00d5a7; */
+  margin-bottom: 25px;
+  flex-direction: column;
+}
+
+footer {
+  height: 100px;
+  background: black;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: white;
+  padding: 15px;
+  text-transform: uppercase;
+  word-spacing: 1rem;
+}
+
+form,
+#share-form {
+  padding: 25px;
+  width: 90%;
+  max-width: 700px;
+  background: white;
+  color: black;
+  border-radius: 4px;
+  margin-bottom: 25px;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+input {
+  margin: 5px 0;
+  font-size: 1.5rem;
+}
+
+form h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+textarea {
+  font-size: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.form-sec {
+  margin: 10px 0;
+}
+
+.type-of-fish {
+  margin: 0 15px 0 5px;
+}
+
+#fish-selection {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#share-form {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  -moz-box-shadow: 0 0 10px 2px gray;
+  -webkit-box-shadow: 0 0 10px 2px gray;
+}
+
+
+
+
+
+#submit-button {
+  align-self: center;
+  padding: 3px 5px;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+  .bigger-text {
+    font-size: 2rem;
+  }
+  .regular-text {
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Share Aquarium</title>
+    <link rel="icon" type="image/x-icon" href="/images/fish.png">
+  </head>
+  <body>
+    <header class="flex-basics class="full-width"">
+      <h1>Share Aquarium</h1>
+      <nav class="flex-basics full-width">
+        <a href="/">Home</a>
+        <a href="/share.html">Share</a>
+      </nav>
+    </header>
+
+    <section class="flex-basics full-width">
+
+      <form id="share-form" class="flex-basics" action="/shareAquarium" method="POST">
+        <h1 class="full-width center-text">Share Your Aquarium</h1>
+        <section class="full-width form-sec">
+          <label class="bold" for="fname">Your name or screen name:</label><br>
+          <input type="text" id="fname" name="fname" required><br>
+        </section>
+        <section class="full-width form-sec">
+          <label class="bold" for="water-type">Type of Tank:</label><br>
+          <input type="radio" id="salt" name="waterType" value="salt">
+          <label for="salt">Salt</label><br>
+          <input type="radio" id="fresh" name="waterType" value="fresh">
+          <label for="fresh">Fresh</label><br>
+        </section>
+        <section class="full-width form-sec">
+          <label class="bold" for="quantity">Enter either number of gallons or number of liters in your tank:</label><br>
+          <label for="gallons">Gallons:</label>
+          <input type="number" id="gallons" name="quantity[]" min="1" max="100000"><br>
+          <label for="liters">Liters:</label>
+          <input type="number" id="liters" name="quantity[]" min="1" max="100000">
+        </section>
+        <section class="full-width form-sec">
+          <label class="bold">Add photos of your tank:</label><br>
+          <label for="myfile">Select files:</label>
+          <input type="file" id="myfile" name="myfile" multiple required>
+        </section>
+        <section class="full-width form-sec">
+          <label class="bold" for="description">Notes/Description about your aquarium (describe as much or as little as you would like):</label><br>
+          <textarea id="description" name="description" rows="6"></textarea>
+        </section>
+        <section class="full-width form-sec">
+          <label class="bold">What fish do you have in your tank? Select all that apply: (optional)</label><br>
+          <section id="fish-selection">
+            <div>
+              <input type="checkbox" id="angelfish" name="fish[]" value="angelfish">
+              <label class="type-of-fish" for="angelfish">Angelfish</label>
+            </div>
+            <div>
+              <input type="checkbox" id="guppies" name="fish[]" value="guppies">
+              <label class="type-of-fish" for="guppies">Guppies</label>
+            </div>
+            <div>
+              <input type="checkbox" id="Mollies" name="fish[]" value="Mollies">
+              <label class="type-of-fish" for="Mollies">Mollies</label>
+            </div>
+            <div>
+              <input type="checkbox" id="Platies" name="fish[]" value="Platies">
+              <label class="type-of-fish" for="Platies">Platies</label>
+            </div>
+            <div>
+              <input type="checkbox" id="goldfish" name="fish[]" value="goldfish">
+              <label class="type-of-fish" for="goldfish">Goldfish</label>
+            </div>
+            <div>
+              <input type="checkbox" id="africancichlids" name="fish[]" value="africancichlids">
+              <label class="type-of-fish" for="africancichlids">African Cichlids</label>
+            </div>
+            <div>
+              <input type="checkbox" id="americancichlids" name="fish[]" value="americancichlids">
+              <label class="type-of-fish" for="americancichlids">American Cichlids</label>
+            </div>
+            <div>
+              <input type="checkbox" id="tetras" name="fish[]" value="tetras">
+              <label class="type-of-fish" for="tetras">Tetras</label>
+            </div>
+            <div>
+              <input type="checkbox" id="barbs" name="fish[]" value="barbs">
+              <label class="type-of-fish" for="barbs">Barbs</label>
+            </div>
+            <div>
+              <input type="checkbox" id="catfish" name="fish[]" value="catfish">
+              <label class="type-of-fish" for="catfish">Catfish</label>
+            </div>
+            <!-- <div>
+              <input type="checkbox" id="" name="" value="">
+              <label class="type-of-fish" for=""></label>
+            </div> -->
+            <div>
+              <input type="checkbox" id="other" name="other" value="other">
+              <label class="type-of-fish" for="other">Other</label>
+            </div>
+          </section>
+        </section>
+
+        <input id="submit-button" type="submit" value="Submit">
+      </form>
+
+    </section>
+
+
+  </body>
+</html>
