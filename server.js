@@ -32,7 +32,8 @@ async function startDB() {
   }
 }
 
-startDB();
+// janky af
+(async () => await startDB())();
 
 // express
 const app = express();
@@ -76,6 +77,19 @@ app.post('/newLog', async (req, res) => {
   console.log(`item was inserted: ${insertResult.acknowledged}`);
 
   res.json(insertResult.acknowledged).status(204);
+});
+
+app.delete('/delete', async (req, res) => {
+  const query = {
+    description: { $in: req.body },
+  };
+
+  const deleteManyResult = await dailyLogCollection.deleteMany(query);
+
+  console.log(
+    `${deleteManyResult.deletedCount} items were deleted: ${deleteManyResult.acknowledged}`
+  );
+  res.status(204);
 });
 
 const PORT = 3000;

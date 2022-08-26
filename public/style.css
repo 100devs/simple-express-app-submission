@@ -284,6 +284,10 @@ h1 {
   animation: openBackground 1s linear 0s 1 normal both;
 }
 
+.closeDoor {
+  animation: openBackground 1s linear 0s 1 reverse both;
+}
+
 @keyframes openBackground {
   0% {
     height: 0px;
@@ -310,6 +314,10 @@ h1 {
   height: 3px;
   background-color: #000;
   animation: splitScreen 1s linear 0s 1 normal both;
+}
+
+.closeDoor::before {
+  animation: splitScreen 1s linear 0s 1 reverse both;
 }
 
 @keyframes splitScreen {
@@ -428,4 +436,11 @@ h1 {
 
 .newLog-Section button:hover {
   border: 2px solid var(--clr-btn-accent);
+}
+
+/* items getting deleted */
+
+.delete-item {
+  color: tomato !important;
+  text-decoration: line-through;
 }

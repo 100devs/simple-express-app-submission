@@ -13,8 +13,24 @@ const userInputBoxEl = document.querySelector('#userInputBox');
 //----event listeners-----
 //------------------------
 
-formEl.addEventListener('submit', (e) => {
+formEl.addEventListener('submit', async (e) => {
   e.preventDefault();
+  // get all deleted items
+  const allDeletedElements = document.querySelectorAll('.delete-item');
+  const deletedItemNameArr = Array.from(allDeletedElements).map((el) =>
+    el.textContent.trim()
+  );
+  console.log(deletedItemNameArr);
+
+  const rawResponse = await fetch('/delete', {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(deletedItemNameArr),
+  });
+
+  const content = await rawResponse.json();
+  console.log(content);
+  location.reload();
 });
 
 Array.from(itemContainerList).map((el) =>
@@ -64,8 +80,12 @@ resetBtnEl.addEventListener('click', (e) => {
 function handleItemContainerClick(e) {
   const parentNode = e.target.parentNode;
   let timeStampEl;
-  // if clicked is deleteButton
-  if (e.target.id === 'delete-item--js') return null;
+  // if clicked is deleteButton or img within deleteButton
+  if (
+    e.target.id === 'delete-item--js' ||
+    e.target.parentNode.id === 'delete-item--js'
+  )
+    return null;
 
   // no longer need to check
   // if parentNode is the container div
@@ -174,6 +194,10 @@ function createDeleteButtonEl() {
   button.classList.add('button-23');
   button.classList.add('delete-btn');
   button.id = 'delete-item--js';
+  button.type = 'button';
+
+  // add eventlistener
+  button.addEventListener('click', setToDelete);
 
   // img
   img.src = '/assets/x.svg';
@@ -206,4 +230,18 @@ async function submitNewItemToDB(item) {
     console.log('💣💣💣 BANG BANG ERROR 💣💣💣');
     console.error(err);
   }
+}
+
+function setToDelete(e) {
+  console.log('click delete button');
+  let parent;
+
+  // if button then parentnode of label
+  if (e.target.id === 'delete-item--js') parent = e.target.parentNode;
+
+  // if img clicked then parentNode is btn and grandParent is label
+  if (e.target.parentNode.id === 'delete-item--js')
+    parent = e.target.parentNode.parentNode;
+
+  parent.classList.toggle('delete-item');
 }
