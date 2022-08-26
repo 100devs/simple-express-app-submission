@@ -1,0 +1,83 @@
+h1{
+    padding: 1rem;
+    color: blue;
+}
+
+body {
+    text-align: center;
+    margin-top: 2rem;
+    background-color: rgb(129, 100, 61);
+}
+
+section {
+    background: rgb(240, 240, 139);
+    padding-bottom: 10rem;
+    max-width: 750px;
+    margin: auto;
+    font-size: 1.2rem;
+}
+
+.button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.title {
+    display: flex;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+p {
+    flex: 10%;
+}
+
+#name {
+    flex: 60%;
+}
+
+#num {
+    flex: 15%;
+}
+
+#space {
+    padding-left: 2rem;
+}
+
+ol {
+    padding: 0;
+}
+
+.grocery {
+    display: flex;
+}
+
+.food {
+    flex: 60%;
+    justify-content: flex-start;
+}
+
+li {
+    border-bottom: 2px solid rgb(55, 0, 253);
+}
+
+.number {
+    flex: 15%;
+}
+
+.fa-plus {
+    flex: 5%;
+    cursor: pointer;
+    justify-content: flex-end;
+    padding-left: 2rem;
+}
+
+.fa-trash {
+    flex: 5%;
+    color: red;
+    cursor: pointer;
+}

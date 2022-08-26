@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+    <h1>Grocery List</h1>
+
+    <form action="/addItem" method="POST">
+        <input type="text" placeholder="Item" name="stageName">
+        <!-- <input type="text" placeholder="Birth Name" name="birthName"> -->
+        <input class="button" type="submit" value="Add Item">
+    </form>
+
+    <h2>Grocery Items:</h2>
+    <section class="title">
+        <p id="name">Name</p>
+        <p id="num"># of Items</p>
+        <p id="space"></p>
+    </section>
+    <ol class="items">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="grocery">
+            <span class="food"><%= info[i].stageName %></span>
+            <span class="number"><%= info[i].likes %></span>
+            <span class='fa fa-plus'></span>
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ol>
+
+</section>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
