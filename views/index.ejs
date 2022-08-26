@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://use.fontawesome.com/48cbd144bf.js"></script>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Share Aquarium</title>
+    <link rel="icon" type="image/x-icon" href="/images/fish.png">
+  </head>
+  <body>
+    <header class="flex-basics class="full-width"">
+      <h1>Share Aquarium</h1>
+      <nav class="flex-basics full-width">
+        <a href="/">Home</a>
+        <a href="/share.html">Share</a>
+      </nav>
+    </header>
+
+    <button onclick="topFunction()" id="myBtn" class="btn" title="Go to top">BACK TO TOP</button>
+
+    <a class="btn share-btn" href="/share.html"><button class="btn share-btn">SHARE YOUR AQUARIUM</button></a>
+
+    <section id="sort-by" class="full-width">
+
+      <section id="sort-items">
+        <h3>Sort By: </h3>
+        <span id="first-sort" class="sort-items" data-id="new">New</span>
+        <span class="sort-items" data-id="old">Old</span>
+        <span class="sort-items" data-id="liked">Liked</span>
+        <span class="sort-items" data-id="inspiring">Inspiring</span>
+        <span class="sort-items" data-id="size-big">Tank Size Big</span>
+        <span class="sort-items" data-id="size-small">Tank Size Small</span>
+      </section>
+    </section>
+
+
+    <% for(let i=0; i < aquariums.length; i++) {%>
+      <section class="flex-basics bigger-text displays">
+        <div class="display-container" data-id='<%=aquariums[i]._id%>'>
+          <div class="full-width displays-divs">
+            <h2 class="bigger-text displays-items"><span class="bigger-text displays-items upper"><%= aquariums[i].name %></span></h2>
+          </div>
+          <div class="full-width flex-basics">
+            <img class="displays-items" src="images/fish1.jpg" alt="Fish tank">
+          </div>
+          <div class="displays-divs">
+            <div class="full-width displays-items" id="likes">
+              <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
+              <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
+              <i class="fa fa-lightbulb-o fa-2x inspired-btn"></i>
+              <span class="icon-text">Inspired: <%= aquariums[i].inspired %></span>
+            </div>
+          </div>
+          <div class="full-width displays-divs">
+            <hr class="displays-items">
+          </div>
+          <div class="full-width displays-divs">
+            <h3 class="regular-text displays-items">Tank: <span class="regular-text displays-items" style="text-transform:uppercase"><%= aquariums[i].tankSize %> <%= aquariums[i].measurementType %>, <%= aquariums[i].waterType %> water</span></h3>
+          </div>
+          <div class="full-width displays-divs">
+            <h3 class="regular-text displays-items"><span class="regular-text displays-items"><%= aquariums[i].description %></span></h3>
+          </div>
+        </div>
+      </section>
+    <% } %>
+
+
+    <footer class="flex-basics full-wdith">
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
