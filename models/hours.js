@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const drivinghoursSchema = new mongoose.Schema( {
+const drivingHoursSchema = new mongoose.Schema( {
     date: {
         type: Date,
         default: Date.now
@@ -11,10 +11,19 @@ const drivinghoursSchema = new mongoose.Schema( {
         type: Number,
         required: true
     },
+    cumulative: {
+        type: Number,
+    },
     nightHours: {
         type: Number,
     },
+    totalNight: {
+        type: Number,
+    },
     hwyHours: {
+        type: Number,
+    },
+    totalHwy: {
         type: Number,
     },
     instructor: {
@@ -22,4 +31,4 @@ const drivinghoursSchema = new mongoose.Schema( {
     }
 })
 
-module.exports = mongoose.model("DrivingHours", drivinghoursSchema, "hours")
+module.exports = mongoose.model("DrivingHours", drivingHoursSchema, "hours")
