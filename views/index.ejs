@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+    <h1>Movie Watchlist!</h1>
+        <form action="/addMovie" method="POST">
+            <input type="text" placeholder="Movie Name" name="movieName">
+            <input type="number" placeholder="How Important?" min="0" max="5" name="importance">
+            <!-- <input type="checkbox" name="checkbox" id=""> -->
+            <input type="submit" value="Submit">
+        </form>
+    <ul class="movies">
+        <% for (let i=0; i < info.length; i++){%>
+            <li class="movie">
+                <% if(info[i].checkbox === "Not Seen"){%>
+                    <span class="notSeen movieName"><%= info[i].movieName %></span>
+                    <span>-   Priority: </span><span class="rating"><%= info[i].importance %></span>
+                    <span class="seenButton">Seen it!</span>
+                    <span class="del">Delete</span>
+                <%}else{ %>
+                    <span class="seen movieName"><%= info[i].movieName %></span>
+                    <span class="del">Delete</span>
+                <%} %>
+
+            </li>
+            <% } %>
+    </ul>
+     </section>
+
+</body>
+    <script type="text/javascript" src="public/js/main.js"></script>
+</body>
+</html>
