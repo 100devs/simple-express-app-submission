@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Movie Watchlist!</h1>
+    <section>
+    <form action="/addMovie" method="POST">
+        <input type="text" placeholder="Movie Name">
+    </form>
+    <label for="importance">How Important?</label>
+    <select name="weight" id="importance"> 
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <button id="submit">Submit</button>
+</section>
+</body>
+    <script type="text/javascript" src="public/js/main.js"></script>
+
+</body>
+</html>
