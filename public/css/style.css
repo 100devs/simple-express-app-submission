@@ -1,0 +1,202 @@
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Clear fix hack */
+  .clearfix:after {
+       content: ".";
+       display: block;
+       clear: both;
+       visibility: hidden;
+       line-height: 0;
+       height: 0;
+  }
+  
+  .clear {
+      clear: both;
+  }
+  
+  /******************************************
+  /* BASE STYLES
+  /*******************************************/
+  html {
+      text-align: center;
+      font-size: 62.5%;
+  }
+
+  body {
+      font-size: 1.5rem;
+      background-image: url('images/background.jpg');
+      background-position: center;
+      background-size: fit;
+  }
+
+  h1, h2 {
+      font-size: 2.5rem;
+  }
+
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 10px;
+    padding: 0;   
+  }
+
+  li {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: .5px dotted black;
+      padding: 12px;
+      position: relative;
+      flex: auto;
+      min-width: 115px;
+      height: 200px;
+  }
+
+        @media screen and (max-width: 768px) {
+            li {
+                width: 100%;
+                height: auto;
+            }
+
+            .signoff {
+                padding-bottom: 5px;
+            }
+
+        }
+
+  li p {
+      width: 100%;
+  }
+
+  body {
+  
+  }
+
+  textarea, input, html {
+      font-family: 'Inconsolata', monospace;
+  }
+  
+  
+  /******************************************
+  /* LAYOUT
+  /*******************************************/
+  header {
+
+  }
+  
+  footer {
+  
+  }
+  
+  .thoughtCluster {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .submit {
+      margin: 80px;
+      position: relative;
+  }
+
+  form {
+      text-align: center;
+      width: 90%;
+      margin: 0 auto;
+  }
+
+  form * {
+    display: block;
+    margin: 5px auto;
+    width: 100%;
+    padding: 5px;
+    border: 1px dotted black;
+  }
+
+    @media screen and (max-width: 1025px) {
+        form {
+            width: 100%; 
+        }
+
+        .submit {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+  li:last-child {
+      flex-grow: 10;
+  }
+  /******************************************
+  /* ADDITIONAL STYLES
+  /*******************************************/
+  .thinkingthings {
+      text-align: left;
+  }
+
+  .signoff {
+      text-align: right;
+      padding-top: 10px;
+      font-size: 1.4rem;
+      font-style: italic;
+      /* position: absolute;
+      bottom: 40px;   
+      right: 12px; */
+  }
+
+  .thought span {
+      position: absolute;
+      bottom: 12px;
+  }
+
+  .thought .fa-trash {
+        right: 12px;
+  }
+
+  .thought .fa-arrow-down {
+        right: 32px;
+  }
+
+  .thought .fa-arrow-up {
+        right: 49px;
+  }
+
+  .thought .likes {
+        right: 71px;
+  }
+
+
+
+  textarea {
+      height: 150px;
+      resize: none;
+      
+  }
+
+  textarea + textarea {
+      height: 50px;
+  }
+
+  input .textInput {
+      height: 40px;
+  }
+
+  .textInput::placeholder {
+      text-align: left;
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+  }
+
+  textarea + .textInput::placeholder {
+      text-align: right;
+      right: 10px;
+  }
+
