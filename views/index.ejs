@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking CSS styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- connecting fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- linking JavaScript -->
+    <script src="https://kit.fontawesome.com/7d29a524be.js" crossorigin="anonymous"></script>
+    <title>Fullstack CRUD app</title>
+</head>
+<body>
+
+
+ <section class="wrapper">
+    <section class="header">
+        <h1>Inspirational Quotes</h1>
+    
+        <form action="/quotes" method="POST">
+            <input type="text" placeholder="name" name="name">
+            <input type="text" placeholder="quote" name="quote">
+            <button type="submit" class="btn btn-submit" id="quoteSubmit">Submit</button>
+          
+        </form>
+    </section>
+
+
+    <section class="quotes">
+      
+            <ul class= "quotes">
+                 <%   for(let i = 0; i < quotes.length; i++) { %>
+
+                <li class="quote">
+                <span><%= quotes[i].name %></span> 
+                <span>---</span>
+                <span><%= quotes[i].quote %></span>
+               
+                <i class="fa-solid fa-square-xmark"></i>
+                <i class="fa-solid fa-heart"></i>
+                <span><%= quotes[i].likes %></span>
+                </li>
+             
+                <% } %>
+            </ul>
+    </section>
+            
+      
+</section>
+
+<script src='main.js'></script>
+</body>
+</html>
+        
+        
+               
+            
+
+   
+
+
+
+
