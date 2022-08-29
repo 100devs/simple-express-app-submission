@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="/normalize.css" />
+    <link rel="stylesheet" href="/style.css" />
+
+    <script defer src="/script.js"></script>
+
+    <title>📝 Daily Log</title>
+  </head>
+  <body>
+    <section class="controls-Section">
+      <h1>Daily log</h1>
+      <button class="button-23 add">
+        <img src="/assets/plus.svg" alt="Add" />
+      </button>
+      <button class="button-23 delete">
+        <img src="/assets/trash.svg" alt="delete" />
+      </button>
+    </section>
+
+    <div class="" id="test">
+      <section class="newLog-Section hidden" id="add-dialog-box--js">
+        <h2>
+          <span><img src="/assets/fat-plus.svg" alt="" /></span>
+          New item
+        </h2>
+        <form action="newLog" method="POST">
+          <label for="userInputBox">
+            <input
+              type="text"
+              name="newLogDescription"
+              id="userInputBox"
+              placeholder=" "
+            />
+            <span class="labelText">Description</span>
+          </label>
+          <div class="btn-container">
+            <button type="submit">Add</button>
+            <button type="button">Reset</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <section class="logList-Section">
+      <form action="log" method="POST" id="log-form--js">
+        <!-- example label -->
+        <div class="item-container" id="item--js">
+          <label for="" class="crossOut">
+            Creatine Taken?
+            <input type="checkbox" name="taken" />
+            <!-- <span tabindex="0" class="checkbox"></span> -->
+          </label>
+          <p class="timestamp">Time Last Taken:</p>
+        </div>
+
+        <div class="item-container" id="item--js">
+          <label for="">
+            weight log?
+            <input type="checkbox" name="taken" />
+            <!-- <span tabindex="0" class="checkbox"></span> -->
+          </label>
+          <p class="timestamp">Time Last Taken:</p>
+        </div>
+        <div class="item-container" id="item--js">
+          <label for="">
+            weight log?
+            <input type="checkbox" name="taken" />
+            <!-- <span tabindex="0" class="checkbox"></span> -->
+          </label>
+          <p class="timestamp">Time Last Taken:</p>
+        </div>
+        <div class="item-container" id="item--js">
+          <label for="">
+            weight log?
+            <input type="checkbox" name="taken" />
+            <!-- <span tabindex="0" class="checkbox"></span> -->
+          </label>
+          <p class="timestamp">Time Last Taken:</p>
+        </div>
+        <div class="item-container" id="item--js">
+          <label for="" for="">
+            weight log?
+            <input type="checkbox" name="taken" />
+            <!-- <span tabindex="0" class="checkbox"></span> -->
+          </label>
+          <p class="timestamp">Time Last Taken:</p>
+        </div>
+        <button class="button-23" role="button" id="confirm-btn--js">
+          Confirm
+        </button>
+      </form>
+    </section>
+  </body>
+</html>

@@ -1,22 +1,34 @@
-#100Devs Simple Express App Submission
+# Daily Logging App
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+This is a fullstack app created to quickly log daily commitments. Example taking a daily vitamin.
 
-### How to submit your code for review:
+**Link to project:** http://nothing-yet.com/
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+enjoy this corgi picture for now 😁
+![alt tag](http://placecorgi.com/1200/650)
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+## How It's Made:
+
+**Tech used:** HTML, CSS, JavaScript, Express, TailwindCSS
+
+Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write _something_. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+
+## Optimizations
+
+_(optional)_
+
+You don't have to include this section but interviewers _love_ that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
+
+## Lessons Learned:
+
+No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those _whoa this is awesome_ or _fuck yeah I did it!_ moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+
+## Examples:
+
+Take a look at these couple examples that I have in my own portfolio:
+
+**example 1:** https://github.com/
+
+**example 2** https://github.com/
+
+**example 2** https://github.com/
