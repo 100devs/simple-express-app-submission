@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/d300181797.js" crossorigin="anonymous"></script>
+    <title>TBR List</title>
+</head>
+
+<body>
+    <h1>Interactive TBR Book List</h1>
+    <!--form-->
+    <form action="/" method="POST" class="to-be-read-form">
+        <input type="text" name="title" value="Title">
+        <input type="text" name="author" value="author">
+        <button type="submit" class="submit-button">Add</button>
+    </form>
+    <!--list loop-->
+    <section class="book-list-container">
+        <ul>
+            <% bookListItems.forEach(item=> { %>
+                <li class="to-be-read-book">
+                    <% if(item.reading===true) {%>}
+                        <section class="to-be-read-book-title reading">
+                            <%= item.thing %>
+                        </section>
+                        <section class="to-be-read-book-author reading">
+                            <%= item.thing %>
+                        </section>
+                        <a href="" class="read-it">
+                            <span class="fa-solid fa-book-open-reader"></span>
+                        </a>
+                        <a href="/remove/<%=item._id %>" class="delete">
+                            <span class="fa-solid fa-trash"></span>
+                        </a>
+
+                        <% }else{ %>
+                            <section>
+                                <div class="to-be-read-book-title">
+                                    <%= item.title %>
+                                </div>
+                                <div class="to-be-read-book-author">
+                                    <%= item.author %>
+                                </div>
+                            </section>
+                            <section class="button-container-holder">
+                                <a href="" class="read-it">
+                                    <span class="fa-solid fa-book-open-reader"></span>
+                                </a>
+                                <a href="/remove/<%=item._id %>" class="delete">
+                                    <span class="fa-solid fa-trash"></span>
+                                </a>
+                                <a href="/markreading/<%=item._id %>" class="done">
+                                    <span class="fa-solid fa-circle-check"></span>
+                                </a>
+                            </section>
+                            <% } %>
+                </li>
+                <% }) %>
+        </ul>
+    </section>
+    <script src="main.js"></script>
+</body>
+
+</html>
