@@ -1,0 +1,446 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
+
+*:root {
+  /* https://coolors.co/a63446-fbfef9-2d2b55-f9a03f-5f7367 */
+  /* https://coolors.co/f9a03f */
+  --clr-bg: #2d2b55;
+  --clr-text: #9effff;
+
+  --clr-text-fade: hsl(180, 100%, 41%);
+
+  --clr-action: #f9a03f;
+  --clr-btn-accent: rgb(60, 21, 24);
+  /* --clr-error: #ff0033; */
+  --clr-error: #7d451b;
+}
+
+body {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* gap: 150px; */
+  min-height: 100vh;
+  background-color: var(--clr-bg);
+  font-family: 'Poppins', sans-serif;
+}
+
+.controls-Section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(10px, 1.6vw, 20px);
+  width: 100%;
+  margin-top: 30px;
+  padding: 0px clamp(20px, 3.2vw, 40px);
+}
+
+.controls-Section button {
+  padding: 5px 20px;
+}
+
+.controls-Section .add {
+  margin-left: auto;
+}
+
+.controls-Section img {
+  display: block;
+  width: clamp(25px, 4vw, 50px);
+  height: auto;
+}
+
+h1 {
+  color: var(--clr-text);
+  /* font-size: 64px; */
+  /* margin-top: 20%; */
+  font-size: clamp(16px, 5vw, 32px);
+}
+
+.logList-Section {
+  margin-top: 80px;
+  width: 100%;
+}
+
+.logList-Section form {
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 15px;
+  width: 90%;
+  max-width: 800px;
+  min-height: 30vh;
+}
+
+.logList-Section form button {
+  align-self: flex-end;
+}
+
+.item-container {
+  width: 100%;
+}
+
+.item-container label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--clr-text);
+  width: 80%;
+  font-size: 20px;
+  line-height: 100%;
+}
+
+.item-container input[type='checkbox'] {
+  position: relative;
+  /* display: none; */
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  background-color: #a63446;
+  cursor: pointer;
+}
+
+.item-container input[type='checkbox']:hover {
+  outline: 4px solid #fbfef9;
+}
+
+.item-container input[type='checkbox']::before {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  left: 5px;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  transform: scale(0);
+  /* background-color: #fbfef9; */
+  background-color: var(--clr-action);
+  z-index: 3;
+}
+
+.item-container input[type='checkbox']:checked::before {
+  transform: scale(1);
+}
+
+/* .checkbox {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  background-color: #a63446;
+  cursor: pointer;
+}
+
+.checkbox:hover {
+  outline: 4px solid #fbfef9;
+} */
+
+/* form input[type='checkbox']:checked ~ .checkbox::after {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  left: 5px;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  background-color: #fbfef9;
+  background-color: var(--clr-action);
+  z-index: 3;
+} */
+
+/* .checkbox:active::after {
+} */
+
+.timestamp {
+  color: var(--clr-text-fade);
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* Airbnb 23 - https://getcssscan.com/css-buttons-examples */
+.button-23 {
+  background-color: var(--clr-action);
+  border: 1px solid var(--clr-action);
+  border-radius: 8px;
+  box-sizing: border-box;
+  /* color: #222222; */
+  color: var(--clr-btn-accent); /*looks better*/
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+    transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+
+.button-23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+
+.button-23:hover {
+  background-color: hsl(31, 94%, 51%);
+  border-color: hsl(31, 94%, 51%);
+}
+
+.button-23:active {
+  background-color: #f7f7f7;
+  border-color: #000000;
+  transform: scale(0.96);
+}
+
+.button-23:disabled {
+  border-color: #dddddd;
+  color: #dddddd;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* delete button */
+.delete-btn {
+  position: absolute;
+  /* right: 80px; */
+  right: -60px;
+  padding: 4px;
+  border-radius: 2px;
+}
+.delete-btn img {
+  display: block;
+  width: 20px;
+  height: auto;
+}
+
+.crossOut {
+  position: relative;
+  /* text-decoration: line-through; */
+  /* animation: crossOut 0.3s linear 0s 1 normal forwards; 
+  doesn't work*/
+}
+.crossOut::before {
+  position: absolute;
+  content: '';
+  left: 0px;
+  width: 20%;
+  height: 20px;
+  background-color: var(--clr-text-fade);
+  animation: crossOut 0.2s linear 0s 1 normal both;
+}
+
+@keyframes crossOut {
+  from {
+    width: 0;
+  }
+  to {
+    width: 30%;
+  }
+}
+
+.test:hover {
+  outline: 8px solid red;
+}
+
+/* new log section */
+
+.hidden {
+  display: none;
+}
+
+.openDoor {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --max-height: clamp(250px, 32vw, 400px);
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: var(--max-height);
+  box-shadow: 0px 5px 2px currentColor inset, 0px -5px 2px currentColor inset;
+  animation: openBackground 1s linear 0s 1 normal both;
+}
+
+.closeDoor {
+  animation: openBackground 1s linear 0s 1 reverse both;
+}
+
+@keyframes openBackground {
+  0% {
+    height: 0px;
+  }
+  20% {
+    height: 0px;
+  }
+  90% {
+    height: var(--max-height);
+    box-shadow: 0px 0px 0px currentColor inset, 0px -0px 0px currentColor inset;
+  }
+  100% {
+    box-shadow: 0px 10px 15px currentColor inset,
+      0px -10px 15px currentColor inset;
+  }
+}
+
+.openDoor::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+  animation: splitScreen 1s linear 0s 1 normal both;
+}
+
+.closeDoor::before {
+  animation: splitScreen 1s linear 0s 1 reverse both;
+}
+
+@keyframes splitScreen {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  20% {
+    width: 100%;
+    left: 0;
+  }
+  /* doesn't do anything only for keeping the 100%*/
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+
+.newLog-Section {
+  font-family: 'Inter', sans-serif;
+  padding: clamp(20px, 3.2vw, 40px);
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  align-items: flex-start;
+  background-color: var(--clr-action);
+  width: clamp(300px, 64vw, 800px);
+  height: min-content;
+  border: 3px solid currentColor;
+  border-radius: 4px;
+  box-shadow: 8px 8px 0 currentColor;
+  animation: appear 2.5s linear 0s 1 normal both;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0%;
+    /* transform: translateY(-200px) scaleY(0); */
+  }
+  20% {
+    opacity: 0%;
+  }
+  90% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 100%;
+    /* transform: translateY(0px) scaleY(1); */
+  }
+}
+
+.newLog-Section h2 {
+  margin-bottom: clamp(16px, 1.92vw, 24px);
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 0.08vw, 10px);
+  font-size: clamp(20px, 2.4vw, 30px);
+}
+
+.newLog-Section h2 img {
+  display: block;
+  width: clamp(20px, 2.4vw, 30px);
+  height: auto;
+}
+
+.newLog-Section form {
+  width: 100%;
+}
+
+.newLog-Section label {
+  position: relative;
+}
+
+.newLog-Section input {
+  padding: clamp(7px, 1.2vw, 15px) 10px;
+  width: 100%;
+  /* height: 54px; */
+  font-size: clamp(14px, 1.6vw, 20px);
+  background-color: transparent;
+  border: 3px solid currentColor;
+  border-radius: 4px;
+}
+
+.newLog-Section .labelText {
+  padding: 0px 5px;
+  margin: 0 5px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  font-size: clamp(14px, 1.6vw, 20px);
+  line-height: 100%;
+  background-color: var(--clr-action);
+  transition: transform 120ms ease-in;
+}
+
+.newLog-Section input:focus + .labelText,
+.newLog-Section input:not(:placeholder-shown) + .labelText {
+  transform: translate(0.15rem, calc(-1 * clamp(14px, 2.24vw, 28px))) scale(0.8);
+  color: var(--clr-text);
+}
+
+.btn-container {
+  margin-top: 20px;
+}
+
+.newLog-Section button {
+  padding: 6px 16px;
+  background-color: var(--clr-text);
+  font-weight: 700;
+  font-size: clamp(14px, 1.28vw, 16px);
+  border: 2px solid var(--clr-text);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.newLog-Section button:hover {
+  border: 2px solid var(--clr-btn-accent);
+}
+
+/* items getting deleted */
+
+.delete-item {
+  color: tomato !important;
+  text-decoration: line-through;
+}
