@@ -108,6 +108,9 @@ resetBtnEl.addEventListener('click', (e) => {
 function handleItemContainerClick(e) {
   const parentNode = e.target.parentNode;
   let timeStampEl;
+  // if div parent is clicked
+  if (Array.from(e.target.classList).includes('item-container')) return null;
+
   // if clicked is deleteButton or img within deleteButton
   if (
     e.target.id === 'delete-item--js' ||
