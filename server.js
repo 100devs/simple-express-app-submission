@@ -33,7 +33,7 @@ async function startDB() {
 }
 
 // janky af
-(async () => await startDB())();
+startDB();
 
 // express
 const app = express();
@@ -56,9 +56,9 @@ app.get('/', async (req, res) => {
     // returns a cursor, with no filter return all (this talks to DB aka a promise)
     const allLogs = await dailyLogCollection.find().toArray();
 
-    const logArray = allLogs.map((item) => item.description);
+    // const logArray = allLogs.map((item) => item);
 
-    res.render(indexFilePath, { logs: logArray });
+    res.render(indexFilePath, { logs: allLogs });
     // res.sendFile(path.join(__dirname, 'index.html'));
   } catch (err) {
     console.log('💣💣💣 THERE WAS AN ERROR 💣💣💣');
@@ -79,17 +79,50 @@ app.post('/newLog', async (req, res) => {
   res.json(insertResult.acknowledged).status(204);
 });
 
+app.put('/update', async (req, res) => {
+  try {
+    const updateOperationArray = req.body.map((item) => {
+      return {
+        updateOne: {
+          filter: { description: item },
+          update: { $set: { time: Date.now() } },
+        },
+      };
+    });
+
+    const bulkWriteResult = await dailyLogCollection.bulkWrite(
+      updateOperationArray
+    );
+
+    console.log(
+      `${bulkWriteResult.nModified} items were Updated: ${
+        bulkWriteResult.ok === 1 ? true : false
+      }`
+    );
+
+    res.json('ok');
+  } catch (err) {
+    console.log('💣💣💣 THERE WAS AN ERROR 💣💣💣');
+    console.error(err);
+  }
+});
+
 app.delete('/delete', async (req, res) => {
-  const query = {
-    description: { $in: req.body },
-  };
+  try {
+    const query = {
+      description: { $in: req.body },
+    };
 
-  const deleteManyResult = await dailyLogCollection.deleteMany(query);
+    const deleteManyResult = await dailyLogCollection.deleteMany(query);
 
-  console.log(
-    `${deleteManyResult.deletedCount} items were deleted: ${deleteManyResult.acknowledged}`
-  );
-  res.status(204);
+    console.log(
+      `${deleteManyResult.deletedCount} items were deleted: ${deleteManyResult.acknowledged}`
+    );
+    res.status(202).send({ deleted: req.body });
+  } catch (err) {
+    console.log('💣💣💣 THERE WAS AN ERROR 💣💣💣');
+    console.error(err);
+  }
 });
 
 const PORT = 3000;

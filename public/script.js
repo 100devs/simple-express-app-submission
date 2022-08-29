@@ -20,17 +20,45 @@ formEl.addEventListener('submit', async (e) => {
   const deletedItemNameArr = Array.from(allDeletedElements).map((el) =>
     el.textContent.trim()
   );
-  console.log(deletedItemNameArr);
 
-  const rawResponse = await fetch('/delete', {
-    method: 'DELETE',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(deletedItemNameArr),
-  });
+  // send delete request
+  if (allDeletedElements.length !== 0) {
+    const rawResponse = await fetch('/delete', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(deletedItemNameArr),
+    });
 
-  const content = await rawResponse.json();
-  console.log(content);
-  location.reload();
+    // wait for it back
+    const content = await rawResponse.json();
+    console.log(content);
+  }
+
+  // update request
+  const allCompletedItemElements = document.querySelectorAll(
+    '.completed-checkbox--js:checked'
+  );
+  // grab just textContext
+  const allCompleteItemArr = Array.from(allCompletedItemElements).map((el) =>
+    el.parentNode.textContent.trim()
+  );
+
+  // only run if we have some checks
+  if (allCompleteItemArr !== 0) {
+    const rawResponse = await fetch('/update', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(allCompleteItemArr),
+    });
+
+    // wait for it back
+    const content = await rawResponse.json();
+    console.log(content);
+  }
+
+  console.log(allCompleteItemArr);
+
+  // location.reload();
 });
 
 Array.from(itemContainerList).map((el) =>
@@ -142,6 +170,7 @@ function createLogItemEl(itemName) {
   // input
   input.type = 'checkbox';
   input.name = 'taken';
+  input.id = 'completed-checkbox--js';
   label.htmlFor = '';
 
   // build label

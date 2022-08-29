@@ -63,10 +63,17 @@
         <% for(let i = 0; i < logs.length; i++) {%>
           <div class="item-container" id="item--js">
             <label for="">
-              <%= logs[i] %>
-              <input type="checkbox" name="taken" />
+              <%= logs[i].description %>
+              <input type="checkbox" name="taken" class="completed-checkbox--js"/>
             </label>
-            <p class="timestamp">Time Last Taken:</p>
+            <p class="timestamp">
+              <% if(typeof logs[i].time === 'number') { %>
+                
+                Time Last Taken: <%=  new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'long' }).format(logs[i].time)%>
+                <% } else { %>
+                  Time Last Taken:
+                <% } %>
+            </p>
           </div>
         <% } %>
         <button class="button-23" role="button" id="confirm-btn--js">
