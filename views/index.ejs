@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/68de1d0260.js" crossorigin="anonymous"></script>
     <title>Student Driver - Hours Log</title>
 </head>
-<body>
+<body class="bg-emerald-100 text-gray-900">
     <section class="currentHours">
 
     </section>
@@ -46,7 +46,7 @@
                         <%= item.note %>
                     </div>
                     <a href="/edit/<%=item._id %>" class="edit"><span class="fas fa-edit"></span></a>
-                    <a href="/remove/<%=item._id %>" class="remove"><span class="fas fa-trash-can"></span></a>
+                    <a href="/edit/remove/<%=item._id %>" class="remove"><span class="fas fa-trash-can"></span></a>
                 </li>
                 <% }) %>
             </ul>

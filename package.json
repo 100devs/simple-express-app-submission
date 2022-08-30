@@ -4,8 +4,8 @@
   "description": "App to log hours driven for student drivers.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "build-css": "tailwindcss -i src/style.css -o public/style.css --watch"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,9 @@
     "mongoose": "^6.5.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "autoprefixer": "^10.4.8",
+    "nodemon": "^2.0.19",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
   }
 }
