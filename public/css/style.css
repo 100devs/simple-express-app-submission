@@ -1,0 +1,103 @@
+/* Box Model Hack */
+* {
+     box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+html{
+     font-size: 62.5%;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body{
+     background: skyblue;
+}
+
+h1, h2{
+     display:flex;
+     justify-content: center;
+     font-size: 7rem;
+     color:green;
+}
+h2{
+     font-size: 4rem;
+     color: black;
+}
+form{
+     display: flex;
+     justify-content: center;
+}
+form ::placeholder{
+     text-align: center;
+}
+.addItem input, .addItem button{
+     width: 10%;
+     margin: .5rem;
+}
+.addItem button{
+     width: 3%;
+     text-align: center;
+     background-color:blue;
+     color: white;
+     border: none;
+     border-radius: 4px;
+}
+.items{
+     display:flex;
+     flex-direction: column;
+     width:50%;
+     margin: auto 25%;
+}
+.item, span{
+     display:flex;
+     align-items: center;
+     font-size: 3rem;  
+}
+
+.item{
+     display:flex;
+     justify-content: flex-end;
+     border: inset 2px rgba(0,0,139,1);
+     border-radius: 4px;
+     width: 30rem;
+     height: 6rem;
+     margin: .5% auto;
+     background-color: white;
+     
+}
+span{
+     margin-right: 5rem;
+}
+.completed{
+     text-decoration: line-through;
+     color: gray;
+}
+.fa-trash, .fa-check{
+     margin: 0 1rem 0 .5rem;
+     font-size: .5em;
+}
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/

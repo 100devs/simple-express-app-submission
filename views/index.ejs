@@ -1,0 +1,38 @@
+<!-- index.ejs-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+        <img scr="public/css/groceries.jpg">
+        <h1>Grocery List</h1>
+        
+        <form class= "addItem" action="/addItem" method="POST">
+			<input type="text" placeholder="Grocery Item" name="groceryItem">
+			<button type="submit">Add</button>
+		  </form>
+
+            <h2> Grocery Items </h2>
+            <ul class="items">
+            <% for(let i = 0; i < item.length; i++) {%>
+                <li class="item">
+                    <% if(item[i].completed === true) {%>
+                        <span class='completed'><%= item[i].groceryItem %></span>
+                    <% }else{ %>
+                        <span><%= item[i].groceryItem %></span>
+                    <% } %>   
+                    <span class="fa fa-check"></span> 
+                    <span class="fa fa-trash"></span>
+                </li>
+                <% } %>
+            </ul>
+    <script src='js/main.js'></script>
+        </body>
+    </html>
+
