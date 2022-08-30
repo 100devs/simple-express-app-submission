@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Best Hawaii Beaches</h1>
+    <ul>
+        <li class="titles">
+            <span>Beach</span>
+            <span>Restroom</span>
+            <span>Lifeguard</span>
+            <span>Likes</span>
+            <span></span>
+            <span></span>
+        </li>
+    </ul>
+    <ul class="beaches">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="beach">
+            <span><%= info[i].beachName %></span>
+            <span><%= info[i].restroom %></span>
+            <span><%= info[i].lifeguard %></span>
+            <span><%= info[i].likes %></span>
+            <div class="icons">
+                <span class='fa fa-thumbs-up'></span>
+                <span class='fa fa-trash'></span>
+            </div>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Add a new beach:</h2>
+
+    <form action="/addBeach" method="POST">
+        <input class="input-form text" type="text" placeholder="Beach Name" name="beachName">
+        <legend class="input-form">Restroom</legend>
+        <input class="input-form" type="radio" value="yes" name="restroom">
+            <label class="input-form" for="yes">Yes</label>
+        <input class="input-form" type="radio" value="no" name="restroom" checked>
+            <label class="input-form" for="no">No</label>
+        <legend class="input-form">Lifeguard</legend>
+        <input class="input-form" type="radio" value="yes" name="lifeguard">
+            <label class="input-form" for="yes">Yes</label>
+        <input class="input-form" type="radio" value="no" name="lifeguard" checked>
+            <label class="input-form" for="no">No</label>
+        <input type="submit" class="submit input-form">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>

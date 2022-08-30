@@ -1,0 +1,68 @@
+html{
+    /* color: white;
+    background-color: black; */
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    color: red;
+}
+
+.titles {
+    text-align: left;
+}
+
+.beaches, .titles{
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    width: 75%;
+}
+
+li {
+    padding: 2px 0;
+    height: 35px;
+}
+
+span{
+    padding: 5px 8px;
+    margin: 0;
+}
+
+.beach > span, .titles > span {
+    display:inline-block;
+    float: left;
+    min-width: 80px;
+}
+
+.beach > span:first-child, .titles > span:first-child {
+    min-width: 125px;
+    text-align: left;
+}
+
+.icons {
+    width: 100px;
+    float: right;
+}
+
+.fa {
+    display: inline-block;
+}
+
+form{
+    display: inline-block;
+}
+
+legend{
+    padding: 20px 0 10px 0;
+}
+
+.submit{
+    display: flex;
+    margin: auto;
+    margin-top: 25px;
+    padding: 5px;
+    border-radius: 2px;
+}
+
