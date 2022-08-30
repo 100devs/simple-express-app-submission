@@ -1,0 +1,3 @@
+[submodule "bookshelf-crud-app"]
+	path = bookshelf-crud-app
+	url = https://github.com/kathryncodes/bookshelf-crud-app.git
