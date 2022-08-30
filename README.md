@@ -18,5 +18,5 @@ Example:
 ```
 I completed the challenge: 5
 I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
+This was the first api app that was built back in June. Since then, I've created much better apps.
 ```
