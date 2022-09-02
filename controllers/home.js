@@ -1,4 +1,5 @@
 const DrivingHours = require("../models/hours")
+const moment = require('moment')
 
 module.exports = {
     getIndex : async (req, res) => {
@@ -9,7 +10,7 @@ module.exports = {
                 moment: moment
             })
         } catch (err) {
-            if (err) return res.status(500).send(err)
+            if (err) return res.status(500).send(err.toString())
         }
     },
     addLesson: async (req, res) => {
