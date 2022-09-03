@@ -4,54 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <script src="https://kit.fontawesome.com/68de1d0260.js" crossorigin="anonymous"></script>
-    <title>Student Driver - Hours Log</title>
+    <title>Document</title>
 </head>
-<body class="bg-emerald-100 text-gray-900">
-    <section class="currentHours">
-
-    </section>
-
-    <section class="hours-container">
-        <h2>Driving Hours Log</h2>
-        <section class="hours">
-
-            <form action="/" method="POST" class="hours-header">
-                <label for="totalHours">Total hours driven this session:</label>
-                <input type="number" min= "1" name="totalHours" id="total">
-                <label for="nightHours">Total hours driven at night:</label>
-                <input type="number" min= "0" name="nightHours" id="night">
-                <label for="hwyHours">Total hours driven on the highway:</label>
-                <input type="number" min= "0" name="hwyHours" id="hwy">
-                <label for="instructor">Instructor:</label>
-                <input type="text" name="instructor" id="instructor">
-                <label for="note">Session Note:</label>
-                <textarea rows= "8" columns="60" name="note" id="note" placeholder="Notes about maneuvers practiced, which need more practice, etc:"></textarea>
-                <button type="submit">Submit</span></button>
-            </form>
-
-            <ul>
-                <% DrivingHours.forEach(item => {%>
-                <li class="hours-list-item">
-                    <div class="hours-list-item-total">
-                        <%= moment(item.date).format( 'MMMM DD, YYYY') %>
-                        <%= item.totalHours %>
-                        <%= item.nightHours %>
-                        <%= item.hwyHours %>
-                        <%= item.instructor %>
-                        <%= item.note %>
-                    </div>
-                    <a href="/edit/<%=item._id %>" class="edit"><span class="fas fa-edit"></span></a>
-                    <a href="/edit/remove/<%=item._id %>" class="remove"><span class="fas fa-trash-can"></span></a>
-                </li>
-                <% }) %>
-            </ul>
-
-        </section>
-    </section>
+<body>
+    <h1>Create Your VERY OWN Todolist!</h1>
+    <a href="/login"> Login</a>
+    <a href="/signup"> Signup</a>
 </body>
 </html>

@@ -11,19 +11,10 @@ const drivingHoursSchema = new mongoose.Schema( {
         type: Number,
         required: true
     },
-    cumulative: {
-        type: Number,
-    },
     nightHours: {
         type: Number,
     },
-    totalNight: {
-        type: Number,
-    },
     hwyHours: {
-        type: Number,
-    },
-    totalHwy: {
         type: Number,
     },
     instructor: {
