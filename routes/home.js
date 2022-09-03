@@ -4,9 +4,10 @@
 const express = require("express")
 const router = express.Router()
 const homeController = require("../controllers/home")
+const { ensureAuth } = require("../middleware/auth")
 
 //add specific routes for specific tasks
-router.get("/", homeController.getIndex)
+router.get("/", ensureAuth, homeController.getDashboard)
 router.post("/", homeController.addLesson)
 
 

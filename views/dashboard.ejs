@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/68de1d0260.js" crossorigin="anonymous"></script>
+    <title>Student Driver - Hours Log</title>
+</head>
+<body class="bg-light text-gray-700">
+    <section class="currentHours">
+        <% let cumulative = 0 %>
+        <% DrivingHours.forEach(item => cumulative+= item.totalHours) %>
+        <p><%= cumulative %></p>
+        <% let addNight = 0 %>
+        <% DrivingHours.forEach(item => addNight+= item.nightHours) %>
+        <p><%= addNight %></p>
+        <% let addHwy = 0 %>
+        <% DrivingHours.forEach(item => addHwy+= item.hwyHours) %>
+        <p><%= addHwy %></p>
+    </section>
+
+    <section class="hours-container">
+        <h2>Driving Hours Log</h2>
+        <a href="/logout">Log Out</a>
+        <section class="hours">
+
+            <form action="/" method="POST" class="hours-header">
+                <label for="totalHours">Total hours driven this session:</label>
+                <input type="number" min= "1" name="totalHours" id="total">
+                <label for="nightHours">Total hours driven at night:</label>
+                <input type="number" min= "0" name="nightHours" id="night">
+                <label for="hwyHours">Total hours driven on the highway:</label>
+                <input type="number" min= "0" name="hwyHours" id="hwy">
+                <label for="instructor">Instructor:</label>
+                <input type="text" name="instructor" id="instructor">
+                <label for="note">Session Note:</label>
+                <textarea rows= "8" columns="60" name="note" id="note" placeholder="Notes about maneuvers practiced, which need more practice, etc:"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+
+            <ul>
+                <% DrivingHours.forEach(item => {%>
+                <li class="hours-list-item">
+                    <div class="hours-list-item-total">
+                        <%= moment(item.date).format( 'MMMM DD, YYYY') %>
+                        <%= item.totalHours %>
+                        <%= item.nightHours %>
+                        <%= item.hwyHours %>
+                        <%= item.instructor %>
+                        <%= item.note %>
+                    </div>
+                    <a href="/edit/<%=item._id %>" class="edit"><span class="fas fa-edit text-accent"></span></a>
+                    <a href="/edit/remove/<%=item._id %>" class="remove"><span class="fas fa-trash-can text-dark"></span></a>
+                </li>
+                <% }) %>
+            </ul>
+
+        </section>
+    </section>
+</body>
+</html>

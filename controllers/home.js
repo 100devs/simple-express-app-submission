@@ -2,10 +2,10 @@ const DrivingHours = require("../models/hours")
 const moment = require('moment')
 
 module.exports = {
-    getIndex : async (req, res) => {
+    getDashboard : async (req, res) => {
         try {
             const hours = await DrivingHours.find()
-            res.render("index.ejs", {
+            res.render("dashboard.ejs", {
                 DrivingHours: hours,
                 moment: moment
             })
