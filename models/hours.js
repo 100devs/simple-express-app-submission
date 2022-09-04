@@ -19,7 +19,11 @@ const drivingHoursSchema = new mongoose.Schema( {
     },
     instructor: {
         type: String,
-    }
+    },
+    userId: {
+        type: String,
+        required: true
+      }
 })
 
 module.exports = mongoose.model("DrivingHours", drivingHoursSchema, "hours")

@@ -1,4 +1,5 @@
 const DrivingHours = require("../models/hours")
+const moment = require("moment")
 
 module.exports = {
     editLesson : (req, res) => {
@@ -15,7 +16,7 @@ module.exports = {
         const id = req.params.id
         DrivingHours.findByIdAndRemove(id, err => {
             if (err) return res.status(500).send(err)
-            res.redirect("/")
+            res.redirect("/dashboard")
         })
     },
     updateLesson : (req, res) => {
@@ -27,10 +28,11 @@ module.exports = {
                 hwyHours: req.body.hwyHours,
                 instructor: req.body.instructor,
                 note: req.body.note,
+                userId: req.user.id
             },
             err => {
                 if (err) return res.status(500).send(err)
-                res.redirect("/")
+                res.redirect("/dashboard")
             })
     }
 }
