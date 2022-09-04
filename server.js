@@ -11,7 +11,7 @@ const logger = require("morgan")
 const moment = require("moment")
 const connectDB = require("./config/database")
 const mainRoutes = require("./routes/main")
-const homeRoutes = require("./routes/home")
+const dashboardRoutes = require("./routes/dashboard")
 const editRoutes = require("./routes/edit")
 require("dotenv").config({ path: "./config/.env"})
 
@@ -45,7 +45,7 @@ app.use(flash())
 
 // Set Routes
 app.use("/", mainRoutes)
-app.use("/dashboard", homeRoutes)
+app.use("/dashboard", dashboardRoutes)
 app.use("/edit", editRoutes)
 
 app.listen(process.env.PORT || PORT, ()=> console.log(`Server is running on port ${PORT}`))

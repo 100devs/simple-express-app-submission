@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/68de1d0260.js" crossorigin="anonymous"></script>
     <title>Student Driver - Hours Log</title>
 </head>
-<body class="bg-light text-gray-700">
+<body class="text-mid">
     <section class="currentHours">
         <% let cumulative = 0 %>
         <% DrivingHours.forEach(item => cumulative+= item.totalHours) %>
@@ -54,8 +54,8 @@
                         <%= item.instructor %>
                         <%= item.note %>
                     </div>
-                    <a href="/edit/<%=item._id %>" class="edit"><span class="fas fa-edit text-accent"></span></a>
-                    <a href="/edit/remove/<%=item._id %>" class="remove"><span class="fas fa-trash-can text-dark"></span></a>
+                    <a href="/edit/<%=item._id %>" class="edit"><span class="fas fa-edit text-green-600"></span></a>
+                    <a href="/edit/remove/<%=item._id %>" class="remove"><span class="fas fa-trash-can text-red-600"></span></a>
                 </li>
                 <% }) %>
             </ul>
