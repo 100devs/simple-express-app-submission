@@ -3,6 +3,8 @@ A full stack app to log hours driven for student drivers, including night and hi
 
 **Link to project:** Coming Soon
 
+![Screenshot of SuperDrip Index Page](SuperDrip.png)
+
 ## How It's Made:
 
 **Tech used:** HTML, CSS, TailwindCSS, EJS, JavaScript, Node.js, Express, MongoDB, and Passport for Authentication
