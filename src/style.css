@@ -1,3 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Fugaz+One&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+.basics {
+    @apply bg-dark text-neutral flex flex-col p-2 font-body min-h-screen;
+}
+
+.header {
+    @apply w-full flex flex-row justify-between items-center p-2;
+}
+
+.title {
+    @apply text-xl font-bold tracking-wider uppercase;
+}
+
+.footer {
+    @apply w-full flex justify-center self-end fixed bottom-0 pb-5;
+}
+
+.preauth {
+    @apply bg-mid flex flex-col justify-center items-center h-screen;
+}
+
+.card {
+    @apply flex flex-col space-y-3 justify-center items-center bg-dark w-1/3 h-1/2 text-neutral rounded-lg drop-shadow-lg;
+}
+
+.logo {
+    @apply text-accent text-5xl font-name;
+}
+
+.showText {
+    @apply text-dark p-1 rounded-md;
+}
+
+.redBtn {
+    @apply inline-flex items-center justify-center rounded-lg bg-accent hover:bg-neutral hover:text-dark w-24 h-8 cursor-pointer font-bold tracking-wider;
+}
+
+.blueBtn {
+    @apply inline-flex items-center justify-center rounded-lg bg-mid hover:bg-neutral hover:text-dark w-24 h-8 cursor-pointer font-bold tracking-wider text-center align-middle;
+}

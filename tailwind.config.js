@@ -3,10 +3,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accent: "#fdd947",
-        dark: "#252525",
-        light: "#d5d5d3",
-        mid: "#444444",
+        accent: "#e63946",
+        dark: "#1d3557",
+        mid: "#457b9d",
+        light: "#a8dadc",
+        neutral: "#f1faee",
+      },
+      fontFamily: {
+        "body": ["Barlow"],
+        "name":['"Fugaz One"']
       },
     },
   },
