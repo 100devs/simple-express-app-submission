@@ -8,7 +8,8 @@ module.exports = {
             res.render("edit.ejs", {
                 DrivingHours: hours, 
                 idHours: id,
-                moment: moment
+                moment: moment,
+                user: req.user
             })
         })
     },

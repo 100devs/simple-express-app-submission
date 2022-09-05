@@ -27,9 +27,10 @@
         </section>
     </section>
     
-    <section class="flex flex-row w-4/5">
+    <section class="flex flex-row w-full p-2">
 
-        <section class="w-3/4 flex flex-row justify-around">
+        <section class="flex flex-col w-1/2 p-5">
+            <h2>Total Hours:</h2>
             <% let cumulative = 0 %>
             <% DrivingHours.forEach(item => cumulative+= item.totalHours) %>
             <p>Total hours driven: <%= cumulative %></p>
@@ -39,9 +40,7 @@
             <% let addHwy = 0 %>
             <% DrivingHours.forEach(item => addHwy+= item.hwyHours) %>
             <p>Total hours driven on the highway: <%= addHwy %></p>
-        </section>
 
-        <section class="flex flex-col w-1/2">
             <h2>Past Lessons:</h2>
             <ul>
                 <% DrivingHours.forEach(item => {%>
@@ -52,14 +51,14 @@
                         <%= item.hwyHours %>
                         <%= item.instructor %>
                         <%= item.note %>
-                        <a href="/edit/<%=item._id %>" class="edit"><span class="fas fa-edit text-green-600"></span></a>
-                        <a href="/edit/remove/<%=item._id %>" class="remove"><span class="fas fa-trash-can text-accent"></span></a>
+                        <a href="/edit/<%=item._id %>" class="edit"><span class="fas fa-edit hover:text-neutral text-green-500"></span></a>
+                        <a href="/edit/remove/<%=item._id %>" class="remove"><span class="fas fa-trash hover:text-neutral text-accent"></span></a>
                 </li>
                 <% }) %>
             </ul>
         </section>
 
-        <section class="flex flex-col w-1/2">
+        <section class="flex flex-col w-1/2 p-5">
             <h2>Add new lesson:</h2>
 
             <form action="/dashboard" method="POST" class="hours-header flex flex-col flex-nowrap space-y-1">
@@ -72,8 +71,8 @@
                 <label for="instructor">Instructor:</label>
                 <input type="text" class="showText" name="instructor" id="instructor">
                 <label for="note">Session Note:</label>
-                <textarea class="showText" rows= "8" columns="60" name="note" id="note" placeholder="Notes about maneuvers practiced, which need more practice, etc:"></textarea>
-                <button type="submit" class="blueBtn">Submit</button>
+                <textarea class="showText resize-none placeholder-mid" rows= "8" columns="60" name="note" id="note" placeholder="Notes about maneuvers practiced, which need more practice, etc:"></textarea>
+                <button type="submit" class="redBtn">Submit</button>
             </form>
 
         </section>
