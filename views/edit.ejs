@@ -9,45 +9,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fugaz+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <script src="https://kit.fontawesome.com/68de1d0260.js" crossorigin="anonymous"></script>
-    <title>Student Driver - Edit</title>
+    <title>SuperDrip - Edit</title>
 </head>
 <body class="basics">
     <header class="header">
         <h1 class="logo"><span class="text-accent"> - </span><span class="text-neutral"> - </span>SuperDrip<span class="text-neutral"> - </span><span class="text-accent"> - </span></h1>
-        <a href="/logout" class="redBtn justify-self-end">Log Out</a>
+        <a href="/logout" class="redBtn">Log Out</a>
     </header>
 
-    <section class="currentHours flex flex-row items-center p-2 bg-mid h-10 rounded-md">
-        <section class="w-1/2">
-            <h3 class="title">Welcome <%= user.userName %></h3>
-        </section>
-        <section class="w-1/2">
-            <h3 class="title">Edit Lesson</h3>
-        </section>
+    <section class="welcome">
+        <h3 class="title">Welcome <%= user.userName %> - Edit Lesson</h3>
     </section>
 
-        <section class="hours flex justify-center items-center">
-            <% DrivingHours.forEach(item => {%>
-                <% if (item._id == idHours) { %>
-                    <form action="/edit/<%= item._id %>" method="post" class="flex flex-col w-1/2 space-y-1">
-                        <label for="totalHours">Total hours driven this session:</label>
-                        <input type="number" class="showText" min= "1" name="totalHours" id="total" value="<%= item.totalHours %>">
-                        <label for="nightHours">Total hours driven at night:</label>
-                        <input type="number" class="showText" min= "0" name="nightHours" id="night" value="<%= item.nightHours %>">
-                        <label for="hwyHours">Total hours driven on the highway:</label>
-                        <input type="number" class="showText" min= "0" name="hwyHours" id="hwy" value="<%= item.hwyHours %>">
-                        <label for="instructor">Instructor:</label>
-                        <input type="text" class="showText" name="instructor" id="instructor" value="<%= item.instructor %>">
-                        <label for="note">Session Note:</label>
-                        <textarea rows= "8" class="showText resize-none" columns="60" name="note" id="note" value="<%= item.note %>"></textarea>
-                        <section class="flex flex-row space-x-3">
-                            <button type="submit" class="confirm blueBtn">Confirm</button>
-                            <a href="/dashboard" class="cancel redBtn">Cancel</a>
-                        </section>
-                    </form>
-                <% } %>
-            <% }) %>
-        </section>
+    <section class="hours flex justify-center items-center">
+        <% DrivingHours.forEach(item => {%>
+            <% if (item._id == idHours) { %>
+                <form action="/edit/<%= item._id %>" method="post" class="flex flex-col w-1/2 space-y-1">
+                    <label for="totalHours">Total hours driven this session:</label>
+                    <input type="number" class="showText" min= "1" name="totalHours" id="total" value="<%= item.totalHours %>">
+                    <label for="nightHours">Total hours driven at night:</label>
+                    <input type="number" class="showText" min= "0" name="nightHours" id="night" value="<%= item.nightHours %>">
+                    <label for="hwyHours">Total hours driven on the highway:</label>
+                    <input type="number" class="showText" min= "0" name="hwyHours" id="hwy" value="<%= item.hwyHours %>">
+                    <label for="instructor">Instructor:</label>
+                    <input type="text" class="showText" name="instructor" id="instructor" value="<%= item.instructor %>">
+                    <label for="note">Session Note:</label>
+                    <textarea rows= "8" class="showText resize-none" columns="60" name="note" id="note" value="<%= item.note %>"></textarea>
+                    <section class="flex flex-row space-x-3">
+                        <button type="submit" class="confirm blueBtn">Confirm</button>
+                        <a href="/dashboard" class="cancel redBtn">Cancel</a>
+                    </section>
+                </form>
+            <% } %>
+        <% }) %>
+    </section>
 
     <footer class="footer">
         SuperDrip &copy; 2022

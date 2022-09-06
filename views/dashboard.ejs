@@ -9,57 +9,79 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fugaz+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <script src="https://kit.fontawesome.com/68de1d0260.js" crossorigin="anonymous"></script>
-    <title>Student Driver - Hours Log</title>
+    <title>SuperDrip - Dashboard</title>
 </head>
 <body class="basics">
 
     <header class="header">
         <h1 class="logo"><span class="text-accent"> - </span><span class="text-neutral"> - </span>SuperDrip<span class="text-neutral"> - </span><span class="text-accent"> - </span></h1>
-        <a href="/logout" class="redBtn justify-self-end">Log Out</a>
+        <a href="/logout" class="redBtn">Log Out</a>
     </header>
 
-    <section class="currentHours flex flex-row items-center p-2 bg-mid h-10 rounded-md">
-        <section class="w-1/2">
-            <h3 class="title">Welcome <%= user.userName %></h3>
-        </section>
-        <section class="w-1/2">
-            <h3 class="title">Dashboard</h3>
-        </section>
+    <section class="welcome">
+        <h2 class="title">Welcome <%= user.userName %> - Dashboard</h2>
     </section>
     
     <section class="flex flex-row w-full p-2">
 
-        <section class="flex flex-col w-1/2 p-5">
-            <h2>Total Hours:</h2>
-            <% let cumulative = 0 %>
-            <% DrivingHours.forEach(item => cumulative+= item.totalHours) %>
-            <p>Total hours driven: <%= cumulative %></p>
-            <% let addNight = 0 %>
-            <% DrivingHours.forEach(item => addNight+= item.nightHours) %>
-            <p>Total hours driven at night: <%= addNight %></p>
-            <% let addHwy = 0 %>
-            <% DrivingHours.forEach(item => addHwy+= item.hwyHours) %>
-            <p>Total hours driven on the highway: <%= addHwy %></p>
+        <section class="flex flex-col w-2/3 p-5">
+            <table>
+                <thead>
+                    <tr class="bg-accent text-left">
+                        <th class="tdFormat1">Total Hours:</th>
+                        <th class="spacing">Night Hours:</th>
+                        <th class="tdFormat2">Highway Hours:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <% let cumulative = 0 %>
+                        <% DrivingHours.forEach(item => cumulative+= item.totalHours) %>
+                        <td class="spacing"><%= cumulative %></td>
+                        <% let addNight = 0 %>
+                        <% DrivingHours.forEach(item => addNight+= item.nightHours) %>
+                        <td class="spacing"><%= addNight %></td>
+                        <% let addHwy = 0 %>
+                        <% DrivingHours.forEach(item => addHwy+= item.hwyHours) %>
+                        <td class="spacing"><%= addHwy %></td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <h2>Past Lessons:</h2>
-            <ul>
-                <% DrivingHours.forEach(item => {%>
-                <li class="hours-list-item p-1 flex flex-row justify-between">
-                        <%= moment(item.date).format( 'MMMM DD, YYYY') %>
-                        <%= item.totalHours %>
-                        <%= item.nightHours %>
-                        <%= item.hwyHours %>
-                        <%= item.instructor %>
-                        <%= item.note %>
-                        <a href="/edit/<%=item._id %>" class="edit"><span class="fas fa-edit hover:text-neutral text-green-500"></span></a>
-                        <a href="/edit/remove/<%=item._id %>" class="remove"><span class="fas fa-trash hover:text-neutral text-accent"></span></a>
-                </li>
-                <% }) %>
-            </ul>
+            <h2 class="titleSmall mt-5 mb-3">Past Lessons:</h2>
+            
+            <table>
+                <thead>
+                    <tr class="bg-mid text-left">
+                        <td class="tdFormat1" class="tdFormat">Lesson date:</td>
+                        <td class="spacing">Instructor:</td>
+                        <td class="spacing">Total Driving Time:</td>
+                        <td class="spacing">After Sunset:</td>
+                        <td class="spacing">On the Highway:</td>
+                        <td class="spacing">Note:</td>
+                        <td class="spacing">Edit Lesson:</td>
+                        <td class="tdFormat2">Delete Lesson:</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% DrivingHours.forEach(item => {%>
+                        <tr>
+                            <td class="spacing"><%= moment(item.date).format( 'MMMM DD, YYYY') %></td>
+                            <td class="spacing"><%= item.instructor %></td>
+                            <td class="spacing"><%= item.totalHours %></td>
+                            <td class="spacing"><%= item.nightHours %></td>
+                            <td class="spacing"><%= item.hwyHours %></td>
+                            <td class="spacing"><%= item.note %></td>
+                            <td class="spacing"><a href="/edit/<%=item._id %>" class="edit"><span class="fas fa-edit hover:text-neutral text-green-500"></span></a></td>
+                            <td class="spacing"><a href="/edit/remove/<%=item._id %>" class="remove"><span class="fas fa-trash hover:text-neutral text-accent"></span></a></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
         </section>
 
-        <section class="flex flex-col w-1/2 p-5">
-            <h2>Add new lesson:</h2>
+        <section class="flex flex-col w-1/3 p-5">
+            <h3 class="titleSmall bg-accent rounded-md spacing">Add new lesson:</h3>
 
             <form action="/dashboard" method="POST" class="hours-header flex flex-col flex-nowrap space-y-1">
                 <label for="totalHours">Total hours driven this session:</label>
