@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/8ccab387e3.js" crossorigin="anonymous"></script>
+    <title>Burrito Express!</title>
+</head>
+<body>
+    
+    <h1>BURRITO GENERATOR</h1>
+    <section>
+        <form action="/burritoes" method="POST">
+            <legend>How many ingredients would you like in your burrito?</legend>
+            <input type="text" placeholder="Your name" name="name" required pattern="^[\w\d]{1,}">
+            <input type="text" placeholder="Number of ingredients" name="numIngredients" required pattern="\d+">
+            <p>Would you like to make it cursed?</p>
+            <input type="checkbox" name="cursed" value="false"><span>Yes</span>
+            <br>
+            <br>
+            <br>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    </section>
+    <section>
+        <h2><i><%= `${burritoes.length} happy customers so far!` %></i></h2>
+        <p>Latest creations:</p>
+        <ol>
+            <% let max = burritoes.length %>
+            <% for (let i=max-1; i > (max-5); i--) { %>
+                <% if (burritoes[i].cursed) {  %>
+                    <p><%= `A cursed burrito with ${burritoes[i].ingredients.length} ingredients for ${burritoes[i].name}` %> </p>
+                <% } else { %>
+                    <p><%= `An uncursed burrito with ${burritoes[i].ingredients.length} ingredients for ${burritoes[i].name}`%></p>
+                <% } %>
+            <% } %>
+        </ol>
+    </section>
+
+    <!-- <script src="/main.js"></script> -->
+</body>
+</html>

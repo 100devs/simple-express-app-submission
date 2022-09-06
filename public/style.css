@@ -1,0 +1,74 @@
+*{
+    box-sizing: border-box;
+    background: #222;
+    color: #fff;
+}
+
+li span {
+    /* Change text for ingredient list */
+    color: #fff;
+}
+
+.cursed {
+    color: red;
+}
+
+.fa {
+    /* padding-left: 2em;
+    text-align: right; */
+    float: left;
+    padding: 0 1em;
+    display: none;
+}
+
+
+ul{
+    /* margin: 0 50px;
+    margin-right: 20%; */
+    width: 25em;
+    /* list-style: none; */
+}
+
+#buttons {
+  list-style: none;
+}
+
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+aside {
+  width: 30em;
+  margin: 150px 25px;
+  border: 1px solid #bbb;
+  padding: 1em;
+}
+
+h2 {
+  color: paleturquoise;
+  font-style: italic;
+}
+
+.trash-message {
+  color: grey;
+  padding-left: 2em;
+  display: none;
+}
+
+.options {
+  width: 33%;
+  padding: 1em;
+  height: 200px;
+  background-color: #555;
+  align-items: center;
+  justify-content: center;
+}
+
+.big {
+  width: 100%;
+  align-items: stretch;
+  justify-content: center;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <script src="https://kit.fontawesome.com/8ccab387e3.js" crossorigin="anonymous"></script>
+        <title>Burrito Maker</title>
+    </head>
+    <body>
+        <main class="flex">
+        <section>
+            <h1>Your order is ready!</h1> 
+            <h6>Order number: <span id="order-num"><%= `${burrito.orderNum}`%></span></h6>
+            <!-- Check if burrito is cursed or uncursed -->
+            <% if (burrito.cursed) { %>
+                <h4><%= burrito.name %>, we made you a <span class="cursed">CURSED</span> burrito with:</h4>
+            <% } else {%>
+                <h4><%= burrito.name %>, we made you a burrito with:</h4>
+            <% } %>
+            <ul>
+                <% for(var i=0; i < burrito.ingredients.length; i++) { %>
+                    <li class="ingredient">
+                        <span><%= burrito.ingredients[i] %><i class="fa fa-trash" id="<%= burrito.ingredients[i].replace(/\s/g,'-') %>"></i></span><span id="<%= burrito.ingredients[i].replace(/\s/g,'-') %>-message" class="trash-message"></span>
+                    </li>
+                <% } %>
+            </ul>
+            <h2>We hope you enjoy your meal!</h2>
+            <a href="/"><h4><i>Back to order page</i></h4></a>
+        </section>
+        <aside>
+            <h3>Not happy? </h3>
+            <!-- <form action="/burritoes" method="POST"></form> -->
+            <h4>Click the trash icon next to any ingredient to remove it from your burrito.</h4>
+            <section class="flex" id="buttons">
+                <div class="options" id="remake-button">
+                    <span>Reroll ingredients?</span>
+                    <!-- <button id="remake-button">Reroll ingredients</button> -->
+                </div>
+
+                <div class="options" id="remove-curse">
+                    <span>Cast 'remove curse'?</span>
+                    <!-- <button >Remove curse</button> -->
+                </div>
+                
+                <div class="options" id="delete-button">
+                    <span>Delete and go back to order menu</span>
+                </div>
+                <div class="big" id="message"></div>
+                <div class="big">
+
+                    <a href="/"><button id="back">Back to order page</button></a>
+                </div>
+            </section>
+            <!-- <ul id="buttons">
+                <li><span>Want a new set of random ingredients? </span></li>
+                <li><button id="remake-button">Remake my order</button></li>
+
+                <span>Warning: cursed items cannot be removed. For a small fee (recommended: 250G donation to your local clerics' guild), your burrito can be un-cursed.</span>
+                <li><button id="remove-curse">Remove curse</button></li>
+
+                <br>
+                
+                <li><button id="delete-button">Delete and go back to order menu</button></li>
+
+                <br>
+
+                <div id="message"></div>
+                <br>
+                
+                <li><a href="/"><button id="back">Back to order page</button></a></li>
+            </ul> -->
+        </aside>
+    </main>
+        <script src="/main.js"></script>
+    </body>
+</html>
