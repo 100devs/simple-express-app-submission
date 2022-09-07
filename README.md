@@ -1,4 +1,5 @@
 # SuperDrip
+
 A full stack app to keep track of supervised driving hours for student drivers, including night and highway hours. You are able to add each lesson individually, inputting the total number of hours driven for that lesson, and then how many were at night or on the highway. A log of all cumulative hours is displayed and previous lessons are editable.
 
 **Link to project:** (https://superdrip.herokuapp.com/)
@@ -14,6 +15,7 @@ My 17 year old son is about to start taking driving lessons to get his license. 
 The app name came from Supervised Driving Practice, **Super**vised **Dri**ving **P**ractice. It may vary by state, but in mine at least you have to submit forms certifying the number of hours you have driven with supervision, either by a parent or a driving instructor.
 
 ## Optimizations
+
 I really want to keep this app very simple but in the future I'd like to add:
 - A section for upcoming lessons
 - A way to output lessons as proof for areas that require a log of your hours driven
@@ -22,3 +24,11 @@ I really want to keep this app very simple but in the future I'd like to add:
 ## Lessons Learned:
 
 I chose this app to practice styling using TailwindCSS rather than using plain CSS or using a Template.
+
+## Needs Work:
+
+Current issues that need fixing:
+- Max number of hours per day needs to be capped at 24
+- Handle lessons of less than one, or not whole numbers
+- Number of hours at night and on the highway should not exceed the total for the lesson
+- Add error messages or prompts
