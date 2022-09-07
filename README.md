@@ -1,7 +1,7 @@
 # SuperDrip
 A full stack app to keep track of supervised driving hours for student drivers, including night and highway hours. You are able to add each lesson individually, inputting the total number of hours driven for that lesson, and then how many were at night or on the highway. A log of all cumulative hours is displayed and previous lessons are editable.
 
-**Link to project:** Coming Soon
+**Link to project:** (https://superdrip.herokuapp.com/)
 
 ![Screenshot of SuperDrip Index Page](SuperDrip.png)
 
