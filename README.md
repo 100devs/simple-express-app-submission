@@ -28,6 +28,7 @@ I chose this app to practice styling using TailwindCSS rather than using plain C
 ## Needs Work:
 
 Current issues that need fixing:
+- Mobile formatting
 - Max number of hours per day needs to be capped at 24
 - Handle lessons of less than one, or not whole numbers
 - Number of hours at night and on the highway should not exceed the total for the lesson
