@@ -20,8 +20,16 @@
     @apply w-full flex flex-row justify-between items-center p-2;
 }
 
+.welcome {
+    @apply flex flex-row justify-center items-center p-2 bg-mid h-10 rounded-md;
+}
+
 .title {
-    @apply text-xl font-bold tracking-wider uppercase;
+    @apply text-xl font-bold tracking-widest uppercase;
+}
+
+.titleSmall {
+    @apply text-lg font-semibold tracking-widest uppercase;
 }
 
 .footer {
@@ -33,7 +41,7 @@
 }
 
 .card {
-    @apply flex flex-col space-y-3 justify-center items-center bg-dark w-1/3 h-1/2 text-neutral rounded-lg drop-shadow-lg mt-auto;
+    @apply flex flex-col space-y-3 justify-center items-center bg-dark w-1/3 h-1/2 text-neutral rounded-lg drop-shadow-xl mt-auto;
 }
 
 .logo {
@@ -50,4 +58,16 @@
 
 .blueBtn {
     @apply inline-flex items-center justify-center rounded-lg bg-mid hover:bg-neutral hover:text-dark w-24 h-8 cursor-pointer font-bold tracking-wider text-center align-middle;
+}
+
+.tdFormat1 {
+    @apply p-2 rounded-tl-md rounded-bl-md;
+}
+
+.tdFormat2 {
+    @apply p-2 rounded-tr-md rounded-br-md;
+}
+
+.spacing {
+    @apply pr-2 pl-2 pt-1 pb-1;
 }
