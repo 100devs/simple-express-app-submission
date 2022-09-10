@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoT Quotes</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>GoT QUOTES</h1>
+
+    <main>
+        <section>
+            <form action="/quotes" method="post">
+                <fieldset>
+                    <legend>
+                        Enter new Game of Thrones Quote
+                    </legend>
+    
+                    <label for="originator">
+                        Originator(of the quote)
+                        <input id="originator" type="text" placeholder="Originator name" name="originator">
+                    </label>
+    
+                    <label for="quote">
+                        Quote
+                        <input id="quote" type="text" placeholder="Quote text" name="quote">
+                    </label>
+    
+                    <button type="submit">
+                        Add Quote
+                    </button>
+                </fieldset>
+            </form>
+        </section>
+
+        <section>
+            <h2>Update Quote Details</h2>
+            <label for="input-update">
+                Enter new originator name or new quote
+            </label> 
+            <input id="input-update" type="text" placeholder="Enter new value" name="input-update">
+            <p>
+                <span class="update-instructions">Instructions:</span>
+                If you wish to update the originator, kindly enter the new originator value using this input then click the 'Update Originator button'. If it's the quote you wish to update, kindly input the new quote value then click the 'Update Quote' button to complete the process.
+            </p>
+        </section>
+        
+        <section>
+            <!-- Section to display all quotes in the database -->
+            <h2>Quotes</h2>
+            <ul class="quotes">
+                <!-- Loop through all documents in the collection -->
+                <% for(let i = 0; i < quotes.length; i++) {%>
+                    <li class="quote"> 
+                        <!-- Spit out the quote originator -->
+                        <span><%= quotes[i].originator %></span>: 
+                        <!-- Spit out the quote text -->
+                        <span>  "<%= quotes[i].quote %>"</span>     
+                        
+                        <div>
+                            <!-- Update originator button  -->
+                            <button type="button" class="update update-originator">Update Originator</button>
+                            <!-- Update quote button -->
+                            <button type="button" class="update update-quote">Update Quote</button>
+                            <!-- Delete quote button -->
+                            <button type="button" class="delete">Delete Quote</button>
+                        </div>
+                    </li>
+                <% } %>
+            </ul>
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
