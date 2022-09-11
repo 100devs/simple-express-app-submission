@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+body,
+form fieldset{
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main{
+    max-width: 650px;
+    padding: 25px;
+}
+
+section{
+    padding-top: 10px;
+}
+
+input{
+    width: 50%;
+    display: block;
+    margin-top: 3px;
+}
+
+p > span{
+    font-weight: 700;
+}
+
+form fieldset{
+    align-items: flex-start;
+    gap: 10px;
+}
+
+label{
+    display: block;
+    width: 100%;
+}
+
+legend{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.quote{
+    padding-top: 10px;
+}
+
+.quote > div{
+    margin-top: 5px;
+}
