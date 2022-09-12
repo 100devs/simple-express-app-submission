@@ -25,7 +25,7 @@ MongoClient.connect(dbString).then((client) => {
 // app.use("view engine", "ejs");
 
 // enable use of public folder
-// app.use(express.station("public"));
+app.use(express.static("public"));
 
 // middleware to parse the req.body, returning any type
 app.use(express.urlencoded({ extended: true }));
@@ -34,8 +34,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/", async (request, response) => {
-	// This mongodb search returns all "todos" entries
-	const entries = await db.collection("todos").find().toArray();
+	// This mongodb search returns all "entries" entries
+	const entries = await db.collection("entries").find().toArray();
 
 	// This render response sends the now modified ejs to the user
 	response.render("index.ejs", { entries: entries });
