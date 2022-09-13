@@ -39,16 +39,44 @@
 			</p>
 			<p class="col">
 				CPD reflections typically make great case studies for behavioural
-				recruitment questions and reflecting can help you interview better.
+				recruitment questions and reflecting on them can help you interview
+				better.
 			</p>
-			<form class="row gx-5 container" action="/addEntry" method="POST">
-				<input type="text" placeholder="Short summary" name="summary" />
-				<input type="date" name="date" />
-				<input type="text" placeholder="what happened?" name="cause" />
-				<input type="text" placeholder="what did you do?" name="action" />
-				<input type="text" placeholder="How did it go?" name="result" />
-				<input type="text" placeholder="What did you learn?" name="learned" />
-				<input class="btn btn-primary" type="submit" />
+			<form action="/addEntry" method="POST">
+				<div class="container row">
+					<input
+						class="col-lg-5"
+						type="text"
+						placeholder="Short title summary"
+						name="summary"
+					/>
+					<input class="col-lg-2" type="date" name="date" />
+					<input
+						class="col-lg-7"
+						type="text"
+						placeholder="What happened?"
+						name="cause"
+					/>
+					<input
+						class="col-lg-7"
+						type="text"
+						placeholder="What did you do?"
+						name="action"
+					/>
+					<input
+						class="col-lg-7"
+						type="text"
+						placeholder="How did it go?"
+						name="result"
+					/>
+					<input
+						class="col-lg-7"
+						type="text"
+						placeholder="What did you learn?"
+						name="learned"
+					/>
+					<input class="btn btn-primary col-lg-7" type="submit" />
+				</div>
 			</form>
 		</section>
 		<br />
