@@ -9,43 +9,50 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
 		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+			crossorigin="anonymous"
+		/>
 	</head>
 	<body>
-		<section>
+		<section class="row container">
 			<h1>CPD LOG</h1>
-			<p>
-				CMI members are required to make a commitment to their ongoing
-				professional development and learning
+			<p class="col">
+				CMI members <em>(Chartered Managers Institute) </em>are required to make
+				a commitment to their ongoing professional development and learning
 			</p>
-			<p>
+			<p class="col">
 				Keeping a CPD Log
-				<em>(which stands for "continuing professional development")</em>
+				<em>(Continuing Professional Development)</em>
 				helps a leader to identify and reflect on learning opportunities in
 				their day to day work.
 			</p>
-			<p>
+			<p class="col">
 				This CPD app supports managers in that activity, providing a simple,
 				structured method for adding, deleting and reviewing past log entries.
 			</p>
-			<p>
+			<p class="col">
 				The act of recalling, reflecting and reasoning through them can cement
 				them in your mind to help your learning and development as a leader.
 			</p>
-			<p>
+			<p class="col">
 				CPD reflections typically make great case studies for behavioural
 				recruitment questions and reflecting can help you interview better.
 			</p>
-			<form action="/addEntry" method="POST">
+			<form class="row gx-5 container" action="/addEntry" method="POST">
 				<input type="text" placeholder="Short summary" name="summary" />
 				<input type="date" name="date" />
 				<input type="text" placeholder="what happened?" name="cause" />
 				<input type="text" placeholder="what did you do?" name="action" />
 				<input type="text" placeholder="How did it go?" name="result" />
 				<input type="text" placeholder="What did you learn?" name="learned" />
-				<input type="submit" />
+				<input class="btn btn-primary" type="submit" />
 			</form>
 		</section>
-		<section>
+		<br />
+		<section class="row container">
 			<h2>Log Entries</h2>
 			<ul class="logEntries">
 				<!-- takes the provided entries data and loops over it.-->
@@ -71,5 +78,10 @@
 			</ul>
 		</section>
 		<script src="js/main.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+			crossorigin="anonymous"
+		></script>
 	</body>
 </html>
