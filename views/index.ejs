@@ -5,17 +5,49 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>CPD Log</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		/>
 	</head>
 	<body>
 		<section>
 			<h1>CPD LOG</h1>
-			<form action="/addEntry">
+			<form action="/addEntry" method="POST">
+				<input type="text" placeholder="Short summary" name="summary" />
 				<input type="date" name="date" />
 				<input type="text" placeholder="what happened?" name="cause" />
 				<input type="text" placeholder="what did you do?" name="action" />
 				<input type="text" placeholder="How did it go?" name="result" />
-				<input type="text" placeholder="What did you learn?" name="cause" />
+				<input type="text" placeholder="What did you learn?" name="learned" />
+				<input type="submit" />
 			</form>
 		</section>
+		<section>
+			<h2>Log Entries</h2>
+			<ul class="logEntries">
+				<!-- takes the provided entries data and loops over it.-->
+				<% for (let i=0; i < entries.length; i++) { %>
+				<li class="entry">
+					<details>
+						<summary>
+							<span><%= entries[i].summary %></span>
+							<span> <%= entries[i].date %></span>
+							<span class="fas fa-trash"></span>
+						</summary>
+						<span><strong>Cause: </strong></span>
+						<p><%= entries[i].cause %></p>
+						<span><strong>Action: </strong></span>
+						<p><%= entries[i].action %></p>
+						<span><strong>Result: </strong></span>
+						<p><%= entries[i].result %></p>
+						<span><strong>What I Learned: </strong></span>
+						<p><%= entries[i].learned %></p>
+					</details>
+				</li>
+				<% } %>
+			</ul>
+		</section>
+		<script src="js/main.js"></script>
 	</body>
 </html>
