@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>The Beer App</title>
+    </head>
+    <body>
+        <h1>The Beer List</h1>
+        <section>
+            <ul class="beers">
+                <% for(let i = 0; i < info.length; i++) { %>
+                    <li class="beer">
+                        <span><%= info[i].beerName %></span>
+                        <span><%= info[i].beerType %></span>
+                        <span><%= info[i].likes %></span>
+                        <span class="fa fa-thumbs-up"></span>
+                        <span class="fa fa-trash"></span>
+                    </li>
+                <% } %>
+            </ul>
+    
+            <h2>Add A Beer:</h2>
+    
+            <form action="/addBeer" method="POST">
+                <input type="text" placeholder="Beer Name" name="beerName">
+                <input type="text" placeholder="Beer Type" name="beerType">
+                <input type="submit">
+            </form>
+        </section>
+        
+        
+        <script src='js/main.js'></script>
+    </body>
+</html>
