@@ -54,28 +54,44 @@
 		<br />
 		<section class="row container">
 			<h2>Log Entries</h2>
-			<ul class="logEntries">
-				<!-- takes the provided entries data and loops over it.-->
+			<!-- takes the provided entries data and loops over it.-->
+			<div class="accordion" id="accordionEntry">
 				<% for (let i=0; i < entries.length; i++) { %>
-				<li class="entry">
-					<details>
-						<summary>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="heading<%=i%>">
+						<button
+							class="accordion-button collapsed"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapse<%=i%>"
+							aria-expanded="false"
+							aria-controls="collapse<%=i%>"
+						>
 							<span><%= entries[i].summary %></span>
-							<span> <%= entries[i].date %></span>
+							<span>&nbsp;<%= entries[i].date %>&nbsp;</span>
 							<span class="fas fa-trash"></span>
-						</summary>
-						<span><strong>Cause: </strong></span>
-						<p><%= entries[i].cause %></p>
-						<span><strong>Action: </strong></span>
-						<p><%= entries[i].action %></p>
-						<span><strong>Result: </strong></span>
-						<p><%= entries[i].result %></p>
-						<span><strong>What I Learned: </strong></span>
-						<p><%= entries[i].learned %></p>
-					</details>
-				</li>
+						</button>
+					</h2>
+
+					<div
+						id="collapse<%=i%>"
+						class="accordion-collapse collapse"
+						aria-labelledby="heading<%=i%>"
+					>
+						<div class="accordion-body">
+							<span><strong>Cause: </strong></span>
+							<p><%= entries[i].cause %></p>
+							<span><strong>Action: </strong></span>
+							<p><%= entries[i].action %></p>
+							<span><strong>Result: </strong></span>
+							<p><%= entries[i].result %></p>
+							<span><strong>What I Learned: </strong></span>
+							<p><%= entries[i].learned %></p>
+						</div>
+					</div>
+				</div>
 				<% } %>
-			</ul>
+			</div>
 		</section>
 		<script src="js/main.js"></script>
 		<script
