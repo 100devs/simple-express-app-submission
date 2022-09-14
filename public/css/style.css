@@ -21,6 +21,7 @@ section {
     width: 800px;
     padding: 20px;
     border: 2px solid rgba(0, 118, 188, 1);
+    box-shadow: 8px 8px 5px black;
     border-radius: 5px;
 }
 
