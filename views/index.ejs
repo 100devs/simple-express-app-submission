@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track What You Have Played</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/milligram.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <main class="wrapper">
+        <section class="container">
+            <h1>Goodreads But For Video Games</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Genre</th>
+                        <th>Rating</th>
+                        <th>Completed</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i = 0; i < games.length; i++) {%>
+                        <tr>
+                            <td id=<%= `game-name-${games[i]._id}` %> class="bold">        
+                                <%= games[i].name %>
+                            </td>
+                            <td id=<%= `game-genre-${games[i]._id}` %>><%= games[i].genre %></td>
+                            <td id=<%= `game-rating-${games[i]._id}` %>><%= games[i].rating || "Unrated" %></td>
+                            <td id=<%= `game-completed-${games[i]._id}` %>><%= games[i].completed || "No" %></td>
+                            <td>
+                                <button id=<%= `${games[i]._id}` %> class="edit-btn button-small">Edit</button>
+                                <button id=<%= `${games[i]._id}` %> class="delete-btn button-small">Delete</button>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </section>
+        <div class="container">
+            <form>
+                <h2 class="form-header">New Game</h2>
+                <fieldset>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name">
+                    <label for="genre">Genre</label>
+                    <input type="text" id="genre" name="genre">
+                    <label for="rating">Rating</label>
+                    <select id="rating" name="rating">
+                        <option value="Unrated">Unrated</option>
+                        <option value="Did Not Like">Did Not Like</option>
+                        <option value="It Was OK">It Was OK</option>
+                        <option value="Liked It">Liked It</option>
+                        <option value="Really Liked It">Really Liked It</option>
+                        <option value="Loved It">Loved It</option>
+                    </select>
+                    <label for="completed">Completed</label>
+                    <select id="completed" name="completed">
+                        <option value="No">No</option>
+                        <option value="Playing">Playing</option>
+                        <option value="Yes">Yes</option>
+                        <option value="Quit">Quit</option>
+                    </select>
+                    <input type="submit" class="submit-btn" value="Submit">
+                </fieldset>
+            </form>
+            <button class="reset-btn">Reset</button>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    </body>
+    </html>

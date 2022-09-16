@@ -1,0 +1,16 @@
+.wrapper > .container {
+    /* padding-bottom: 7.5rem; */
+    padding-top: 7.5rem;
+    max-width: 80rem;
+}
+
+.button-small {
+  font-size: .8rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  padding: 0 1.5rem;
+}
+
+.bold {
+  font-weight: bold;
+}
