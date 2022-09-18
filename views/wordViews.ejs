@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Vocab App</title>
+    <script src="https://kit.fontawesome.com/b28dbd955f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Vocab App</title>
+</head>
+<body>
+    <h2>Add A Vocab Word</h2>
+    
+    <form action="word/addWord" method="POST">
+        <input type="text" placeholder="Vocab" name="word">
+        <input type="text" placeholder="Defintion" name="defintion">
+        <input class="submit" type="submit">
+    </form>
+    <div>
+        <h1>Vocabulary Words</h1>
+        <ul class="words">
+        <% for(let i=0; i < words.length; i++) {%>
+            <li class="item" data-id="<%= words[i]._id %>">
+                <% if(words[i].difficulty === 'hard') { %>
+                    <i class="fa-solid fa-flag"></i>
+                <% } else { %>
+                    <i class="fa-regular fa-flag"></i>
+               <% } %>
+                    <i class="fa-solid fa-volume-high"></i>
+                 <i class='fa fa-trash'></i>
+                    <h3><%= words[i].word %></h3>
+                    <h3><%= words[i].def %></h3>
+            </li>
+        <% } %>
+        </ul>
+    </div>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>

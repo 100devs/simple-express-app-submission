@@ -20,3 +20,7 @@ I completed the challenge: 5
 I feel good about my code: 4
 I'm not sure if my constructors are setup cleanly...
 ```
+
+Created an app to help with vocabulary words. Lets you add words and their definitons to the page to practice. You can flag the words as difficult to move them to the top of the page, or remove old words you don't need anymore. Also has an option to read the words with speech synthesis.
+
+Live version on heroku: https://word-vocab-app.herokuapp.com/
