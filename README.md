@@ -37,3 +37,4 @@ Current issues that need fixing:
 - Add favicon
 - Add opposite links to sign up/log in pages (for example a "Already have an account" link on the sign up and vice versa)
 - Make logo go back to index on sign up/log in pages
+- Open individual lessons in their own page for viewing
