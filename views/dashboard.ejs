@@ -14,8 +14,12 @@
 <body class="basics">
 
     <header class="header">
-        <h1 class="logo"><span class="text-accent"> - </span><span class="text-neutral"> - </span>SuperDrip<span class="text-neutral"> - </span><span class="text-accent"> - </span></h1>
-        <a href="/logout" class="redBtn">Log Out</a>
+        <h1 class="logo mx-auto"><span class="text-accent"> - </span><span class="text-neutral"> - </span>SuperDrip<span class="text-neutral"> - </span><span class="text-accent"> - </span></h1>
+        <% if(typeof user != 'undefined') { %>
+            <a href="/logout" class="redBtn">Log Out</a>
+        <% } else { %>
+            <a href="/login" class="blueBtn"> Login</a>
+        <% } %>
     </header>
 
     <section class="welcome">
@@ -85,7 +89,7 @@
 
             <form action="/dashboard" method="POST" class="hours-header flex flex-col flex-nowrap space-y-1">
                 <label for="totalHours">Total hours driven this session:</label>
-                <input type="number" class="showText" min= "1" name="totalHours" id="total">
+                <input type="number" class="showText" min= "0" name="totalHours" id="total">
                 <label for="nightHours">Total hours driven at night:</label>
                 <input type="number" class="showText" min= "0" name="nightHours" id="night">
                 <label for="hwyHours">Total hours driven on the highway:</label>

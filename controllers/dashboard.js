@@ -3,7 +3,9 @@ const moment = require('moment')
 
 module.exports = {
     getIndex: (req,res)=>{
-        res.render('index.ejs')
+        res.render('index.ejs', {
+            user: req.user
+        })
     },
     getDashboard : async (req, res) => {
         try {

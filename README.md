@@ -2,7 +2,7 @@
 
 A full stack app to keep track of supervised driving hours for student drivers, including night and highway hours. You are able to add each lesson individually, inputting the total number of hours driven for that lesson, and then how many were at night or on the highway. A log of all cumulative hours is displayed and previous lessons are editable.
 
-**Link to project:** (https://superdrip.herokuapp.com/)
+**Link to project:** https://superdrip.herokuapp.com/
 
 ![Screenshot of SuperDrip Index Page](SuperDrip.png)
 
@@ -29,7 +29,9 @@ I chose this app to practice styling using TailwindCSS rather than using plain C
 
 Current issues that need fixing:
 - Mobile formatting
+- Add ability to edit date
 - Max number of hours per day needs to be capped at 24
 - Handle lessons of less than one, or not whole numbers
 - Number of hours at night and on the highway should not exceed the total for the lesson
-- Add error messages or prompts
+- Add styling to error messages or prompts
+- Add favicon

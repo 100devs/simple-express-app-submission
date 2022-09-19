@@ -553,6 +553,11 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mt-5{
   margin-top: 1.25rem;
 }
@@ -706,7 +711,7 @@ input[type="number"]::-webkit-inner-spin-button,
   width: 100%;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0.5rem;
 }
 

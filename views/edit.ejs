@@ -13,8 +13,12 @@
 </head>
 <body class="basics">
     <header class="header">
-        <h1 class="logo"><span class="text-accent"> - </span><span class="text-neutral"> - </span>SuperDrip<span class="text-neutral"> - </span><span class="text-accent"> - </span></h1>
-        <a href="/logout" class="redBtn">Log Out</a>
+        <h1 class="logo mx-auto"><span class="text-accent"> - </span><span class="text-neutral"> - </span>SuperDrip<span class="text-neutral"> - </span><span class="text-accent"> - </span></h1>
+        <% if(typeof user != 'undefined') { %>
+            <a href="/logout" class="redBtn">Log Out</a>
+        <% } else { %>
+            <a href="/login" class="blueBtn"> Login</a>
+        <% } %>
     </header>
 
     <section class="welcome">
