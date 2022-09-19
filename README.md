@@ -35,3 +35,5 @@ Current issues that need fixing:
 - Number of hours at night and on the highway should not exceed the total for the lesson
 - Add styling to error messages or prompts
 - Add favicon
+- Add opposite links to sign up/log in pages (for example a "Already have an account" link on the sign up and vice versa)
+- Make logo go back to index on sign up/log in pages
