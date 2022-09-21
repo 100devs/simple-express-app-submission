@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/97a6132c59.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Super Visitor Logger</h1>
+
+    <ul class="visitors">
+        <% for (let i = 0; i < info.length; i++) {%>
+            <li class="visitor">
+                <span><%= info[i].name%></span>
+                <span><%= info[i].country%></span>
+                <span class = "fa-solid fa-dumpster-fire"></span>
+            </li>
+        <% }%>
+    </ul>
+
+    <form action="/addName" method="post">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="country" placeholder="country">
+        <input type="submit">
+    </form>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
