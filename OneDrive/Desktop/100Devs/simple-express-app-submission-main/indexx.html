@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Oswald&display=swap" rel="stylesheet">
+    <title>Football stadium app</title>
+</head>
+<body>
+    <h1>Football Stadium App</h1>
+    <p>Enter name of club below to get information about their stadium</p>
+    <input type="text">
+    <button class="btn-20">Get info</button>
+<span class="hidden" id="error">Sorry, that club is not in our database yet :(</span> 
+<div class="hidden" id="info">
+    <div class="pic">
+        <img src="" alt="Picture of stadium" class="border" id="stadiumImage">
+        <img src="" alt="Club logo" id="logoImage">
+    </div>
+    <div class="information">
+        <ul>
+            <li><span>Club: </span><span id="clubName"></span></li>
+            <li><span>Stadium name: </span><span id="stadiumName"></span></li>
+            <li><span>Capacity: </span><span id="capacity"></span></li>
+            <li><span>Year Built: </span><span id="yearBuilt"></span></li>
+        </ul>
+    </div>
+</div>
+    <script src="main.js"></script>
+</body>
+</html>
