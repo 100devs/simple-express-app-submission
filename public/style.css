@@ -765,7 +765,6 @@ input[type="number"]::-webkit-inner-spin-button,
 .card{
   margin-top: auto;
   display: flex;
-  height: 50%;
   width: 33.333333%;
   flex-direction: column;
   align-items: center;
@@ -782,6 +781,8 @@ input[type="number"]::-webkit-inner-spin-button,
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(29 53 87 / var(--tw-bg-opacity));
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   --tw-text-opacity: 1;
   color: rgb(241 250 238 / var(--tw-text-opacity));
   --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
@@ -871,6 +872,14 @@ input[type="number"]::-webkit-inner-spin-button,
   padding-left: 0.5rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.link{
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(230 57 70 / var(--tw-text-opacity));
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 .hover\:text-neutral:hover{

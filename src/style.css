@@ -41,7 +41,7 @@
 }
 
 .card {
-    @apply flex flex-col space-y-3 justify-center items-center bg-dark w-1/3 h-1/2 text-neutral rounded-lg drop-shadow-xl mt-auto;
+    @apply flex flex-col space-y-3 justify-center items-center bg-dark w-1/3 pt-10 pb-10 text-neutral rounded-lg drop-shadow-xl mt-auto;
 }
 
 .logo {
@@ -70,4 +70,8 @@
 
 .spacing {
     @apply pr-2 pl-2 pt-1 pb-1;
+}
+
+.link {
+    @apply text-accent underline font-bold;
 }
