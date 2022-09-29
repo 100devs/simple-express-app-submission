@@ -78,11 +78,11 @@
 
             <form action="/dashboard" method="POST" class="hours-header flex flex-col flex-nowrap space-y-1">
                 <label for="totalHours">Total hours driven this session:</label>
-                <input type="number" class="showText" min= "0" max="24" name="totalHours" id="total">
+                <input type="number" class="showText" min= "0" step= ".25" max="24" name="totalHours" id="total">
                 <label for="nightHours">Total hours driven at night:</label>
-                <input type="number" class="showText" min= "0" max="24" name="nightHours" id="night">
+                <input type="number" class="showText" min= "0" step= ".25" max="24" name="nightHours" id="night">
                 <label for="hwyHours">Total hours driven on the highway:</label>
-                <input type="number" class="showText" min= "0" max="24" name="hwyHours" id="hwy">
+                <input type="number" class="showText" min= "0" step= ".25" max="24" name="hwyHours" id="hwy">
                 <label for="instructor">Instructor:</label>
                 <input type="text" class="showText" name="instructor" id="instructor">
                 <label for="note">Session Note:</label>

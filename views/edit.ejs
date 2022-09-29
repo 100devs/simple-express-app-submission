@@ -19,11 +19,11 @@
             <% if (item._id == idHours) { %>
                 <form action="/edit/<%= item._id %>" method="post" class="flex flex-col w-1/2 space-y-1">
                     <label for="totalHours">Total hours driven this session:</label>
-                    <input type="number" class="showText" min= "1" name="totalHours" id="total" value="<%= item.totalHours %>">
+                    <input type="number" class="showText" min= "0" step=".25" max="24" name="totalHours" id="total" value="<%= item.totalHours %>">
                     <label for="nightHours">Total hours driven at night:</label>
-                    <input type="number" class="showText" min= "0" name="nightHours" id="night" value="<%= item.nightHours %>">
+                    <input type="number" class="showText" min= "0" step=".25" max="24" name="nightHours" id="night" value="<%= item.nightHours %>">
                     <label for="hwyHours">Total hours driven on the highway:</label>
-                    <input type="number" class="showText" min= "0" name="hwyHours" id="hwy" value="<%= item.hwyHours %>">
+                    <input type="number" class="showText" min= "0" step=".25" max="24" name="hwyHours" id="hwy" value="<%= item.hwyHours %>">
                     <label for="instructor">Instructor:</label>
                     <input type="text" class="showText" name="instructor" id="instructor" value="<%= item.instructor %>">
                     <label for="note">Session Note:</label>
