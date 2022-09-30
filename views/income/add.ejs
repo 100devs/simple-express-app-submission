@@ -1,0 +1,48 @@
+<%- include('../partials/header') -%>
+
+<div class="container-fluid" align="center">
+  <div class="card w-96 bg-base-100 shadow-xl" align="left">
+    <div class="card-body">
+      <h2 class="card-title">Add income</h2>
+      <form action="/income/add" method="POST">
+        <div class="form-control">
+
+          <!-- Source -->
+          <input type="text" placeholder="Source of income" class="input input-bordered input-primary w-full max-w-xs mb-3" name="source" id="source" required />
+          
+          <!-- Amount -->
+          <input type="number" placeholder="Amount" class="input input-bordered input-primary w-full max-w-xs mb-3" name="amount" id="amount" min="1" required />
+          
+          <!-- Frequency -->
+          <label class="label" for="frequency">How often?<br>Every...</label>
+          <div class="grid grid-cols-2 gap-5">
+            <input type="number" value="1" class="input input-bordered input-primary w-full max-w-xs mb-3 col" name="num" id="num" />
+            <select class="select select-primary w-full max-w-xs mb-3 col" name="unit" id="unit" >
+              <option value="day">Day(s)</option>
+              <option value="week">Week(s)</option>
+              <option selected value="month">Month(s)</option>
+              <option value="year">Year(s)</option>
+            </select>
+          </div>
+
+          <!-- Category -->
+          <select class="select select-primary w-full max-w-xs mb-3 col" name="category" id="category" >
+            <option value="">Category</option>
+            <option value="work">Work</option>
+            <option value="benefits">Benefits</option>
+            <option value="other">Other</option>
+          </select>
+
+          <!-- Notes -->
+          <textarea class="textarea textarea-primary mb-3" placeholder="Notes"></textarea>
+        </div>
+        <div class="card-actions justify-end">
+          <button type="submit" class="btn btn-secondary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') -%>
+<%- include('../partials/nav_bottom') -%>

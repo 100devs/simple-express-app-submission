@@ -1,0 +1,105 @@
+<%- include('../partials/header') -%>
+
+<div class="flex flex-col-reverse" >
+  <div class="card-body">
+    <div class="overflow-x-auto">
+      <table class="table table-zebra w-full">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Amount</th>
+            <th>How often?</th>
+            <th>Daily</th>
+            <th>Weekly</th>
+            <th>Monthly</th>
+            <th>Yearly</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+  
+          <% let dailyIncomeTotal = [] %>
+          <% let weeklyIncomeTotal = [] %>
+          <% let monthlyIncomeTotal = [] %>
+          <% let yearlyIncomeTotal = [] %>
+  
+          <% for (let j = 0; j < incomes.length; j++) { %>
+            <% dailyIncomeTotal.push(incomes[j].daily) %>
+            <% weeklyIncomeTotal.push(incomes[j].weekly) %>
+            <% monthlyIncomeTotal.push(incomes[j].monthly) %>
+            <% yearlyIncomeTotal.push(incomes[j].yearly) %>
+          
+  
+          <!-- Row -->
+          
+            <tr>
+              <!-- Source -->
+              <td>
+              <a href="/income/<%=incomes[j]._id%>"><%= incomes[j].source %></a>
+              </td>
+  
+              <!-- Amount -->
+              <td>$<%= incomes[j].amount.toFixed(2) %></td>
+              
+              <!-- Frequency loop -->
+              <% if (incomes[j].frequency) { %>
+                <% let num = incomes[j].frequency.num %>
+                <% let unit = incomes[j].frequency.unit %>
+              
+              <!-- How often? -->
+              <td>
+                  <% if (num > 1) { %>
+                    Every <%= num %> <%= unit %>s
+                   <% } else if (num === 1) { %>
+                    Every <%= unit %>
+                   <% } %>
+              </td>
+  
+              <!-- Daily -->
+              <td>
+                <%= incomes[j].daily %>
+              </td>
+  
+              <!-- Weekly -->
+              <td>
+                <%= incomes[j].weekly %>
+              </td>
+  
+              <!-- Monthly -->
+              <td>
+                <%= incomes[j].monthly %>
+              </td>
+  
+              <!-- Yearly -->
+              <td>
+                <%= incomes[j].yearly %>
+              </td>
+  
+              <% } %>
+            </tr>
+          <% } %>
+    
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="container-fluid" align="center">
+    <div class="card w-96 bg-base-100 shadow-xl" align="left">
+      <div class="card-body">
+        <div class="card-title">Total Income</div>
+            <p>Daily: $<%= dailyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Weekly: $<%= weeklyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Monthly: $<%= monthlyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Annually: $<%= yearlyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div style="height: 40px"></div>
+
+<%- include('../partials/footer') -%>
+<%- include('../partials/nav_bottom') -%>

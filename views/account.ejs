@@ -1,0 +1,21 @@
+<%- include('partials/header') -%>
+
+<div class="container-fluid" align="center">
+  <div class="card w-96 bg-primary text-primary-content">
+    <div class="card-body" align="left">
+      <h2 class="card-title">Hello, <%= user.userName[0].toUpperCase() + user.userName.slice(1) %></h2>
+        <p><strong>username:</strong> <%= user.userName %></p>
+        <p><strong>email:</strong> <%= user.email %></p>
+      <div class="card-actions justify-center">
+        <a href="/logout" class="btn">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-5" align="center">
+  <a href="/deleteAccount" class="btn btn-secondary">Delete Account</a>
+</div>
+
+<%- include('partials/footer') -%>
+<%- include('partials/nav_bottom') -%>
