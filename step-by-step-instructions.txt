@@ -1,0 +1,127 @@
+Amazing walk-thru for a full stack app that I built with Mayan Wolfe and added my own notes and content to create a full stack template.
+
+1. Create your app folder
+
+2. Create a server.js file
+
+3. Inside of the server.js file, initialize npm 
+
+    1. While inside of your server.js file, open a terminal window right in the vs code of your project
+    
+    2. Command is: npm init, hit enter 
+
+    3. Not sure if we need to be inside the server.js for it to work, but am sure that it helps becasue you can then see what goes on inside of your server.js file automatically.  
+
+    4. npm is the node package manager that will help us install the other things we'll use to build our app.
+
+    5. Typing npm init and enter then gives you a few messages ending in "Press ^C at any time to quit. Mayan then hits enter through a bunch of other messages to get to what we want, however, someone else mentioned in another vid that there is some other command to skip all that enter through so I'll look for that and then update this step. For now, enter through until you get to "Is this OK? (yes)" and hit enter one last time to get your prompt back.
+
+4. Install dependencies express, dotenv, cors, mongodb, ejs, nodemon. Per Mayan, we won't need these for every project but doesn't hurt to have them installed and remember what they are. Mayan advised there are ways to install these all at once, but she is installing these individually for today. (Is the way to install all at once, just the npm install command? I'll look that up.)
+
+    1. Install express: in the terminal, command is: npm install express and hit enter
+        1. Runs through installing the packages and ends in 'found 0 vulnerabilities'
+        2. You'll see that it automatically creted node_modules folder and populated it with numerous node modules 
+        3. It also created a package.json file as well as a package-lock.json file 
+        4. You can always check package-lock.json to see what dependencies are now installed and use for future reference if you need to remember which are already installed
+
+    2.   Install dotenv: in terminal, command is npm install dotenv and hit enter 
+        1. Runs through installing the packages and ends in 'found 0 vulnerabilities'
+        2. dotenv file will hide anything that you don't want shared. It let's us create environment variables and hide them away out of our main code. For example our mondoDB database password which we wouldn't want to share when we push to GitHub 
+        3. 'Hides the secret stuff'
+        4. I'll look up the difference between .env and .gitignore 
+
+    3. Install cors: in terminal, command is npm install cors and hit enter 
+        1. Runs through installing the packages and ends in 'found 0 vulnerabilities'
+        2. cors helps us bypass cors (cross origin blocks) errors in our browswer
+        3. It sets the cross origin access policy
+        4. Installing cors and then later using cors as middleware will help us bypass cors errors
+        5. We can access things locally this way
+
+    4. Install mongoDB: in terminal, command is npm install mongodb and hit enter 
+        1. Runs through installing the packages and ends in 'found 0 vulnerabilities'
+        2. mongoDB is our database, where we store our database
+        3. We use a database and connect to it for many reasons. One of the biggest is for scaling. It's one thing to store locally when you have a little data but as your data grows or gets more complicated, its not viable to continue to store locally. It's like off site storage.
+        
+    5. Install ejs: in terminal, command is npm install ejs and hit enter
+        1. Runs through installing the packages and ends in 'found 0 vulnerabilities'
+        2. ejs is a templating language that allows us to dynamically generate html to render in the dom on the fly based on the data that we are passing in from our server 
+        3. The reason we are using ejs at this moment is because ejs is very similar in syntax to js that we are used to seeing
+
+    6. Install nodemon: (**this syntax is slightly different**) in terminal, command is npm install nodemon --save-dev and hit enter 
+        1. Runs through installing the packages and ends in 'found 0 vulnerabilities'
+        2. It's possible to install nodemon (and a lot of this stuff) globally, but for now, we are installing on a project by project basis.
+        3. nodemon stops you from manually needing to restart the server
+        4. We did the --save-dev on the command because we wanted nodemon under devDependencies in our package.json file, and that's because we don't want nodemon in production. It's not a tool for the real deal live apps. It's used to help us during our development when we are making a lot of changes/mistakes and saving/restarting our server. By the time it goes to production, it will be stable and then nodemon is not necessary. So we don't want nodemon in production.
+
+    7. To expand on the last point, as we installed each of these dependencies, they were all automatically added to the package.json file, which you can check and see they are all now listed under dependencies. Except for nodemon, which is now listed at the bottome under devDependencies because we added --save-dev to the command. 
+
+5. Require all the dependencies in server.js file
+    1. Go to your server.js file and add all your require code (see server.js file for this, the first 5 lines address this)
+
+6. Create .gitignore file, add node_modules, and push to github
+    1. Add a new file to your project called .gitignore
+    2. This allows us to add file names into that file for files we don't want/need pushed to GitHub and hence git will ignore these files when you push
+    3. Add your node_modules to that file (just the name of the file)
+    4. Now you can push to GitHub and all the million node_modules info won't push to your repo 
+    5. (You will have needed to create the GitHub repo and follow all the steps to set it up and also add all file, commit all files, then push)
+
+7. Declare variables in your server.js file
+    1. Go to your server.js file and declare your initial variables code (see server.js file for this, lines 8 - 11 address this)
+
+8. Create a .env file so you can add all your secrets in there (if you are looking at this on GitHub, you won't see this .env file because it's removed and thus hidden from you)
+    1. But what will be in the .env file and how it is set up is as follows: 
+        PORT = 8000 (or whatever port you want)
+        DB_STRING = mongodb+srv:// . . . 
+
+9. Add your special connection string to the .env file (shown above), and connect to MongoDB
+    1. Go to MongoDB and copy your DB string (it's in Database>Connect>Connect Your Application)
+    2. Paste your DB string into the .env file (as above). You'll need to insert your password to replace the carroted password where it says <password>
+    3. Go to server.js to code the MongoDB connection (lines 6 and also lines 13 - 18 address this)
+    4. Add your dbName and dbCollection to the code choosing which DB and Collection you want to use from your MongoDB (lines 10 and 17)
+
+10. Add .env file to .gitignore. Just go to your .gitignore file and add your .env filename
+
+11. Create your Port
+    1. Go to server.js and add code, choosing your desired port (line 6 and lines 34 - 37)
+    2. Add your PORT: 8000 (or whatever port you chose) to your .env file as well, as line 1
+
+12. Test Mongo and Port Connection
+    1. Manually test by starting server with command: node server.js in the terminal. Mayan says if you use this, then you'll have to start and stop every single time.
+    2. We could also set up nodemon to restart it dynamically every time we make a change.
+        1. To set up nodemon, go to package.json file, we'll create a script (similar to that of node that already exists in the package.json code)
+        2. Add "dev": "nodemon server.js" (under scripts, on line 9, and don't forget to now add a comma to the previous line, and save)
+        3. Once all added, use command: npm run dev and hit enter
+        4. If all worked out, you'll get 
+            Server is running on port
+            Connected to Database
+        5. To stop the server running so you can again type in the terminal, use Ctr-C
+
+13. Set middleware
+    1. Middleware is tools that help us when data is flowing back and forth (ex: from database to our app), and it helps us perform transformations, or read, or format in a way that all parties will understand. It helps clean up what's flowing back and forth. All middleware runs before routes.
+    2. Needs to be set in a very specific location inside our server.js file:
+        1. Put the middleware prior to any CRUD operations, so prior to any Creates, Puts, Posts, Gets, Create, Read, Deletes etc.
+        2. Add code in your server.js (see lines 20 - 24)
+
+14. Create public and views folders
+    1. Add a main.js and style.css file to public
+    2. Add index.ejs to views (we just set up html, however, this is where you would add your ejs)
+
+15. Add your content/code to main.js, style.css, and index.ejs (we just set up html in our index.ejs file, however, this is where you would add your ejs)
+
+16. Prep to push to Heroku
+    1. It's Mayan's understanding, unlike when we are pushing to GitHub, when we push to Heroku, we want to make our environment variables visible (what's in the .env file) so that it does get pushed up to Heroku so that it can be read
+    2. So for this reason, we should delete .env filename from the .gitignore folder when we push.
+    3. *But reinstitute it when you push to GitHub
+
+17. Create heroku repo, use these commands in terminal (be sure to Ctr C to stop your server first if you have it running):
+    1. heroku login
+    2. heroku create <insert-name-of-your-repo-to-create>
+       (Mayan says to make sure you are in one of your root files when you heroku create or you may get an error)
+    3. echo "web: node server.js" > Procfile
+    4. git add . 
+    5. git commit -m "changes"
+    6. git push heroku main
+
+18. Test your Heroku link
+
+19. (Put your .env filename back in your .gitignore file if you are going to push to GitHub)
