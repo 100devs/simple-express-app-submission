@@ -1,7 +1,7 @@
 # Client Connect Call Tracker
 A basic CRUD app with a dynamically-rendered table to display user-entered data.
 
-**Link to project:** https://clientconnect.onrender.com
+**Link to project:** https://clientconnect-app.herokuapp.com
 
 ![Site Preview Image](https://github.com/cynthiablack/simple-express-app-submission/blob/answer/sitepreview.png)
 
