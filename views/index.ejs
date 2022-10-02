@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClientConnect Call Log</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Mulish&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<body>
+    <h1>Welcome to ClientConnect</h1>
+    <table>
+        <h2>Client Call Log</h2>
+        <th>Client Name </th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Date Contacted</th>
+        <th>Notes</th>
+        <th>Follow Up?</th>
+        <th></th>
+        <% for(var i = 0; i < info.length; i++) { %>
+            <tr>
+                <td><%= info[i].clientName %></td>
+                <td><%= info[i].clientEmail %></td>
+                <td><%= info[i].clientPhone %></td>
+                <td><%= info[i].date %></td>
+                <td><%= info[i].clientNotes %></td>
+                <td><%= info[i].likes %> <span class='likes fa fa-phone'></span></td>
+                <td><%= this.id %><span class='fa fa-trash'></span></td>
+            </tr>
+            <% } %>
+    </table>
+
+    <h2>Add A Call:</h2>
+    <form action="/addCall" method="POST">
+        <input type="text" placeholder="Client Name" name="clientName">
+        <input type="text" placeholder="Client Email" name="clientEmail">
+        <input type="text" placeholder="Client Phone Number" name="clientPhone">
+        <input type="datetime-local" placeholder="Date Contacted" name="date">
+        <input type="textarea" placeholder="Call Notes" name="clientNotes">
+        <input type="submit" class="submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>

@@ -1,22 +1,12 @@
-#100Devs Simple Express App Submission
+# Client Connect Call Tracker
+A basic CRUD app with a dynamically-rendered table to display user-entered data.
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+**Link to project:** https://clientconnect-app.herokuapp.com
 
-### How to submit your code for review:
+![Site Preview Image](https://github.com/cynthiablack/simple-express-app-submission/blob/answer/sitepreview.png)
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+## How It's Made:
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+**Tech used:** MongoDB, Express.js, Node.js, Javascript, EJS, CSS
+
+ClientConnect allows users to enter client contact data into a web form, track follow up contacts on a dynamically-rendered table, and delete client contact information.

@@ -1,0 +1,56 @@
+body {
+    font-family: 'Mulish', sans-serif;
+}
+
+h1{
+    font-family: 'Limelight', cursive;
+    text-align: center;
+}
+
+h2,
+.submit {
+    background-color: #586F7C;
+    color: #F4F4F9;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+form, table {
+    border-spacing: 0px;
+    width: 100%;
+}
+
+input {
+    font-size: 0.8rem;
+    height: 3.5vh;
+    margin: 0.5vh 0.25vw;
+    width: 15%;
+}
+
+.submit {
+    border-radius: 0.25em;
+    text-transform: uppercase;
+    width: 8%;
+}
+
+td, th {
+    border: 1px solid #586F7C;
+    font-size: 1rem;
+    padding: 0 .75em;
+    vertical-align: top;
+    text-align: center;
+}
+
+th {
+    background-color: #C1CDD3;
+    font-weight: 800;
+}
+
+tr:hover {
+    background-color: #B8DBD9;
+}
+
+.fa {
+    color: #586F7C;
+}
