@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Stretches</title>
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/9f91d488b5.js" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <header class="primary-header container clearfix">
+        <h1 class="logo">Trainer <br> Treats</h1>
+        <a href="https://github.com/boobeh123/Trainer-Treats" class="float-right"><i class="fa-brands fa-github fa-2xl"></i></a>
+    </header>
+    <div class="row-alt">
+    <section class="container hero lead">
+        <h2>Dedicated to carry the boats and the logs</h2>
+        <p>Pick a body region & learn about a stretch!</p>
+    </section>
+    </div>
+    <div class="row">
+        <div class="grid">
+            <section class="content">
+                <p>WHAT WOULD YOU LIKE TO STRETCH TODAY?</p>
+                <li class="show-modal">
+                    <button class="body-buttons neck" value="neck">
+                        <i class="fas fa-dog fa-2xl"></i>
+                        <p>Neck</p>
+                    </button>
+                    <button class="body-buttons" value="chest">
+                        <i class="fas fa-cat fa-2xl"></i>
+                        <p>Chest</p>
+                    </button>
+                    <button class="body-buttons" value="Shoulder">
+                        <i class="fas fa-fish fa-2xl"></i>
+                        <p>Shoulder</p>
+                    </button>
+                    <button class="body-buttons" value="Triceps">
+                        <i class="fas fa-dove fa-2xl"></i>
+                        <p>Triceps</p>
+                    </button>
+                    <button class="body-buttons" value="Lats">
+                        <i class="fas fa-kiwi-bird fa-2xl"></i>
+                        <p>Lats</p>
+                    </button>
+                    <button class="body-buttons" value="Abdominal">
+                        <i class="fas fa-crow fa-2xl"></i>
+                        <p>Abdominal</p>
+                    </button>
+                    <button class="body-buttons" value="Lowerback">
+                        <i class="fas fa-horse fa-2xl"></i>
+                        <p>Lowerback</p>
+                    </button>
+                    <button class="body-buttons" value="Glutes">
+                        <i class="fas fa-hippo fa-2xl"></i>
+                        <p>Glutes</p> 
+                    </button>
+                    <button class="body-buttons" value="Quadriceps">
+                        <i class="fas fa-frog fa-2xl"></i>
+                        <p>Quadriceps</p> 
+                    </button>
+                    <button class="body-buttons" value="Hamstrings">
+                        <i class="fas fa-dragon fa-2xl"></i>
+                        <p>Hamstrings</p> 
+                    </button>
+                </li>
+
+                <div class="modal hidden">
+                    <h3>Region: <span class="stretchMuscle"></span></h3>
+                    <h3>Stretch: <span class="stretchName"></span></h3>
+                    <h3>Difficulty: <span class="stretchDifficulty"></span></h3>
+                    <h3 class="stretchDirections"></h3>
+        
+                    <img class="stretch-image" src="#" alt="Photo-of-stretch" />
+                    
+                    <!-- <div>
+                        <button class="more-modal">More!</button>
+                    </div> -->
+                    <div>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                </div>
+                <div class="overlay hidden"></div>
+            </section>
+        </div>
+    </div>
+    <div class="row-alt-2 clearfix">
+        <form class="onethird-column" action="/addStretch" method="POST">
+            <fieldset class="info-group">
+                <label>
+                    Region
+                    <select>
+                        <option selected value="#">Muscle region</option>
+                    </select>
+                </label>
+                <label>
+                    Stretch
+                    <input type="text" name="stretchName" placeholder="Enter name of the stretch">
+                </label>
+                <label>
+                    Difficulty
+                    <select name="stretchDiff">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="Expert">Expert</option>
+                    </select>
+                </label>
+                <label>
+                    Directions
+                    <textarea name="stretchDir" placeholder="Describe the stretch.."></textarea>
+                </label>
+                <input type="submit" name="submit" value="Submit">
+            </fieldset>
+        </form>
+            <h3>Stretches currently in the database: <%= left %></h3>
+            <ul class="todoItems">
+            <% for(let i=0; i < items.length; i++) {%>
+                <li class="item">
+                    <span><%= items[i].name %></span>
+                    <span class='fa fa-thumbs-up'></span>
+                    <span><%= items[i].likes %></span>
+                </li>
+            <% } %>
+            <!-- <form action="/addStretch" method="POST">
+                <select>
+                    <option selected>Muscle region</option>
+                </select>
+                <select>
+                    <option selected>Stretch difficulty</option>
+                </select>
+                <input type="text" placeholder="Muscle region" name="muscleRegion">
+                <input type="text" placeholder="Stretch name" name="stretchName">
+                <input type="text" placeholder="Difficulty" name="stretchDiff">
+                <input type="text" placeholder="Directions" name="stretchDir">
+                <input type="submit">
+            </form> -->
+            </ul>
+    </div>
+    <footer class="container clearfix primary-footer">
+        <p>&copy; Trainer Treats</p>
+        <p>*The content on this website have not been evaluated by the Food and Drug Administration. This is not intended to diagnose, treat, cure or prevent any disease.</p>
+
+        <p>**Always consult with a qualified healthcare professional before starting any exercise. The content on this website is for informational and educational purposes only. This website is not intended to be medical advice or to replace a qualified healthcare professional.</p>
+    </footer>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
