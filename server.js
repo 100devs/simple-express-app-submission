@@ -47,6 +47,38 @@ app.delete('/deleteItem', (request, response) => {
 
 })
 
+app.put('/markComplete', (request, response) => { 
+  db.collection('items').updateOne({ item: request.body.itemFromJS},{
+      $set: { 
+          completed: true 
+        }
+  },{
+      sort: {_id: -1}, 
+      upsert: false 
+  })
+  .then(result => {
+      console.log('Marked Complete') 
+      response.json('Marked Complete') 
+  })
+  .catch(error => console.error(error)) 
+}) 
+
+app.put('/markUnComplete', (request, response) => { 
+  db.collection('items').updateOne({ item: request.body.itemFromJS},{
+      $set: {
+          completed: false 
+        }
+  },{
+      sort: {_id: -1},
+      upsert: false
+  })
+  .then(result => {
+      console.log('Marked UnComplete') 
+      response.json('Marked UnComplete')
+  })
+  .catch(error => console.error(error)) 
+}) 
+
 app.listen(process.env.PORT || PORT, ()=>{
     console.log(`Server running on port ${PORT}`)
 })

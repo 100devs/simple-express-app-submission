@@ -22,7 +22,11 @@
 <ul class="items">
   <% for(let i=0; i < info.length; i++) {%>
     <li class="item">
-      <span><%= info[i].item %></span>
+      <% if(info[i].completed === true) {%>
+        <span class="completed"><%= info[i].item %></span>
+      <% } else { %>
+        <span><%= info[i].item %></span>
+      <% } %>
       <span class="fa fa-trash"></span>
     </li>
  <% } %>
