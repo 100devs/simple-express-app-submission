@@ -20,10 +20,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 
-app.get('/' ,async (req, res) =>{
+app.get('/', (req, res) =>{
   db.collection('items').find().toArray()
   .then(data => {
-    res.render('index.ejs', {info: data })
+    res.render('index.ejs', { info: data })
   })
   .catch(err => console.error(err))
 })
@@ -38,7 +38,7 @@ app.post('/addItem', (request, response) => {
 })
 
 app.delete('/deleteItem', (request, response) => {
-    db.collection('items').deleteOne({ item: request.body.item })
+    db.collection('items').deleteOne({ item: request.body.itemS })
     .then(result => {
         console.log('Item Deleted')
         response.json('Item Deleted')
