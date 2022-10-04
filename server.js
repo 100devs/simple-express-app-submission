@@ -79,6 +79,6 @@ app.put('/markUnComplete', (request, response) => {
   .catch(error => console.error(error)) 
 }) 
 
-app.listen(process.env.PORT || PORT, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log(`Server running on port ${PORT}`)
 })
