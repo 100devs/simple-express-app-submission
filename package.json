@@ -1,0 +1,26 @@
+{
+  "name": "simple-express-app-submission",
+  "version": "1.0.0",
+  "description": "### Goal: Make Your Own CRUD APP and Push To Heroku",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristenlynne/simple-express-app-submission.git"
+  },
+  "author": "kristen smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kristenlynne/simple-express-app-submission/issues"
+  },
+  "homepage": "https://github.com/kristenlynne/simple-express-app-submission#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^4.10.0"
+  }
+}
