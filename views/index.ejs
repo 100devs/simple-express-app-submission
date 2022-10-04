@@ -9,28 +9,39 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<main>
   
-<h1>Travel Packing List App</h1>
+  <header>
+    <h1>Travel Packing List App</h1>
+  </header>
+  
+  <section>
 
-<h2>Add an item:</h2>
+    <h2>Add an item:</h2>
+    <form action="/addItem" method="POST">
+      <input type="text" name="item">
+      <input type="submit">
+    </form>
 
-<form action="/addItem" method="POST">
-  <input type="text" name="item">
-  <input type="submit">
-</form>
+    <p>Mark items complete by clicking on the item or remove an item from your list by click on the trashcan.</p>
 
-<ul class="items">
-  <% for(let i=0; i < info.length; i++) {%>
-    <li class="item">
-      <% if(info[i].completed === true) {%>
-        <span class="completed"><%= info[i].item %></span>
-      <% } else { %>
-        <span><%= info[i].item %></span>
-      <% } %>
-      <span class="fa fa-trash"></span>
-    </li>
- <% } %>
-</ul>
+    <ul class="items">
+      <% for(let i=0; i < info.length; i++) {%>
+        <li class="item">
+          <% if(info[i].completed === true) {%>
+            <span class="completed"><%= info[i].item %></span>
+          <% } else { %>
+            <span><%= info[i].item %></span>
+          <% } %>
+          <span class="fa fa-trash"></span>
+        </li>
+    <% } %>
+    </ul>
+
+  </section>
+
+</main>
 
   <script src='js/main.js'></script>
 </body>

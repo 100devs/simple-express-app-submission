@@ -1,5 +1,69 @@
+* {
+  margin: 0;
+}
+
 h1 {
   color: blue;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('/css/img/travelappbackground.jpeg');
+  max-width: 100vw;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 75px;
+  background-color: #fff;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+section {
+  width: 50%;
+  background-color: rgba(255, 255, 255, .9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  padding: 25px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+span {
+  font-size: 20px;
+}
+
+input {
+  font-size: 16px;
+  padding: 5px;
+  margin: 15px 0;
+}
+
+p {
+  padding: 0 75px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.fa-trash {
+  font-size: 14px;
+  padding-right: 25px;
 }
 
 .completed{
