@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <title>Expense Exhibit</title>
+  <script src="index.js" defer></script>
+</head>
+
+<body>
+  <nav class="primary-nav flex">
+    <h1>
+      <a href="#">Expense Exhibit</a>
+    </h1>
+
+    <a id="auth-link" href="/dashboard">Sign Up</a>
+  </nav>
+
+  <main>
+    <ul class="grid-container--expense-showcase grid-container">
+      <!-- Mobile Table -->
+      <% for(let i=0; i < allUser.length; i++) {%> 
+        <% if (allUser[i].expenses.length >= 1) {%>
+        <li id="mobile-table" class="container container--rounded-corner">
+          <header>
+            <h3><%= allUser[i].username %>'s Expenses</h3>
+          </header>
+
+          <div class="expenses-container">
+            <% for(let j=0; j < allUser[i].expenses.length; j++) {%>
+            <table>
+              <% for(let key in allUser[i].expenses[j]) {%>
+                <% if (key !== 'id') {%>
+                <tr>
+                  <th><%= key %></th>
+                  <td><%= allUser[i].expenses[j][key] %></td>
+                </tr>
+              <% }} %>
+            </table>
+            <% } %>
+          </div>
+        </li>
+      <% }} %>
+
+      <!-- Desktop Table -->
+      <% for(let i=0; i < allUser.length; i++) {%>
+        <% if (allUser[i].expenses.length >= 1) {%>
+        <li id="desktop-table" class="expenses-container container container--rounded-corner">
+          <table>
+            <caption>
+              <%= allUser[i].username %>'s Expenses
+            </caption>
+            <thead>
+              <tr>
+              <% for(let j=0; j < allUser[i].expenses.length; j++) {%>
+                <% if (j == 0) {%>
+                  <% for(let key in allUser[i].expenses[j]) {%>
+                    <% if (key !== 'id') {%>
+                    <th>
+                      <%= key %>
+                    </th>
+                <% }}}} %>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let j=0; j < allUser[i].expenses.length; j++) {%>
+              <tr>
+                <% for(let key in allUser[i].expenses[j]) {%>
+                  <% if (key !== 'id') {%>
+                  <td>
+                    <%= allUser[i].expenses[j][key] %>
+                  </td>
+                <% }} %>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </li>
+      <% }} %>
+    </ul>
+  </main>
+</body>
+
+</html>

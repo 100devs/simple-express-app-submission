@@ -1,0 +1,9 @@
+POST http://localhost:3000/expenses/e6480cf7-78af-4e64-a0f3-978c22ca045c
+Content-Type: application/json
+
+{
+  "title": "Ikea furnitures",
+  "category": "home",
+  "date": "20-06-2022",
+  "amount": "40"
+}
