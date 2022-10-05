@@ -1,0 +1,350 @@
+:root {
+  --cl-green: #daedbd;
+  --cl-dark-green: #009879;
+  --cl-grey: #d2d0d0;
+  --cl-light-grey: #999;
+  --cl-red: #d9534f;
+  --cl-green: #02b875;
+  --cl-blue: #4582ec;
+  --cl-yellow: #f0d74e;
+  --cl-indigo: #8c4df2;
+  --gap: 1em;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f8ff;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+select,
+button {
+  padding: 0.5em;
+  font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--cl-green);
+  border: 1px solid #999;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+i {
+  pointer-events: none;
+}
+
+/*
+* === Utilities ===
+*/
+
+.flex {
+  display: flex;
+}
+
+.grid-container {
+  display: grid;
+  gap: var(--grid-gap, 2em);
+}
+
+.flow {
+  gap: var(--flow-gap, 1em);
+}
+
+.hide {
+  display: none;
+}
+
+.container {
+  padding: var(--gap, 1em);
+  border: 1px solid var(--cl-light-grey);
+}
+
+.container--rounded-corner {
+  border-radius: 10px;
+}
+
+.expense-action > button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 25px;
+}
+
+.expense-action > button:hover,
+.expense-action > button:focus {
+  color: var(--cl-dark-green);
+}
+
+/*
+* === General ===
+*/
+main {
+  padding-inline: .5em;
+  padding-bottom: 3.5em;
+}
+
+@media only screen and (min-width: 750px) {
+  main {
+    padding-inline: clamp(2em, 2vw + 1em, 10em);
+  }
+}
+
+/*
+* — Navigation —
+*/
+
+.primary-nav {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background-color: var(--cl-green);
+  margin-bottom: 2em;
+}
+
+/*
+* — Form —
+*/
+
+form {
+  flex-direction: column;
+  max-width: 450px;
+  margin: 0 auto;
+  text-transform: capitalize;
+  border: 1px solid var(--cl-light-grey);
+  border-radius: 2px;
+  padding: 2em;
+}
+
+/*
+* === Expense Table ===
+*/
+
+.expenses-container {
+  max-height: 318px;
+  overflow-y: scroll;
+}
+
+#desktop-table {
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 100%;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.container header,
+table caption {
+  font-size: 1.15rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.75em;
+  text-transform: capitalize;
+}
+
+th {
+  background-color: var(--cl-dark-green);
+  color: #fff;
+  width: 20%;
+}
+
+tbody tr {
+  background: #fff;
+  border-bottom: 1px solid #bbb;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5em 0.75em;
+  border: 1px solid var(--cl-grey);
+}
+
+@media only screen and (min-width: 1240px) {
+  #mobile-table {
+    display: none;
+  }
+
+  #desktop-table {
+    display: block;
+  }
+
+  table caption {
+    font-size: 1.35rem;
+  }
+
+  tbody tr:nth-of-type(even) {
+    background-color: var(--cl-grey);
+  }
+
+  tbody tr:last-of-type {
+    border-bottom: 2px solid var(--cl-dark-green);
+  }
+}
+
+/*
+* === Home Page ===
+*/
+@media only screen and (min-width: 600px) {
+  .grid-container--expense-showcase {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+@media only screen and (min-width: 1240px) {
+  .grid-container--expense-showcase {
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  }
+}
+
+/*
+* — Pie Chart —
+*/
+.grid-container--graph {
+  place-items: center;
+  text-transform: capitalize;
+  width: 310px;
+  margin: 0 auto;
+}
+
+.graph h3 {
+  text-align: center;
+}
+
+.pie-chart {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #9ad0f5;
+  /* background: conic-gradient(
+    var(--cl-red) 0 20%,
+    var(--cl-blue) 20% 40%,
+    var(--cl-green) 40% 60%,
+    var(--cl-yellow) 60% 80%,
+    var(--cl-indigo) 80% 100%
+  ); */
+  position: relative;
+}
+
+.pie-chart::after {
+  content: '';
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+  
+  position: absolute;
+  transform: scale(-0.5);
+}
+
+.category li {
+  margin-bottom: 0.5em;
+}
+
+.color {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 0.25em;
+}
+
+.color--red {
+  background: var(--cl-red);
+  background: red;
+}
+
+.color--blue {
+  background: var(--cl-blue);
+}
+
+.color--green {
+  background: var(--cl-green);
+}
+
+.color--yellow {
+  background: var(--cl-yellow);
+}
+
+.color--indigo {
+  background: var(--cl-indigo);
+}
+
+
+/*
+* === Dashboard Page ===
+*/
+.expenses-container--dashboard {
+  max-height: fit-content;
+  overflow-y: initial;
+}
+
+@media only screen and (min-width: 600px) {
+  .grid-container--dashboard {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "form graph"
+      "table table"
+    ;
+    gap: 2em 1em;
+  }
+  
+  .grid-container--dashboard form {
+    grid-area: form;
+    width: 100%;
+    min-width: 100%;
+  }
+  
+  .graph {
+    grid-area: graph;
+    width: 100%;
+    min-width: 100%;
+  }
+  
+  .expense-table {
+    grid-area: table;
+  }
+
+  .grid-container--dashboard .sign-up {
+    grid-column: span 2;
+    min-width: fit-content;
+  }
+}
+
+@media only screen and (min-width: 1240px) {
+  .grid-container--dashboard {
+    grid-template-columns: max(1em, 10vw) 2fr 1fr max(1em, 10vw);
+    grid-template-areas: 
+      ". form graph ."
+      ". table table ."
+    ;
+    gap: 2em 1em;
+  }
+
+  .grid-container--dashboard .sign-up {
+    grid-column: 2/4;
+    min-width: fit-content;
+  }
+}
+

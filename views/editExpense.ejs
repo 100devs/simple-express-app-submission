@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/index.css" />
+  <title>Expense Exhibit</title>
+  <script src="https://unpkg.com/phosphor-icons"></script>
+  <script src="/index.js" defer></script>
+  <script src="/editExpense.js" defer></script>
+</head>
+
+<body>
+  <nav class="primary-nav flex">
+    <h1>
+      <a href="/">Expense Exhibit</a>
+    </h1>
+
+    <a id="auth-link" href="/dashboard">Sign Up</a>
+  </nav>
+
+  <main class="dashboard">
+    <form class="edit-expense flow flex" data-expenseid=<%= expense.id %> >
+
+      <label for="title">Title:</label>
+      <input id="title" type="text" placeholder="Expense Title" required min="4" value="<%= expense.title %>" />
+
+      <label for="date">Date:</label>
+      <input id="date" type="date" required value=<%= expense.date %> />
+
+      <label for="category-select">Category: </label>
+      <select name="category" id="category-select" required>
+        <option value="home" <% if(expense.category === "home"){ %>selected <% } %> >Home</option>
+        <option value="transportation" <% if(expense.category === "transportation"){ %>selected <% } %> >Transportation</option>
+        <option value="entertainment" <% if(expense.category === "entertainment"){ %>selected <% } %> >Entertainment</option>
+        <option value="food" <% if(expense.category === "food"){ %>selected <% } %> >Food</option>
+        <option value="other" <% if(expense.category === "other"){ %>selected <% } %> >Other</option>
+      </select>
+
+      <label for="amount">Amount:</label>
+      <input id="amount" type="number" required value="<%= expense.amount %>"/>
+      <button>Update Expense</button>
+    </form>
+  </main>
+</body>
+
+</html>
