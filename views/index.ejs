@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burton Guster's Nicknames</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section class="nickname-container">
+        <h1>Nicknames for Guster Burton</h1>
+
+        <section class="nickname">
+            <form action="/" method="post" class="nickname-header">
+                <input type="text" name="source" placeholder="Source, i.e. Season X Episode Y">
+                <input type="text" name="name" placeholder="Nickname">
+                <button type="submit"><span class="fas fa-plus"></span> Add Nickname</button>
+            </form>
+
+            <ul class="nickname-list">
+                <li>
+                    <h2>Source of the Nickname</h2>
+                    <h2>Nickname</h2>
+                </li>
+                <% nicknames.forEach(nickname => { %>
+                <li class="nickname-list-item">
+                    <section class="nickname-list-item-source">
+                        <%= nickname.source %>
+                    </section>
+
+                    <section class="nickname-list-item-name">
+                        <%= nickname.name %>
+                    </section>
+
+                    <a href="/update/<%= nickname._id %>" class="update"><span class="fas fa-edit"></span></a>
+                    <a href="/delete/<%= nickname._id %>" class="delete"><span class="fas fa-times"></span></a>
+                </li>
+                <% }) %>
+            </ul>
+        </section>
+    </section>
+</body>
+
+</html>

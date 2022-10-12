@@ -1,0 +1,125 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: slategray;
+  padding: 0 30px;
+  font-family: "Comic Neue", sans-serif;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+.nickname-container {
+  background: rgba(169, 169, 169, 0.5);
+  min-height: 95vh;
+  padding: 0 10px;
+}
+
+.nickname {
+  text-align: center;
+}
+
+.nickname-list-item>section,
+.nickname-list form>input {
+  float: left;
+  width: 33vw;
+}
+
+.nickname-list-item-source {
+  float: left;
+}
+
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3.4rem;
+  width: 33vw;
+  float: left;
+  text-decoration: underline;
+}
+
+.nickname-list {
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  width: 100vw;
+  overflow: auto;
+  margin: 10px 0;
+}
+
+input,
+button,
+li {
+  font-size: 3.25rem;
+}
+
+input {
+  width: 30vw;
+}
+
+button {
+  cursor: pointer;
+}
+
+.update,
+.confirm {
+  color: green;
+}
+
+.confirm {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 3.1rem;
+  cursor: pointer;
+  margin-left: -12.5px;
+}
+
+.delete,
+.cancel {
+  color: red;
+}
+
+.cancel {
+  font-size: 3.1rem;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0 5px;
+  }
+
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  input,
+  button {
+    font-size: 2rem;
+  }
+}
