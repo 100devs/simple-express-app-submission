@@ -1,0 +1,57 @@
+<%- include('../partials/header') -%>
+
+<div class="container-fluid" align="center">
+  <div class="card w-96 bg-accent shadow-xl" align="left">
+    <div class="card-body">
+      <h2 class="card-title">Add an expense</h2>
+      <form action="/expense/add" method="POST">
+        <div class="form-control">
+
+          <!-- Expense -->
+          <input type="text" placeholder="Expense" class="input w-full max-w-xs mb-3" name="expense" id="expense" required />
+          
+          <!-- Cost -->
+          <input type="number" placeholder="Cost" class="input w-full max-w-xs mb-3" name="cost" id="cost" min="1" required />
+          
+          <!-- Frequency -->
+          <label class="label" for="frequency">How often?<br>Every...</label>
+          <div class="grid grid-cols-2 gap-5">
+            <input type="number" value="1" class="input w-full max-w-xs mb-3 col" name="num" id="num" />
+            <select class="select w-full max-w-xs mb-3 col" name="unit" id="unit" >
+              <option value="day">Day(s)</option>
+              <option value="week">Week(s)</option>
+              <option selected value="month">Month(s)</option>
+              <option value="year">Year(s)</option>
+            </select>
+          </div>
+
+          <!-- Due -->
+          <label class="label" for="due">Due Date</label>
+          <input type="date" class="input w-full max-w-xs mb-3" name="due" id="due" />
+
+          <!-- Category -->
+          <select class="select w-full max-w-xs mb-3 col" name="category" id="category" >
+            <option value="">Category</option>
+            <option value="home">Home</option>
+            <option value="auto">Auto</option>
+            <option value="education">Education</option>
+            <option value="utilities">Utilities</option>
+            <option value="pet">Pet</option>
+          </select>
+
+          <!-- Funds Source -->
+          <input type="text" placeholder="Source of funds" class="input w-full max-w-xs mb-3" name="fundsSource" id="fundsSource" />
+
+          <!-- Notes -->
+          <textarea class="textarea mb-3" placeholder="Notes"></textarea>
+        </div>
+        <div class="card-actions justify-end">
+          <button type="submit" class="btn btn-accent">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') -%>
+<%- include('../partials/nav_bottom') -%>

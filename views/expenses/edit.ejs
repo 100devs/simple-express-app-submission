@@ -1,0 +1,87 @@
+<%- include('../partials/header') -%>
+
+<div class="container-fluid" align="center">
+  <div class="card w-96 bg-accent shadow-xl" align="left">
+    <div class="card-body">
+      <h2 class="card-title">Edit Expense</h2>
+      <form
+        action="/expense/<%= expense.id %>?_method=PUT"
+        method="POST"
+      >
+        <div class="form-control">
+
+          <!-- Expense -->
+          <input type="text" placeholder="Expense" value="<%= expense.expense %>" class="input w-full max-w-xs mb-3" name="expense" id="expense" required />
+          
+          <!-- Cost -->
+          <input type="number" placeholder="Cost" value="<%= expense.cost %>" class="input w-full max-w-xs mb-3" name="cost" id="cost" min="1" required />
+          
+          <!-- Frequency -->
+          <% if (expense.frequency) { %>
+            <% let num = expense.frequency.num %>
+            <% let unit = expense.frequency.unit %>
+            
+            <label class="label" for="frequency">How often?<br>Every...</label>
+            <div class="grid grid-cols-2 gap-5">
+              <input type="number" placeholder="Number" value="<%= num %>" class="input w-full max-w-xs mb-3 col" name="num" id="num" />
+              <select class="select w-full max-w-xs mb-3 col" name="unit" id="unit" value="<%= unit %>" >
+                <option selected value="<%= unit %>">
+                  <%= unit[0].toUpperCase() + unit.slice(1) %>(s)
+                </option>
+                <% if (unit !== "day") { %>
+                  <option value="day">Day(s)</option>
+                <% } %>
+                <% if (unit !== "week") { %>
+                  <option value="week">Week(s)</option>
+                <% } %>
+                <% if (unit !== "month") { %>
+                  <option value="month">Month(s)</option>
+                <% } %>
+                <% if (unit !== "year") { %>
+                  <option value="year">Year(s)</option>
+                <% } %>
+              </select>
+            </div>
+          <% } %>
+          <label class="label" for="due" value="<%= expense.due %>">Due Date</label>
+          <input type="date" class="input w-full max-w-xs mb-3" name="due" id="due" />
+          <select class="select w-full max-w-xs mb-3 col" name="category" id="category">
+            <% if (expense.category !== "") { %>
+              <option value="">Category</option>
+              <option selected value="<%= expense.category %>">
+                <%= expense.category[0].toUpperCase() + expense.category.slice(1) %>
+              </option>
+              <% if (expense.category !== 'home') { %>
+                <option value="home">Home</option>
+              <% } %>
+              <% if (expense.category !== 'auto') { %>
+                <option value="auto">Auto</option>
+              <% } %>
+              <% if (expense.category !== 'education') { %>
+                <option value="education">Education</option>
+              <% } %>
+              <% if (expense.category !== 'utilities') { %>
+                <option value="utilities">Utilities</option>
+              <% } %>
+            <% } else { %>
+              <option value="">Category</option>
+              <option value="home">Home</option>
+              <option value="auto">Auto</option>
+              <option value="education">Education</option>
+              <option value="utilities">Utilities</option>
+              <option value="pet">Pet</option>
+            <% } %>
+          </select>
+          <input type="text" placeholder="Source of funds" value="<%= expense.fundsSource %>" class="input w-full max-w-xs mb-3" name="fundsSource" id="fundsSource" />
+          <textarea class="textarea mb-3" placeholder="Notes" value="<%= expense.notes %>"></textarea>
+        </div>
+        <div class="card-actions justify-end">
+          <button type="submit" class="btn btn-accent">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') -%>
+<%- include('../partials/nav_bottom') -%>

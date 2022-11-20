@@ -1,0 +1,180 @@
+<%- include('partials/header') -%>
+<script src="js/sortable.min.js"></script>
+
+<div class="container-fluid title mb-3" align="center"><strong>Hello, <%= user.userName[0].toUpperCase() + user.userName.slice(1) %>!</strong> </div>
+
+<div class="container-fluid" align="center">
+  <a href="/expense/add" class="btn btn-secondary mb-5">Add expense</a>
+  <a href="income/add" class="btn btn-primary">Add income</a>
+</div>
+
+<% let dailyTotal = [] %>
+<% let weeklyTotal = [] %>
+<% let monthlyTotal = [] %>
+<% let yearlyTotal = [] %>
+
+<% let dailyIncomeTotal = [] %>
+<% let weeklyIncomeTotal = [] %>
+<% let monthlyIncomeTotal = [] %>
+<% let yearlyIncomeTotal = [] %>
+
+<% for (let j = 0; j < incomes.length; j++) { %>
+  <% dailyIncomeTotal.push(incomes[j].daily) %>
+  <% weeklyIncomeTotal.push(incomes[j].weekly) %>
+  <% monthlyIncomeTotal.push(incomes[j].monthly) %>
+  <% yearlyIncomeTotal.push(incomes[j].yearly) %>
+<% } %>
+
+<div class="flex flex-col-reverse" >
+  <!-- SORTABLE TABLE TEMPLATE -->
+
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 sortable">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <th scope="col" class="py-3 px-6 sort-arrows">
+                <div class="flex items-center">
+                  Expense
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg>
+                </div>
+              </th>
+              <th scope="col" class="py-3 px-6 sort-arrows">
+                <div class="flex items-center">
+                  Cost
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg>
+                </div>
+              </th>
+              <th scope="col" class="py-3 px-6 sort-arrows">
+                <div class="flex items-center">
+                  Category
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg>  
+                </div>
+              </th>
+              <th scope="col" class="py-3 px-6 sort-arrows">
+                <div class="flex items-center">
+                  How Often?
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg>
+                </div>
+              </th>
+              <th scope="col" class="py-3 px-6 sort-arrows">
+                <div class="flex items-center">
+                    Daily
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg>  
+                </div>
+            </th>
+            <th scope="col" class="py-3 px-6 sort-arrows">
+              <div class="flex items-center">
+                  Weekly
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg>
+              </div>
+          </th>
+          <th scope="col" class="py-3 px-6 sort-arrows">
+            <div class="flex items-center">
+                Monthly
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg>
+              </div>
+          </th>
+          <th scope="col" class="py-3 px-6 sort-arrows">
+            <div class="flex items-center">
+                Yearly
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg>
+            </div>
+          </th>
+              <th scope="col" class="py-3 px-6">
+                  <span class="sr-only">Edit</span>
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+        <% for (let i=0; i < expenses.length; i++) { %>
+          <% dailyTotal.push(expenses[i].daily) %>
+          <% weeklyTotal.push(expenses[i].weekly) %>
+          <% monthlyTotal.push(expenses[i].monthly) %>
+          <% yearlyTotal.push(expenses[i].yearly) %>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <a href="/expense/<%=expenses[i]._id%>"><%= expenses[i].expense %></a>
+              </td>
+              <td class="py-4 px-6">
+                $<%= expenses[i].cost.toFixed(2) %>
+              </td>
+              <!-- Category -->
+              <td class="py-4 px-6">
+                <% if (expenses[i].category) { %>
+                  <%= expenses[i].category[0].toUpperCase() + expenses[i].category.slice(1) %>
+                <% } %>
+              </td>
+              <!-- Frequency loop -->
+              <% if (expenses[i].frequency) { %>
+                <% let num = expenses[i].frequency.num %>
+                <% let unit = expenses[i].frequency.unit %>
+              <td class="py-4 px-6">
+                  <!-- How often? -->
+                  <% if (num > 1) { %>
+                    Every <%= num %> <%= unit %>s
+                   <% } else if (num === 1) { %>
+                    Every <%= unit %>
+                   <% } %>
+              </td>
+              <td class="py-4 px-6">
+                <!-- Daily -->
+                $<%= expenses[i].daily %>
+              </td>
+              <td class="py-4 px-6">
+                <!-- Weekly -->
+                $<%= expenses[i].weekly %>
+              </td>
+              <td class="py-4 px-6">
+                <!-- Monthly -->
+                $<%= expenses[i].monthly %>
+              </td>
+              <td class="py-4 px-6">
+                <!-- Yearly -->
+                $<%= expenses[i].yearly %>
+              </td>
+              <td class="py-4 px-6 text-right">
+                  <a href="/expense/<%=expenses[i].id%>/edit"<i class="fa-solid fa-pen"></i></a>
+              </td>
+              <% } %>
+            </tr>
+          <% } %>
+          
+      </tbody>
+  </table>
+</div>
+
+<!-- Spacer -->
+<div class="mt-5"></div>
+  
+  <div class="container-fluid" align="center">
+    <div class="card w-96 bg-base-100 shadow-xl" align="left">
+      <div class="card-body">
+        <div class="grid grid-cols-2 gap-3">
+          <div class="col">
+            <div class="card-title">Total Expenses</div>
+            <p>Daily: $<%= dailyTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Weekly: $<%= weeklyTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Monthly: $<%= monthlyTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Annually: $<%= yearlyTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+          </div>
+          <div class="col">
+            <div class="card-title">Total Income</div>
+            <p>Daily: $<%= dailyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Weekly: $<%= weeklyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Monthly: $<%= monthlyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Annually: $<%= yearlyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div style="height: 40px"></div>
+
+<%- include('partials/footer') -%>
+<%- include('partials/nav_bottom') -%>

@@ -1,0 +1,33 @@
+<%- include('partials/header') -%>
+
+<div class="container-fluid" align="center">
+  <div class="card w-96 bg-accent shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">Welcome!</h2>
+      <% if (locals.messages.errors) { %>
+        <% messages.errors.forEach( el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %>    
+      <% } %>
+      <% if (locals.messages.info) { %>
+          <% messages.info.forEach( el => { %>
+              <div class="alert alert-info"><%= el.msg %></div>
+          <% }) %>    
+      <% } %>
+
+      <form action="/signup" method="POST">
+          <input type="email" class="form-control input input-bordered w-full max-w-xs mb-3" id="email" aria-describedby="emailHelp" name="email" placeholder="Email">
+          <input type="text" class="form-control input input-bordered w-full max-w-xs mb-3 mt-5" id="userName" name="userName" placeholder="Username">
+          <input type="password" class="form-control input input-bordered w-full max-w-xs mb-3" id="password" name="password" placeholder="Password">
+          <input type="password" class="form-control input input-bordered w-full max-w-xs mb-3" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+          <div class="card-actions justify-end">
+            <button type="submit" class="btn btn-accent">Join</button>
+          </div>
+      
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

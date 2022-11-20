@@ -1,22 +1,73 @@
-#100Devs Simple Express App Submission
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+# Pocket
 
-### How to submit your code for review:
+A personal budget tracker app with passport local authorization. Add bills and multiple sources of income. See how your expenses break down daily, weekly, monthly, and yearly.
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+**Link to project:** https://pocket.cyclic.app
 
-Example:
+
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+## Tech Stack
+
+**Client:** JavaScript, EJS, TailwindCSS
+
+**Server:** Node, Express, MongoDB
+
+**Dependencies:** bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
+
+## Features
+
+- Secure login with Passport Auth
+- Add expenses and multiple sources of income
+- Sort expenses by name, category, or cost
+- See how expenses break down on a daily, weekly, monthly, and yearly basis
+- Responsive for desktop & mobile
+
+
+## Installation
+
+Install with npm
+
+```bash
+  npm install bcrypt connect-mongo dotenv ejs express express-flash express-session mongodb mongoose morgan nodemon passport passport-local validator
 ```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your `.env` file
+
+`PORT = <port>` (can be any port, ex: 3000)
+
+### Database
+
+`DB_STRING = <your MongoDB uri>`
+## Optimizations
+
+- User can select custom frequency for expenses and income streams (every x number of weeks/months)
+- Made table data sortable
+- Added Mongoose virtuals to calculate daily, weekly, monthly, and yearly cost of each expense without having to store all that data in the database
+- Added soft delete so expenses aren't automatically purged from database in case user needs to restore data 
+
+**Planned Features & Improvements:**
+
+- Calcuate user's remaining funds
+- Add budgeting and saving tips
+- Add confirmation popups for deleting expenses, income, and account
+
+## Other Examples of My Work
+
+**Mailroom:** https://mailroom.cyclic.app
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+**Pictogram:** https://pictogram.cyclic.app
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+**myPetPal: ** https://mypetpal.onrender.com
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
