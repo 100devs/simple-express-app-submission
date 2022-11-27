@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/colorBlock.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Daylight</title>
+      </head>
+      <body>
+        <header>
+          <nav>
+            <ul class="navBar">
+              <li><i class="fa fa-bars" aria-hidden="true"></i></li>
+              <li class="logo">Daylight</li>
+              <li><i class="fa fa-search" aria-hidden="true"></i></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="wholeContainer">
+          <div class="addPrio">
+            <h2>Add Priorities</h2>
+          </div>
+
+         <section class="popUpCont">
+           <form action="/addPriority" method="POST" class="popUpForm">
+            <input type="text" placeholder="Title" name="title" />
+            <textarea type="text" placeholder="Body" name="body"></textarea>
+            <button type="submit" class="submit">Add Priority</button>
+          </form>
+         </section>
+         
+
+         <section class="cardsCont">
+          <h2 class="top">Priority List</h2>
+
+          <% for(let i=0; i < info.length; i++) {%>
+
+          <section class="tasks">
+            <h3 class="prioTitle"><%= info[i].title %></h3>
+            <h4 class="prioBody"><%= info[i].body %></h4>
+            <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i><%= info[i].date
+              %></div>
+              
+            </div>
+            <div>
+              <button class="update">Edit</button>
+              <button class="delete">Delete</button>
+            </div>
+          </section>
+          <% } %>
+         </section>
+          
+        </section>
+
+        <script src="js/main.js"></script>
+      </body>
+    </html>
+  </body>
+</html>

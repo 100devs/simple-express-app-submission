@@ -1,0 +1,31 @@
+.navBar {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.navBar li {
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+.wholeContainer {
+    background-color: rgba(255, 255, 0, 0.2);
+}
+
+.addPrio {
+    background-color: rgba(255, 166, 0, 0.3);
+}
+
+.popUpForm {
+    background-color: rgba(0, 0, 255, 0.3);
+}
+
+.cardsCont {
+    background-color: rgba(0, 128, 0, 0.2);
+}
+
+.tasks {
+    background-color: rgba(0, 128, 0, 0.2);
+}
+
+.date {
+    background-color: rgba(0, 0, 255, 0.1);
+}
