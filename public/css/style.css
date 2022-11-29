@@ -1,0 +1,23 @@
+body {
+  background-color: lightcyan;
+  text-align: center;
+}
+
+h1 {
+  color: gray;
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+.completed {
+  color: gray;
+  text-decoration: line-through;
+}
