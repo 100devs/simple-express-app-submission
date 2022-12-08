@@ -1,7 +1,6 @@
 // Variables
 const express = require("express")
 const app = express()
-const PORT = 3000
 const mongoose = require("mongoose")
 const passport = require("passport")
 const session = require("express-session")
@@ -47,7 +46,7 @@ app.use("/dashboard", dashboardRoutes)
 app.use("/edit", editRoutes)
 
 connectDB().then(() => {
-    app.listen(process.env.PORT || PORT, ()=> {
+    app.listen(process.env.PORT, ()=> {
         console.log(`Server is running on port ${PORT}`)
     })
 })
