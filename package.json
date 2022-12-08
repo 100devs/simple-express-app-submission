@@ -4,7 +4,8 @@
   "description": "App to log hours driven for student drivers.",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
     "build-css": "tailwindcss -i src/style.css -o public/style.css --watch"
   },
   "repository": {
