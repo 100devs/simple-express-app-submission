@@ -1,7 +1,7 @@
 // Variables
 const express = require("express")
 const app = express()
-const PORT = 1337
+const PORT = 3000
 const mongoose = require("mongoose")
 const passport = require("passport")
 const session = require("express-session")
