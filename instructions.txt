@@ -1,0 +1,83 @@
+//0. Create server.js file
+
+//1. Initialize npm and install dependencies
+// express, dotenv, cors, mongodb, ejs, nodemon (--save-dev)
+        npm init
+        npm install express
+        npm install dotenv 
+            -this lets us create environment variables and where you put stuff you don't want ppl to see
+        npm install cors 
+            -bypasses cross-origin request blocks
+        npm install mongodb 
+            -A database so can handle any amount of data. Like a warehouse.
+        npm install ejs
+            -templating
+        npm install nodemon --save-dev
+            -so don't have to manually stop & refresh server, ONLY while in production
+
+
+//2. Require dependencies in server.js 
+            -lines 1-5
+            -so we can access their capabilities
+
+//3. Declare variables
+            -lines 7-10
+                let db,
+                dbConnectionString = process.env.DB_STRING, 
+                    **allows us to pull variable out of env file. Connects to database.**
+                dbName = '',
+                collection
+
+//3.5 Create gitignore file and push to github
+        git init
+        git add .
+        git add README.md
+        git commit -m "first commit"
+        git branch -M main
+        git remote add origin https://github.com/mellen-code/full-stack-template.git
+        git push -u origin main
+
+//4. Connect to MongoDB - create .env file & add connection string to .env file
+            -MongoDB account -> connect -> connect your application
+                -to reset database password, go to Database Access (on left) -> Edit
+            -lines 12-  
+            -line 13 establishes the connection via a promise syntax. (It can also be written as an asynchronous function.)
+            -req and res not needed yet. We're just establishing a connection.
+
+//5. Add .env file to gitignore
+
+//5. Create Port
+            -app.listen
+
+//----Test Mongo and Port Connection
+            -option 1: node server.js
+            -option 2: npm run dev (nodemon). First, go to package.json -> add "dev": "nodemon server.js". In console, 'npm run dev'.
+
+//6. Set middleware
+        - set before any CRUD operations (get, post, etc)
+        - lines 19-28
+
+
+//8. Create Public and Views folders - add main.js and style.css to Public and index.ejs to Views
+
+//9. Add content to main.js, style.css, index.ejs
+
+//10. Create heroku repo
+//WHEN PUSHING TO HOST SERVER, MAKE THE DB STRING VISIBLE (remove from .env file). 
+OR INPUT MANUALLY IN HOST SERVER (look for config vars / environment vars)
+// Can leave node_modules .gitignored.
+
+
+
+
+
+
+
+// heroku login
+// heroku create simple-rap-api
+// echo "web: node server.js" > Procfile
+// git add . 
+// git commit -m "changes"
+// git push heroku main
+
+//----Test Heroku Link
