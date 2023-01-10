@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Document</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1>Anime Watch List: </h1>
+        <ul class="showList">
+        <% for (let i = 0; i < shows.length; i++) {%>
+            <li class="show">
+            <% if(shows[i].completed === true) {%>
+                <span class="completed"><%= shows[i].thing %></span>
+            <% }else{ %>
+                <span><%= shows[i].thing %></span>
+            <% } %>
+                <span class="fa fa-trash"></span>
+            </li>  
+        <% } %>    
+        </ul>
+
+        <h2>Shows left: <%= left %></h2>
+
+        <h2>Add a show: </h2>
+
+        <form action="/addShow" method="POST">
+            <input type="text" name="showItem">
+            <input type="submit">
+        </form>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
