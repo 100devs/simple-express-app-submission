@@ -23,11 +23,6 @@ MongoClient.connect(dbConnection, { useUnifiedTopology: true })
         db = client.db(dbName);
     });
 
-app.set("view engine", "ejs");
-app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
 app.get("/", async (request, response) => {
     const showList = await db.collection("shows").find().toArray();
     const showsLeft = await db.collection("shows").countDocuments({ completed: false });
