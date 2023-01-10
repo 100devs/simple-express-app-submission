@@ -1,1 +1,1 @@
-GET https://triple-crown-api.herokuapp.com/api/
+GET https://triple-crown.bobbynoodles.com/api/
