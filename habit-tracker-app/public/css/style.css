@@ -1,0 +1,52 @@
+* {
+   box-sizing: border-box;
+}
+
+h1 {
+   margin-top: 30px;
+}
+
+.main-container {
+   width: 80%;
+   margin: 0 auto;
+}
+
+.content-container {
+   width: 50%;
+   margin: 0 auto;
+   text-align: center;
+}
+
+button {
+   cursor: pointer;
+}
+
+li {
+   list-style: none;
+   padding: 20px;
+   margin-bottom: 10px;
+   width: 100%;
+   border: 1px solid black;
+   border-radius: 5px;
+   text-align: center;
+   cursor: pointer;
+}
+
+span {
+   display: block;
+}
+
+ul {
+   padding: 0;
+}
+
+li:hover {
+   background: gray;
+   color: white;
+}
+
+.update,
+.delete {
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
