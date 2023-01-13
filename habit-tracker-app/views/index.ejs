@@ -1,0 +1,34 @@
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Habit Tracker App</title>
+</head>
+<body>
+
+   <div class="main-container">
+      <div class="content-container">
+         <h1>Track your habits!</h1>
+         <form autocomplete="off" action="/createHabit" method="post">
+            <input type="text" placeholder="enter habit" name="habitName">
+            <button>Create New Habit</button>
+         </form>
+
+         <h2>Habits</h2>
+         <ul>
+         <% for(var i = 0; i < habits.length; i++) {%>
+         <li>
+            <span class="habit"><%= habits[i].habitName %></span>
+             <span class="days">Days Completed: <%= habits[i].daysCompleted %></span>
+            <button class="update">Update</button>
+            <button class="delete">Delete</button>
+         </li>
+      <% } %>
+      </ul>
+   </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
