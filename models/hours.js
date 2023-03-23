@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const drivingHoursSchema = new mongoose.Schema( {
-    date: {
+    sessionDate: {
         type: Date,
         default: Date.now
     },

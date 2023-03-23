@@ -59,7 +59,7 @@
                 <tbody>
                     <% DrivingHours.forEach(item => {%>
                         <tr>
-                            <td class="spacing"><%= moment(item.date).format( 'MMMM DD, YYYY') %></td>
+                            <td class="spacing"><%= moment.utc(item.sessionDate).format( 'MMMM DD, YYYY') %></td>
                             <td class="spacing"><%= item.instructor %></td>
                             <td class="spacing"><%= item.totalHours %></td>
                             <td class="spacing"><%= item.nightHours %></td>
@@ -77,6 +77,8 @@
             <h3 class="titleSmall bg-accent rounded-md spacing">Add new lesson:</h3>
 
             <form action="/dashboard" method="POST" class="hours-header flex flex-col flex-nowrap space-y-1">
+                <label for="sessionDate">Date of session:</label>
+                <input type="date" class="showText" name="sessionDate" id="sessionDate">
                 <label for="totalHours">Total hours driven this session:</label>
                 <input type="number" class="showText" min= "0" step= ".25" max="24" name="totalHours" id="total">
                 <label for="nightHours">Total hours driven at night:</label>

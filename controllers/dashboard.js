@@ -22,6 +22,7 @@ module.exports = {
     addLesson: async (req, res) => {
         const addHours = new DrivingHours(
             {
+                sessionDate: req.body.sessionDate,
                 totalHours: req.body.totalHours,
                 nightHours: req.body.nightHours,
                 hwyHours: req.body.hwyHours,
