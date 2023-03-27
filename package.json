@@ -1,0 +1,34 @@
+{
+  "name": "my-crud-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Christina-Milner/my-first-crud-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Christina-Milner/my-first-crud-app/issues"
+  },
+  "homepage": "https://github.com/Christina-Milner/my-first-crud-app#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "env": "^0.0.2",
+    "express": "^4.18.2",
+    "mongodb": "^5.0.0"
+  },
+  "scripts": {
+    "start":"nodemon -e js,ejs,html -w . -w public -w views -w routes -w models server.js",
+    "dev": "nodemon server.js"
+  }
+}
