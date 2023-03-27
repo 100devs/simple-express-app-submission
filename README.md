@@ -1,22 +1,15 @@
-#100Devs Simple Express App Submission
+# Model Show Registration App
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+I used Node.js and Express to create an app for a miniatures show that would allow for the following:
 
-### How to submit your code for review:
+* Register entrants' info and assign them an incrementing ID number to label their displays with
+* Accommodating Adult and Junior participants as well as In Competition (display gets judged) and Not In Competition (display does not get judged, but is still eligible for certain prizes)
+* Judging the displays, keeping track of which ones are already judged, and assigning prizes
+* Ensuring unique prizes like Best of Show can only be awarded once
+* Viewing the prize winners in each category, separated by Adults and Juniors
+* Show neat little stats like how many models were entered in total
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+The final version will include features like authentication to protect participants' personal data.
+
+This prototype is live [here on Render](https://model-show-registration-alpha-prototype.onrender.com/).

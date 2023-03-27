@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+:root {
+    accent-color: rgb(141, 52, 141);
+}
+
+html {
+    font-family: 'Heebo', sans-serif;
+    box-sizing: border-box;
+}
+
+img {
+    width: 8rem;
+}
+
+ul {
+    list-style-type: square;
+    width: 50%;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+    margin-bottom: 2%;
+}
+
+form {
+    display: flex;
+    flex-flow: column;
+    width: 70%;
+    margin: 0 auto;
+    line-height: 1.5em;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-bottom: 2%;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+.entries {
+    display: flex;
+    flex-flow: column wrap;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.entry {
+    padding: 0 2%;
+    display: flex;
+    border: 2px solid grey;
+    border-width: 1px 2px;
+    gap: 1%;
+    line-height: 1em;
+}
+
+
+.entries .entry:first-child, h2 + .entry {
+    border-top: 2px solid grey;
+}
+
+.entries .entry:last-child {
+    border-bottom: 2px solid grey;
+}
+
+.titleNav, .pageNav {
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.titleNav > span, .pageNav > span {
+    padding: 1em;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.notJudged {
+    background-color: #d88282;
+}
+
+.notInComp {
+    background-color: #8b8b8b;
+}
+
+.judged {
+    background-color: #79df93;
+}
+
+#warning {
+    color: #dd1212
+}
+
+.active {
+    background-color: orange !important;
+}
+
+.filterbuttons {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    color: #000;
+}
+
+.filterbutton, .regButtons {
+    color: #000;
+    border: 1px solid black;
+    padding: 5px;
+    background-color:  rgb(187, 98, 187);
+}
+
+.iHateCSS {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 1%;
+}
+
+.filterbutton {
+    text-align: center;
+}
+
+.small {
+    width: 5em;
+}
+
+.big {
+    width: 10em;
+}
+
+.regButtons {
+    width: 10em;
+    text-align: center;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.buttonsGoHere {
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+    margin-bottom: 2%;
+}
+
+span {
+    padding: 0;
+}
+
+input[type=submit], .cancel {
+    vertical-align: middle;
+    font-size: 1em;
+    padding: 1% 0.5%;
+    line-height: 1em;
+    border-radius: 0;
+    border: 1px solid black;
+    background-color: rgb(187, 98, 187)
+
+}
+
+.cancel {
+    display: inline-block;
+    background-color: #ec7777;
+    margin-left: 2%;
+    line-height: 1em;
+}
+
+#age {
+    font-weight: 700;
+    color: #fff;
+}
+
+.adult {
+    background-color: rgb(129, 64, 129);
+}
+
+.junior {
+    background-color: rgb(230, 131, 230);
+}
+
+.numOfThings {
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.num {
+    color: rgb(141, 52, 141);
+}
+
+@media (max-width: 700px) {
+    .titleNav > span, .pageNav > span {
+        font-size: 1em;
+        padding: 0.75em 0.5em;
+    }
+
+    ul {
+        width: 80%;
+    }
+
+    form {
+    width: 90%;
+    line-height: 1.25em;
+    font-size: 1.25em;
+}
+}

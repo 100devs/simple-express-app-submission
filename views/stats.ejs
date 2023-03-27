@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Modelshow Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <nav class = "pageNav">
+        <span><a href="/registration">Registration</a></span>
+        <span><a href="/judging">Judging<span></a></span>
+        <span><a href="/filters">Filters</span></a>
+        <span><a href="/stats">Stats</span></a>
+        <span><a href="/help">Help</span></a>
+    </nav>
+    <h2>Number of participants</h2>
+    <div class="numOfThings">
+        <div>
+            <p>Total:</p>
+            <p>Juniors:</p>
+            <p>Adults:</p>
+        </div>
+        <div>
+            <p class="num"><%= info.length %></p>
+            <p class="num"><%= info.filter(e => e.junior).length %></p>
+            <p class="num"><%= info.filter(e => !e.junior).length %></p>
+        </div>
+    </div>
+    <h2>Number of models entered</h2>
+    <div class="numOfThings">
+        <p class="num"><%= info.reduce((a, b) => a + b.numOfModels, 0) %></p>
+    </div>
+</body>

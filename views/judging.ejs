@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Modelshow Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <script src="judging.js" defer></script>
+</head>
+
+<body>
+    <nav class = "pageNav">
+        <span><a href="/registration">Registration</a></span>
+        <span><a href="/judging">Judging<span></a></span>
+        <span><a href="/filters">Filters</span></a>
+        <span><a href="/stats">Stats</span></a>
+        <span><a href="/help">Help</span></a>
+    </nav>
+    <h1>Miniatures Show Judging</h1>
+    <form action="/addEntryJudge" method="POST" id="inputForm" class="hidden judgeForm">
+        <input type ="hidden" name="entryId" id="secretIdBox">
+        <div id="forID">
+        </div>
+        <div>
+            <span>Name:</span>
+            <span id="name"></span>
+        </div>
+        <div>
+            <span>Models:</span>
+            <span id="numOfModels"></span>
+        </div>
+        <div id="inComp">
+        </div>
+        <div id="age">
+        </div>
+
+        <fieldset id="prizes" class="hidden">
+            <div id="warning" class="hidden"></div>
+            <div id="isJudged">
+                <input type="radio" id="yesJudged" name="judged" value="yesJudged">
+                <label for="yesJudged">Judged</label>
+                <input type="radio" id="notJudged" name="judged" value="notJudged" checked>
+                <label for="notJudged">Not judged</label>
+                <input type="radio" id="notForJudging" name="judged" value="notForJudging" class="hidden">
+            </div>
+            <legend>Prizes:</legend>
+            <div id="forMedals">
+                <input type="checkbox" id="bronze" name="medals" value="bronze" onclick="onlyOne(this)">
+                <label for="bronze">Bronze</label>
+                <input type="checkbox" id="silver" name="medals" value="silver" onclick="onlyOne(this)">
+                <label for="silver">Silver</label>
+                <input type="checkbox" id="gold" name="medals" value="gold" onclick="onlyOne(this)">
+                <label for="gold">Gold</label>
+            </div>
+            <div>
+                <input type="checkbox" id="bestOfShow" name="bestOfShow" class="adultsOnly" onclick="checkIfTaken(this, 'bestOfShow')">
+                <label for="bestOfShow" id="forBestOfShow" class="adultsOnly">Best of Show</label>
+                <input type="checkbox" id="junBestOfShow" name="junBestOfShow" class="kidsOnly" onclick="checkIfTaken(this, 'junBestOfShow')">
+                <label for="junBestOfShow" id="forJunBestOfShow" class="kidsOnly">Junior Best of Show</label>
+                <input type="checkbox" id="corrr" name="corrr">
+                <label for="corrr" id="forCorrr">CORRR</label>
+                <input type="checkbox" id="peoplesChoice" name="peoplesChoice" onclick="checkIfTaken(this, 'peoplesChoice')"> 
+                <label for="peoplesChoice">People's Choice</label>
+                <input type="text" id="sponsors" name="sponsors">
+                <label for="sponsors">Sponsor Prize</label>
+            </div>
+            
+        </fieldset>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <div class="entries">
+        <% for(let i = 0; i < info.length; i++) {%>
+            <div class="entry <%= !info[i].judged ? "notJudged" : info[i].judged == "N/A" ? "notInComp" : "judged" %>" id=<%= info[i].id %>>
+                <div>
+                    <p>Number:</p>
+                    <p>Name:</p>
+                    <p><%= info[i].junior ? "Junior" : "Adult" %></p>
+                    <p>Judged:</p>
+                </div>
+                <div>
+                    <p><%= info[i].id %></p>
+                    <p><%= info[i].fullName ? info[i].fullName : "Empty entry!" %></p>
+                    <p>&nbsp;</p>
+                    <p><%= !info[i].judged ? "No" : info[i].judged == "N/A" ? "N/A" : "Yes" %></p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</body>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Modelshow Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>    
+    <nav class = "pageNav">
+        <span><a href="/registration">Registration</a></span>
+        <span><a href="/judging">Judging<span></a></span>
+        <span><a href="/filters">Filters</span></a>
+        <span><a href="/stats">Stats</span></a>
+        <span><a href="/help">Help</span></a>
+    </nav>
+    <h1>Miniatures Show Results</h1>
+    <div class="filterbuttons">
+        <div class="iHateCSS argh">
+            <a href="/filters"><p id="all" class="filterbutton small">View all</p></a>
+            <a href="/filtersbronze"><p id="bronze" class="filterbutton small">Bronze</p></a>
+            <a href="/filterssilver"><p id="silver" class="filterbutton small">Silver</p></a>
+            <a href="/filtersgold"><p id="gold" class="filterbutton small">Gold</p></a>
+            <a href="/filterscorrr"><p id="corrr" class="filterbutton small">CORRR</p></a>
+        </div>
+        <div class="iHateCSS">
+            <a href="/filtersbestOfShow"><p id="bestOfShow" class="filterbutton big">Best of Show</p></a>
+            <a href="/filtersjunBestOfShow"><p id="junBestOfShow" class="filterbutton big">Junior Best of Show</p></a>
+            <a href="/filterspeoplesChoice"><p id="peoplesChoice" class="filterbutton big">People's Choice</p></a>
+            <a href="/filterssponsors"><p id="sponsors" class="filterbutton big">Sponsor Prizes</p></a>
+        </div>
+    </div>
+        <h2>Juniors</h2>
+        <div class="entries">
+        <%  let infoJuniors = info.filter(e => e.junior)
+            for(let i = 0; i < infoJuniors.length; i++) {%>
+            <div class="entry" id=<%= infoJuniors[i].id %>>
+                <div>
+                    <p>Number:</p>
+                    <p>Name:</p>
+                </div>
+                <div>
+                    <p><%= infoJuniors[i].id %></p>
+                    <p><%= infoJuniors[i].fullName %></p>
+                    <p><% for (let prize of Object.keys(infoJuniors[i].prizes).filter(e => infoJuniors[i].prizes[e])) {%>
+                        <% let prettyfied = {junBestOfShow: "Junior Best of Show", bestOfShow: "Best of Show", peoplesChoice: "People's Choice"} %>
+                        <span><%- typeof(infoJuniors[i].prizes[prize]) == "string" ? infoJuniors[i].prizes[prize][0].toUpperCase() + infoJuniors[i].prizes[prize].slice(1) + "<br>" :
+                               prize == "corrr" ? prize.toUpperCase() + "<br>" :
+                               prize in prettyfied ? prettyfied[prize] + "<br>" :
+                               typeof(infoJuniors[i].prizes[prize]) == "object" ?
+                                   infoJuniors[i].prizes[prize].every(e => !e) ? "" :
+                                   "Sponsor: " + infoJuniors[i].prizes[prize] + "<br>" :
+                                prize + "<br>" %>
+                        </span>
+                        <% } %>
+                    </p>
+                </div>
+            </div>
+        <% } %>
+        </div>
+        <h2>Adults</h2>
+        <div class="entries">
+        <%  let infoAdults = info.filter(e => !e.junior)
+        for(let i = 0; i < infoAdults.length; i++) {%>
+        <div class="entry" id=<%= infoAdults[i].id %>>
+            <div>
+                <p>Number:</p>
+                <p>Name:</p>
+            </div>
+            <div>
+                <p><%= infoAdults[i].id %></p>
+                <p><%= infoAdults[i].fullName %></p>
+                <p><% for (let prize of Object.keys(infoAdults[i].prizes).filter(e => infoAdults[i].prizes[e])) {%>
+                    <% let prettyfied = {junBestOfShow: "Junior Best of Show", bestOfShow: "Best of Show", peoplesChoice: "People's Choice"} %>
+                    <span><%- typeof(infoAdults[i].prizes[prize]) == "string" ? infoAdults[i].prizes[prize][0].toUpperCase() + infoAdults[i].prizes[prize].slice(1) + "<br>" :
+                           prize == "corrr" ? prize.toUpperCase() + "<br>" :
+                           prize in prettyfied ? prettyfied[prize] + "<br>" :
+                           typeof(infoAdults[i].prizes[prize]) == "object" ?
+                               infoAdults[i].prizes[prize].every(e => !e) ? "" :
+                               "Sponsor: " + infoAdults[i].prizes[prize] + "<br>" :
+                            prize + "<br>" %>
+                    </span>
+                    <% } %>
+                </p>
+            </div>
+        </div>
+    <% } %>
+    </div>
+    </div>
+
+</body>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Modelshow Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <nav class = "pageNav">
+        <span><a href="/registration">Registration</a></span>
+        <span><a href="/judging">Judging<span></a></span>
+        <span><a href="/filters">Filters</span></a>
+        <span><a href="/stats">Stats</span></a>
+        <span><a href="/help">Help</span></a>
+    </nav>
+
+<h1>Register entrants</h1>
+<div class="buttonsGoHere">
+    <span id="addButton" class="regButtons">Add Entry</span>
+    <span id="editEntries" class="regButtons">Edit</span>
+</div>
+<form action="/addEntryReg" method="POST" id="inputForm" class="hidden">
+    <input type ="hidden" name="entryId" id="secretIdBox">
+    <div id="forID">
+    </div>
+    <div>
+        <label for="name">Name&nbsp;&nbsp;&nbsp;</label>
+        <input type="text" placeholder="Full name" name="name" id="name" required="required">
+    </div>
+    <div>
+        <label for="numOfModels">Models</label>
+        <input type="number" placeholder="1" name="numOfModels" id="numOfModels" required="required" min="1">
+    </div>
+    <div>
+        <input type="radio" id="yesInComp" name="inComp" value="yesInComp" checked>
+        <label for="yesInComp">In competition</label>
+        <input type="radio" id="notInComp" name="inComp" value="notInComp">
+        <label for="notInComp">Not in competition</label>
+    </div>
+    <div>
+        <input type="radio" id="notJunior" name="junior" value="notJunior" checked>
+        <label for="notJunior">Adult</label>
+        <input type="radio" id="yesJunior" name="junior" value="yesJunior">
+        <label for="yesJunior">Junior</label>
+    </div>
+    <div id="isJudged" class="hidden">
+        <input type="radio" id="yesJudged" name="judged" value="yesJudged">
+        <label for="yesJudged">Judged</label>
+        <input type="radio" id="notJudged" name="judged" value="notJudged">
+        <label for="notJudged">Not judged</label>
+        <input type="radio" id="notForJudging" name="judged" value="notForJudging" class="hidden">
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+        <a href="/registration"><span class="cancel">Cancel</span></a>
+    </div>
+</form>
+<div class="entries">
+    <% for(let i = 0; i < info.length; i++) {%>
+        <div class="entry" id=<%= info[i].id %>>
+            <div>
+                <p>Number:</p>
+                <p>Name:</p>
+            </div>
+            <div>
+                <p><%= info[i].id %></p>
+                <p><%= info[i].fullName %></p>
+            </div>
+        </div>
+    <% } %>
+</div>
+</body>
