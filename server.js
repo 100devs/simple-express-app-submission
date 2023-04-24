@@ -9,7 +9,6 @@ myApplication.listen(portNumber, function () {
 
 // myApplication.get(endpoint, callback)
 myApplication.get("/", (request, response) => {
-  response.send("Hello World")
+  response.sendFile(__dirname + "/index.html")
+  console.log(__dirname)
 })
-
-console.log("May the force be with you")
