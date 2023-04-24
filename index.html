@@ -89,49 +89,16 @@
     </section>
 
     <!-- Section -->
-    <section id="contact">
+    <section id="form">
         <header>
-            <h2>Get in touch</h2>
+            <h2>Send a message</h2>
+            <p>Use this form to create a simple message. Make sure to leave your name!</p>
         </header>
-        <div class="content">
-            <form>
-                <div class="fields">
-                    <div class="field half">
-                        <input type="text" name="name" id="name" placeholder="Name" />
-                    </div>
-                    <div class="field half">
-                        <input type="email" name="email" id="email" placeholder="Email" />
-                    </div>
-                    <div class="field">
-                        <textarea name="message" id="message" placeholder="Message" rows="7"></textarea>
-                    </div>
-                </div>
-                <ul class="actions">
-                    <li><input type="submit" value="Send Message" class="button primary" /></li>
-                </ul>
-            </form>
-        </div>
-        <footer>
-            <ul class="items">
-                <li>
-                    <h3>Email</h3>
-                    <a href=""></a>
-                </li>
-                <li>
-                    <h3>Phone</h3>
-                    <span>+1 787-989-9898</span>
-                </li>
-                <li>
-                    <h3>Address</h3>
-                    <span><a href="" target="">
-                            Apartment 1
-                            Building 3
-                            564 Main st.,
-                            New York NY, 11101
-                        </a></span>
-                </li>
-            </ul>
-        </footer>
+        <form action="/messages" method="POST">
+            <input type="text" placeholder="name" name="name" />
+            <input type="text" placeholder="quote" name="quote" />
+            <button type="submit">Submit</button>
+        </form>
     </section>
     <footer>
         <div class="copyright">&copy; Neil McGuire</div>
