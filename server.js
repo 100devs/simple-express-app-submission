@@ -42,9 +42,20 @@ async function run() {
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     )
+    const db = client.db("quotes")
+    quotesCollection = db.collection("quotes")
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close()
   }
 }
 run().catch(console.dir)
+
+myApplication.post("/messages", (request, response) => {
+  quotesCollection
+    .insertOne(req.body)
+    .then((result) => {
+      console.log(result)
+    })
+    .catch((error) => console.error(error))
+})
