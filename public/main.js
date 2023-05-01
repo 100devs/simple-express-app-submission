@@ -1,6 +1,7 @@
-const update = document.querySelector("#update-button")
+const updateButton = document.querySelector("#update-button")
+const deleteButton = document.querySelector("#delete-button")
 
-update.addEventListener("click", (_) => {
+updateButton.addEventListener("click", (_) => {
   // fetch(endPoint, options)
   fetch("/quotes", {
     method: "put",
@@ -17,3 +18,24 @@ update.addEventListener("click", (_) => {
       window.location.reload(true)
     })
 })
+
+deleteButton.addEventListener('click', removeQuote)
+
+function removeQuote() {
+    fetch('/quotes',
+        {
+            method: delete,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: 'MisterMyGuy'
+            })
+        }
+    )
+    .then(response => {
+        if(response.ok) return response.json()
+    })
+    then(data => {
+        window.location.reload()
+    })
+    .catch(err => console.error(err))
+}

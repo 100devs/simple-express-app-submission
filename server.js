@@ -69,5 +69,14 @@ MongoClient.connect(
         .catch((err) => console.error(err))
     })
 
+    myApplication.delete("/quotes", (request, response) => {
+      messages
+        .deleteOne({
+          name: request.body.name,
+        })
+        .then((result) => {})
+        .catch((err) => console.error(err))
+    })
+
   })
   .catch((err) => console.error(err))
