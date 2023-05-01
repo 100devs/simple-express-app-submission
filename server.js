@@ -15,7 +15,8 @@ MongoClient.connect(
     const messages = db.collection("messages")
 
     myApplication.use(bodyParser.urlencoded({ extended: true }))
-
+    myApplication.use(express.static("public"))
+    myApplication.use(bodyParser.json())
     myApplication.set("view engine", "ejs")
 
     const portNumber = 5000
@@ -50,6 +51,23 @@ MongoClient.connect(
         .catch((err) => console.error(err))
     })
 
+    myApplication.put("", () => {
+      quotesCollection
+        .findOneAndUpdate(
+          { name: "neil" },
+          {
+            $set: {
+              name: request.body.name,
+              quote: request.body.quote,
+            },
+          },
+          {
+            upsert: true,
+          }
+        )
+        .then((result) => {})
+        .catch((err) => console.error(err))
+    })
 
   })
   .catch((err) => console.error(err))
