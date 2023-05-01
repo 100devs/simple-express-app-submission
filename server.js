@@ -25,6 +25,16 @@ MongoClient.connect(
     myApplication.get("/", (request, response) => {
       response.sendFile(__dirname + "/index.html")
       console.log(__dirname)
+
+      // read quotes
+      const cursor = db
+        .collection("messages")
+        .find()
+        .toArray()
+        .then((results) => {
+          console.log(results)
+        })
+        .catch((err) => console.error(err))
     })
 
     myApplication.post("/messages", (request, response) => {
@@ -38,6 +48,6 @@ MongoClient.connect(
         .catch((err) => console.error(err))
     })
 
-    
+
   })
   .catch((err) => console.error(err))
