@@ -16,6 +16,8 @@ MongoClient.connect(
 
     myApplication.use(bodyParser.urlencoded({ extended: true }))
 
+    myApplication.set("view engine", "ejs")
+
     const portNumber = 5000
     myApplication.listen(portNumber, function () {
       console.log(`listening on ${portNumber}`)
@@ -23,8 +25,8 @@ MongoClient.connect(
 
     // myApplication.get(endpoint, callback)
     myApplication.get("/", (request, response) => {
-      response.sendFile(__dirname + "/index.html")
-      console.log(__dirname)
+      // response.sendFile(__dirname + "/index.html")
+      // console.log(__dirname)
 
       // read quotes
       const cursor = db
@@ -32,7 +34,7 @@ MongoClient.connect(
         .find()
         .toArray()
         .then((results) => {
-          console.log(results)
+          response.render("index.ejs", { messages: results })
         })
         .catch((err) => console.error(err))
     })
