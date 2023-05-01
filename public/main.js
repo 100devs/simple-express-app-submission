@@ -10,4 +10,10 @@ update.addEventListener("click", (_) => {
       quote: "THIS IS A QUOTE",
     }),
   })
+    .then((response) => {
+      if (response.ok) return response.json()
+    })
+    .then((response) => {
+      window.location.reload(true)
+    })
 })

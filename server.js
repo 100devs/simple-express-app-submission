@@ -51,8 +51,8 @@ MongoClient.connect(
         .catch((err) => console.error(err))
     })
 
-    myApplication.put("", () => {
-      quotesCollection
+    myApplication.put("/quotes", (request, response) => {
+      messages
         .findOneAndUpdate(
           { name: "neil" },
           {
@@ -65,7 +65,7 @@ MongoClient.connect(
             upsert: true,
           }
         )
-        .then((result) => {})
+        .then((result) => response.json("successfully updated quote"))
         .catch((err) => console.error(err))
     })
 
