@@ -1,4 +1,5 @@
 // https://zellwk.com/blog/crud-express-mongodb/
+
 const express = require("express")
 const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient
@@ -80,3 +81,16 @@ MongoClient.connect(
 
   })
   .catch((err) => console.error(err))
+
+// async function connectMongoClient(MongoClient) {
+//   try {
+//     const mongoClient = await MongoClient.connect()
+
+//     console.log(mongoClient)
+//     return mongoClient
+//   } catch (errors) {
+//     console.error(errors)
+//   }
+// }
+
+// connectMongoClient(MongoClient)
