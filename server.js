@@ -7,13 +7,13 @@ const MongoClient = require("mongodb").MongoClient
 const myApplication = express()
 
 MongoClient.connect(
-  "mongodb+srv://12nmcguire:a0uC7h7gXC3I9svt@cluster0.jeadbpg.mongodb.net/messages?retryWrites=true&w=majority",
+  "mongodb+srv://12nmcguire:a0uC7h7gXC3I9svt@cluster0.jeadbpg.mongodb.net/text?retryWrites=true&w=majority",
   { useUnifiedTopology: true }
 )
   .then((client) => {
     console.log(`Connected to database`)
-    const db = client.db("my-messages")
-    const messages = db.collection("messages")
+    const db = client.db("crud-text")
+    const text = db.collection("text")
 
     myApplication.use(bodyParser.urlencoded({ extended: true }))
     myApplication.use(express.static("public"))
@@ -30,20 +30,20 @@ MongoClient.connect(
       // response.sendFile(__dirname + "/index.html")
       // console.log(__dirname)
 
-      // read quotes
+      // read text
       const cursor = db
-        .collection("messages")
+        .collection("text")
         .find()
         .toArray()
         .then((results) => {
-          response.render("index.ejs", { messages: results })
+          response.render("index.ejs", { text: results })
         })
         .catch((err) => console.error(err))
     })
 
-    myApplication.post("/messages", (request, response) => {
+    myApplication.post("/text", (request, response) => {
       console.log(request.body)
-      messages
+      text
         .insertOne(request.body)
         .then((result) => {
           console.log("redirecting")
@@ -52,35 +52,31 @@ MongoClient.connect(
         .catch((err) => console.error(err))
     })
 
-    myApplication.put("/quotes", (request, response) => {
-      messages
+    myApplication.put("/text", (request, response) => {
+      text
         .findOneAndUpdate(
-          { name: "neil" },
+          {},
           {
             $set: {
-              name: request.body.name,
-              quote: request.body.quote,
+              text: request.body.text,
             },
           },
           {
             upsert: true,
           }
         )
-        .then((result) => response.json("successfully updated quote"))
+        .then((result) => response.json("successfully updated text"))
         .catch((err) => console.error(err))
     })
 
-    myApplication.delete("/quotes", (request, response) => {
-      messages
-        .deleteOne({
-          name: request.body.name,
-        })
+    myApplication.delete("/text", (request, response) => {
+      text
+        .deleteOne()
         .then((result) => {
           response.json("Deleted quote")
         })
         .catch((err) => console.error(err))
     })
-
   })
   .catch((err) => console.error(err))
 

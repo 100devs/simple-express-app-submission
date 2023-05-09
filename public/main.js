@@ -3,12 +3,11 @@ const deleteButton = document.querySelector("#delete-button")
 
 updateButton.addEventListener("click", (_) => {
   // fetch(endPoint, options)
-  fetch("/quotes", {
+  fetch("/text", {
     method: "put",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      name: "MisterMyGuy",
-      quote: "THIS IS A QUOTE",
+      text: "Updated",
     }),
   })
     .then((response) => {
@@ -19,21 +18,19 @@ updateButton.addEventListener("click", (_) => {
     })
 })
 
-deleteButton.addEventListener('click', removeQuote)
+deleteButton.addEventListener("click", removeText)
 
-function removeQuote() {
-    fetch("/quotes", {
-      method: "delete",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: "MisterMyGuy",
-      }),
+function removeText() {
+  fetch("/text", {
+    method: "delete",
+    headers: { "Content-Type": "application/json" },
+    body: "",
+  })
+    .then((response) => {
+      if (response.ok) return response.json()
     })
-      .then((response) => {
-        if (response.ok) return response.json()
-      })
-      .then((data) => {
-        window.location.reload()
-      })
-      .catch((err) => console.error(err))
+    .then((data) => {
+      window.location.reload()
+    })
+    .catch((err) => console.error(err))
 }
