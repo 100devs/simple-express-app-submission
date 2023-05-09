@@ -18,13 +18,12 @@
     
     <section>
         <h2>Read</h2>
-        <% for( let index=0; index < text.length; index++ ) { %>
-            <li class="text">
+        <% for( let i=0; i < textArray.length; i++ ) { %>
+            <li>
                 <span>
-                    <% text[index].text %>
-                        </span>
-                        </li>
-    
+                    <%= textArray[i].text %>
+                </span>
+            </li>
             <% } %>
     </section>
     

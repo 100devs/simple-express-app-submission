@@ -36,7 +36,7 @@ MongoClient.connect(
         .find()
         .toArray()
         .then((results) => {
-          response.render("index.ejs", { text: results })
+          response.render("index.ejs", { textArray: results })
         })
         .catch((err) => console.error(err))
     })
