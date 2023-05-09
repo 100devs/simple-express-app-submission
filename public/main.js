@@ -22,20 +22,18 @@ updateButton.addEventListener("click", (_) => {
 deleteButton.addEventListener('click', removeQuote)
 
 function removeQuote() {
-    fetch('/quotes',
-        {
-            method: delete,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: 'MisterMyGuy'
-            })
-        }
-    )
-    .then(response => {
-        if(response.ok) return response.json()
+    fetch("/quotes", {
+      method: "delete",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "MisterMyGuy",
+      }),
     })
-    then(data => {
+      .then((response) => {
+        if (response.ok) return response.json()
+      })
+      .then((data) => {
         window.location.reload()
-    })
-    .catch(err => console.error(err))
+      })
+      .catch((err) => console.error(err))
 }

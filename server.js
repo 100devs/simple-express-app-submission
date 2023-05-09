@@ -75,7 +75,9 @@ MongoClient.connect(
         .deleteOne({
           name: request.body.name,
         })
-        .then((result) => {})
+        .then((result) => {
+          response.json("Deleted quote")
+        })
         .catch((err) => console.error(err))
     })
 
