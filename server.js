@@ -3,6 +3,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient
+const PORT = 5000
 
 const myApplication = express()
 
@@ -20,9 +21,8 @@ MongoClient.connect(
     myApplication.use(bodyParser.json())
     myApplication.set("view engine", "ejs")
 
-    const portNumber = 5000
-    myApplication.listen(portNumber, function () {
-      console.log(`listening on ${portNumber}`)
+    myApplication.listen(process.env.PORT || PORT, function () {
+      console.log(`listening on ${process.env.PORT || PORT}`)
     })
 
     // myApplication.get(endpoint, callback)
