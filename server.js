@@ -3,7 +3,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 const myApplication = express()
 
@@ -21,8 +21,8 @@ MongoClient.connect(
     myApplication.use(bodyParser.json())
     myApplication.set("view engine", "ejs")
 
-    myApplication.listen(process.env.PORT || PORT, function () {
-      console.log(`listening on ${process.env.PORT || PORT}`)
+    myApplication.listen(PORT, function () {
+      console.log(`listening on ${PORT}`)
     })
 
     // myApplication.get(endpoint, callback)
