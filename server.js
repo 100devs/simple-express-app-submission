@@ -3,7 +3,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient
-const PORT = 5000
+const PORT = 3000
 
 const myApplication = express()
 
