@@ -10,20 +10,24 @@
     <h1>CRUD APP</h1>
     <section>
         <h2>Create</h2>
-        <form action="/text" method="POST">
+        <form action="/images" method="POST" enctype="multipart/form-data">
             <input type="text" placeholder="text" name="text">
-            <input type="file" name="image" accept="image/*">
+            <input type="file" name="image" accept="image/*" >
             <button type="submit">Submit</button>
         </form>
     </section>
     
     <section>
         <h2>Read</h2>
-        <% for( let i=0; i < textArray.length; i++ ) { %>
+        <% for( let i=0; i < imageArray.length; i++ ) { %>
             <li>
                 <span>
-                    <%= textArray[i].text %>
+                    <%= imageArray[i].text %>
                 </span>
+                <% if (imageArray[i].path) { %>
+                    <span>Image:</span>
+                    <img src="http://localhost:3000/<%= imageArray[i].path %>" alt="image" width="200px" height="200px">
+                <% } %>
             </li>
             <% } %>
     </section>

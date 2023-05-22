@@ -3,9 +3,17 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient
-const PORT = process.env.PORT || 3000
+const multer = require("multer");
+const { GridFsStorage } = require("multer-gridfs-storage");
+const storage = new GridFsStorage({
+  url: "mongodb+srv://12nmcguire:a0uC7h7gXC3I9svt@cluster0.jeadbpg.mongodb.net/crud-text?retryWrites=true&w=majority",
+});
+const upload = multer({ storage });
+// const upload = multer({ dest: "./public/data/uploads/" });
 
-const myApplication = express()
+PORT = process.env.PORT || 3000;
+
+const myApplication = express();
 
 MongoClient.connect(
   "mongodb+srv://12nmcguire:a0uC7h7gXC3I9svt@cluster0.jeadbpg.mongodb.net/images?retryWrites=true&w=majority",
@@ -36,21 +44,25 @@ MongoClient.connect(
         .find()
         .toArray()
         .then((results) => {
-          response.render("index.ejs", { textArray: results });
+          console.log(results);
+          response.render("index.ejs", { imageArray: results });
         })
         .catch((err) => console.error(err));
     });
 
-    myApplication.post("/images", (request, response) => {
-      console.log(request.body);
-      images
-        .insertOne(request.body)
-        .then((result) => {
-          console.log("redirecting");
-          response.redirect("/");
-        })
-        .catch((err) => console.error(err));
-    });
+    myApplication.post(
+      "/images",
+      upload.single("image"),
+      (request, response) => {
+        images
+          .insertOne(request.file)
+          .then((result) => {
+            console.log("redirecting");
+            response.redirect("/");
+          })
+          .catch((err) => console.error(err));
+      }
+    );
 
     myApplication.put("/images", (request, response) => {
       images
@@ -79,16 +91,3 @@ MongoClient.connect(
     });
   })
   .catch((err) => console.error(err));
-
-// async function connectMongoClient(MongoClient) {
-//   try {
-//     const mongoClient = await MongoClient.connect()
-
-//     console.log(mongoClient)
-//     return mongoClient
-//   } catch (errors) {
-//     console.error(errors)
-//   }
-// }
-
-// connectMongoClient(MongoClient)
