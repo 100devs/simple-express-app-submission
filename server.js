@@ -1,15 +1,15 @@
 // https://zellwk.com/blog/crud-express-mongodb/
-
-const express = require("express")
-const bodyParser = require("body-parser")
-const MongoClient = require("mongodb").MongoClient
+const path = require("path");
+const express = require("express");
+const bodyParser = require("body-parser");
+const MongoClient = require("mongodb").MongoClient;
 const multer = require("multer");
 const { GridFsStorage } = require("multer-gridfs-storage");
+const { GridFSBucket } = require("mongodb");
 const storage = new GridFsStorage({
   url: "mongodb+srv://12nmcguire:a0uC7h7gXC3I9svt@cluster0.jeadbpg.mongodb.net/crud-text?retryWrites=true&w=majority",
 });
 const upload = multer({ storage });
-// const upload = multer({ dest: "./public/data/uploads/" });
 
 PORT = process.env.PORT || 3000;
 
@@ -48,6 +48,12 @@ MongoClient.connect(
           response.render("index.ejs", { imageArray: results });
         })
         .catch((err) => console.error(err));
+
+      const bucket = new GridFSBucket(db, {
+        bucketName: "fs",
+      });
+
+      console.log(bucket);
     });
 
     myApplication.post(
