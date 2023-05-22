@@ -4,8 +4,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 const multer = require("multer");
+const fs = require("fs");
 
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ dest: "public/data/uploads/" });
 
 PORT = process.env.PORT || 3000;
 
@@ -50,8 +51,29 @@ MongoClient.connect(
       "/images",
       upload.single("image"),
       (request, response) => {
+        const tempPath = request.file.path;
+        const filename =
+          request.file.filename + path.extname(request.file.originalname);
+        const targetPath = path.join(
+          __dirname,
+          "public/data/uploads/" + filename
+        );
+
+        fs.rename(tempPath, targetPath, (err) => {
+          if (err) console.error(err);
+          console.log("File uploaded!");
+        });
+
+        // insert a product into the database
+
+        let product = {
+          name: request.body.name,
+          description: request.body.description,
+          path: "/data/uploads/" + filename,
+        };
+
         images
-          .insertOne(request.file)
+          .insertOne(product)
           .then((result) => {
             console.log("redirecting");
             response.redirect("/");

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Star Wars Quote App</title>
+    <title>Upload products</title>
 </head>
 
 <body>
@@ -11,7 +11,9 @@
     <section>
         <h2>Create</h2>
         <form action="/images" method="POST" enctype="multipart/form-data">
-            <input type="text" placeholder="text" name="text">
+            <input type="text" placeholder="Product Name" name="name">
+            <input type="text" placeholder="Product Description" name="description">
+            <input type="text" placeholder="Price" name="price">
             <input type="file" name="image" accept="image/*" >
             <button type="submit">Submit</button>
         </form>
@@ -26,7 +28,7 @@
                 </span>
                 <% if (imageArray[i].path) { %>
                     <span>Image:</span>
-                    <img src="http://localhost:3000/<%= imageArray[i].path %>" alt="image" width="200px" height="200px">
+                    <img src="<%= imageArray[i].path %>" alt="image" width="200px" height="200px">
                 <% } %>
             </li>
             <% } %>
