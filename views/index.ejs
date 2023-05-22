@@ -24,7 +24,13 @@
         <% for( let i=0; i < imageArray.length; i++ ) { %>
             <li>
                 <span>
-                    <%= imageArray[i].text %>
+                    Product: <%= imageArray[i].name %>
+                </span>
+                <span>
+                    Description: <%= imageArray[i].description %>
+                </span>
+                <span>
+                    Price: <%= imageArray[i].price %>
                 </span>
                 <% if (imageArray[i].path) { %>
                     <span>Image:</span>
