@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Sapien Sensus Source</title>
+  </head>
+  <body>
+    <h1>Sapien Sensus Source</h1>
+    <p>Sapien Sensus Source is an innovative online platform designed to harness the collective intelligence and creativity of its users. As a user-driven community, it empowers individuals to contribute their own unique ideas while participating in a dynamic voting system that determines the most promising concepts.</p>
+    <h2>Leading Ideas:</h2>
+    <ul class="fa-ul ideas">
+      <% for(let i = 0; i < ideas.length; i++) { %>
+        <li data-id = <%= ideas[i]._id %>>
+          <span class="fa-li"><i class="fas fa-brain"></i></span>
+          <span><%= ideas[i].idea %></span>
+          <span class="fas fa-caret-square-up upvote"></span>
+          <span><%= ideas[i].likes %></span>
+          <span class="fas fa-caret-square-down downvote"></span>
+          <span class="fas fa-trash-alt delete"></span>
+        </li>
+      <% } %>
+    </ul>
+    <h3>Submit Your Idea:</h3>
+    <form action="/createIdea" method="POST">
+      <input type="text" name="newIdea">
+      <input type="submit">
+    </form>
+    <script src="js/main.js"></script>
+  </body>
+</html>
