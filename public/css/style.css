@@ -1,0 +1,55 @@
+body {
+    text-align: center;
+    padding-top: 3rem;
+}
+
+[name='gameName'] {
+    padding: 0.5rem 0.75rem;
+    margin-inline: 1rem;
+    width: 250px;
+}
+
+#submit {
+    padding: 0.75rem 1rem;
+    background: yellowgreen;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.list-item > * {
+    margin-right: 1rem;
+}
+
+.fas.fa-check {
+    color: green;
+    font-size: 1.5rem;
+}
+
+.fas.fa-xmark {
+    color: red;
+    font-size: 1.5rem;
+}
+
+.list-item button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+}
+
+.game-name {
+    font-size: 1.5rem;
+    margin-right: 3rem;
+
+}
+
+.complete-btn {
+    background: lightseagreen;
+}
+
+.delete-btn {
+    background: lightcoral;
+}
