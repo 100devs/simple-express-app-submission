@@ -1,22 +1,22 @@
-#100Devs Simple Express App Submission
+# Game Tracker app
+This app keeps track of all the games you want to play or have completed and store them in a database
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+## How It's Made:
 
-### How to submit your code for review:
+**Tech used:** HTML, CSS, JavaScript, Express.js, ejs, mongodb
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+this app uses ejs template engine to generate a html page using the data from the provided by the server. when the form is submitted, the server stores the data in a mongodb database and when the page reloads the updated data is fetched and rendered into html document using the ejs template. you can also update the game status to completed or delete the entry which will be reflected in the database
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+
+## Lessons Learned:
+
+Create and connect to mongodb database, create, update, delete document methods form mongodb.
+
+## To run app
+ * After cloning the repo, in terminal run npm install
+ * create a .env file in the root folder
+ * Get your database string from MongoDB and add it to the .env file under DB_STRING variable
+ * to run the app, use node server.js
+
+
+

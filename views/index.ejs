@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Games List</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/main.js" defer></script>
+</head>
+<body>
+    <form action="/addGame" method="post">
+        <label>Add a Game:</label>
+        <input type="text" placeholder="Enter the name..." name="gameName">
+        <button id="submit" type="submit">Submit</button>
+    </form>
+    <h1>Your Games:</h1>
+    <ul class="games-list">
+        <% for (let i = 0; i < list.length; i++) {%>
+
+            <li class="list-item">
+                <% if (list[i].completed === true) {%>
+                    <span><i class="fas fa-solid fa-check"></i></span>
+                <%} else {%>
+                    <span><i class="fas fa-xmark"></i></span>
+                    <%}
+                %>
+
+                <span class="game-name"><%= list[i].gameName %></span>
+
+                <% if (list[i].completed === true) {%>
+                    <span></span>
+                <%} else {%>
+                    <button class="complete-btn">Mark Completed</button>
+                <%}
+                %>
+
+                <button class="delete-btn">Delete Game</button>
+
+            </li>
+
+        <%}
+        %>
+    </ul>
+
+</body>
+</html>
