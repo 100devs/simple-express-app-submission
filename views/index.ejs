@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Cat facts api</title>
+</head>
+<body>
+     <h1>Simple Cat Facts api</h1>
+    <ul class="factList">
+        <li class="item">
+            <span id="fact"></span>
+            <button id="deleteButton">Delete</button>
+        </li>
+    </ul>
+    <button id="next">Generate new fact</button>
+    <form action="/newFact" method="POST">
+        <input type="text" placeholder="quote" name="fact">
+        <button type="submit">Submit new cat fact</button>
+    </form>
+    <script src="js/main.js"></script>
+</body>
+</html>

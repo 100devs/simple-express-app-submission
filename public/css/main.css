@@ -1,0 +1,10 @@
+ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+form, #deleteButton {
+    display: none;
+}
