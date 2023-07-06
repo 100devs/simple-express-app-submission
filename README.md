@@ -1,22 +1,34 @@
-#100Devs Simple Express App Submission
+# Basic RWC 2023 Pools API
 
-### Goal: Make Your Own CRUD APP and Push To Heroku
+RWC 2023 Pools API allows you to search a database of countries and be returned their pool draw for the Rugby World Cup 2023.
 
-### How to submit your code for review:
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+### Tech Used: HTML, Javascript, Express, Node
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+## Link to API: 
+https://basic-rwc2023-pools-api.cyclic.app/api
+
+
+## How to use the API:
+
+Add the name of a country to the URL to get back their data
+
+Example: https://basic-rwc2023-pools-api.cyclic.app/api/country
+
+
+
+## How to run the API locally:
+
+To run the API locally, navigate to the server directory and run: `npm install` to install dependencies.
+
+Start the server with: `node server.js`.
+
+
+## Lessons Learned:
+
+Building this project reinforced my understanding of creating a basic API using Node.js and Express.js and hosting it on Cyclic
+
+
+
+
+
