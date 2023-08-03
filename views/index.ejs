@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Upload products</title>
+</head>
+
+<body>
+    <h1>CRUD APP</h1>
+    <section>
+        <h2>Create</h2>
+        <form action="/images" method="POST" enctype="multipart/form-data">
+            <input type="text" placeholder="Product Name" name="name">
+            <input type="text" placeholder="Product Description" name="description">
+            <input type="text" placeholder="Price" name="price">
+            <input type="file" name="image" accept="image/*" >
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    
+    <section>
+        <h2>Read</h2>
+        <% for( let i=0; i < imageArray.length; i++ ) { %>
+            <li>
+                <span>
+                    Product: <%= imageArray[i].name %>
+                </span>
+                <span>
+                    Description: <%= imageArray[i].description %>
+                </span>
+                <span>
+                    Price: <%= imageArray[i].price %>
+                </span>
+                <% if (imageArray[i].path) { %>
+                    <span>Image:</span>
+                    <img src="<%= imageArray[i].path %>" alt="image" width="200px" height="200px">
+                <% } %>
+            </li>
+            <% } %>
+    </section>
+    
+    <section>
+        <h2>Update</h2>
+        <button id="update-button">Update</button>
+    </section>
+    
+    <section>
+        <h2>Delete</h2>
+        <button id="delete-button">Delete</button>
+    </section>
+    <script src="/main.js"></script>
+</body>
+
+</html>
