@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6eb72bfc06.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>All Recipes</h1>
+    <ul class="recipes">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="recipe" data-recipe-id="<%= info[i]._id %>">
+            <span class="recipe-name"><%= info[i].recipeName %></span>
+            <span class="recipe-ingredients"><%= info[i].ingredients %></span>
+            <span class="recipe-instructions"><%= info[i].instructions %></span>
+
+            <span class="fa fa-pencil edit-recipe" aria-hidden="true"></span>
+
+            <span class='fa fa-trash delete-recipe' aria-hidden="true"></span>
+        </li>
+    <% } %>
+    </ul>
+<div id="addRecipe">
+    <h2>Add A Recipe:</h2>
+    <form action="/addRecipe" method="POST">
+        <input type="text" placeholder="Recipe Name" name="recipeName">
+        <input type="text" placeholder="Ingredients" name="ingredients">
+        <input type="text" placeholder="Instructions" name="instructions">
+        <input type="submit">
+    </form>
+
+</div>
+<div id="editForm" class="hidden">
+    <h2>Edit A Recipe:</h2>
+    <form action="/editRecipe/:id" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <input type="text" id="recipeName" name="recipeName" placeholder="Recipe Name">
+        <input type="text" id="ingredients" name="ingredients" placeholder="Ingredients">
+        <textarea id="instructions" name="instructions" placeholder="Instructions"></textarea>
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+
+
+    
+
+    <script src='./js/main.js'></script>
+</body>
+</html>
